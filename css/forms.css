@@ -1,0 +1,112 @@
+/* ==========================================================================
+   ArtisRaw — Forms (SPEC §5.4 inputs, §5.5 two-step quote flow).
+   Tokens only.
+   ========================================================================== */
+
+/* --- Fields ------------------------------------------------------------- */
+.field { margin-bottom: var(--sp-3); }
+.field > label,
+.field > legend {
+  display: block;
+  margin-bottom: var(--sp-1);
+  font-size: var(--fs-ui);
+  font-weight: var(--fw-semibold);
+  color: var(--c-espresso-900);
+}
+.field__req { color: var(--c-error); }
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="date"],
+.field input[type="tel"],
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--sp-2);
+  background: var(--c-paper-50);
+  border: 1px solid var(--c-bark-700);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-body);
+  color: var(--c-espresso-900);
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+.field textarea { padding: var(--sp-2); min-height: 120px; resize: vertical; line-height: var(--lh-body); }
+.field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%234C3423' stroke-width='1.6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right var(--sp-2) center; padding-right: var(--sp-5); }
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: none;
+  border-color: var(--c-espresso-900);
+  box-shadow: 0 0 0 var(--focus-ring-width) var(--c-espresso-900);
+}
+
+/* Validation states */
+.field.is-error input,
+.field.is-error select,
+.field.is-error textarea { border-color: var(--c-error); box-shadow: 0 0 0 1px var(--c-error); }
+.field.is-valid input,
+.field.is-valid select { border-color: var(--c-success); }
+
+.field__msg { display: none; margin-top: var(--sp-1); font-size: var(--fs-ui); color: var(--c-error); }
+.field.is-error .field__msg { display: block; }
+
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+@media (max-width: 767px) { .field-row { grid-template-columns: 1fr; } }
+
+/* Checkboxes */
+fieldset.field { border: 0; padding: 0; margin: 0 0 var(--sp-3); }
+.check-row { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-3); }
+.check { display: inline-flex; align-items: center; gap: var(--sp-1); font-size: var(--fs-ui); font-weight: var(--fw-regular); }
+.check input { width: 20px; height: 20px; accent-color: var(--c-amber-600); }
+
+/* Honeypot — removed from layout + a11y tree, never shown to users. */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* --- Error summary ------------------------------------------------------ */
+.form-errors {
+  margin-bottom: var(--sp-3);
+  padding: var(--sp-2);
+  background: color-mix(in srgb, var(--c-error) 8%, var(--c-paper-50));
+  border: 1px solid var(--c-error);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-ui);
+  color: var(--c-error);
+}
+.form-errors ul { margin: var(--sp-1) 0 0; padding-left: var(--sp-3); }
+.form-errors a { color: var(--c-error); }
+
+/* --- Quote form --------------------------------------------------------- */
+.quote-form {
+  background: var(--c-paper-50);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  box-shadow: var(--shadow-card);
+}
+.quote-form__promise { color: var(--c-bark-700); margin-bottom: var(--sp-1); }
+.quote-form__heading { font-family: var(--ff-serif); font-size: var(--fs-subheading); font-weight: var(--fw-bold); margin-bottom: var(--sp-3); }
+.quote-form__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); margin-top: var(--sp-2); }
+.quote-form__submit, .quote-form__submit2 { min-width: 14rem; }
+.quote-form__privacy { margin-top: var(--sp-2); font-size: var(--fs-ui); color: var(--c-bark-700); max-width: none; }
+
+/* Success + step 2 */
+.quote-form__success-head { text-align: center; margin-bottom: var(--sp-3); }
+.quote-form__tick { color: var(--c-success); margin-inline: auto; }
+.quote-form__success-head .quote-form__heading { margin-top: var(--sp-1); margin-bottom: var(--sp-1); }
+.quote-form__success-head p { margin-inline: auto; }
+.quote-form__step2-done { margin-top: var(--sp-2); padding: var(--sp-2); background: color-mix(in srgb, var(--c-success) 10%, var(--c-paper-50)); border-radius: var(--radius-md); color: var(--c-espresso-900); font-weight: var(--fw-semibold); }
+
+/* Loading state on submit (aria-busy) */
+.btn[aria-busy="true"] .btn__label { opacity: 0; }
+.btn[aria-busy="true"] { position: relative; }
+.btn[aria-busy="true"]::after {
+  content: ""; position: absolute; width: 18px; height: 18px;
+  border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%;
+  animation: artisraw-spin 0.7s linear infinite;
+}
+@keyframes artisraw-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .btn[aria-busy="true"]::after { animation: none; }
+}

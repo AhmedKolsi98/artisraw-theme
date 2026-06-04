@@ -58,18 +58,24 @@ function artisraw_enqueue_assets() {
 	wp_enqueue_style( 'artisraw-tokens', ARTISRAW_URI . '/css/tokens.css', array(), artisraw_asset_ver( '/css/tokens.css' ) );
 	wp_enqueue_style( 'artisraw-base', ARTISRAW_URI . '/css/base.css', array( 'artisraw-tokens' ), artisraw_asset_ver( '/css/base.css' ) );
 	wp_enqueue_style( 'artisraw-layout', ARTISRAW_URI . '/css/layout.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/layout.css' ) );
+	wp_enqueue_style( 'artisraw-components', ARTISRAW_URI . '/css/components.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/components.css' ) );
+	wp_enqueue_style( 'artisraw-forms', ARTISRAW_URI . '/css/forms.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/forms.css' ) );
 
 	// style.css holds only the theme header; load it last for overrides if needed.
 	wp_enqueue_style( 'artisraw-style', get_stylesheet_uri(), array( 'artisraw-layout' ), artisraw_asset_ver( '/style.css' ) );
 
 	// Navigation drawer JS — deferred, the bulk of the JS budget.
 	wp_enqueue_script( 'artisraw-nav', ARTISRAW_URI . '/js/nav.js', array(), artisraw_asset_ver( '/js/nav.js' ), true );
+	// Components JS (accordion, stats, sticky CTA, GA4) — deferred, sitewide.
+	wp_enqueue_script( 'artisraw-components', ARTISRAW_URI . '/js/components.js', array(), artisraw_asset_ver( '/js/components.js' ), true );
+	// Forms JS — registered only; artisraw_quote_form() enqueues it where a form renders.
+	wp_register_script( 'artisraw-forms', ARTISRAW_URI . '/js/forms.js', array( 'artisraw-components' ), artisraw_asset_ver( '/js/forms.js' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'artisraw_enqueue_assets' );
 
 // Defer is implied by the footer flag above, but add module-free defer attr for clarity.
 function artisraw_defer_scripts( $tag, $handle ) {
-	if ( 'artisraw-nav' === $handle ) {
+	if ( in_array( $handle, array( 'artisraw-nav', 'artisraw-components', 'artisraw-forms' ), true ) ) {
 		return str_replace( ' src', ' defer src', $tag );
 	}
 	return $tag;
@@ -132,3 +138,5 @@ require_once ARTISRAW_DIR . '/inc/breadcrumbs.php';
 require_once ARTISRAW_DIR . '/inc/seo-head.php';
 require_once ARTISRAW_DIR . '/inc/schema.php';
 require_once ARTISRAW_DIR . '/inc/acf-fields.php';
+require_once ARTISRAW_DIR . '/inc/components.php';
+require_once ARTISRAW_DIR . '/inc/quote-endpoint.php';

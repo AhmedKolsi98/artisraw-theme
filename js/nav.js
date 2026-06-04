@@ -61,14 +61,14 @@
   // Close the drawer after following an in-page nav link (mobile).
   nav.addEventListener('click', function (e) {
     var link = e.target.closest('a.nav__link, a.nav__sub-link');
-    if (link && isOpen && window.matchMedia('(max-width: 1023px)').matches) {
+    if (link && isOpen && window.matchMedia('(max-width: 1179px)').matches) {
       closeDrawer(false);
     }
   });
 
   // Reset state if resized up to desktop while open.
   window.addEventListener('resize', function () {
-    if (isOpen && window.matchMedia('(min-width: 1024px)').matches) closeDrawer(false);
+    if (isOpen && window.matchMedia('(min-width: 1180px)').matches) closeDrawer(false);
   });
 
   /* --- Dropdown disclosures ("Why ArtisRaw") --- */
@@ -97,5 +97,33 @@
         }, 0);
       });
     }
+  });
+
+  /* --- Desktop dropdowns: hover-intent with a forgiving close delay ---
+     The CSS :hover/:focus-within + a transparent bridge already keep the menu
+     open while the cursor travels into it; this adds a 200ms grace period so a
+     brief slip off the menu doesn't snap it shut. */
+  var desktopMq = window.matchMedia('(min-width: 1180px)');
+  Array.prototype.forEach.call(nav.querySelectorAll('.nav__item--has-children'), function (li) {
+    var closeTimer;
+    li.addEventListener('mouseenter', function () {
+      if (!desktopMq.matches) return;
+      clearTimeout(closeTimer);
+      li.classList.add('is-open');
+    });
+    li.addEventListener('mouseleave', function () {
+      if (!desktopMq.matches) return;
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(function () { li.classList.remove('is-open'); }, 200);
+    });
+    // Esc closes an open desktop dropdown and returns focus to its link.
+    li.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && desktopMq.matches && li.classList.contains('is-open')) {
+        clearTimeout(closeTimer);
+        li.classList.remove('is-open');
+        var link = li.querySelector('.nav__link--parent');
+        if (link) link.focus();
+      }
+    });
   });
 })();

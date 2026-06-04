@@ -2,6 +2,29 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 2 — Component library
+
+- `inc/components.php`: render functions for every SPEC §4 block — quick-answer, SKU spec card (`<article>`+`<dl>`), data tables (semantic, stack <768px), trust strip/chips, reference-buyer logo band (type-only fallback), FAQ accordion (WAI-ARIA, multi-open, deep-link → FAQPage JSON-LD), stat band, doc/article/category cards (stretched-link), sticky mobile CTA, and the two-step quote form.
+- `inc/quote-endpoint.php`: REST `POST /artisraw/v1/quote` — honeypot, optional Cloudflare Turnstile verify, team-inbox email + autoresponder (line-sheet + compliance-pack links), per-field validation (422).
+- `css/forms.css` + `css/components.css`: 48px labeled inputs, validation error/success states, two-step layout, and all component styling (tokens only).
+- `js/components.js`: accordion, stat count-up (IntersectionObserver, reduced-motion), sticky-CTA hide-while-form-in-view, GA4 delegation (cta_click, doc_download, whatsapp_click, faq_expand).
+- `js/forms.js`: two-step quote — UTM capture, inline validation, AJAX submit, success + Step-2 reveal, GA4 form_submit step 1/2.
+- `tpl-styleguide.php` + hidden noindex `/styleguide/` page rendering the full kit with sample data and every state.
+- Enqueues wired (forms.js loads only where a form renders); sticky CTA in footer.
+- Nav IA reorganised into intent-grouped B2B structure: **Catalogue** (categories) · **Wholesale** (hub, how-to-order, shipping, references) · **Private Label** · **Why ArtisRaw** (about, process, certifications, quality, sustainability) · **Olive Wood Guide** · **Contact** — resolving the old Products/Wholesale ambiguity.
+- Dropdown chevron now sits inline inside the parent link (one clean focus target) on desktop; the separate toggle button is mobile-drawer-only. Desktop nav breakpoint raised to 1180px with `nowrap` + no-shrink so the bar never wraps; brand stays vertically centred. Nav label "Olive Wood Guide" → "Guide" to fit the bar (page H1 unchanged).
+- Fixed dropdown closing before you could reach the submenu (the hover-gap bug): added a transparent hover bridge over the trigger→panel gap, plus a 200ms hover-intent close delay and Esc-to-close in nav.js. Verified with simulated cursor travel into the panel.
+- Fixed data-table first row hidden by a broken sticky `thead` (removed; it fought the sticky site header inside an overflow container).
+
+### Verified
+- Live endpoint: valid → 200 + email **and** autoresponder (Mailpit confirmed both); invalid → 422 per-field; honeypot → silent 200.
+- Accordion toggles aria-expanded + deep-link hash; two-step form submits without reload (success panel + email shown).
+- JS total **5.4 KB gz** (nav+components+forms; budget ≤30 KB). No horizontal overflow; 1 H1; zero unlabeled inputs/unnamed buttons; no heading skips; FAQPage JSON-LD valid.
+
+### Pending (needs action)
+- Configure Cloudflare Turnstile keys (`ARTISRAW_TURNSTILE_SITEKEY`/`_SECRET`) + quote inbox (`ARTISRAW_QUOTE_INBOX`) and asset URLs (`ARTISRAW_LINESHEET_URL`/`_COMPLIANCE_URL`) in wp-config before launch.
+- GA4 events fire client-side; confirm in DebugView once the GA4 property/GTM is live (Phase 5).
+
 ## Phase 1 — Theme foundation & design system
 
 - Self-hosted webfonts: Fraunces (display serif) + Inter (UI sans), variable WOFF2 latin subset, preloaded, `font-display: swap`.

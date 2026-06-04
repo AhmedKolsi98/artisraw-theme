@@ -16,20 +16,44 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function artisraw_primary_items() {
 	return array(
-		array( 'label' => __( 'Products', 'artisraw' ), 'url' => home_url( '/wholesale/' ) ),
-		array( 'label' => __( 'Wholesale', 'artisraw' ), 'url' => home_url( '/olive-wood-wholesale-supplier/' ) ),
+		// Browse what we make — categories grouped under one clear label.
+		array(
+			'label'    => __( 'Catalogue', 'artisraw' ),
+			'url'      => home_url( '/wholesale/' ),
+			'children' => array(
+				array( 'label' => __( 'Cutting Boards', 'artisraw' ), 'url' => home_url( '/wholesale/olive-wood-cutting-boards/' ) ),
+				array( 'label' => __( 'Utensils', 'artisraw' ), 'url' => home_url( '/wholesale/olive-wood-utensils/' ) ),
+				array( 'label' => __( 'Bowls & Serveware', 'artisraw' ), 'url' => home_url( '/wholesale/olive-wood-bowls-serveware/' ) ),
+				array( 'label' => __( 'Chess Sets', 'artisraw' ), 'url' => home_url( '/wholesale/olive-wood-chess-sets/' ) ),
+				array( 'label' => __( 'Décor & Bath', 'artisraw' ), 'url' => home_url( '/wholesale/olive-wood-decor-bath/' ) ),
+				array( 'label' => __( 'View all categories', 'artisraw' ), 'url' => home_url( '/wholesale/' ) ),
+			),
+		),
+		// How to buy at scale — the hub plus the buying-process pages.
+		array(
+			'label'    => __( 'Wholesale', 'artisraw' ),
+			'url'      => home_url( '/olive-wood-wholesale-supplier/' ),
+			'children' => array(
+				array( 'label' => __( 'Wholesale Hub', 'artisraw' ), 'url' => home_url( '/olive-wood-wholesale-supplier/' ) ),
+				array( 'label' => __( 'How to Order', 'artisraw' ), 'url' => home_url( '/how-to-order/' ) ),
+				array( 'label' => __( 'Shipping & Logistics', 'artisraw' ), 'url' => home_url( '/shipping-logistics/' ) ),
+				array( 'label' => __( 'References & Downloads', 'artisraw' ), 'url' => home_url( '/references/' ) ),
+			),
+		),
 		array( 'label' => __( 'Private Label', 'artisraw' ), 'url' => home_url( '/private-label-olive-wood/' ) ),
+		// Trust & proof.
 		array(
 			'label'    => __( 'Why ArtisRaw', 'artisraw' ),
 			'url'      => home_url( '/about/' ),
 			'children' => array(
+				array( 'label' => __( 'About ArtisRaw', 'artisraw' ), 'url' => home_url( '/about/' ) ),
 				array( 'label' => __( 'Our Process', 'artisraw' ), 'url' => home_url( '/production-process/' ) ),
 				array( 'label' => __( 'Certifications', 'artisraw' ), 'url' => home_url( '/certifications/' ) ),
-				array( 'label' => __( 'Sustainability', 'artisraw' ), 'url' => home_url( '/sustainability/' ) ),
 				array( 'label' => __( 'Quality Control', 'artisraw' ), 'url' => home_url( '/quality-control/' ) ),
+				array( 'label' => __( 'Sustainability', 'artisraw' ), 'url' => home_url( '/sustainability/' ) ),
 			),
 		),
-		array( 'label' => __( 'Olive Wood Guide', 'artisraw' ), 'url' => home_url( '/olive-wood/' ) ),
+		array( 'label' => __( 'Guide', 'artisraw' ), 'url' => home_url( '/olive-wood/' ) ),
 		array( 'label' => __( 'Contact', 'artisraw' ), 'url' => home_url( '/contact/' ) ),
 	);
 }
@@ -48,17 +72,22 @@ function artisraw_render_primary_nav() {
 
 		if ( $has_children ) {
 			$panel_id = 'nav-sub-' . $i;
+			$chevron  = '<svg class="nav__chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+			// Desktop: chevron lives inside the link, hugging the label (decorative).
 			printf(
-				'<a class="nav__link" href="%s"%s>%s</a>',
+				'<a class="nav__link nav__link--parent" href="%s"%s>%s<span class="nav__chevron-inline" aria-hidden="true">%s</span></a>',
 				esc_url( $item['url'] ),
 				$is_current ? ' aria-current="page"' : '',
-				esc_html( $item['label'] )
+				esc_html( $item['label'] ),
+				$chevron
 			);
+			// Mobile drawer: a real toggle button reveals the submenu.
 			printf(
-				'<button type="button" class="nav__disclosure" aria-expanded="false" aria-controls="%s"><span class="visually-hidden">%s</span><svg class="nav__chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>',
+				'<button type="button" class="nav__disclosure" aria-expanded="false" aria-controls="%s"><span class="visually-hidden">%s</span>%s</button>',
 				esc_attr( $panel_id ),
 				/* translators: %s: nav section name */
-				esc_html( sprintf( __( 'Toggle %s submenu', 'artisraw' ), $item['label'] ) )
+				esc_html( sprintf( __( 'Toggle %s submenu', 'artisraw' ), $item['label'] ) ),
+				$chevron
 			);
 			echo '<ul class="nav__sub" id="' . esc_attr( $panel_id ) . '" role="list">';
 			foreach ( $item['children'] as $child ) {

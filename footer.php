@@ -93,6 +93,12 @@ function artisraw_render_footer_nav() {
 	</div>
 </footer>
 
-<?php wp_footer(); ?>
+<?php
+// Sticky mobile CTA bar (mobile-only; JS hides it while a form is in view).
+if ( function_exists( 'artisraw_sticky_cta' ) ) {
+	artisraw_sticky_cta();
+}
+wp_footer();
+?>
 </body>
 </html>
