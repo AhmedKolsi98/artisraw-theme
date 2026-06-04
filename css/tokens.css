@@ -1,0 +1,127 @@
+/* ==========================================================================
+   ArtisRaw — Design Tokens (SPEC §5.1)
+   SINGLE SOURCE OF TRUTH. No raw colors, sizes or spacing anywhere else.
+   Every other stylesheet references var(--token) only.
+   ========================================================================== */
+
+/* --- Self-hosted webfonts: 2 families, WOFF2, latin subset, swap ---------- */
+/* Both are variable fonts: one file covers the full weight range.            */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 600 700;            /* display serif — H1/H2 only */
+  font-display: swap;
+  src: url("../fonts/fraunces-var.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;            /* UI sans — everything else */
+  font-display: swap;
+  src: url("../fonts/inter-var.woff2") format("woff2");
+}
+
+:root {
+  /* --- Font families ----------------------------------------------------- */
+  --ff-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --ff-sans:  "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* --- Type scale (1.25 modular) — the ONLY sizes allowed ----------------- */
+  --fs-display-xl: 3.375rem;   /* 54px — H1 hero (serif/700/1.1)            */
+  --fs-display-l:  2.4375rem;  /* 39px — H1 inner pages (serif/700/1.15)    */
+  --fs-heading:    1.9375rem;  /* 31px — H2 (serif/700/1.2)                 */
+  --fs-subheading: 1.5625rem;  /* 25px — H3 card/block titles (sans/600-700)*/
+  --fs-lead:       1.25rem;    /* 20px — intro paragraphs (sans/400/1.5)   */
+  --fs-body:       1rem;       /* 16px — body copy (sans/400/1.6)          */
+  --fs-ui:         0.875rem;   /* 14px — nav, buttons, links, captions     */
+  --fs-micro:      0.75rem;    /* 12px — eyebrows, table meta (uppercase)  */
+
+  /* --- Line heights ------------------------------------------------------- */
+  --lh-display-xl: 1.1;
+  --lh-display-l:  1.15;
+  --lh-heading:    1.2;
+  --lh-subheading: 1.25;
+  --lh-lead:       1.5;
+  --lh-body:       1.6;
+  --lh-ui:         1.4;
+  --lh-micro:      1.3;
+
+  /* --- Weights ------------------------------------------------------------ */
+  --fw-regular:  400;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* --- Tracking ----------------------------------------------------------- */
+  --tracking-micro: 0.06em;    /* eyebrows / micro labels */
+
+  /* --- Color (SPEC §5.1 — hard contrast rules) ---------------------------- */
+  --c-espresso-900: #2B1A10;   /* text on light; dark section backgrounds  */
+  --c-bark-700:     #4C3423;   /* secondary dark surfaces; borders on dark */
+  --c-amber-500:    #D69A45;   /* accent — text ONLY on espresso/bark      */
+  --c-sand-200:     #EAD9C3;   /* card surfaces, table row tint            */
+  --c-cream-100:    #F7EFE4;   /* page background                          */
+  --c-paper-50:     #FFF8EF;   /* cards on cream, form fields              */
+  --c-success:      #2F7D4F;   /* form states only                         */
+  --c-error:        #B3392E;   /* form states only                         */
+  --c-scrim:        rgba(43, 26, 16, 0.5); /* espresso 50% — drawer overlay */
+
+  /* Derived interaction shades (hover = darken ~8%) */
+  --c-amber-600:    #C2862F;   /* amber button hover */
+  --c-espresso-800: #3A2417;   /* secondary button hover */
+
+  /* Semantic aliases — components reference these, not raw color tokens */
+  --color-text:        var(--c-espresso-900);
+  --color-text-invert: var(--c-cream-100);
+  --color-bg:          var(--c-cream-100);
+  --color-surface:     var(--c-paper-50);
+  --color-surface-alt: var(--c-sand-200);
+  --color-accent:      var(--c-amber-500);
+  --color-border:      var(--c-sand-200);
+  --color-border-dark: var(--c-bark-700);
+
+  /* --- Spacing — 8px scale ------------------------------------------------ */
+  --sp-1:  0.5rem;    /*   8px */
+  --sp-2:  1rem;      /*  16px */
+  --sp-3:  1.5rem;    /*  24px */
+  --sp-4:  2rem;      /*  32px */
+  --sp-5:  3rem;      /*  48px */
+  --sp-6:  4rem;      /*  64px */
+  --sp-7:  6rem;      /*  96px */
+  --sp-8:  8rem;      /* 128px */
+
+  /* --- Layout / grid ------------------------------------------------------ */
+  --container:    1180px;
+  --grid-cols:    12;
+  --grid-gutter:  var(--sp-3);          /* 24px gutters */
+  --section-pad:  var(--sp-7);          /* 96px desktop (overridden ≤768) */
+
+  /* --- Radii -------------------------------------------------------------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* --- Elevation ---------------------------------------------------------- */
+  --shadow-card:  0 1px 2px rgba(43, 26, 16, 0.06), 0 2px 8px rgba(43, 26, 16, 0.06);
+  --shadow-lift:  0 4px 14px rgba(43, 26, 16, 0.12);
+
+  /* --- Motion (SPEC §5.7) ------------------------------------------------- */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:    150ms;
+  --dur-base:    200ms;
+
+  /* --- Focus -------------------------------------------------------------- */
+  --focus-ring-width:  2px;
+  --focus-on-light:    var(--c-espresso-900);
+  --focus-on-dark:     var(--c-amber-500);
+
+  /* --- Header ------------------------------------------------------------- */
+  --header-height: 64px;          /* sticky header ≤64px (SPEC §4) */
+  --z-header:      100;
+  --z-drawer:      200;
+  --z-sticky-cta:  150;
+}
+
+/* Body steps up to 18px at ≥1440 (SPEC §5.1 / §5.2) */
+@media (min-width: 1440px) {
+  :root { --fs-body: 1.125rem; /* 18px */ }
+}
