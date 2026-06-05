@@ -2,6 +2,24 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 6 — Technical SEO layer & launch prep
+
+- `inc/seo-tech.php`: robots.txt (virtual) with AI-bot allows (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-Web, PerplexityBot, Google-Extended, Applebot-Extended, CCBot) + `Sitemap:` line per SPEC §6.8.
+- `/llms.txt` virtual route (llmstxt.org format): company definition + key page links, served `text/plain`; canonical-redirect bypassed so no trailing slash.
+- XML sitemap tuning (WordPress-native `/wp-sitemap.xml`): dropped users + sku_category/tag/category providers; excluded noindex pages (styleguide); `/sitemap_index.xml` 301-alias. Trashed default *Sample Page* + *Hello World*.
+- GA4-via-GTM loader gated on `ARTISRAW_GTM_ID` / `ARTISRAW_GA4_ID` (inert until set); `js/components.js` adds `hero_view` (≥50% / 1 s) and distinct `linesheet_download` / `compliance_pack_download` events.
+- Baseline security headers via `wp_headers` (X-Content-Type-Options, Referrer-Policy, X-Frame-Options, Permissions-Policy).
+- `ARTISRAW_STAGING` constant forces sitewide noindex on staging (launch-day removal = the explicit go-live check); wired into `inc/seo-head.php`.
+- `LAUNCH.md`: wp-config constants reference + the Phase-7 infra/launch-day checklist (Cloudflare, CSP, GSC/Bing, Lighthouse, DebugView).
+
+### Verified (SPEC §11, locally testable)
+- robots.txt live with AI-bot allows; `/llms.txt` 200 text/plain; sitemap index 200 (26 pages, styleguide excluded, no WP cruft); `/sitemap_index.xml` → 301.
+- SSR H1 present; unknown URL → 404; styleguide noindex while real pages stay indexable; JSON-LD parses; security headers present.
+- Analytics loader inert with no ID configured (zero googletagmanager refs).
+
+### Pending (Phase 7 — infrastructure)
+- Cloudflare AI-allow + CSP (grade-A), GA4/GTM property + DebugView verification, Search Console/Bing submission, Lighthouse/Rich-Results in CI, cross-browser, backups/monitoring. See `LAUNCH.md`.
+
 ## Phase 5 — Design parity: visible pages & home sections
 
 - `tpl-services.php` → `/services/`: 6 core services, 12 buyer-profile chips, 3 service packs, 8-step process, selected clients, Services FAQ, quote form (mockup page 3).

@@ -95,8 +95,9 @@ function artisraw_seo_head() {
 		$og_image = get_the_post_thumbnail_url( null, 'artisraw-1200' );
 	}
 
-	// Robots: ACF noindex toggle, template-forced noindex, OR staging guard.
-	$noindex = artisraw_field( 'seo_noindex' ) || ! empty( $GLOBALS['artisraw_force_noindex'] ) || ! get_option( 'blog_public' );
+	// Robots: ACF noindex toggle, template-forced noindex, staging constant, OR blog_public off.
+	$staging = defined( 'ARTISRAW_STAGING' ) && ARTISRAW_STAGING;
+	$noindex = artisraw_field( 'seo_noindex' ) || ! empty( $GLOBALS['artisraw_force_noindex'] ) || $staging || ! get_option( 'blog_public' );
 
 	echo "\n<!-- ArtisRaw SEO head -->\n";
 	if ( $desc ) {

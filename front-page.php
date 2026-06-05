@@ -18,7 +18,7 @@ get_header();
 ?>
 
 <!-- 1 · Hero -->
-<section class="section section--dark on-dark hub-hero">
+<section class="section section--dark on-dark hub-hero" data-hero="home-hero">
 	<div class="container hub-hero__grid">
 		<div class="hub-hero__copy">
 			<p class="eyebrow"><?php esc_html_e( 'ISO 9001 olive wood manufacturer · Sfax, Tunisia', 'artisraw' ); ?></p>

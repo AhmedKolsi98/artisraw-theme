@@ -85,6 +85,27 @@
     Array.prototype.forEach.call(stats, function (s) { io.observe(s); });
   }
 
+  /* --- hero_view: hero ≥50% in view for 1s (SPEC §8) --- */
+  var hero = document.querySelector('[data-hero]');
+  if (hero && 'IntersectionObserver' in window) {
+    var heroTimer = null, heroFired = false;
+    var hio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (heroFired) return;
+        if (e.isIntersecting && e.intersectionRatio >= 0.5) {
+          heroTimer = setTimeout(function () {
+            heroFired = true;
+            track('hero_view', { section: hero.getAttribute('data-hero') || 'hero' });
+            hio.disconnect();
+          }, 1000);
+        } else if (heroTimer) {
+          clearTimeout(heroTimer); heroTimer = null;
+        }
+      });
+    }, { threshold: [0.5] });
+    hio.observe(hero);
+  }
+
   /* --- Sticky mobile CTA: show, hide while any form is in view --- */
   var sticky = document.querySelector('[data-sticky-cta]');
   if (sticky) {
@@ -155,7 +176,13 @@
     var el = e.target.closest('[data-ga]');
     if (!el) return;
     var ev = el.getAttribute('data-ga');
-    if (ev === 'doc_download') track('doc_download', { doc_name: el.getAttribute('data-doc-name') || '' });
+    if (ev === 'doc_download') {
+      var doc = el.getAttribute('data-doc-name') || '';
+      track('doc_download', { doc_name: doc });
+      // Distinct events for the two priority assets (SPEC §8).
+      if (/line-?sheet/i.test(doc)) track('linesheet_download', { location: el.getAttribute('data-ga-location') || '' });
+      if (/compliance-?pack/i.test(doc)) track('compliance_pack_download', { location: el.getAttribute('data-ga-location') || '' });
+    }
     else if (ev === 'whatsapp_click') track('whatsapp_click', { page: location.pathname });
     else if (ev === 'cta_click') track('cta_click', { location: el.getAttribute('data-ga-location') || '', label: el.getAttribute('data-ga-label') || '' });
   });

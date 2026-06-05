@@ -139,6 +139,7 @@ remove_action( 'wp_head', 'rel_canonical' );
  * ---------------------------------------------------------------------- */
 require_once ARTISRAW_DIR . '/inc/breadcrumbs.php';
 require_once ARTISRAW_DIR . '/inc/seo-head.php';
+require_once ARTISRAW_DIR . '/inc/seo-tech.php';
 require_once ARTISRAW_DIR . '/inc/schema.php';
 require_once ARTISRAW_DIR . '/inc/acf-fields.php';
 require_once ARTISRAW_DIR . '/inc/post-types.php';
