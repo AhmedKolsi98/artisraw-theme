@@ -55,3 +55,15 @@ define( 'ARTISRAW_COMPLIANCE_URL', 'https://artisraw.com/downloads/compliance-pa
 - [ ] Submit sitemaps (GSC + Bing); request indexing of the 10 priority URLs.
 - [ ] Smoke test: quote form → inbox + autoresponder; newsletter → inbox + confirm; downloads; GA4 real-time; redirects; 404.
 - [ ] Baseline snapshot: rankings for the §3 keyword set + run the 15 AI prompts (SPEC §6.10) — day-zero numbers.
+
+## 5. Phase 10 — French + ongoing hardening & AI visibility
+
+**Built (theme):**
+- French layer (`inc/i18n.php`): `/fr/` pages on the prose templates, runtime `gettext` French dictionary, `<html lang="fr-FR">`, `hreflang` (en/fr/x-default) from the `alt_pair` meta, header EN/FR toggle wired to counterparts. Add/extend French pages by bumping `ARTISRAW_FR_VER`; untranslated UI strings fall back to English (extend the dictionary in `artisraw_fr_dict()`).
+
+**Ongoing (need live data / accounts — not buildable on Local):**
+- [ ] Translate the remaining top-15 pages (catalogue, guide, compliance) — same pattern.
+- [ ] Performance hardening from **field** CWV (Search Console → Core Web Vitals).
+- [ ] **AI-visibility dashboard** (SPEC §6.10): monthly run of the 15 prompts across ChatGPT/Perplexity/Gemini; log mentions/citations + AI-referral sessions; refresh gaps.
+- [ ] Conversion review: quote-form step drop-off, heatmaps on hub + contact; quarterly stat/date refresh.
+- [ ] Minor: FR breadcrumb "Accueil" currently links to the EN home — point it at `/fr/` when localizing breadcrumbs.

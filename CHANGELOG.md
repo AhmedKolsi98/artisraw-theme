@@ -2,6 +2,20 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 10 — French version, hardening & AI visibility
+
+- `inc/i18n.php`: plugin-free French layer (SPEC §9). `/fr/` pages are real pages (meta `page_lang=fr`) reusing the prose templates; UI chrome is translated at runtime via a `gettext` PHP dictionary (no `.mo` tooling), rich body copy lives in `post_content`. Strings not in the dictionary fall back to English.
+- `<html lang="fr-FR">` on French pages; `hreflang` alternates (en / fr / x-default) emitted from the bidirectional `alt_pair` meta; header EN/FR toggle wired to each page's counterpart (untranslated pages point FR → `/fr/`).
+- Seeded 7 paired French pages (idempotent, `ARTISRAW_FR_VER`): `/fr/` (home), `/fr/fournisseur-bois-olivier-grossiste/` (hub), `/fr/services/`, `/fr/monde/`, `/fr/a-propos/`, `/fr/certifications/`, `/fr/contact/` (form labels + NAP localized) — each with French title/meta/quick-answer/body and EN↔FR pairing.
+- `LAUNCH.md` §5: French + ongoing hardening/AI-visibility checklist.
+
+### Verified
+- All 7 French pages 200, one H1 each, `lang="fr-FR"`, 3 hreflang `<link>`s (en/fr/x-default), zero PHP notices.
+- Nav, footer, CTAs, trust chips, trust CTA and the contact form render in French; EN pages stay English (no bleed); toggle resolves EN↔FR counterparts both directions; French pages indexable + in the sitemap.
+
+### Pending (ongoing — live data / content)
+- Translate the remaining top-15 pages (same pattern; extend `artisraw_fr_dict()`); field-CWV hardening; monthly AI share-of-answer dashboard; FR breadcrumb home link → `/fr/`.
+
 ## Phase 9 — Client Area: B2B ordering portal
 
 - `inc/account.php`: account engine on the WordPress user system — registration (PENDING by default), email-based login, logout; per-IP rate limiting on register/login; nonce-protected PRG form handling.

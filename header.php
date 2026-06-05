@@ -170,11 +170,12 @@ function artisraw_render_primary_nav() {
 			<div class="nav__actions">
 				<a class="btn btn--primary nav__cta" href="<?php echo esc_url( home_url( '/request-quote/' ) ); ?>"><?php esc_html_e( 'Request Quote', 'artisraw' ); ?></a>
 				<a class="nav__login" href="<?php echo esc_url( home_url( '/wholesale-account/' ) ); ?>"><?php esc_html_e( 'Wholesale Login', 'artisraw' ); ?></a>
-				<?php // Language toggle — FR translations land in Phase 10; placeholder is disabled (no 404). ?>
+				<?php // Language toggle — links to the EN/FR counterpart (Phase 10). ?>
+				<?php $artisraw_lang = function_exists( 'artisraw_lang_links' ) ? artisraw_lang_links() : array( 'current' => 'en', 'en' => home_url( '/' ), 'fr' => home_url( '/fr/' ) ); ?>
 				<div class="lang-toggle" role="group" aria-label="<?php esc_attr_e( 'Language', 'artisraw' ); ?>">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-current="true">EN</a>
+					<a href="<?php echo esc_url( $artisraw_lang['en'] ); ?>" hreflang="en"<?php echo 'en' === $artisraw_lang['current'] ? ' aria-current="true"' : ''; ?>>EN</a>
 					<span class="lang-toggle__sep" aria-hidden="true">/</span>
-					<span class="is-disabled" aria-disabled="true" title="<?php esc_attr_e( 'French coming soon', 'artisraw' ); ?>">FR</span>
+					<a href="<?php echo esc_url( $artisraw_lang['fr'] ); ?>" hreflang="fr"<?php echo 'fr' === $artisraw_lang['current'] ? ' aria-current="true"' : ''; ?>>FR</a>
 				</div>
 			</div>
 		</nav>
