@@ -164,5 +164,89 @@ function sg_h( $title, $note = '' ) {
 	</div>
 </div>
 
+<!-- ===================== Phase 5 — design-parity components ===================== -->
+<div class="container section">
+	<?php sg_h( 'Phase 5 — design-parity components', 'Blocks for the homepage middle and the Services / Worldwide pages. Images run through the WebP pipeline.' ); ?>
+
+	<?php sg_h( 'Photo mosaic', 'Labelled image grid with one feature tile (big), one wide and two square tiles. Stacks on mobile.' ); ?>
+	<?php
+	artisraw_photo_mosaic(
+		array(
+			array( 'base' => '/assets/ar-grove', 'alt' => 'Olive grove near Sfax', 'label' => 'From the tree', 'variant' => 'big', 'w' => 1273, 'h' => 900, 'widths' => array( 600, 1200 ) ),
+			array( 'base' => '/assets/ar-workshop', 'alt' => 'Artisans in the workshop', 'label' => 'Handmade production', 'variant' => 'wide', 'w' => 1400, 'h' => 358, 'widths' => array( 600, 1200 ) ),
+			array( 'base' => '/assets/ar-boards', 'alt' => 'Olive wood board grain', 'label' => 'Chemlali dense grain', 'w' => 548, 'h' => 365, 'widths' => array( 600 ) ),
+			array( 'base' => '/assets/ar-collection', 'alt' => 'Olive wood product range', 'label' => 'Premium B2B collections', 'w' => 1920, 'h' => 960, 'widths' => array( 600, 1200 ) ),
+		),
+		'From tree, to workshop, to wholesale shelves',
+		'Responsible sourcing, handmade production, dense Chemlali grain and export-ready collections.'
+	);
+	?>
+
+	<?php sg_h( 'Collection tiles', 'Square image tiles, whole-card link + gradient label (homepage middle).' ); ?>
+	<ul class="collections" role="list">
+		<?php
+		$sg_cols = array(
+			array( 'Kitchen & boards', '/assets/ar-boards', array( 600 ) ),
+			array( 'Serveware & bowls', '/assets/ar-mortar', array( 600 ) ),
+			array( 'Gifts & chess', '/assets/ar-chess', array( 600 ) ),
+			array( 'Décor & lifestyle', '/assets/ar-collection', array( 600, 1200 ) ),
+		);
+		foreach ( $sg_cols as $c ) {
+			echo '<li><a class="collection" href="#">';
+			artisraw_responsive_image( array( 'base' => $c[1], 'alt' => $c[0], 'class' => 'collection__img', 'width' => 600, 'height' => 750, 'widths' => $c[2], 'sizes' => '25vw' ) );
+			echo '<span class="collection__label">' . esc_html( $c[0] ) . '</span></a></li>';
+		}
+		?>
+	</ul>
+
+	<?php sg_h( 'Numbered steps', 'Process / workflow (services 8-step, QC timeline).' ); ?>
+	<?php
+	artisraw_steps( array(
+		array( '', 'Buyer brief', 'Market, categories, quantities and target date.' ),
+		array( '', 'Quote & MOQ', 'Pricing, packaging options and export info in 24 h.' ),
+		array( '', 'Sample / branding', 'Private-label proofs validated before production.' ),
+		array( '', 'Production & QC', 'Manufactured with quality checkpoints and batch photos.' ),
+	) );
+	?>
+
+	<?php sg_h( 'Testimonials', 'Star rating, quote, attribution.' ); ?>
+	<?php
+	artisraw_testimonials( array(
+		array( 'ArtisRaw is reliable, consistent and easy to work with.', 'Retail buyer', 'Wholesale partner, Europe', 5 ),
+		array( 'The export paperwork was ready before we asked.', 'Importer', 'Distributor, USA', 5 ),
+		array( 'Private-label engraving came back exactly to brief.', 'Brand owner', 'Concept stores, GCC', 4 ),
+	), 'What buyers say' );
+	?>
+
+	<?php sg_h( 'Founders / team', 'Initials avatar until real portraits exist.' ); ?>
+	<?php
+	artisraw_founders( array(
+		array( 'Mohamed Bilel Cherif', 'Co-founder & CEO', 'Operations & strategy.' ),
+		array( 'Ihsen Triki', 'Co-founder & Head of Design', 'Product & artistry.' ),
+		array( 'Ahmed Sakka', 'Co-founder', 'Heritage & vision.' ),
+	), 'The founders behind ArtisRaw' );
+	?>
+
+	<?php sg_h( 'Newsletter signup', 'Posts to /artisraw/v1/newsletter; no-JS falls back to /contact/.' ); ?>
+	<?php artisraw_newsletter( array( 'id' => 'sg-newsletter', 'location' => 'styleguide' ) ); ?>
+</div>
+
+<?php // Plant-a-tree program — full-width band with its own heading. ?>
+<?php artisraw_plant_a_tree(); ?>
+
+<div class="container section">
+	<?php sg_h( 'Instagram strip', 'Static curated images; whole tile links out, lazy-loaded.' ); ?>
+	<?php
+	artisraw_instagram_strip( array(
+		array( 'Olive wood boards', '', '/assets/ar-boards', array( 600 ) ),
+		array( 'In the workshop', '', '/assets/ar-workshop', array( 600 ) ),
+		array( 'Mortar & pestle', '', '/assets/ar-mortar', array( 600 ) ),
+		array( 'Chess & gifts', '', '/assets/ar-chess', array( 600 ) ),
+		array( 'Carved bowls', '', '/assets/ar-bowl', array( 600 ) ),
+		array( 'Ready to ship', '', '/assets/ar-collection', array( 600 ) ),
+	), 'artisraw' );
+	?>
+</div>
+
 <?php
 get_footer();

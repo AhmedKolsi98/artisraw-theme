@@ -607,7 +607,9 @@ function artisraw_plant_a_tree( array $args = array() ) {
 
 /**
  * Instagram strip (mockup home). Static, curated — no third-party script in the
- * critical path. $items: [ [caption, ?href] ]; $handle links to the profile.
+ * critical path. $items: [ [caption, ?href, ?image_base, ?widths] ]; when an
+ * image base is given a lazy WebP renders behind the caption, otherwise a
+ * gradient tile. $handle links to the profile.
  */
 function artisraw_instagram_strip( array $items, $handle = 'artisraw', $profile_url = '' ) {
 	$profile_url = $profile_url ?: 'https://www.instagram.com/' . ltrim( $handle, '@' ) . '/';
@@ -618,7 +620,57 @@ function artisraw_instagram_strip( array $items, $handle = 'artisraw', $profile_
 	foreach ( $items as $item ) {
 		$caption = $item[0] ?? '';
 		$href    = $item[1] ?? $profile_url;
-		echo '<li class="ig__cell"><a class="ig__link" href="' . esc_url( $href ) . '" rel="noopener" target="_blank"><span class="ig__caption">' . esc_html( $caption ) . '</span></a></li>';
+		$base    = $item[2] ?? '';
+		$widths  = $item[3] ?? array( 600 );
+		$has_img = $base ? ' ig__link--img' : '';
+		echo '<li class="ig__cell"><a class="ig__link' . esc_attr( $has_img ) . '" href="' . esc_url( $href ) . '" rel="noopener" target="_blank">';
+		if ( $base ) {
+			artisraw_responsive_image( array(
+				'base' => $base, 'alt' => $caption, 'class' => 'ig__img',
+				'width' => 600, 'height' => 600, 'widths' => $widths,
+				'sizes' => '(min-width: 900px) 16vw, 33vw',
+			) );
+		}
+		echo '<span class="ig__caption">' . esc_html( $caption ) . '</span></a></li>';
 	}
 	echo '</ul></section>';
+}
+
+/**
+ * Photo mosaic (mockup "From tree, to workshop, to wholesale shelves").
+ * A labelled image grid with one feature tile. $tiles: each
+ *   [ 'base'=>'/assets/ar-grove', 'alt'=>…, 'label'=>…, 'variant'=>'big'|'wide'|'',
+ *     'w'=>, 'h'=>, 'widths'=>[600,1200], 'href'=>(optional) ].
+ */
+function artisraw_photo_mosaic( array $tiles, $heading = '', $intro = '' ) {
+	echo '<div class="mosaic-wrap">';
+	if ( $heading ) {
+		echo '<h2 class="mosaic__head">' . esc_html( $heading ) . '</h2>';
+	}
+	if ( $intro ) {
+		echo '<p class="lead mosaic__intro">' . esc_html( $intro ) . '</p>';
+	}
+	echo '<div class="mosaic">';
+	foreach ( $tiles as $t ) {
+		$variant = $t['variant'] ?? '';
+		$cls     = 'mosaic__tile' . ( $variant ? ' mosaic__tile--' . $variant : '' );
+		$href    = $t['href'] ?? '';
+		$tag     = $href ? 'a' : 'figure';
+		$attr    = $href ? ' href="' . esc_url( $href ) . '"' : '';
+		echo '<' . $tag . ' class="' . esc_attr( $cls ) . '"' . $attr . '>';
+		artisraw_responsive_image( array(
+			'base'   => $t['base'],
+			'alt'    => $t['alt'] ?? '',
+			'class'  => 'mosaic__img',
+			'width'  => $t['w'] ?? 1200,
+			'height' => $t['h'] ?? 800,
+			'widths' => $t['widths'] ?? array( 600, 1200 ),
+			'sizes'  => 'big' === $variant ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 25vw, 50vw',
+		) );
+		if ( ! empty( $t['label'] ) ) {
+			echo '<span class="mosaic__label">' . esc_html( $t['label'] ) . '</span>';
+		}
+		echo '</' . $tag . '>';
+	}
+	echo '</div></div>';
 }

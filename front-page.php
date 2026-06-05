@@ -88,20 +88,42 @@ get_header();
 	<ul class="collections" role="list">
 		<?php
 		$collections = array(
-			array( __( 'Kitchen & boards', 'artisraw' ), home_url( '/wholesale/olive-wood-cutting-boards/' ) ),
-			array( __( 'Serveware & bowls', 'artisraw' ), home_url( '/wholesale/olive-wood-bowls-serveware/' ) ),
-			array( __( 'Gifts & chess', 'artisraw' ), home_url( '/wholesale/olive-wood-chess-sets/' ) ),
-			array( __( 'Décor & bath', 'artisraw' ), home_url( '/wholesale/olive-wood-decor-bath/' ) ),
+			array( __( 'Kitchen & boards', 'artisraw' ), home_url( '/wholesale/olive-wood-cutting-boards/' ), '/assets/ar-boards', array( 600 ) ),
+			array( __( 'Serveware & bowls', 'artisraw' ), home_url( '/wholesale/olive-wood-bowls-serveware/' ), '/assets/ar-mortar', array( 600 ) ),
+			array( __( 'Gifts & chess', 'artisraw' ), home_url( '/wholesale/olive-wood-chess-sets/' ), '/assets/ar-chess', array( 600 ) ),
+			array( __( 'Décor & lifestyle', 'artisraw' ), home_url( '/wholesale/olive-wood-decor-bath/' ), '/assets/ar-collection', array( 600, 1200 ) ),
 		);
 		foreach ( $collections as $col ) {
-			printf(
-				'<li><a class="collection" href="%s"><span class="collection__label">%s</span></a></li>',
-				esc_url( $col[1] ),
-				esc_html( $col[0] )
-			);
+			echo '<li><a class="collection" href="' . esc_url( $col[1] ) . '">';
+			artisraw_responsive_image( array(
+				'base'   => $col[2],
+				'alt'    => $col[0] . ' — wholesale olive wood',
+				'class'  => 'collection__img',
+				'width'  => 600, 'height' => 750, 'widths' => $col[3],
+				'sizes'  => '(min-width: 768px) 25vw, 50vw',
+			) );
+			echo '<span class="collection__label">' . esc_html( $col[0] ) . '</span></a></li>';
 		}
 		?>
 	</ul>
+</section>
+
+<!-- 3c · Photo mosaic: from tree to workshop to shelves -->
+<section class="section--sand">
+	<div class="container section hub-section">
+		<?php
+		artisraw_photo_mosaic(
+			array(
+				array( 'base' => '/assets/ar-grove', 'alt' => __( 'Olive grove near Sfax, Tunisia', 'artisraw' ), 'label' => __( 'From the tree', 'artisraw' ), 'variant' => 'big', 'w' => 1273, 'h' => 900, 'widths' => array( 600, 1200 ) ),
+				array( 'base' => '/assets/ar-workshop', 'alt' => __( 'ArtisRaw artisans shaping olive wood in the workshop', 'artisraw' ), 'label' => __( 'Handmade production', 'artisraw' ), 'variant' => 'wide', 'w' => 1400, 'h' => 358, 'widths' => array( 600, 1200 ) ),
+				array( 'base' => '/assets/ar-boards', 'alt' => __( 'Olive wood board showing dense Chemlali grain', 'artisraw' ), 'label' => __( 'Chemlali dense grain', 'artisraw' ), 'w' => 548, 'h' => 365, 'widths' => array( 600 ) ),
+				array( 'base' => '/assets/ar-collection', 'alt' => __( 'Range of olive wood products ready for wholesale', 'artisraw' ), 'label' => __( 'Premium B2B collections', 'artisraw' ), 'w' => 1920, 'h' => 960, 'widths' => array( 600, 1200 ) ),
+			),
+			__( 'From tree, to workshop, to wholesale shelves', 'artisraw' ),
+			__( 'Responsible sourcing, handmade production, dense Chemlali grain and export-ready collections — the proof behind every order.', 'artisraw' )
+		);
+		?>
+	</div>
 </section>
 
 <!-- 4 · Differentiators (each backed by a number → proof page) -->
@@ -224,12 +246,12 @@ artisraw_stat_band( array(
 	<?php
 	artisraw_instagram_strip(
 		array(
-			array( __( 'Olive wood boards', 'artisraw' ) ),
-			array( __( 'In the workshop', 'artisraw' ) ),
-			array( __( 'Chemlali grain', 'artisraw' ) ),
-			array( __( 'Food-safe finishing', 'artisraw' ) ),
-			array( __( 'Export-ready packing', 'artisraw' ) ),
-			array( __( 'Private-label gifts', 'artisraw' ) ),
+			array( __( 'Olive wood boards', 'artisraw' ), '', '/assets/ar-boards', array( 600 ) ),
+			array( __( 'In the workshop', 'artisraw' ), '', '/assets/ar-workshop', array( 600 ) ),
+			array( __( 'Mortar & pestle', 'artisraw' ), '', '/assets/ar-mortar', array( 600 ) ),
+			array( __( 'Chess & gifts', 'artisraw' ), '', '/assets/ar-chess', array( 600 ) ),
+			array( __( 'Carved bowls', 'artisraw' ), '', '/assets/ar-bowl', array( 600 ) ),
+			array( __( 'Ready to ship', 'artisraw' ), '', '/assets/ar-collection', array( 600 ) ),
 		),
 		'artisraw'
 	);

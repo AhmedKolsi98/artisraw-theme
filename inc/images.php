@@ -50,7 +50,9 @@ function artisraw_responsive_image( array $a ) {
 	foreach ( $widths as $w ) {
 		$srcset[] = esc_url( ARTISRAW_URI . $base . '-' . $w . '.webp' ) . ' ' . $w . 'w';
 	}
-	$default = esc_url( ARTISRAW_URI . $base . '-1200.webp' );
+	// Default src must point to a generated width: prefer 1200, else the largest available.
+	$default_w = in_array( 1200, $widths, true ) ? 1200 : max( $widths );
+	$default   = esc_url( ARTISRAW_URI . $base . '-' . $default_w . '.webp' );
 
 	printf(
 		'<img class="%s" src="%s" srcset="%s" sizes="%s" width="%d" height="%d" alt="%s" decoding="async" %s>',
