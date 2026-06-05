@@ -2,6 +2,27 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 3 — First template end-to-end: the wholesale hub
+
+- `tpl-wholesale-hub.php`: the money page `/olive-wood-wholesale-supplier/` per CONTENT page 2 — 9 sections, one idea each: hero (offer + terms + CTA) → trust strip → quick answer → ready-to-ship SKU grid → QC stats + US/EU import-confidence → mid quote form → core services → micro-FAQ → logistics/Incoterms table + download centre + trusted-client band → end quote form. Form mid + end; every claim → /references/.
+- `inc/post-types.php`: `sku` CPT + helpers (`artisraw_get`, `artisraw_sku_to_array`, `artisraw_get_ready_skus`) reading post meta (ACF-compatible keys) with or without ACF; idempotent seed of 6 ready-to-ship SKUs.
+- `inc/acf-fields.php`: SKU spec field group (admin UI once ACF is active).
+- `inc/images.php`: `artisraw_responsive_image()` (WebP srcset 600/1200/1800, width/height, lazy/eager) + hero `<link rel=preload as=image imagesrcset>`. Hero WebP generated at 3 widths (1800w = 7 KB).
+- `inc/schema.php`: `artisraw_product_itemlist()` — ItemList of Product (material/brand/countryOfOrigin/offers, price on request).
+- `inc/seo-head.php`: SEO field reader now falls back to post meta (per-page title/meta work pre-ACF). Hub page created with exact title/meta from the SEO block.
+- `css/templates.css`: hub hero grid, terms, confidence list, services, forms.
+- Progressive enhancement: FAQ answers visible with JS off; quote form `<noscript>` fallback (email + contact).
+
+### Verified (full SPEC §11 on the hub URL)
+- SSR: `curl | grep h1` returns the H1; content usable JS-off. Title/meta/canonical exact; HTML 66 KB.
+- JSON-LD valid: BreadcrumbList + ItemList (6 Products, required fields) + Organization + WebSite — zero parse errors.
+- CWV (4× CPU, 4G throttle): **LCP 0.80 s** · **CLS 0** · JS 5.4 KB gz → INP fine. 1 H1, landmarks, labeled inputs, alt text, no overflow.
+- Form → team email **and** autoresponder confirmed in Mailpit (both hub placements).
+
+### Pending (needs action)
+- Replace the placeholder hero WebP + add real SKU product photos (featured images) — they’ll flow into srcset + Product `image` automatically.
+- Run Lighthouse in CI to confirm Perf ≥90 / SEO ≥95 / A11y ≥95 (all measured inputs are green).
+
 ## Phase 2 — Component library
 
 - `inc/components.php`: render functions for every SPEC §4 block — quick-answer, SKU spec card (`<article>`+`<dl>`), data tables (semantic, stack <768px), trust strip/chips, reference-buyer logo band (type-only fallback), FAQ accordion (WAI-ARIA, multi-open, deep-link → FAQPage JSON-LD), stat band, doc/article/category cards (stretched-link), sticky mobile CTA, and the two-step quote form.

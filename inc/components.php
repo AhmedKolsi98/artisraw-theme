@@ -318,6 +318,17 @@ function artisraw_quote_form( array $args = array() ) {
 		data-location="<?php echo esc_attr( $location ); ?>"
 		novalidate>
 
+		<noscript>
+			<p class="quote-form__noscript"><?php
+				printf(
+					/* translators: 1: email link, 2: contact page link */
+					wp_kses_post( __( 'This quick form needs JavaScript. You can also email %1$s or use our %2$s.', 'artisraw' ) ),
+					'<a href="mailto:contact@artisraw.com">contact@artisraw.com</a>',
+					'<a href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html__( 'contact page', 'artisraw' ) . '</a>'
+				);
+			?></p>
+		</noscript>
+
 		<div class="quote-form__step quote-form__step--1" data-step="1">
 			<p class="quote-form__promise eyebrow"><?php esc_html_e( 'Get a quote within 24 h', 'artisraw' ); ?></p>
 			<h3 class="quote-form__heading"><?php echo esc_html( $heading ); ?></h3>

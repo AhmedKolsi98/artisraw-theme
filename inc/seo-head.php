@@ -18,7 +18,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 function artisraw_field( $key, $post_id = null ) {
 	if ( function_exists( 'get_field' ) ) {
 		$val = get_field( $key, $post_id );
-		return ( '' === $val ) ? null : $val;
+		if ( null !== $val && '' !== $val ) {
+			return $val;
+		}
+	}
+	// Fallback to raw post meta (same keys ACF uses) so per-page SEO works
+	// before ACF is installed.
+	if ( is_singular() || $post_id ) {
+		$meta = get_post_meta( $post_id ?: get_queried_object_id(), $key, true );
+		if ( '' !== $meta ) {
+			return $meta;
+		}
 	}
 	return null;
 }

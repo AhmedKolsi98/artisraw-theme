@@ -83,4 +83,32 @@ function artisraw_register_acf_fields() {
 		'show_in_rest'          => 0,
 		'description'           => 'Per-URL SEO overrides and schema toggles (SPEC §6.2).',
 	) );
+
+	// --- SKU spec fields (SPEC §4). Meta keys match artisraw_sku_to_array(). ---
+	$sku_text = function ( $name, $label, $instr = '' ) {
+		return array( 'key' => 'field_sku_' . $name, 'label' => $label, 'name' => $name, 'type' => 'text', 'instructions' => $instr );
+	};
+	acf_add_local_field_group( array(
+		'key'      => 'group_artisraw_sku',
+		'title'    => 'SKU specification',
+		'fields'   => array(
+			$sku_text( 'sku_code', 'SKU code', 'e.g. AR-CB-30' ),
+			$sku_text( 'dimensions', 'Dimensions', 'e.g. 30 × 18 × 2 cm' ),
+			$sku_text( 'unit_weight', 'Unit weight', 'e.g. 0.7 kg' ),
+			$sku_text( 'case_pack', 'Case pack', 'units per case' ),
+			$sku_text( 'carton', 'Carton L×W×H', 'e.g. 40 × 30 × 26 cm' ),
+			$sku_text( 'moq', 'MOQ', 'minimum order quantity' ),
+			$sku_text( 'lead_time', 'Lead time', 'e.g. 72 h (stock)' ),
+			$sku_text( 'exw_tier', 'Indicative EXW', 'price tier or “on request”' ),
+			array( 'key' => 'field_sku_ready', 'label' => 'Ready to ship', 'name' => 'ready_to_ship', 'type' => 'true_false', 'ui' => 1, 'default_value' => 1, 'instructions' => 'Show in the Ready-to-Ship grid on the hub.' ),
+		),
+		'location' => array(
+			array( array( 'param' => 'post_type', 'operator' => '==', 'value' => 'sku' ) ),
+		),
+		'menu_order'      => 0,
+		'position'        => 'normal',
+		'label_placement' => 'top',
+		'active'          => true,
+		'description'     => 'Structured spec data rendered as the SKU spec card.',
+	) );
 }

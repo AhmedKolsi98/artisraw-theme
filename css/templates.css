@@ -1,0 +1,50 @@
+/* ==========================================================================
+   ArtisRaw — Template-specific layouts. Tokens only.
+   ========================================================================== */
+
+/* --- Wholesale hub: hero ------------------------------------------------ */
+.hub-hero { padding-block: var(--sp-7); }
+.hub-hero__grid { display: grid; grid-template-columns: 1fr; gap: var(--sp-5); align-items: center; }
+@media (min-width: 1024px) { .hub-hero__grid { grid-template-columns: 1fr 0.85fr; gap: var(--sp-6); } }
+
+.hub-hero__terms {
+  display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-3);
+  list-style: none; margin: var(--sp-3) 0; padding: 0;
+  font-size: var(--fs-ui);
+}
+.hub-hero__terms li { position: relative; padding-right: var(--sp-3); }
+.hub-hero__terms li:not(:last-child)::after { content: "·"; position: absolute; right: 0; opacity: 0.5; }
+.hub-hero__terms strong { color: var(--c-amber-500); }
+.hub-hero__lead { max-width: 46ch; color: var(--c-sand-200); }
+.hub-hero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); margin-top: var(--sp-4); }
+.hub-hero__alt { color: var(--c-amber-500); }
+.hub-hero__alt:hover { color: var(--c-amber-500); }
+.hub-hero__img { width: 100%; border-radius: var(--radius-lg); aspect-ratio: 3 / 2; object-fit: cover; box-shadow: var(--shadow-lift); }
+
+/* --- Hub: trust strip band --------------------------------------------- */
+.hub-trust { padding-block: var(--sp-3); border-bottom: 1px solid var(--color-border); }
+.hub-trust .trust-strip { margin: 0; justify-content: center; }
+
+/* --- Hub: generic section heads ---------------------------------------- */
+.hub-section { padding-block: var(--sp-6); }
+.hub-section__head { max-width: 60ch; margin-bottom: var(--sp-4); }
+.hub-section__head .lead { color: var(--c-bark-700); margin-top: var(--sp-1); }
+.hub-section__note { margin-top: var(--sp-3); font-size: var(--fs-ui); color: var(--c-bark-700); }
+
+/* --- Hub: import-confidence list --------------------------------------- */
+.hub-confidence__list { list-style: none; margin: var(--sp-3) 0 0; padding: 0; display: grid; gap: var(--sp-2); }
+.hub-confidence__list li {
+  padding: var(--sp-3); background: var(--c-paper-50);
+  border: 1px solid var(--color-border); border-left: 3px solid var(--c-amber-500);
+  border-radius: var(--radius-md); max-width: none;
+}
+@media (min-width: 768px) { .hub-confidence__list { grid-template-columns: 1fr 1fr; } }
+
+/* --- Hub: services grid ------------------------------------------------- */
+.hub-service { height: 100%; padding: var(--sp-3); background: var(--c-paper-50); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+.hub-service h3 { font-size: var(--fs-subheading); margin-bottom: var(--sp-1); }
+.hub-service p { color: var(--c-bark-700); font-size: var(--fs-ui); }
+
+/* --- Hub: forms + downloads -------------------------------------------- */
+.hub-form-wrap { max-width: 680px; }
+.hub-downloads__title { margin-top: var(--sp-5); margin-bottom: var(--sp-3); }

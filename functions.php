@@ -60,6 +60,7 @@ function artisraw_enqueue_assets() {
 	wp_enqueue_style( 'artisraw-layout', ARTISRAW_URI . '/css/layout.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/layout.css' ) );
 	wp_enqueue_style( 'artisraw-components', ARTISRAW_URI . '/css/components.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/components.css' ) );
 	wp_enqueue_style( 'artisraw-forms', ARTISRAW_URI . '/css/forms.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/forms.css' ) );
+	wp_enqueue_style( 'artisraw-templates', ARTISRAW_URI . '/css/templates.css', array( 'artisraw-components' ), artisraw_asset_ver( '/css/templates.css' ) );
 
 	// style.css holds only the theme header; load it last for overrides if needed.
 	wp_enqueue_style( 'artisraw-style', get_stylesheet_uri(), array( 'artisraw-layout' ), artisraw_asset_ver( '/style.css' ) );
@@ -138,5 +139,7 @@ require_once ARTISRAW_DIR . '/inc/breadcrumbs.php';
 require_once ARTISRAW_DIR . '/inc/seo-head.php';
 require_once ARTISRAW_DIR . '/inc/schema.php';
 require_once ARTISRAW_DIR . '/inc/acf-fields.php';
+require_once ARTISRAW_DIR . '/inc/post-types.php';
 require_once ARTISRAW_DIR . '/inc/components.php';
 require_once ARTISRAW_DIR . '/inc/quote-endpoint.php';
+require_once ARTISRAW_DIR . '/inc/images.php';

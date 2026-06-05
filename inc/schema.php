@@ -76,3 +76,48 @@ function artisraw_site_schema() {
 	artisraw_jsonld( $website );
 }
 add_action( 'wp_head', 'artisraw_site_schema', 20 );
+
+/**
+ * ItemList of Product from SKU posts (SPEC §6.7) — hub + category pages.
+ * Price omitted ("on request"); material/brand/countryOfOrigin per spec.
+ *
+ * @param int[]  $sku_ids  SKU post IDs.
+ * @param string $list_url The page the list appears on.
+ */
+function artisraw_product_itemlist( array $sku_ids, $list_url ) {
+	if ( empty( $sku_ids ) ) {
+		return;
+	}
+	$elements = array();
+	foreach ( $sku_ids as $pos => $id ) {
+		$product = array(
+			'@type'           => 'Product',
+			'name'            => get_the_title( $id ),
+			'sku'             => (string) ( get_post_meta( $id, 'sku_code', true ) ),
+			'material'        => 'Olea europaea (Chemlali)',
+			'brand'           => array( '@type' => 'Brand', 'name' => 'ArtisRaw' ),
+			'countryOfOrigin' => 'TN',
+			'offers'          => array(
+				'@type'         => 'Offer',
+				'availability'  => 'https://schema.org/InStock',
+				'priceCurrency' => 'USD',
+				'businessFunction' => 'http://purl.org/goodrelations/v1#Sell',
+				'eligibleCustomerType' => 'http://purl.org/goodrelations/v1#Business',
+				'url'           => $list_url,
+			),
+		);
+		if ( has_post_thumbnail( $id ) ) {
+			$product['image'] = get_the_post_thumbnail_url( $id, 'artisraw-1200' );
+		}
+		$elements[] = array(
+			'@type'    => 'ListItem',
+			'position' => $pos + 1,
+			'item'     => $product,
+		);
+	}
+	artisraw_jsonld( array(
+		'@context'        => 'https://schema.org',
+		'@type'           => 'ItemList',
+		'itemListElement' => $elements,
+	) );
+}

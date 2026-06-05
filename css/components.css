@@ -87,6 +87,8 @@ a.trust-chip__link:hover { border-color: var(--c-amber-500); color: var(--c-espr
 .accordion__chevron { flex: none; color: var(--c-bark-700); transition: transform var(--dur-base) var(--ease-out); }
 .accordion__trigger[aria-expanded="true"] .accordion__chevron { transform: rotate(180deg); }
 .accordion__panel { overflow: hidden; }
+/* No-JS: show every answer (the toggle button can't work without JS). */
+html:not(.js) .accordion__panel[hidden] { display: block; }
 .accordion__answer { padding-bottom: var(--sp-3); }
 .accordion__answer p { color: var(--c-bark-700); }
 @media (prefers-reduced-motion: no-preference) {
