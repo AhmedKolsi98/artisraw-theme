@@ -1,0 +1,54 @@
+/* ==========================================================================
+   ArtisRaw — Client Area portal (Phase 9). Tokens only.
+   ========================================================================== */
+
+.account-notice { padding: var(--sp-2) var(--sp-3); border-radius: var(--radius-md); margin-bottom: var(--sp-3); font-weight: var(--fw-semibold); }
+.account-notice--ok  { background: var(--c-sand-200); border-left: 3px solid var(--c-amber-500); color: var(--c-espresso-900); }
+.account-notice--err { background: #fdecea; border-left: 3px solid #c0392b; color: #7a271a; }
+
+/* Login / register */
+.account-grid { display: grid; gap: var(--sp-4); margin-top: var(--sp-4); }
+@media (min-width: 768px) { .account-grid { grid-template-columns: 1fr 1fr; } }
+.account-card { padding: var(--sp-4); background: var(--c-paper-50); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+.account-card--wide { max-width: 720px; margin-top: var(--sp-4); }
+.account-card h2 { margin-bottom: var(--sp-3); }
+
+.account-form label { display: block; font-weight: var(--fw-semibold); font-size: var(--fs-ui); margin-bottom: 4px; }
+.account-form .field { margin-bottom: var(--sp-2); }
+.account-form input[type="email"],
+.account-form input[type="password"],
+.account-form input[type="text"] { width: 100%; min-height: 48px; padding: 0 var(--sp-2); border: 1px solid var(--color-border-dark); border-radius: var(--radius-md); background: var(--c-cream-100); font: inherit; }
+.account-form input:focus-visible { outline: var(--focus-ring-width) solid var(--focus-on-light); outline-offset: 1px; }
+.account-form .check { display: inline-flex; gap: var(--sp-1); align-items: center; margin-bottom: var(--sp-2); font-size: var(--fs-ui); font-weight: 400; }
+.account-forgot { margin-left: var(--sp-2); font-size: var(--fs-ui); }
+.account-fine { font-size: var(--fs-ui); color: var(--c-bark-700); margin-top: var(--sp-2); }
+
+/* Pending + dashboard chrome */
+.account-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2); margin: var(--sp-3) 0; }
+.account-logout { margin: var(--sp-3) 0 0; }
+.account-card .account-logout { margin-top: var(--sp-4); }
+.account-status { padding: var(--sp-2) var(--sp-3); background: var(--c-sand-200); border-left: 3px solid var(--c-amber-500); border-radius: var(--radius-md); }
+
+.account-section { margin-top: var(--sp-5); }
+.account-section > h2 { margin-bottom: var(--sp-3); }
+
+/* Quantity forms (inline) */
+.qty-form { display: flex; gap: var(--sp-1); align-items: center; flex-wrap: wrap; }
+.qty-form input[type="number"] { width: 6rem; min-height: 40px; padding: 0 var(--sp-1); border: 1px solid var(--color-border-dark); border-radius: var(--radius-md); background: var(--c-cream-100); font: inherit; }
+
+/* Product picker cards */
+.account-pick { height: 100%; padding: var(--sp-3); background: var(--c-paper-50); border: 1px solid var(--color-border); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: var(--sp-1); }
+.account-pick__name { font-size: var(--fs-ui); font-weight: var(--fw-semibold); margin: 0; }
+.account-pick__meta { color: var(--c-bark-700); margin: 0; }
+.account-pick .qty-form { margin-top: auto; padding-top: var(--sp-2); }
+
+.account-remove { color: #9a3412; }
+
+/* Submit + history */
+.account-submit { margin-top: var(--sp-3); max-width: 640px; }
+.account-submit textarea { width: 100%; min-height: 84px; padding: var(--sp-2); border: 1px solid var(--color-border-dark); border-radius: var(--radius-md); background: var(--c-cream-100); font: inherit; }
+.account-history { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-2); }
+.account-history__item { padding: var(--sp-3); background: var(--c-paper-50); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+.account-history__head { margin: 0; }
+.account-history__status { color: var(--c-amber-600); font-weight: var(--fw-semibold); }
+.account-history__items { font-size: var(--fs-ui); color: var(--c-bark-700); margin: 4px 0 0; }

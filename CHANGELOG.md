@@ -2,6 +2,22 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 9 — Client Area: B2B ordering portal
+
+- `inc/account.php`: account engine on the WordPress user system — registration (PENDING by default), email-based login, logout; per-IP rate limiting on register/login; nonce-protected PRG form handling.
+- Manual approval gate: "Approved wholesale buyer" checkbox + "Production status note" on the user-edit screen (`edit_user_profile`); buyer is emailed on first approval. Team is emailed on each new registration.
+- Order-list builder: add/update/remove SKUs (stored in user meta), "Request quote for this list" routes through the same email pipeline (team + autoresponder) and saves to order history with a status; reorder via history.
+- `tpl-account.php` at `/wholesale-account/` (the "Wholesale Login" destination): routes by state — login/register → pending → dashboard (production status, order builder, catalogue picker, history). Always noindex + excluded from the sitemap.
+- `css/account.css` (enqueued only on the portal template); page converted via the seeder (`ARTISRAW_PAGES_VER` → 5).
+
+### Verified
+- Full flow (cookie-jar integration test): register → logged-in pending view → admin approve → dashboard → add SKU (qty) → order list → submit → `notice=submitted`, order in history, cart cleared.
+- Access control: pending users see no order builder; logged-out POSTs rejected (nonce); register/login rate-limited.
+- Portal noindex + sitemap-excluded; all other pages unaffected by the init form-handler.
+
+### Pending (needs action)
+- Confirm portal-quote + approval emails in the live mailbox (wp_mail mirrors the proven quote pipeline); optionally add a lightweight admin list/bulk-approve and richer per-order production statuses.
+
 ## Phase 6 — Technical SEO layer & launch prep
 
 - `inc/seo-tech.php`: robots.txt (virtual) with AI-bot allows (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-Web, PerplexityBot, Google-Extended, Applebot-Extended, CCBot) + `Sitemap:` line per SPEC §6.8.

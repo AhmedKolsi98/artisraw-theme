@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ARTISRAW_PAGES_VER', 4 );
+define( 'ARTISRAW_PAGES_VER', 5 );
 
 function artisraw_seed_pages() {
 	if ( (int) get_option( 'artisraw_pages_ver' ) >= ARTISRAW_PAGES_VER ) {
@@ -203,7 +203,8 @@ function artisraw_phase1_page_data() {
 			'content'   => "<h2>Built for US importers</h2><p>We prepare the paperwork your customs broker needs and quote in USD. Air freight reaches the US in 5–12 days; ocean in 25–40.</p><ul><li>Lacey Act PPQ 505 declaration data per shipment</li><li>HTS 4419 classification guidance</li><li>USD invoicing and DDP options</li></ul>",
 		),
 		array(
-			'slug' => 'wholesale-account', 'title' => 'Open a Wholesale Account', 'template' => $T_TRUST,
+			'slug' => 'wholesale-account', 'title' => 'Wholesale Account', 'template' => 'tpl-account.php',
+			'meta' => array( 'seo_noindex' => '1' ), 'update' => true,
 			'seo_title' => 'Wholesale Account | Order Olive Wood Direct | ArtisRaw®',
 			'seo_desc'  => 'Apply for an ArtisRaw wholesale account: validated B2B pricing, SKU history, faster reorders and private-label support. MOQ from 50 units.',
 			'qa'        => 'A wholesale account gives validated professional buyers direct access to B2B pricing, saved SKU references, faster reorders and private-label support. Apply with your company details and destination market; quotes and terms are confirmed within 24 hours.',

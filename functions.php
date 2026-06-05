@@ -64,6 +64,11 @@ function artisraw_enqueue_assets() {
 	// Phase 5 — design-parity components + page layouts.
 	wp_enqueue_style( 'artisraw-phase5', ARTISRAW_URI . '/css/phase5.css', array( 'artisraw-components' ), artisraw_asset_ver( '/css/phase5.css' ) );
 
+	// Phase 9 — Client Area portal styles (only where the portal renders).
+	if ( is_page_template( 'tpl-account.php' ) ) {
+		wp_enqueue_style( 'artisraw-account', ARTISRAW_URI . '/css/account.css', array( 'artisraw-components' ), artisraw_asset_ver( '/css/account.css' ) );
+	}
+
 	// style.css holds only the theme header; load it last for overrides if needed.
 	wp_enqueue_style( 'artisraw-style', get_stylesheet_uri(), array( 'artisraw-layout' ), artisraw_asset_ver( '/style.css' ) );
 
@@ -147,4 +152,5 @@ require_once ARTISRAW_DIR . '/inc/seed-pages.php';
 require_once ARTISRAW_DIR . '/inc/components.php';
 require_once ARTISRAW_DIR . '/inc/quote-endpoint.php';
 require_once ARTISRAW_DIR . '/inc/newsletter-endpoint.php';
+require_once ARTISRAW_DIR . '/inc/account.php';
 require_once ARTISRAW_DIR . '/inc/images.php';
