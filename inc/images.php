@@ -14,6 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * URL for a downloadable document (stable filenames). Served from /downloads/
+ * to avoid colliding with the /references/ page.
+ */
+function artisraw_doc_url( $filename ) {
+	return home_url( '/downloads/' . ltrim( $filename, '/' ) );
+}
+
+/**
  * Render a responsive <img> from a theme-asset base path.
  *
  * @param array $a {

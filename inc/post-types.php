@@ -37,6 +37,60 @@ function artisraw_register_sku_cpt() {
 }
 add_action( 'init', 'artisraw_register_sku_cpt' );
 
+/**
+ * SKU category taxonomy (mirrors the 5 wholesale category URLs).
+ */
+function artisraw_register_sku_taxonomy() {
+	register_taxonomy( 'sku_category', 'sku', array(
+		'labels'       => array( 'name' => __( 'SKU categories', 'artisraw' ), 'singular_name' => __( 'SKU category', 'artisraw' ) ),
+		'public'       => false,
+		'show_ui'      => true,
+		'show_in_rest' => true,
+		'hierarchical' => true,
+		'rewrite'      => false,
+	) );
+	// Ensure the canonical terms exist.
+	$terms = array(
+		'cutting-boards'  => 'Cutting Boards',
+		'utensils'        => 'Utensils',
+		'bowls-serveware' => 'Bowls & Serveware',
+		'chess-sets'      => 'Chess Sets',
+		'decor-bath'      => 'Décor & Bath',
+	);
+	foreach ( $terms as $slug => $name ) {
+		if ( ! term_exists( $slug, 'sku_category' ) ) {
+			wp_insert_term( $name, 'sku_category', array( 'slug' => $slug ) );
+		}
+	}
+}
+add_action( 'init', 'artisraw_register_sku_taxonomy', 5 );
+
+/**
+ * Assign seeded SKUs to category terms (idempotent, keyed by SKU code).
+ */
+function artisraw_assign_sku_terms() {
+	if ( get_option( 'artisraw_sku_terms_done' ) ) {
+		return;
+	}
+	$map = array(
+		'AR-CB-30' => 'cutting-boards', 'AR-CB-45' => 'cutting-boards',
+		'AR-BW-25' => 'bowls-serveware', 'AR-MP-12' => 'bowls-serveware', 'AR-PB-4' => 'bowls-serveware',
+		'AR-UT-3'  => 'utensils',
+	);
+	$skus = get_posts( array( 'post_type' => 'sku', 'posts_per_page' => -1, 'fields' => 'ids' ) );
+	if ( empty( $skus ) ) {
+		return; // seed not run yet; try again next load.
+	}
+	foreach ( $skus as $id ) {
+		$code = get_post_meta( $id, 'sku_code', true );
+		if ( isset( $map[ $code ] ) ) {
+			wp_set_object_terms( $id, $map[ $code ], 'sku_category' );
+		}
+	}
+	update_option( 'artisraw_sku_terms_done', 1 );
+}
+add_action( 'init', 'artisraw_assign_sku_terms', 25 );
+
 /* -------------------------------------------------------------------------
  * Field reader: ACF when present, else raw post meta (same keys).
  * ---------------------------------------------------------------------- */
@@ -100,6 +154,24 @@ function artisraw_get_ready_skus( $limit = 6 ) {
 		$ids = get_posts( array( 'post_type' => 'sku', 'posts_per_page' => $limit, 'fields' => 'ids', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
 	}
 	return $ids;
+}
+
+/**
+ * SKU IDs in a given category term.
+ *
+ * @return int[]
+ */
+function artisraw_get_skus_by_term( $term_slug, $limit = 12 ) {
+	return get_posts( array(
+		'post_type'      => 'sku',
+		'posts_per_page' => $limit,
+		'fields'         => 'ids',
+		'orderby'        => 'menu_order',
+		'order'          => 'ASC',
+		'tax_query'      => array(
+			array( 'taxonomy' => 'sku_category', 'field' => 'slug', 'terms' => $term_slug ),
+		),
+	) );
 }
 
 /* -------------------------------------------------------------------------

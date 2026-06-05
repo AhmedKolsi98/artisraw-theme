@@ -450,3 +450,175 @@ function artisraw_quote_form( array $args = array() ) {
 	</form>
 	<?php
 }
+
+/* =========================================================================
+ * Phase 5 — design-parity components (mockup pages 1–5).
+ * ====================================================================== */
+
+/**
+ * Numbered process steps (services 8-step flow, how-to-order, QC timeline).
+ * $steps: [ [eyebrow, title, body] ]. Renders an ordered list of step cards.
+ */
+function artisraw_steps( array $steps, $start = 1 ) {
+	echo '<ol class="steps" role="list">';
+	foreach ( $steps as $i => $step ) {
+		$num   = str_pad( (string) ( $start + $i ), 2, '0', STR_PAD_LEFT );
+		$eyebrow = $step[0] ?? '';
+		$title   = $step[1] ?? '';
+		$body    = $step[2] ?? '';
+		echo '<li class="step">';
+		echo '<span class="step__num" aria-hidden="true">' . esc_html( $num ) . '</span>';
+		echo '<div class="step__body">';
+		if ( $eyebrow ) {
+			echo '<p class="step__eyebrow eyebrow">' . esc_html( $eyebrow ) . '</p>';
+		}
+		echo '<h3 class="step__title">' . esc_html( $title ) . '</h3>';
+		if ( $body ) {
+			echo '<p class="step__text">' . esc_html( $body ) . '</p>';
+		}
+		echo '</div></li>';
+	}
+	echo '</ol>';
+}
+
+/**
+ * Testimonial cards (mockup home "What they say"). $items: [ [quote, author, role, ?stars] ].
+ * Stars default to 5; rendered with an accessible label.
+ */
+function artisraw_testimonials( array $items, $heading = '' ) {
+	echo '<div class="testimonials">';
+	if ( $heading ) {
+		echo '<h2 class="testimonials__head">' . esc_html( $heading ) . '</h2>';
+	}
+	echo '<div class="testimonials__grid">';
+	foreach ( $items as $t ) {
+		$quote  = $t[0] ?? '';
+		$author = $t[1] ?? '';
+		$role   = $t[2] ?? '';
+		$stars  = isset( $t[3] ) ? max( 1, min( 5, (int) $t[3] ) ) : 5;
+		echo '<figure class="testimonial">';
+		printf(
+			'<p class="testimonial__stars" role="img" aria-label="%s">%s</p>',
+			esc_attr( sprintf( /* translators: %d: rating out of 5 */ __( 'Rated %d out of 5', 'artisraw' ), $stars ) ),
+			esc_html( str_repeat( '★', $stars ) . str_repeat( '☆', 5 - $stars ) )
+		);
+		echo '<blockquote class="testimonial__quote">' . esc_html( $quote ) . '</blockquote>';
+		echo '<figcaption class="testimonial__by">';
+		echo '<span class="testimonial__author">' . esc_html( $author ) . '</span>';
+		if ( $role ) {
+			echo '<span class="testimonial__role"> · ' . esc_html( $role ) . '</span>';
+		}
+		echo '</figcaption></figure>';
+	}
+	echo '</div></div>';
+}
+
+/**
+ * Newsletter signup (mockup footer/home "Stay in the know"). Progressive
+ * enhancement: posts to /artisraw/v1/newsletter via components.js; with JS off,
+ * the form GETs /contact/ so the buyer still has a path. Honeypot included.
+ * $args: id, heading, text, location, compact(bool).
+ */
+function artisraw_newsletter( array $args = array() ) {
+	$id       = $args['id'] ?? 'newsletter';
+	$heading  = $args['heading'] ?? __( 'Stay in the know', 'artisraw' );
+	$text     = $args['text'] ?? __( 'B2B updates, product launches and catalogue news — no more than monthly.', 'artisraw' );
+	$location = $args['location'] ?? 'inline';
+	$compact  = ! empty( $args['compact'] );
+	$endpoint = esc_url_raw( rest_url( 'artisraw/v1/newsletter' ) );
+	$nonce    = wp_create_nonce( 'wp_rest' );
+	$cls      = 'newsletter' . ( $compact ? ' newsletter--compact' : '' );
+	?>
+	<section class="<?php echo esc_attr( $cls ); ?>" aria-labelledby="<?php echo esc_attr( $id ); ?>-h">
+		<div class="newsletter__copy">
+			<h2 class="newsletter__head" id="<?php echo esc_attr( $id ); ?>-h"><?php echo esc_html( $heading ); ?></h2>
+			<p class="newsletter__text"><?php echo esc_html( $text ); ?></p>
+		</div>
+		<form class="newsletter__form" id="<?php echo esc_attr( $id ); ?>" data-newsletter
+			action="<?php echo esc_url( home_url( '/contact/' ) ); ?>" method="get"
+			data-endpoint="<?php echo esc_attr( $endpoint ); ?>"
+			data-nonce="<?php echo esc_attr( $nonce ); ?>"
+			data-location="<?php echo esc_attr( $location ); ?>">
+			<div class="newsletter__row">
+				<label class="visually-hidden" for="<?php echo esc_attr( $id ); ?>-email"><?php esc_html_e( 'Work email', 'artisraw' ); ?></label>
+				<input type="email" id="<?php echo esc_attr( $id ); ?>-email" name="email" autocomplete="email" required placeholder="<?php esc_attr_e( 'you@company.com', 'artisraw' ); ?>">
+				<?php // Honeypot — must stay empty. ?>
+				<span class="hp-field" aria-hidden="true"><label for="<?php echo esc_attr( $id ); ?>-hp"><?php esc_html_e( 'Leave empty', 'artisraw' ); ?></label><input type="text" id="<?php echo esc_attr( $id ); ?>-hp" name="website" tabindex="-1" autocomplete="off"></span>
+				<button type="submit" class="btn btn--primary newsletter__submit" data-ga="cta_click" data-ga-label="newsletter" data-ga-location="<?php echo esc_attr( $location ); ?>"><span class="btn__label"><?php esc_html_e( 'Subscribe', 'artisraw' ); ?></span></button>
+			</div>
+			<p class="newsletter__msg" data-newsletter-msg role="status" aria-live="polite" hidden></p>
+		</form>
+	</section>
+	<?php
+}
+
+/**
+ * Founders / team cards (mockup about + home teaser). $people: [ [name, role, bio] ].
+ */
+function artisraw_founders( array $people, $heading = '' ) {
+	echo '<div class="founders">';
+	if ( $heading ) {
+		echo '<h2 class="founders__head">' . esc_html( $heading ) . '</h2>';
+	}
+	echo '<div class="founders__grid">';
+	foreach ( $people as $p ) {
+		$name = $p[0] ?? '';
+		$role = $p[1] ?? '';
+		$bio  = $p[2] ?? '';
+		$initials = '';
+		foreach ( preg_split( '/\s+/', $name ) as $word ) {
+			$initials .= function_exists( 'mb_substr' ) ? mb_substr( $word, 0, 1 ) : substr( $word, 0, 1 );
+		}
+		echo '<figure class="founder">';
+		echo '<span class="founder__avatar" aria-hidden="true">' . esc_html( strtoupper( $initials ) ) . '</span>';
+		echo '<figcaption class="founder__body">';
+		echo '<p class="founder__role eyebrow">' . esc_html( $role ) . '</p>';
+		echo '<h3 class="founder__name">' . esc_html( $name ) . '</h3>';
+		if ( $bio ) {
+			echo '<p class="founder__bio">' . esc_html( $bio ) . '</p>';
+		}
+		echo '</figcaption></figure>';
+	}
+	echo '</div></div>';
+}
+
+/**
+ * Plant-a-tree program panel (mockup "Plant 1 tree for each order").
+ * $args: heading, text, stat_value, stat_label, cta_label, cta_url.
+ */
+function artisraw_plant_a_tree( array $args = array() ) {
+	$heading = $args['heading'] ?? __( 'We plant a tree for every order', 'artisraw' );
+	$text    = $args['text'] ?? __( 'ArtisRaw works only reclaimed, end-of-life Chemlali olive wood — and for every wholesale order we sponsor reforestation through trees.org, so the cycle keeps giving back.', 'artisraw' );
+	$value   = $args['stat_value'] ?? '10,790+';
+	$label   = $args['stat_label'] ?? __( 'Trees sponsored to date', 'artisraw' );
+	$cta_l   = $args['cta_label'] ?? __( 'Our sustainability approach', 'artisraw' );
+	$cta_u   = $args['cta_url'] ?? home_url( '/sustainability/' );
+	$leaf    = '<svg class="plant__icon" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34c0-9 5-15 14-16-1 9-6 15-14 16Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 34c0-7-4-12-11-13 .8 7 5 12 11 13Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 34V20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+	echo '<aside class="plant section--sand" aria-label="' . esc_attr__( 'Reforestation program', 'artisraw' ) . '">';
+	echo '<div class="container plant__inner">';
+	echo '<div class="plant__copy">' . $leaf;
+	echo '<h2 class="plant__head">' . esc_html( $heading ) . '</h2>';
+	echo '<p class="plant__text">' . esc_html( $text ) . '</p>';
+	echo '<p><a class="btn btn--tertiary" href="' . esc_url( $cta_u ) . '">' . esc_html( $cta_l ) . '</a></p>';
+	echo '</div>';
+	echo '<div class="plant__stat"><span class="plant__value" data-count-to="' . esc_attr( preg_replace( '/[^0-9]/', '', $value ) ) . '">' . esc_html( $value ) . '</span><span class="plant__label">' . esc_html( $label ) . '</span></div>';
+	echo '</div></aside>';
+}
+
+/**
+ * Instagram strip (mockup home). Static, curated — no third-party script in the
+ * critical path. $items: [ [caption, ?href] ]; $handle links to the profile.
+ */
+function artisraw_instagram_strip( array $items, $handle = 'artisraw', $profile_url = '' ) {
+	$profile_url = $profile_url ?: 'https://www.instagram.com/' . ltrim( $handle, '@' ) . '/';
+	echo '<section class="ig" aria-labelledby="ig-h">';
+	echo '<div class="ig__head"><h2 id="ig-h">' . esc_html__( 'From our Instagram', 'artisraw' ) . '</h2>';
+	echo '<a class="ig__follow" href="' . esc_url( $profile_url ) . '" rel="noopener" target="_blank">@' . esc_html( ltrim( $handle, '@' ) ) . ' <span aria-hidden="true">↗</span></a></div>';
+	echo '<ul class="ig__grid" role="list">';
+	foreach ( $items as $item ) {
+		$caption = $item[0] ?? '';
+		$href    = $item[1] ?? $profile_url;
+		echo '<li class="ig__cell"><a class="ig__link" href="' . esc_url( $href ) . '" rel="noopener" target="_blank"><span class="ig__caption">' . esc_html( $caption ) . '</span></a></li>';
+	}
+	echo '</ul></section>';
+}

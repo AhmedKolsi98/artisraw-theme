@@ -106,6 +106,50 @@
     refresh();
   }
 
+  /* --- Newsletter signup (progressive enhancement) --- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-newsletter]'), function (form) {
+    var endpoint = form.getAttribute('data-endpoint');
+    var nonce = form.getAttribute('data-nonce');
+    var msg = form.querySelector('[data-newsletter-msg]');
+    function say(text, ok) {
+      if (!msg) return;
+      msg.textContent = text;
+      msg.hidden = false;
+      msg.setAttribute('data-state', ok ? 'ok' : 'error');
+    }
+    form.addEventListener('submit', function (e) {
+      if (!endpoint || !window.fetch) return; // no-JS path already handled by action=/contact/
+      e.preventDefault();
+      var emailEl = form.querySelector('input[name="email"]');
+      var btn = form.querySelector('button[type="submit"]');
+      var body = {
+        email: emailEl ? emailEl.value : '',
+        website: (form.querySelector('input[name="website"]') || {}).value || '',
+        source: form.getAttribute('data-location') || 'inline'
+      };
+      if (btn) btn.setAttribute('aria-busy', 'true');
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-WP-Nonce': nonce },
+        body: JSON.stringify(body)
+      }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (btn) btn.removeAttribute('aria-busy');
+          if (res.ok && res.d.ok) {
+            form.reset();
+            say(res.d.message || 'You’re subscribed.', true);
+            track('newsletter_signup', { location: body.source });
+          } else {
+            say((res.d && res.d.message) || 'Something went wrong — please try again.', false);
+          }
+        })
+        .catch(function () {
+          if (btn) btn.removeAttribute('aria-busy');
+          say('Network error — please try again.', false);
+        });
+    });
+  });
+
   /* --- GA4 click delegation (cta_click, doc_download, whatsapp_click) --- */
   document.addEventListener('click', function (e) {
     var el = e.target.closest('[data-ga]');

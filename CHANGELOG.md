@@ -2,6 +2,47 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 5 — Design parity: visible pages & home sections
+
+- `tpl-services.php` → `/services/`: 6 core services, 12 buyer-profile chips, 3 service packs, 8-step process, selected clients, Services FAQ, quote form (mockup page 3).
+- `tpl-worldwide.php` → `/worldwide/`: honest hub-and-spoke SVG map (Sfax → 5 regions, CSS-driven, no JS), per-market support blocks (USA/Canada · EU · GCC · Asia), transit/Incoterms table, CTA (mockup page 4).
+- `/about/` enriched (component-rendered via `trust_extras=about`): four pillars, founders trio with bios, facility process strip, “Why Chemlali is superior” + founder quote.
+- `/production-process/` enriched (`trust_extras=process`): 8-step process overview + 6-point QC timeline.
+- `inc/components.php`: new reusable components — `artisraw_steps`, `artisraw_testimonials`, `artisraw_newsletter`, `artisraw_founders`, `artisraw_plant_a_tree`, `artisraw_instagram_strip`.
+- Home (`front-page.php`): visual-collections band, “Who we are” founders teaser, testimonials, plant-a-tree program panel, Instagram strip. Newsletter moved site-wide into the footer.
+- `inc/newsletter-endpoint.php`: REST `POST /artisraw/v1/newsletter` — honeypot + email validation, dedup store (`artisraw_newsletter_list`), team notify + autoresponder; `components.js` progressively enhances `[data-newsletter]` (no-JS falls back to `/contact/`).
+- Header: nav reorganised — **Services** is now a top-level dropdown (absorbs Private Label + Wholesale Production), **Worldwide / Export** added under Wholesale (net-zero top-level count, bar still fits 1180px). EN/FR language toggle added to the header (FR disabled until Phase 10 — no 404).
+- `inc/seed-pages.php`: `ARTISRAW_PAGES_VER` → 4; idempotent page **update** path added (`'update' => true`) so enrichment re-applies on version bumps; services + worldwide seeded with SEO/quick-answer.
+- `css/phase5.css`: all new component + page styles (tokens only). `html { overflow-x: clip }` guard added so the fixed off-canvas drawer can never widen the layout (clip keeps sticky header + vertical scroll intact).
+
+### Verified (Phase 5 QA gate)
+- Crawl of 26 URLs (24 HTML pages): **zero duplicate titles / metas / canonicals**, exactly 1 H1 each, quick-answer first under every H1.
+- **Zero broken links** across 67 internal links/assets; **no PHP warnings/notices** in output; JSON-LD valid (Organization + WebSite + BreadcrumbList) on the new pages.
+- Mobile a11y/overflow audit clean on new pages: 0 img-without-alt, 0 unnamed buttons, 0 heading skips, **scrollWidth == clientWidth** (overflow fixed sitewide).
+- Newsletter endpoint: valid → 200 + stored, invalid → 422, honeypot → silent 200. Desktop nav confirmed single-row with the new Services item + language toggle.
+
+### Pending (needs action)
+- Real photography for founders (initials-avatar placeholder in place), Instagram tiles (gradient placeholders) and lifestyle/collection imagery.
+- Connect the newsletter list to a real ESP (Mailchimp/Brevo) in Phase 6; wire the EN/FR toggle to real `/fr/` pages in Phase 10.
+
+## Phase 4 — All Phase-1 pages
+
+- `front-page.php` → tpl-home (CONTENT page 1): 9-section home (hero · trust · quick answer · 5 category cards · differentiators · who-we-serve · proof band + reference buyers · sustainability · latest guide · quote form). Static front page wired with exact SEO title/meta.
+- `tpl-category.php` → /wholesale/ index + category pages (cutting-boards, utensils, bowls-serveware, chess-sets, decor-bath) + /private-label-olive-wood/; `sku_category` taxonomy + filtered SKU grids + ItemList schema.
+- `tpl-trust.php` → certifications, quality-control, shipping-logistics, how-to-order, references (download centre), about, olive-wood-supplier-usa, wholesale-account, production-process, sustainability, olive-wood (Guide stub) — quick answer + body + optional downloads + trust strip + CTA.
+- `tpl-contact-faq.php` → /faq/ (16-Q FAQPage schema) + /contact/ (LocalBusiness schema + NAP) + /request-quote/ (trimmed header/footer).
+- `inc/seed-pages.php`: idempotent, versioned seeding of all Phase-1 pages with templates, SEO meta, quick answers and body copy. `/privacy/` page added.
+- Placeholder documents in `public/downloads/` (stable filenames) via `artisraw_doc_url()`; custom 404 with search + links; sticky CTA + nav cross-linking.
+
+### Verified (Phase 4 QA gate)
+- Crawl of 24 URLs: **zero duplicate titles / metas / canonicals**, 1 H1 each, quick-answer first under every H1.
+- **Zero broken links** across 59 internal links/assets on 20 pages; 404 returns real 404 with search + links.
+- Category SKU filtering (2/3 cards by term), FAQPage (16 Q), LocalBusiness, trimmed quote chrome all confirmed. Spot CWV/a11y clean (LCP 0.8 s, CLS 0 on hub/category).
+
+### Pending (needs action)
+- Replace `public/downloads/` placeholders with the real Q4 documents (same filenames); add real photography (hero + SKU + founder portraits).
+- Titles follow the CONTENT-approved wording (several exceed the 60-char display guideline by design — copy precedence).
+
 ## Phase 3 — First template end-to-end: the wholesale hub
 
 - `tpl-wholesale-hub.php`: the money page `/olive-wood-wholesale-supplier/` per CONTENT page 2 — 9 sections, one idea each: hero (offer + terms + CTA) → trust strip → quick answer → ready-to-ship SKU grid → QC stats + US/EU import-confidence → mid quote form → core services → micro-FAQ → logistics/Incoterms table + download centre + trusted-client band → end quote form. Form mid + end; every claim → /references/.

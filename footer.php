@@ -16,13 +16,13 @@ function artisraw_render_footer_nav() {
 	$links = array(
 		array( __( 'Wholesale Hub', 'artisraw' ), home_url( '/olive-wood-wholesale-supplier/' ) ),
 		array( __( 'Catalogue', 'artisraw' ), home_url( '/wholesale/' ) ),
+		array( __( 'Services', 'artisraw' ), home_url( '/services/' ) ),
 		array( __( 'Private Label', 'artisraw' ), home_url( '/private-label-olive-wood/' ) ),
-		array( __( 'Certifications', 'artisraw' ), home_url( '/certifications/' ) ),
-		array( __( 'Quality Control', 'artisraw' ), home_url( '/quality-control/' ) ),
+		array( __( 'Worldwide / Export', 'artisraw' ), home_url( '/worldwide/' ) ),
 		array( __( 'Shipping & Logistics', 'artisraw' ), home_url( '/shipping-logistics/' ) ),
-		array( __( 'How to Order', 'artisraw' ), home_url( '/how-to-order/' ) ),
 		array( __( 'References & Downloads', 'artisraw' ), home_url( '/references/' ) ),
 		array( __( 'Olive Wood Guide', 'artisraw' ), home_url( '/olive-wood/' ) ),
+		array( __( 'Certifications', 'artisraw' ), home_url( '/certifications/' ) ),
 		array( __( 'About', 'artisraw' ), home_url( '/about/' ) ),
 		array( __( 'Contact', 'artisraw' ), home_url( '/contact/' ) ),
 		array( __( 'Request a Quote', 'artisraw' ), home_url( '/request-quote/' ) ),
@@ -37,6 +37,17 @@ function artisraw_render_footer_nav() {
 </main><!-- #main -->
 
 <footer class="site-footer on-dark" role="contentinfo">
+
+	<div class="site-footer__news container">
+		<?php
+		artisraw_newsletter( array(
+			'id'       => 'footer-newsletter',
+			'location' => 'footer',
+			'compact'  => true,
+		) );
+		?>
+	</div>
+
 	<div class="site-footer__inner container grid">
 
 		<div class="site-footer__brand col-4">

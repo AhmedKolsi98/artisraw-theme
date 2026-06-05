@@ -48,3 +48,33 @@
 /* --- Hub: forms + downloads -------------------------------------------- */
 .hub-form-wrap { max-width: 680px; }
 .hub-downloads__title { margin-top: var(--sp-5); margin-bottom: var(--sp-3); }
+
+/* --- Trust page prose --------------------------------------------------- */
+.trust-body { max-width: 70ch; }
+.trust-body h2 { margin-top: var(--sp-5); }
+.trust-body h3 { margin-top: var(--sp-4); }
+.trust-body p, .trust-body ul, .trust-body ol { margin-top: var(--sp-2); }
+.trust-body ul, .trust-body ol { padding-left: var(--sp-3); }
+.trust-body li { margin-bottom: var(--sp-1); }
+.trust-body table { width: 100%; border-collapse: collapse; margin-top: var(--sp-3); font-size: var(--fs-ui); }
+.trust-body th, .trust-body td { text-align: left; padding: var(--sp-2); border-bottom: 1px solid var(--color-border); }
+.trust-body thead th { background: var(--c-espresso-900); color: var(--c-cream-100); }
+
+/* --- Contact layout ----------------------------------------------------- */
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: var(--sp-5); }
+@media (min-width: 1024px) { .contact-grid { grid-template-columns: 1.3fr 1fr; gap: var(--sp-6); } }
+.contact-nap { font-style: normal; line-height: var(--lh-body); font-size: var(--fs-body); }
+.contact-grid__nap h2 { margin-bottom: var(--sp-2); }
+
+/* --- Trimmed chrome on /request-quote/ (SPEC §5.6) --------------------- */
+.is-trimmed .nav,
+.is-trimmed .nav-toggle,
+.is-trimmed .site-footer__nav,
+.is-trimmed .site-footer__contact,
+.is-trimmed .site-footer__news,
+.is-trimmed .lang-toggle,
+.is-trimmed .sticky-cta { display: none !important; }
+.is-trimmed .breadcrumb { display: none; }
+
+/* --- Footer newsletter band -------------------------------------------- */
+.site-footer__news { padding-block: var(--sp-5) 0; }

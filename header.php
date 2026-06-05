@@ -37,10 +37,20 @@ function artisraw_primary_items() {
 				array( 'label' => __( 'Wholesale Hub', 'artisraw' ), 'url' => home_url( '/olive-wood-wholesale-supplier/' ) ),
 				array( 'label' => __( 'How to Order', 'artisraw' ), 'url' => home_url( '/how-to-order/' ) ),
 				array( 'label' => __( 'Shipping & Logistics', 'artisraw' ), 'url' => home_url( '/shipping-logistics/' ) ),
+				array( 'label' => __( 'Worldwide / Export', 'artisraw' ), 'url' => home_url( '/worldwide/' ) ),
 				array( 'label' => __( 'References & Downloads', 'artisraw' ), 'url' => home_url( '/references/' ) ),
 			),
 		),
-		array( 'label' => __( 'Private Label', 'artisraw' ), 'url' => home_url( '/private-label-olive-wood/' ) ),
+		// What we do for buyers — services hub absorbs private label as a child.
+		array(
+			'label'    => __( 'Services', 'artisraw' ),
+			'url'      => home_url( '/services/' ),
+			'children' => array(
+				array( 'label' => __( 'Services Overview', 'artisraw' ), 'url' => home_url( '/services/' ) ),
+				array( 'label' => __( 'Private Label', 'artisraw' ), 'url' => home_url( '/private-label-olive-wood/' ) ),
+				array( 'label' => __( 'Wholesale Production', 'artisraw' ), 'url' => home_url( '/olive-wood-wholesale-supplier/' ) ),
+			),
+		),
 		// Trust & proof.
 		array(
 			'label'    => __( 'Why ArtisRaw', 'artisraw' ),
@@ -160,6 +170,12 @@ function artisraw_render_primary_nav() {
 			<div class="nav__actions">
 				<a class="btn btn--primary nav__cta" href="<?php echo esc_url( home_url( '/request-quote/' ) ); ?>"><?php esc_html_e( 'Request Quote', 'artisraw' ); ?></a>
 				<a class="nav__login" href="<?php echo esc_url( home_url( '/wholesale-account/' ) ); ?>"><?php esc_html_e( 'Wholesale Login', 'artisraw' ); ?></a>
+				<?php // Language toggle — FR translations land in Phase 10; placeholder is disabled (no 404). ?>
+				<div class="lang-toggle" role="group" aria-label="<?php esc_attr_e( 'Language', 'artisraw' ); ?>">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-current="true">EN</a>
+					<span class="lang-toggle__sep" aria-hidden="true">/</span>
+					<span class="is-disabled" aria-disabled="true" title="<?php esc_attr_e( 'French coming soon', 'artisraw' ); ?>">FR</span>
+				</div>
 			</div>
 		</nav>
 

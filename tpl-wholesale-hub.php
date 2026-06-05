@@ -184,9 +184,9 @@ artisraw_stat_band( array(
 		<div class="grid">
 			<?php
 			$docs = array(
-				array( 'title' => __( 'Wholesale line-sheet', 'artisraw' ), 'type' => 'PDF', 'size' => '2.1 MB', 'updated' => 'Jun 2026', 'href' => home_url( '/references/line-sheet.pdf' ), 'name' => 'line-sheet' ),
-				array( 'title' => __( 'Compliance pack (Lacey / EUDR)', 'artisraw' ), 'type' => 'ZIP', 'size' => '8.4 MB', 'updated' => 'Jun 2026', 'href' => home_url( '/references/compliance-pack.zip' ), 'name' => 'compliance-pack' ),
-				array( 'title' => __( 'ISO 9001:2015 certificate', 'artisraw' ), 'type' => 'PDF', 'size' => '1.2 MB', 'updated' => 'May 2026', 'href' => home_url( '/references/iso_9001_2015.pdf' ), 'name' => 'iso_9001_2015' ),
+				array( 'title' => __( 'Wholesale line-sheet', 'artisraw' ), 'type' => 'PDF', 'size' => '2.1 MB', 'updated' => 'Jun 2026', 'href' => artisraw_doc_url( 'line-sheet.pdf' ), 'name' => 'line-sheet' ),
+				array( 'title' => __( 'Compliance pack (Lacey / EUDR)', 'artisraw' ), 'type' => 'ZIP', 'size' => '8.4 MB', 'updated' => 'Jun 2026', 'href' => artisraw_doc_url( 'compliance-pack.zip' ), 'name' => 'compliance-pack' ),
+				array( 'title' => __( 'ISO 9001:2015 certificate', 'artisraw' ), 'type' => 'PDF', 'size' => '1.2 MB', 'updated' => 'May 2026', 'href' => artisraw_doc_url( 'iso_9001_2015.pdf' ), 'name' => 'iso_9001_2015' ),
 			);
 			foreach ( $docs as $d ) {
 				echo '<div class="col-4">';

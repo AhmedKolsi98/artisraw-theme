@@ -6,9 +6,11 @@
 /* --- Reset -------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-/* The off-canvas drawer sits at translateX(100%); clip horizontal overflow so
-   it never widens the layout. `clip` (not `hidden`) keeps position:sticky working. */
+/* The off-canvas drawer is position:fixed at translateX(100%) — contained by the
+   viewport, so a body-level clip can't reach it. Clip on the root (html) instead.
+   `clip` (not `hidden`) keeps overflow-y visible, so vertical scroll and the
+   sticky header are unaffected. */
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; overflow-x: clip; }
 body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

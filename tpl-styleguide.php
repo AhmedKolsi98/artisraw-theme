@@ -40,9 +40,9 @@ $sg_stats = array(
 );
 
 $sg_docs = array(
-	array( 'title' => 'ISO 9001:2015 certificate', 'type' => 'PDF', 'size' => '1.2 MB', 'updated' => 'May 2026', 'href' => home_url( '/references/iso_9001_2015.pdf' ), 'name' => 'iso_9001_2015' ),
-	array( 'title' => 'Compliance pack (Lacey / EUDR)', 'type' => 'ZIP', 'size' => '8.4 MB', 'updated' => 'May 2026', 'href' => home_url( '/references/compliance-pack.zip' ), 'name' => 'compliance-pack' ),
-	array( 'title' => 'Finish MSDS', 'type' => 'PDF', 'size' => '420 KB', 'updated' => 'Apr 2026', 'href' => home_url( '/references/finish_msds.pdf' ), 'name' => 'finish_msds' ),
+	array( 'title' => 'ISO 9001:2015 certificate', 'type' => 'PDF', 'size' => '1.2 MB', 'updated' => 'May 2026', 'href' => artisraw_doc_url( 'iso_9001_2015.pdf' ), 'name' => 'iso_9001_2015' ),
+	array( 'title' => 'Compliance pack (Lacey / EUDR)', 'type' => 'ZIP', 'size' => '8.4 MB', 'updated' => 'May 2026', 'href' => artisraw_doc_url( 'compliance-pack.zip' ), 'name' => 'compliance-pack' ),
+	array( 'title' => 'Finish MSDS', 'type' => 'PDF', 'size' => '420 KB', 'updated' => 'Apr 2026', 'href' => artisraw_doc_url( 'finish_msds.pdf' ), 'name' => 'finish_msds' ),
 );
 
 $sg_cats = array(

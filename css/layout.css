@@ -143,9 +143,9 @@
     transform: none; background: transparent; box-shadow: none;
     padding: 0; overflow: visible;
     flex-direction: row; align-items: center; gap: var(--sp-3);
-    flex: 1 1 auto; justify-content: flex-end;
+    flex: 1 1 auto; justify-content: flex-start;   /* links sit just after the logo */
   }
-  .nav__list { flex-direction: row; align-items: center; gap: var(--sp-1); flex-wrap: nowrap; }
+  .nav__list { flex-direction: row; align-items: center; gap: var(--sp-2); flex-wrap: nowrap; }
   .nav__item { flex: 0 0 auto; }                 /* keep each item's width */
   .nav__link { white-space: nowrap; }            /* labels never wrap to 2 lines */
   /* Parent link: label + inline chevron hug together as one focus target. */
@@ -176,8 +176,18 @@
   .nav__item--has-children:focus-within .nav__sub,
   .nav__item.is-open .nav__sub { display: block; }
 
-  .nav__actions { margin: 0 0 0 var(--sp-2); padding: 0; border: 0; flex-direction: row; align-items: center; gap: var(--sp-3); }
+  /* Actions float to the far right, set off from the links by a divider. */
+  .nav__actions {
+    margin: 0 0 0 auto; padding: 0 0 0 var(--sp-3);
+    border: 0; border-left: 1px solid var(--color-border);
+    flex-direction: row; align-items: center; gap: var(--sp-3);
+  }
   .nav__cta { width: auto; }
+  /* Order so the amber CTA anchors the right edge (mobile DOM order untouched):
+     Login · EN/FR · Request Quote. */
+  .nav__login { order: 1; }
+  .lang-toggle { order: 2; margin-left: 0; }
+  .nav__cta { order: 3; }
 }
 
 /* --- Breadcrumb -------------------------------------------------------- */
