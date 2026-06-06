@@ -1,0 +1,93 @@
+/* ==========================================================================
+   ArtisRaw — Figma visual integration (Phase 12). Tokens only.
+   Figma component language ported onto our skeleton: captioned grids, trio
+   wayfinding band, value/stat cards, QC timeline, feature quote, product strip.
+   ========================================================================== */
+
+/* --- Steps: numbered variant (Figma big corner numeral) ----------------- */
+.steps--numbered .step { display: block; padding-bottom: var(--sp-5); overflow: hidden; }
+.steps--numbered .step__num {
+  position: absolute; right: var(--sp-2); bottom: var(--sp-1);
+  font-size: 2.75rem; color: var(--c-sand-200); line-height: 1; pointer-events: none;
+}
+.steps--numbered .step__body { position: relative; z-index: 1; }
+
+/* --- Captioned image grid (Figma .cap-grid) ----------------------------- */
+.caption-grid__intro { max-width: 60ch; }
+.caption-grid { display: grid; gap: var(--sp-3); grid-template-columns: repeat(2, 1fr); margin-top: var(--sp-4); }
+@media (min-width: 900px) { .caption-grid { grid-template-columns: repeat(4, 1fr); } }
+.caption-grid__tile { position: relative; margin: 0; display: block; }
+.caption-grid__img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-sm); display: block; }
+.caption-grid__cap {
+  position: absolute; left: var(--sp-1); right: var(--sp-1); bottom: var(--sp-1);
+  background: var(--c-paper-50); color: var(--c-espresso-900);
+  font-size: var(--fs-micro); font-weight: var(--fw-bold); letter-spacing: var(--tracking-micro);
+  text-transform: uppercase; padding: var(--sp-1) var(--sp-2); border-radius: var(--radius-sm);
+}
+
+/* --- Trio CTA band (Figma .trio) ---------------------------------------- */
+.trio-band { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 820px) { .trio-band { grid-template-columns: repeat(3, 1fr); } }
+.trio-band__tile {
+  min-height: 190px; padding: var(--sp-3); text-decoration: none;
+  display: flex; flex-direction: column; justify-content: space-between;
+  font-weight: var(--fw-bold); font-size: var(--fs-ui);
+}
+.trio-band__label { font-family: var(--ff-serif); font-size: var(--fs-subheading); line-height: var(--lh-subheading); max-width: 18ch; }
+.trio-band__cue { font-size: var(--fs-ui); display: inline-flex; align-items: center; gap: var(--sp-1); }
+.trio-band__cue .arrow-link__arrow { transition: transform 150ms var(--ease-out); }
+.trio-band__tile:hover .arrow-link__arrow { transform: translateX(4px); }
+.trio-band__tile--espresso { background: var(--c-espresso-900); color: var(--c-cream-100); }
+.trio-band__tile--olive    { background: var(--c-olive-600);    color: var(--c-cream-100); }
+.trio-band__tile--sand     { background: var(--c-sand-200);     color: var(--c-espresso-900); }
+.trio-band__tile--espresso:hover .trio-band__cue, .trio-band__tile--olive:hover .trio-band__cue { color: var(--c-amber-500); }
+.trio-band__tile--sand:hover .trio-band__cue { color: var(--c-bark-700); }
+@media (prefers-reduced-motion: reduce) { .trio-band__tile:hover .arrow-link__arrow { transform: none; } }
+
+/* --- Value cards (Figma About .value-grid) ------------------------------ */
+.value-cards { display: grid; gap: var(--sp-3); grid-template-columns: 1fr; margin-top: var(--sp-4); }
+@media (min-width: 768px) { .value-cards { grid-template-columns: 1fr 1fr; } }
+.value-card { padding: var(--sp-4); border-radius: var(--radius-sm); color: var(--c-cream-100); }
+.value-card__title { color: var(--c-cream-100); font-size: var(--fs-subheading); margin: 0 0 var(--sp-1); }
+.value-card__body { color: var(--c-sand-200); font-size: var(--fs-ui); margin: 0; }
+.value-card--0 { background: var(--c-espresso-900); }
+.value-card--1 { background: var(--c-olive-600); }
+.value-card--2 { background: var(--c-bark-700); }
+.value-card--3 { background: var(--c-espresso-800); }
+
+/* --- Stat cards (Figma About "More than a workshop") -------------------- */
+.stat-cards__intro { max-width: 78ch; }
+.stat-cards { display: grid; gap: var(--sp-3); grid-template-columns: repeat(2, 1fr); margin-top: var(--sp-4); }
+@media (min-width: 900px) { .stat-cards { grid-template-columns: repeat(4, 1fr); } }
+.stat-card { background: var(--c-paper-50); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--sp-3); }
+.stat-card__label { display: block; margin-bottom: var(--sp-1); }
+.stat-card__value { font-family: var(--ff-serif); font-size: var(--fs-heading); line-height: 1; display: block; margin-bottom: var(--sp-1); }
+.stat-card__note { font-size: var(--fs-ui); color: var(--c-bark-700); }
+
+/* --- QC timeline (Figma Process .qc-grid) ------------------------------- */
+.qc-timeline__intro { max-width: 70ch; }
+.qc-timeline { list-style: none; margin: var(--sp-4) 0 0; padding: 0; display: grid; gap: var(--sp-2); grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 900px) { .qc-timeline { grid-template-columns: repeat(6, 1fr); } }
+.qc-check { background: var(--c-paper-50); border-top: 3px solid var(--c-amber-500); border-radius: var(--radius-sm); padding: var(--sp-2); box-shadow: var(--shadow-card); }
+.qc-check__title { font-size: var(--fs-ui); font-weight: var(--fw-bold); margin: 0 0 var(--sp-1); }
+.qc-check__body { font-size: var(--fs-micro); line-height: var(--lh-body); color: var(--c-bark-700); margin: 0; }
+
+/* --- Feature testimonial (Figma .testimonial) --------------------------- */
+.feature-quote { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 820px) { .feature-quote { grid-template-columns: 1fr 1fr; } }
+.feature-quote__img { width: 100%; height: 100%; object-fit: cover; min-height: 320px; display: block; }
+.feature-quote__field { background: var(--c-paper-50); padding: var(--sp-6) var(--sp-5); display: flex; flex-direction: column; justify-content: center; }
+.feature-quote__head { font-size: var(--fs-heading); margin: 0 0 var(--sp-2); }
+.feature-quote__quote { margin: 0 0 var(--sp-2); font-size: var(--fs-lead); line-height: var(--lh-lead); max-width: 48ch; }
+.feature-quote__by { font-size: var(--fs-ui); color: var(--c-bark-700); margin: 0 0 var(--sp-2); }
+@media (min-width: 820px) {
+  .feature-quote--field-left .feature-quote__field { order: 1; }
+  .feature-quote--field-left .feature-quote__photo { order: 2; }
+}
+
+/* --- Hero-products strip (Figma .product-strip) ------------------------- */
+.product-strip { display: grid; gap: var(--sp-2); grid-template-columns: repeat(2, 1fr); margin-top: var(--sp-4); }
+@media (min-width: 900px) { .product-strip { grid-template-columns: repeat(5, 1fr); } }
+.product-strip__card { background: var(--c-sand-200); padding: var(--sp-2); display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); }
+.product-strip__img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; mix-blend-mode: multiply; }
+.product-strip__cta { margin-top: var(--sp-3); }

@@ -300,5 +300,94 @@ artisraw_color_block( array( 'field' => 'leaf', 'field_left' => true, 'eyebrow' 
 	<?php artisraw_quote_block( array( 'id' => 'sg-quote-block', 'location' => 'styleguide' ) ); ?>
 </div>
 
+<?php // ===================== Phase 12.1 — Figma component library ===================== ?>
+<div class="container section">
+	<?php sg_h( 'Captioned image grid (Figma)', 'Square photos with an overlaid paper caption label; runs through our responsive pipeline.' ); ?>
+	<?php
+	artisraw_caption_grid( array(
+		array( 'base' => '/assets/ar-grove', 'alt' => 'Olive grove', 'caption' => 'Responsible sourcing', 'w' => 1273, 'h' => 900, 'widths' => array( 600, 1200 ) ),
+		array( 'base' => '/assets/ar-workshop', 'alt' => 'Workshop', 'caption' => 'Handmade production', 'w' => 1400, 'h' => 900, 'widths' => array( 600, 1200 ) ),
+		array( 'base' => '/assets/ar-boards', 'alt' => 'Board grain', 'caption' => 'Chemlali dense grain', 'w' => 548, 'h' => 365, 'widths' => array( 600 ) ),
+		array( 'base' => '/assets/ar-grove', 'alt' => 'Collections', 'caption' => 'Premium B2B collections', 'w' => 1273, 'h' => 900, 'widths' => array( 600, 1200 ) ),
+	), 'From tree, to workshop, to wholesale, to shelves' );
+	?>
+
+	<?php sg_h( 'Numbered steps (Figma variant)', 'The existing steps component with a large faded corner numeral.' ); ?>
+	<?php
+	artisraw_steps( array(
+		array( '', 'Responsible sourcing', 'End-of-life Chemlali olive trees only.' ),
+		array( '', 'Drying & curing', 'Stabilised before cutting and shaping.' ),
+		array( '', 'Cutting & shaping', 'Controlled dimensions per SKU.' ),
+		array( '', 'Hand finishing', 'Sanded, polished and refined by hand.' ),
+	), 1, array( 'numbered' => true ) );
+	?>
+
+	<?php sg_h( 'Value cards (Figma About)', 'Dark pillar cards; surfaces cycle espresso / olive / bark / espresso-800.' ); ?>
+	<?php
+	artisraw_value_cards( array(
+		array( 'heading' => 'Premium craftsmanship', 'body' => 'Each piece reveals the character and durability of olive wood.' ),
+		array( 'heading' => 'Excellence & reliability', 'body' => 'Selection, QC and food-safe finishing on every unit.' ),
+		array( 'heading' => 'Heritage & innovation', 'body' => 'Traditional expertise with modern production standards.' ),
+		array( 'heading' => 'Sustainability & impact', 'body' => 'Reclaimed wood, responsible sourcing, lasting creations.' ),
+	) );
+	?>
+
+	<?php sg_h( 'Stat cards (Figma About)', 'Labelled metric cards — Location / Factory / Team / Capacity.' ); ?>
+	<?php
+	artisraw_stat_cards( array(
+		array( 'label' => 'Location', 'value' => 'Sfax', 'note' => 'Route Saltania Km 4.5, Tunisia.' ),
+		array( 'label' => 'Facility type', 'value' => 'Factory', 'note' => 'Dedicated olive-wood plant.' ),
+		array( 'label' => 'Team', 'value' => '11+', 'note' => 'Artisans, designers, QC, operations.' ),
+		array( 'label' => 'Capacity', 'value' => '1000+', 'note' => 'Unit orders fulfilled regularly.' ),
+	) );
+	?>
+
+	<?php sg_h( 'QC timeline (Figma Process)', 'Six checkpoint cards with an amber top rule.' ); ?>
+	<?php
+	artisraw_qc_timeline( array(
+		array( 'heading' => 'Raw material', 'body' => 'Trunk integrity and density reviewed.' ),
+		array( 'heading' => 'Cutting', 'body' => 'Dimensions per SKU verified.' ),
+		array( 'heading' => 'Surface', 'body' => 'Smoothness and grain inspected.' ),
+		array( 'heading' => 'Finish', 'body' => 'Food-safe oil and wax coverage.' ),
+		array( 'heading' => 'Packing', 'body' => 'Carton specs and labelling.' ),
+		array( 'heading' => 'Export', 'body' => 'Documents and traceability validated.' ),
+	) );
+	?>
+</div>
+
+<?php // Trio band + feature quote + product strip are full-bleed bands. ?>
+<div class="container section"><?php sg_h( 'Trio CTA band (Figma)', 'Three colored wayfinding tiles — espresso / olive / sand.' ); ?></div>
+<?php
+artisraw_trio_band( array(
+	array( 'label' => 'Discover the real olive-wood quality', 'cue' => 'Discover more', 'href' => '#' ),
+	array( 'label' => 'Our process', 'cue' => 'Learn more', 'href' => '#' ),
+	array( 'label' => 'FAQs', 'cue' => 'Read more', 'href' => '#' ),
+) );
+?>
+
+<div class="container section"><?php sg_h( 'Feature testimonial (Figma)', 'One photo beside a paper field with the quote — complements the voices carousel.' ); ?></div>
+<?php
+artisraw_testimonial_feature( array(
+	'heading' => 'What they say…',
+	'quote'   => 'ArtisRaw is reliable, consistent and easy to work with. Their handmade olive wood helped us build a premium retail collection.',
+	'author'  => 'Retail buyer', 'role' => 'Specialty retailer, United Kingdom',
+	'link_label' => 'More buyer stories', 'link_url' => '#',
+	'img_base' => '/assets/ar-workshop', 'img_alt' => 'Trade fair booth', 'img_w' => 1400, 'img_h' => 900, 'img_widths' => array( 600, 1200 ),
+) );
+?>
+
+<div class="container section">
+	<?php sg_h( 'Hero-products strip (Figma)', 'Product cutouts on sand cards, mix-blend-multiply.' ); ?>
+	<?php
+	artisraw_product_strip( array(
+		array( 'base' => '/assets/ar-boards', 'alt' => 'Serving boards', 'w' => 548, 'h' => 365, 'widths' => array( 600 ) ),
+		array( 'base' => '/assets/ar-boards', 'alt' => 'Chess set', 'w' => 548, 'h' => 365, 'widths' => array( 600 ) ),
+		array( 'base' => '/assets/ar-boards', 'alt' => 'Utensils', 'w' => 548, 'h' => 365, 'widths' => array( 600 ) ),
+		array( 'base' => '/assets/ar-boards', 'alt' => 'Mortar', 'w' => 548, 'h' => 365, 'widths' => array( 600 ) ),
+		array( 'base' => '/assets/ar-boards', 'alt' => 'Bowls', 'w' => 548, 'h' => 365, 'widths' => array( 600 ) ),
+	), 'Hero products', array( 'label' => 'See the catalogue', 'href' => '#' ) );
+	?>
+</div>
+
 <?php
 get_footer();

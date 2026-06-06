@@ -459,8 +459,9 @@ function artisraw_quote_form( array $args = array() ) {
  * Numbered process steps (services 8-step flow, how-to-order, QC timeline).
  * $steps: [ [eyebrow, title, body] ]. Renders an ordered list of step cards.
  */
-function artisraw_steps( array $steps, $start = 1 ) {
-	echo '<ol class="steps" role="list">';
+function artisraw_steps( array $steps, $start = 1, $args = array() ) {
+	$cls = 'steps' . ( ! empty( $args['numbered'] ) ? ' steps--numbered' : '' );
+	echo '<ol class="' . esc_attr( $cls ) . '" role="list">';
 	foreach ( $steps as $i => $step ) {
 		$num   = str_pad( (string) ( $start + $i ), 2, '0', STR_PAD_LEFT );
 		$eyebrow = $step[0] ?? '';
@@ -847,4 +848,202 @@ function artisraw_iso_badge( array $a = array() ) {
 		esc_html( $year ),
 		esc_html__( 'Company', 'artisraw' )
 	);
+}
+
+/* =========================================================================
+ * Phase 12.1 — Figma component library (merged into our pipelines).
+ * ====================================================================== */
+
+/**
+ * Captioned image grid (Figma `.cap-grid`): square photos with an overlaid
+ * paper caption label. Distinct from photo_mosaic (variable tile sizes).
+ * $tiles: each [ 'base'=>'/assets/grove', 'alt'=>…, 'caption'=>…, 'w'=>, 'h'=>,
+ *   'widths'=>[600,1200], 'href'=>(optional) ].
+ */
+function artisraw_caption_grid( array $tiles, $heading = '', $intro = '' ) {
+	echo '<div class="caption-grid-wrap">';
+	if ( $heading ) {
+		echo '<div class="section-opener"><h2>' . esc_html( $heading ) . '</h2></div>';
+	}
+	if ( $intro ) {
+		echo '<p class="lead caption-grid__intro">' . esc_html( $intro ) . '</p>';
+	}
+	echo '<div class="caption-grid">';
+	foreach ( $tiles as $t ) {
+		$href = $t['href'] ?? '';
+		$tag  = $href ? 'a' : 'figure';
+		$attr = $href ? ' href="' . esc_url( $href ) . '"' : '';
+		echo '<' . $tag . ' class="caption-grid__tile"' . $attr . '>';
+		artisraw_responsive_image( array(
+			'base'   => $t['base'],
+			'alt'    => $t['alt'] ?? '',
+			'class'  => 'caption-grid__img',
+			'width'  => $t['w'] ?? 800,
+			'height' => $t['h'] ?? 800,
+			'widths' => $t['widths'] ?? array( 600, 1200 ),
+			'sizes'  => '(min-width: 900px) 25vw, 50vw',
+		) );
+		if ( ! empty( $t['caption'] ) ) {
+			echo '<figcaption class="caption-grid__cap">' . esc_html( $t['caption'] ) . '</figcaption>';
+		}
+		echo '</' . $tag . '>';
+	}
+	echo '</div></div>';
+}
+
+/**
+ * Trio CTA band (Figma `.trio`): three colored wayfinding tiles. Each links
+ * out with a label + "go" cue. $items: each [ 'label'=>…, 'cue'=>…, 'href'=>… ].
+ * Up to three tiles; surfaces cycle espresso → olive → sand.
+ */
+function artisraw_trio_band( array $items ) {
+	$surfaces = array( 'espresso', 'olive', 'sand' );
+	echo '<div class="trio-band">';
+	foreach ( array_slice( $items, 0, 3 ) as $i => $it ) {
+		printf(
+			'<a class="trio-band__tile trio-band__tile--%s" href="%s"><span class="trio-band__label">%s</span><span class="trio-band__cue">%s <span class="arrow-link__arrow" aria-hidden="true">&rarr;</span></span></a>',
+			esc_attr( $surfaces[ $i ] ),
+			esc_url( $it['href'] ?? '#' ),
+			esc_html( $it['label'] ?? '' ),
+			esc_html( $it['cue'] ?? __( 'Discover more', 'artisraw' ) )
+		);
+	}
+	echo '</div>';
+}
+
+/**
+ * Value cards (Figma About `.value-grid`): dark pillar cards.
+ * $items: each [ 'heading'=>…, 'body'=>… ]. Surfaces cycle for visual rhythm.
+ */
+function artisraw_value_cards( array $items, $heading = '' ) {
+	echo '<div class="value-cards-wrap">';
+	if ( $heading ) {
+		echo '<div class="section-opener"><h2>' . esc_html( $heading ) . '</h2></div>';
+	}
+	echo '<div class="value-cards">';
+	foreach ( $items as $i => $it ) {
+		echo '<article class="value-card value-card--' . esc_attr( (string) ( $i % 4 ) ) . '">';
+		echo '<h3 class="value-card__title">' . esc_html( $it['heading'] ?? '' ) . '</h3>';
+		echo '<p class="value-card__body">' . esc_html( $it['body'] ?? '' ) . '</p>';
+		echo '</article>';
+	}
+	echo '</div></div>';
+}
+
+/**
+ * Stat cards (Figma About "More than a workshop"): labelled metric cards.
+ * $items: each [ 'label'=>…, 'value'=>…, 'note'=>… ].
+ */
+function artisraw_stat_cards( array $items, $heading = '', $intro = '' ) {
+	echo '<div class="stat-cards-wrap">';
+	if ( $heading ) {
+		echo '<div class="section-opener"><h2>' . esc_html( $heading ) . '</h2></div>';
+	}
+	if ( $intro ) {
+		echo '<p class="muted stat-cards__intro">' . esc_html( $intro ) . '</p>';
+	}
+	echo '<div class="stat-cards">';
+	foreach ( $items as $it ) {
+		echo '<div class="stat-card">';
+		echo '<span class="stat-card__label eyebrow">' . esc_html( $it['label'] ?? '' ) . '</span>';
+		echo '<strong class="stat-card__value">' . esc_html( $it['value'] ?? '' ) . '</strong>';
+		if ( ! empty( $it['note'] ) ) {
+			echo '<span class="stat-card__note">' . esc_html( $it['note'] ) . '</span>';
+		}
+		echo '</div>';
+	}
+	echo '</div></div>';
+}
+
+/**
+ * QC timeline (Figma Process `.qc-grid`): checkpoint cards with an amber top
+ * rule. $items: each [ 'heading'=>…, 'body'=>… ].
+ */
+function artisraw_qc_timeline( array $items, $heading = '', $intro = '' ) {
+	echo '<div class="qc-timeline-wrap">';
+	if ( $heading ) {
+		echo '<div class="section-opener"><h2>' . esc_html( $heading ) . '</h2></div>';
+	}
+	if ( $intro ) {
+		echo '<p class="lead qc-timeline__intro">' . esc_html( $intro ) . '</p>';
+	}
+	echo '<ol class="qc-timeline" role="list">';
+	foreach ( $items as $it ) {
+		echo '<li class="qc-check">';
+		echo '<h3 class="qc-check__title">' . esc_html( $it['heading'] ?? '' ) . '</h3>';
+		echo '<p class="qc-check__body">' . esc_html( $it['body'] ?? '' ) . '</p>';
+		echo '</li>';
+	}
+	echo '</ol></div>';
+}
+
+/**
+ * Feature testimonial (Figma home "What they say"): one photo beside a paper
+ * field holding the quote. Complements artisraw_buyer_voices() (the carousel).
+ * $a: heading, quote, author, role, link_label, link_url, img_base, img_alt,
+ *     img_w, img_h, img_widths, field_left(bool — photo on the right).
+ */
+function artisraw_testimonial_feature( array $a ) {
+	$cls = 'feature-quote' . ( ! empty( $a['field_left'] ) ? ' feature-quote--field-left' : '' );
+	echo '<section class="' . esc_attr( $cls ) . '">';
+	echo '<div class="feature-quote__photo">';
+	artisraw_responsive_image( array(
+		'base'   => $a['img_base'],
+		'alt'    => $a['img_alt'] ?? '',
+		'class'  => 'feature-quote__img',
+		'width'  => $a['img_w'] ?? 1200,
+		'height' => $a['img_h'] ?? 900,
+		'widths' => $a['img_widths'] ?? array( 600, 1200 ),
+		'sizes'  => '(min-width: 820px) 50vw, 100vw',
+	) );
+	echo '</div>';
+	echo '<div class="feature-quote__field">';
+	if ( ! empty( $a['heading'] ) ) {
+		echo '<h2 class="feature-quote__head">' . esc_html( $a['heading'] ) . '</h2>';
+	}
+	echo '<blockquote class="feature-quote__quote">' . esc_html( $a['quote'] ?? '' ) . '</blockquote>';
+	if ( ! empty( $a['author'] ) ) {
+		echo '<p class="feature-quote__by"><strong>' . esc_html( $a['author'] ) . '</strong>' . ( ! empty( $a['role'] ) ? ' · ' . esc_html( $a['role'] ) : '' ) . '</p>';
+	}
+	if ( ! empty( $a['link_label'] ) ) {
+		artisraw_arrow_link( $a['link_label'], $a['link_url'] ?? '#' );
+	}
+	echo '</div></section>';
+}
+
+/**
+ * Hero-products strip (Figma home `.product-strip`): product cutouts on sand
+ * cards, mix-blend-multiply so photos drop onto the surface without clipping.
+ * $items: each [ 'base'=>'/assets/product-1', 'alt'=>…, 'w'=>, 'h'=>,
+ *   'widths'=>[…], 'href'=>(optional) ]. $cta: [ 'label'=>…, 'href'=>… ].
+ */
+function artisraw_product_strip( array $items, $heading = '', $cta = array() ) {
+	echo '<div class="product-strip-wrap">';
+	if ( $heading ) {
+		echo '<div class="section-opener"><h2>' . esc_html( $heading ) . '</h2></div>';
+	}
+	echo '<div class="product-strip">';
+	foreach ( $items as $it ) {
+		$href = $it['href'] ?? '';
+		$tag  = $href ? 'a' : 'div';
+		$attr = $href ? ' href="' . esc_url( $href ) . '"' : '';
+		echo '<' . $tag . ' class="product-strip__card"' . $attr . '>';
+		artisraw_responsive_image( array(
+			'base'   => $it['base'],
+			'alt'    => $it['alt'] ?? '',
+			'class'  => 'product-strip__img',
+			'width'  => $it['w'] ?? 260,
+			'height' => $it['h'] ?? 260,
+			'widths' => $it['widths'] ?? array( 600 ),
+			'sizes'  => '(min-width: 900px) 20vw, 50vw',
+		) );
+		echo '</' . $tag . '>';
+	}
+	echo '</div>';
+	if ( ! empty( $cta['label'] ) ) {
+		echo '<p class="product-strip__cta center">';
+		artisraw_arrow_link( $cta['label'], $cta['href'] ?? '#' );
+		echo '</p>';
+	}
+	echo '</div>';
 }

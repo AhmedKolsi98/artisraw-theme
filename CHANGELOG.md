@@ -2,6 +2,22 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 12.1 — Figma Visual Integration: component library
+
+New reusable components ported from the Figma into `inc/components.php` (all through `artisraw_responsive_image()`, tokens-only styling in new `css/figma.css`, gettext-ready). Each added to `/styleguide/`.
+- **`artisraw_caption_grid()`** — square photos with an overlaid paper caption label (Figma `.cap-grid`); distinct from `photo_mosaic` (which has variable tile sizes).
+- **`artisraw_trio_band()`** — three colored wayfinding CTA tiles (espresso / olive / sand) with an animated arrow cue.
+- **`artisraw_value_cards()`** — dark pillar cards (surfaces cycle espresso / olive / bark / espresso-800) for the About pillars.
+- **`artisraw_stat_cards()`** — labelled metric cards (Location / Factory / Team / Capacity).
+- **`artisraw_qc_timeline()`** — six checkpoint cards with an amber top rule (Process QC).
+- **`artisraw_testimonial_feature()`** — one photo beside a paper field holding a single quote; complements the `buyer_voices` carousel (not a replacement).
+- **`artisraw_product_strip()`** — product cutouts on sand cards, `mix-blend-multiply` so photos drop onto the surface without clipping paths.
+- **`artisraw_steps()`** gained a `numbered` variant arg → `.steps--numbered` (large faded corner numeral, Figma 8-step overview look). Existing `.steps` was already the 4-col card grid.
+- New `css/figma.css` enqueued after `art.css`; new tokens `--c-olive-600` / `--c-tan-300` used by the trio/value surfaces.
+
+### Verified
+- `php -l` clean on all touched PHP. `/styleguide/` 200, renders all eight components, `figma.css` loads (200), **zero** PHP notices/warnings/deprecations. Referenced placeholder assets resolve through the responsive pipeline.
+
 ## Phase 12.0 — Figma Visual Integration: foundations
 
 First slice of the Figma merge. Adopt the Figma's visual language through our own pipelines (tokens, self-hosted fonts, gettext-ready, reduced-motion-safe) — no CDN fonts, no plain `<img>`, no inline styles, no flat brochure nav.
