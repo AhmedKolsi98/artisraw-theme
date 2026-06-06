@@ -85,6 +85,22 @@
     Array.prototype.forEach.call(stats, function (s) { io.observe(s); });
   }
 
+  /* --- Reveal-on-scroll (Figma .reveal). Reduced-motion / no-IO → show all.
+     CSS hides .reveal only under .js, so non-JS visitors always see content. */
+  var reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      Array.prototype.forEach.call(reveals, function (el) { el.classList.add('is-visible'); });
+    } else {
+      var rio = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      Array.prototype.forEach.call(reveals, function (el) { rio.observe(el); });
+    }
+  }
+
   /* --- hero_view: hero ≥50% in view for 1s (SPEC §8) --- */
   var hero = document.querySelector('[data-hero]');
   if (hero && 'IntersectionObserver' in window) {

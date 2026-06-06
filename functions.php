@@ -96,7 +96,7 @@ add_filter( 'script_loader_tag', 'artisraw_defer_scripts', 10, 2 );
  * Preload self-hosted fonts (LCP — SPEC §7). Output early in <head>.
  * ---------------------------------------------------------------------- */
 function artisraw_preload_fonts() {
-	$fonts = array( '/fonts/fraunces-var.woff2', '/fonts/inter-var.woff2' );
+	$fonts = array( '/fonts/fraunces-var.woff2', '/fonts/archivo-var.woff2' );
 	foreach ( $fonts as $f ) {
 		printf(
 			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",

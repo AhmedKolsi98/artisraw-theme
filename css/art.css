@@ -86,3 +86,27 @@
 .footer-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-2) var(--sp-5); list-style: none; margin: 0; padding: var(--sp-5) 0 0; }
 .footer-trust li { display: inline-flex; align-items: center; gap: var(--sp-1); font-family: var(--ff-serif); font-weight: var(--fw-semibold); color: var(--c-sand-200); }
 .footer-trust svg { color: var(--c-leaf-400); }
+
+/* --- ISO 9001 trust badge (Figma motif, re-skinned to brand) -----------
+   Figma used corporate blue (#1D6FE0) — recoloured to espresso disc /
+   amber ring / cream type so the mark belongs to the palette. */
+.iso-badge {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  width: 116px; height: 116px; border-radius: 50%; text-align: center;
+  background: var(--c-espresso-900); color: var(--c-cream-100);
+  border: 4px solid var(--c-amber-500); box-shadow: var(--shadow-lift);
+  transform: rotate(8deg); font-family: var(--ff-sans);
+}
+.iso-badge__arc  { font-size: 0.625rem; font-weight: var(--fw-bold); letter-spacing: 0.2em; color: var(--c-amber-500); }
+.iso-badge__iso  { font-size: 1.75rem; font-weight: var(--fw-bold); line-height: 1; margin: 2px 0; }
+.iso-badge__year { font-size: 0.6875rem; font-weight: var(--fw-bold); letter-spacing: 0.04em; }
+/* Hero placement: pinned to the lower-right of a photo hero. */
+.iso-badge--hero { position: absolute; right: var(--sp-3); bottom: var(--sp-4); z-index: 2; }
+@media (max-width: 768px) { .iso-badge--hero { position: static; margin-top: var(--sp-3); } }
+
+/* --- Reveal-on-scroll utility (Figma .reveal → .in), reduced-motion safe -
+   JS adds .reveal to mark, IntersectionObserver toggles .is-visible. Without
+   JS or with reduced motion, content is shown unconditionally. */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; transition: none; } }

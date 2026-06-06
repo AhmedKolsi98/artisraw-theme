@@ -255,6 +255,17 @@ function sg_h( $title, $note = '' ) {
 	<p><?php artisraw_arrow_link( 'Our story & founders', '#' ); ?></p>
 </div>
 
+<div class="container section">
+	<?php sg_h( 'ISO 9001 trust badge (Figma motif, re-skinned)', 'Espresso disc / amber ring / cream type — the Figma corporate blue (#1D6FE0) was rejected as foreign to the palette. Decorative; exposed to AT as one labelled image.' ); ?>
+	<?php artisraw_iso_badge(); ?>
+
+	<?php sg_h( 'New editorial surface tokens (Figma)', 'Tan and olive mosaic fields, added alongside the existing field colors.' ); ?>
+	<div style="display:flex;gap:var(--sp-2);flex-wrap:wrap">
+		<span style="background:var(--c-tan-300);color:var(--c-espresso-900);padding:var(--sp-3) var(--sp-4);border-radius:var(--radius-md);font-weight:var(--fw-semibold)">--c-tan-300 · espresso text</span>
+		<span style="background:var(--c-olive-600);color:var(--c-cream-100);padding:var(--sp-3) var(--sp-4);border-radius:var(--radius-md);font-weight:var(--fw-semibold)">--c-olive-600 · cream text</span>
+	</div>
+</div>
+
 <?php // Statement hero (§3) — full-bleed duotone. ?>
 <?php
 artisraw_statement_hero( array(

@@ -2,6 +2,18 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 12.0 — Figma Visual Integration: foundations
+
+First slice of the Figma merge. Adopt the Figma's visual language through our own pipelines (tokens, self-hosted fonts, gettext-ready, reduced-motion-safe) — no CDN fonts, no plain `<img>`, no inline styles, no flat brochure nav.
+- **Sans font swap → Archivo** (the Figma design font), self-hosted as a latin-subset variable WOFF2 (`fonts/archivo-var.woff2`, wght 400–800, 35 KB — smaller than the retired Inter). `--ff-sans` updated in `tokens.css`; preload hint updated in `functions.php`; `inter-var.woff2` removed. **Self-hosted, not the Figma's Google Fonts CDN** (GDPR + performance; the site exports to the EU).
+- **Palette tokens** added for the Figma editorial mosaic: `--c-tan-300` #C9A468 (espresso text only) and `--c-olive-600` #6B5A3A (cream text only), alongside the existing field colors.
+- **ISO 9001 trust badge** `artisraw_iso_badge()` — the Figma motif **re-skinned to the brand**: espresso disc / amber ring / cream type. The Figma's corporate blue (#1D6FE0) was rejected as foreign to the palette. `place` arg pins it to a photo hero (`--hero`) or renders inline; exposed to AT as one labelled image; decorative spans hidden.
+- **Reveal-on-scroll** utility (Figma `.reveal`): IntersectionObserver in `js/components.js` toggles `.is-visible`; CSS hides `.reveal` only under `.js` so non-JS visitors always see content, and `prefers-reduced-motion` shows everything unconditionally.
+- Styleguide: badge + new surface tokens added for review.
+
+### Verified
+- `archivo-var.woff2` serves 200 (`application/font-woff2`, 34940 b). Home 200, Archivo preloaded once, **zero** PHP notices/warnings/fatals. `/styleguide/` renders the badge, no errors. `php -l` clean on all touched PHP. No stray `Inter`/`inter-var` references remain.
+
 ## Phase 11 — Art Direction (Addendum v1.1)
 
 Olyfo visual language expressed in ArtisRaw tokens, on the existing B2B skeleton.

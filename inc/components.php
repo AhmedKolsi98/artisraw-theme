@@ -814,3 +814,37 @@ function artisraw_photo_mosaic( array $tiles, $heading = '', $intro = '' ) {
 	}
 	echo '</div></div>';
 }
+
+/**
+ * ISO 9001 trust badge (Figma motif, re-skinned to the brand palette).
+ * The Figma used a corporate blue (#1D6FE0) foreign to the palette; this
+ * renders espresso disc / amber ring / cream type so it belongs to the brand.
+ * Decorative trust mark — exposed as a single labelled image to AT.
+ *
+ * $a: place ('hero'|'inline', default 'inline') adds a positioning modifier;
+ *     year (default '9001:2015'), class (extra classes).
+ */
+function artisraw_iso_badge( array $a = array() ) {
+	$place = $a['place'] ?? 'inline';
+	$year  = $a['year'] ?? '9001:2015';
+	$cls   = 'iso-badge iso-badge--' . sanitize_html_class( $place );
+	if ( ! empty( $a['class'] ) ) {
+		$cls .= ' ' . $a['class'];
+	}
+	/* translators: %s: ISO standard and revision year, e.g. "9001:2015". */
+	$label = sprintf( __( 'Certified ISO %s company', 'artisraw' ), $year );
+	printf(
+		'<span class="%s" role="img" aria-label="%s">'
+			. '<span class="iso-badge__arc iso-badge__arc--top" aria-hidden="true">%s</span>'
+			. '<span class="iso-badge__iso" aria-hidden="true">%s</span>'
+			. '<span class="iso-badge__year" aria-hidden="true">%s</span>'
+			. '<span class="iso-badge__arc iso-badge__arc--btm" aria-hidden="true">%s</span>'
+			. '</span>',
+		esc_attr( $cls ),
+		esc_attr( $label ),
+		esc_html__( 'Certified', 'artisraw' ),
+		esc_html__( 'ISO', 'artisraw' ),
+		esc_html( $year ),
+		esc_html__( 'Company', 'artisraw' )
+	);
+}

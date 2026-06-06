@@ -14,17 +14,17 @@
   src: url("../fonts/fraunces-var.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Inter";
+  font-family: "Archivo";
   font-style: normal;
-  font-weight: 400 700;            /* UI sans — everything else */
+  font-weight: 400 800;            /* UI sans — everything else (Figma design font) */
   font-display: swap;
-  src: url("../fonts/inter-var.woff2") format("woff2");
+  src: url("../fonts/archivo-var.woff2") format("woff2");
 }
 
 :root {
   /* --- Font families ----------------------------------------------------- */
   --ff-serif: "Fraunces", Georgia, "Times New Roman", serif;
-  --ff-sans:  "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --ff-sans:  "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   /* --- Type scale (1.25 modular) — the ONLY sizes allowed ----------------- */
   --fs-display-xl: 3.375rem;   /* 54px — H1 hero (serif/700/1.1)            */
@@ -59,6 +59,8 @@
   --c-bark-700:     #4C3423;   /* secondary dark surfaces; borders on dark */
   --c-amber-500:    #D69A45;   /* accent — text ONLY on espresso/bark      */
   --c-sand-200:     #EAD9C3;   /* card surfaces, table row tint            */
+  --c-tan-300:      #C9A468;   /* editorial mosaic surface (Figma) — espresso text only */
+  --c-olive-600:    #6B5A3A;   /* editorial band surface (Figma) — cream text only      */
   --c-leaf-400:     #C4D34A;   /* editorial "energy" accent (Art Direction Addendum §2). */
                                /* Text on leaf = espresso (10.15:1). Leaf text only on espresso/bark. */
                                /* One leaf element per viewport; never adjacent to amber. Editorial only — amber stays interactive. */
