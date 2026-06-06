@@ -64,11 +64,20 @@ artisraw_breadcrumbs();
 <?php else : /* ---------------- CONTACT or QUOTE ---------------- */ ?>
 
 	<section class="container section hub-section">
-		<div class="contact-grid">
-			<div class="contact-grid__form">
-				<?php artisraw_quote_form( array( 'id' => 'contact-quote', 'location' => $mode ) ); ?>
-			</div>
-			<?php if ( 'contact' === $mode ) : ?>
+		<?php
+		artisraw_quote_block( array(
+			'id'       => 'contact-quote',
+			'location' => $mode,
+			'eyebrow'  => __( 'Wholesale inquiries', 'artisraw' ),
+			'heading'  => __( 'Request a Quote', 'artisraw' ),
+			'intro'    => __( 'Send your market, categories and quantities — we reply within one business day with MOQ, pricing and import documentation.', 'artisraw' ),
+		) );
+		?>
+	</section>
+
+	<?php if ( 'contact' === $mode ) : ?>
+	<section class="section--sand">
+		<div class="container section hub-section">
 			<aside class="contact-grid__nap">
 				<h2><?php esc_html_e( 'Factory &amp; contact', 'artisraw' ); ?></h2>
 				<address class="contact-nap">
@@ -81,9 +90,9 @@ artisraw_breadcrumbs();
 				</address>
 				<p class="eyebrow"><?php esc_html_e( 'Quotes within 24 hours', 'artisraw' ); ?></p>
 			</aside>
-			<?php endif; ?>
 		</div>
 	</section>
+	<?php endif; ?>
 
 	<?php
 	if ( 'contact' === $mode && function_exists( 'artisraw_jsonld' ) ) {

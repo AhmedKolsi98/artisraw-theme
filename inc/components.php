@@ -636,6 +636,146 @@ function artisraw_instagram_strip( array $items, $handle = 'artisraw', $profile_
 	echo '</ul></section>';
 }
 
+/* =========================================================================
+ * Phase 11 — Art Direction components (Addendum v1.1).
+ * ====================================================================== */
+
+/** Block-formula arrow link (§5): "Label →", arrow nudges on hover. */
+function artisraw_arrow_link( $label, $href, $args = array() ) {
+	$ga = '';
+	if ( ! empty( $args['ga'] ) ) {
+		$ga = ' data-ga="cta_click" data-ga-label="' . esc_attr( $args['ga'] ) . '" data-ga-location="' . esc_attr( $args['loc'] ?? '' ) . '"';
+	}
+	printf(
+		'<a class="arrow-link" href="%s"%s>%s <span class="arrow-link__arrow" aria-hidden="true">&rarr;</span></a>',
+		esc_url( $href ),
+		$ga,
+		esc_html( $label )
+	);
+}
+
+/**
+ * Statement hero (§3): one duotone image + lowercase serif statement + support
+ * line + amber CTA + numeric trust strip pinned at the lower edge.
+ * $a: base, alt, eyebrow, statement, support, cta_label, cta_url, alt_label,
+ *     alt_url, trust [[label,href]], as_h1(bool), loc, w, h, widths.
+ */
+function artisraw_statement_hero( array $a ) {
+	$tag = ! empty( $a['as_h1'] ) ? 'h1' : 'p';
+	$hero_attr = ! empty( $a['loc'] ) ? ' data-hero="' . esc_attr( $a['loc'] ) . '"' : '';
+	echo '<section class="statement-hero on-dark"' . $hero_attr . '>';
+	artisraw_responsive_image( array(
+		'base' => $a['base'], 'alt' => $a['alt'] ?? '', 'class' => 'statement-hero__img',
+		'width' => $a['w'] ?? 1800, 'height' => $a['h'] ?? 1200,
+		'widths' => $a['widths'] ?? array( 600, 1200, 1800 ), 'sizes' => '100vw', 'eager' => true,
+	) );
+	echo '<div class="statement-hero__inner"><div class="container">';
+	if ( ! empty( $a['eyebrow'] ) ) {
+		echo '<p class="statement-hero__eyebrow eyebrow">' . esc_html( $a['eyebrow'] ) . '</p>';
+	}
+	echo '<' . $tag . ' class="statement-hero__statement">' . esc_html( $a['statement'] ) . '</' . $tag . '>';
+	if ( ! empty( $a['support'] ) ) {
+		echo '<p class="statement-hero__support">' . esc_html( $a['support'] ) . '</p>';
+	}
+	if ( ! empty( $a['cta_label'] ) ) {
+		echo '<p class="statement-hero__cta"><a class="btn btn--primary" href="' . esc_url( $a['cta_url'] ) . '" data-ga="cta_click" data-ga-label="hero" data-ga-location="' . esc_attr( $a['loc'] ?? 'hero' ) . '">' . esc_html( $a['cta_label'] ) . '</a>';
+		if ( ! empty( $a['alt_label'] ) ) {
+			echo '<a class="btn btn--tertiary hub-hero__alt" href="' . esc_url( $a['alt_url'] ) . '">' . esc_html( $a['alt_label'] ) . '</a>';
+		}
+		echo '</p>';
+	}
+	if ( ! empty( $a['trust'] ) ) {
+		echo '<div class="statement-hero__trust">';
+		artisraw_trust_strip( $a['trust'] );
+		echo '</div>';
+	}
+	echo '</div></div></section>';
+}
+
+/**
+ * Color-block mosaic band (§4): 50/50 color field ↔ photo, alternating sides.
+ * $a: field (sand|espresso|amber|leaf), eyebrow, heading, body, link_label,
+ *     link_url, img_base, img_alt, img_widths, field_left(bool), w, h.
+ */
+function artisraw_color_block( array $a ) {
+	$cls = 'color-block' . ( ! empty( $a['field_left'] ) ? ' color-block--field-left' : '' );
+	echo '<section class="' . esc_attr( $cls ) . '">';
+	echo '<div class="color-block__photo">';
+	artisraw_responsive_image( array(
+		'base' => $a['img_base'], 'alt' => $a['img_alt'] ?? '', 'class' => 'color-block__img',
+		'width' => $a['w'] ?? 1200, 'height' => $a['h'] ?? 900,
+		'widths' => $a['img_widths'] ?? array( 600, 1200 ), 'sizes' => '(min-width: 860px) 50vw, 100vw',
+	) );
+	echo '</div>';
+	echo '<div class="color-block__field field--' . esc_attr( $a['field'] ?? 'sand' ) . '">';
+	if ( ! empty( $a['eyebrow'] ) ) {
+		echo '<p class="color-block__eyebrow eyebrow">' . esc_html( $a['eyebrow'] ) . '</p>';
+	}
+	echo '<h2 class="color-block__heading">' . esc_html( $a['heading'] ) . '</h2>';
+	if ( ! empty( $a['body'] ) ) {
+		echo '<p class="color-block__body">' . esc_html( $a['body'] ) . '</p>';
+	}
+	if ( ! empty( $a['link_label'] ) ) {
+		artisraw_arrow_link( $a['link_label'], $a['link_url'] );
+	}
+	echo '</div></section>';
+}
+
+/**
+ * Buyer voices (§6): one large quote per viewport (scroll-snap between).
+ * $items: [ [quote, author, role, ?stars] ].
+ */
+function artisraw_buyer_voices( array $items, $heading = '' ) {
+	echo '<div class="voices">';
+	if ( $heading ) {
+		echo '<div class="section-opener"><h2>' . esc_html( $heading ) . '</h2></div>';
+	}
+	echo '<ul class="voices__track" role="list">';
+	foreach ( $items as $t ) {
+		$quote  = $t[0] ?? '';
+		$author = $t[1] ?? '';
+		$role   = $t[2] ?? '';
+		$stars  = isset( $t[3] ) ? max( 1, min( 5, (int) $t[3] ) ) : 5;
+		echo '<li class="voice">';
+		printf(
+			'<p class="voice__stars" role="img" aria-label="%s">%s</p>',
+			esc_attr( sprintf( /* translators: %d rating */ __( 'Rated %d out of 5', 'artisraw' ), $stars ) ),
+			esc_html( str_repeat( '★', $stars ) )
+		);
+		echo '<blockquote class="voice__quote">' . esc_html( $quote ) . '</blockquote>';
+		echo '<p class="voice__by"><strong>' . esc_html( $author ) . '</strong>' . ( $role ? ' · ' . esc_html( $role ) : '' ) . '</p>';
+		echo '</li>';
+	}
+	echo '</ul></div>';
+}
+
+/**
+ * Two-column quote block (§9.1): "WHOLESALE INQUIRIES" + benefits checklist on
+ * the left, the two-step form as a white card on the right. Adopt site-wide.
+ * $a: id, location, eyebrow, heading, intro, benefits[].
+ */
+function artisraw_quote_block( array $a = array() ) {
+	$benefits = $a['benefits'] ?? array( __( 'Low MOQ', 'artisraw' ), __( 'Custom branding', 'artisraw' ), __( 'Worldwide shipping', 'artisraw' ) );
+	echo '<div class="quote-block">';
+	echo '<div class="quote-block__intro">';
+	echo '<p class="eyebrow">' . esc_html( $a['eyebrow'] ?? __( 'Wholesale inquiries', 'artisraw' ) ) . '</p>';
+	echo '<h2>' . esc_html( $a['heading'] ?? __( 'Request a Quote', 'artisraw' ) ) . '</h2>';
+	if ( ! empty( $a['intro'] ) ) {
+		echo '<p class="lead">' . esc_html( $a['intro'] ) . '</p>';
+	}
+	echo '<ul class="quote-block__benefits">';
+	foreach ( $benefits as $b ) {
+		echo '<li>' . esc_html( $b ) . '</li>';
+	}
+	echo '</ul>';
+	echo '<p class="eyebrow">' . esc_html__( 'Quote within 24 h', 'artisraw' ) . '</p>';
+	echo '</div>';
+	echo '<div class="quote-block__card">';
+	artisraw_quote_form( array( 'id' => $a['id'] ?? 'quote', 'location' => $a['location'] ?? 'inline', 'heading' => $a['form_heading'] ?? __( 'Request your line-sheet & compliance pack', 'artisraw' ) ) );
+	echo '</div>';
+	echo '</div>';
+}
+
 /**
  * Photo mosaic (mockup "From tree, to workshop, to wholesale shelves").
  * A labelled image grid with one feature tile. $tiles: each

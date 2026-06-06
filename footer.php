@@ -51,7 +51,7 @@ function artisraw_render_footer_nav() {
 	<div class="site-footer__inner container grid">
 
 		<div class="site-footer__brand col-4">
-			<span class="site-footer__wordmark">ArtisRaw<span class="site-header__reg">&reg;</span></span>
+			<span class="site-footer__wordmark site-footer__wordmark--lg">ArtisRaw<span class="site-header__reg">&reg;</span></span>
 			<p class="site-footer__tagline"><?php esc_html_e( 'Olive wood manufacturer &amp; B2B supplier — handmade in Sfax, Tunisia since 2019.', 'artisraw' ); ?></p>
 			<address class="site-footer__nap">
 				Route Saltania, km 4.5<br>
@@ -95,6 +95,14 @@ function artisraw_render_footer_nav() {
 		</div>
 
 	</div>
+
+	<?php // Worded trust strip (Art Direction Addendum §6 / §9.1). ?>
+	<?php $fcheck = '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'; ?>
+	<ul class="footer-trust container" role="list">
+		<li><?php echo $fcheck; ?> <?php esc_html_e( 'Handmade', 'artisraw' ); ?></li>
+		<li><?php echo $fcheck; ?> <?php esc_html_e( 'Sustainable', 'artisraw' ); ?></li>
+		<li><?php echo $fcheck; ?> <?php esc_html_e( 'Export Ready', 'artisraw' ); ?></li>
+	</ul>
 
 	<div class="site-footer__legal">
 		<div class="container">

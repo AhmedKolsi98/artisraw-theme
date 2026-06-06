@@ -2,6 +2,23 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 11 — Art Direction (Addendum v1.1)
+
+Olyfo visual language expressed in ArtisRaw tokens, on the existing B2B skeleton.
+- Token: **`--c-leaf-400` #C4D34A** editorial accent (one per viewport; espresso text on leaf; never adjacent to amber). New `css/art.css`.
+- **Statement hero** (§3) `artisraw_statement_hero()`: one full-bleed duotone image (CSS grayscale + espresso multiply), lowercase serif statement ("wood that works." — the home H1), cream support line, amber CTA, and the numeric trust strip pinned at the lower edge.
+- **Color-block mosaic** (§4) `artisraw_color_block()`: 50/50 field↔photo bands, alternating sides, image-first on mobile, four field colors (sand/espresso/amber/leaf) with measured-contrast text. Home set: Who we are (sand) · How it's made (espresso) · One tree used, two planted (leaf) — consolidates the old founders/sustainability/plant sections; leaf used exactly once.
+- **Block formula** (§5) `artisraw_arrow_link()`: "Label →" with 4px hover nudge; applied across differentiators, who-we-serve, Guide, collections.
+- **Buyer voices** (§6) `artisraw_buyer_voices()`: one large serif quote per viewport (scroll-snap), type+market attribution.
+- **Two-column quote block** (§9.1) `artisraw_quote_block()`: "Wholesale inquiries" eyebrow + serif heading + benefits checklist (Low MOQ · Custom branding · Worldwide shipping) + "Quote within 24 h" beside the two-step form as a white card. Adopted on home, /contact/, /request-quote/.
+- **SKU strip** (§6): "Ready-to-Ship Bestsellers" + confident intro line + mobile scroll-snap. **Section openers** (serif H2). **Footer**: large wordmark + worded trust strip (Handmade · Sustainable · Export Ready).
+- Home rebuilt to the editorial order (statement → quick answer → collections → mosaic → bestsellers → differentiators → channel → proof → voices → Guide → Instagram → quote block). French dictionary extended for the new strings.
+- §9.2 corrections verified already-satisfied in our build (ISO **2015**, 6-item nav, no brush-logo-as-content, one-paragraph About, SVG map not raster text, attributed voices).
+
+### Verified
+- 40-URL crawl all 200, zero duplicate titles/metas/canonicals, one H1 each, zero JSON-LD/PHP errors.
+- Home: statement H1 "wood that works.", 3 color-blocks, **exactly one leaf element**, pinned trust strip, SKU strip, one-per-viewport voices, two-column quote block, 14 arrow links. Hero preloads `ar-grove` (LCP). FR /contact/ quote-block translated. AD components added to /styleguide/.
+
 ## Phase 8 — Content expansion: full catalogue, Magazine & Guide
 
 - `sku_category` expanded **5 → 15 families** via `artisraw_catalogue_families()` (idempotent term seeding); families link to their `/wholesale/` page where one exists.

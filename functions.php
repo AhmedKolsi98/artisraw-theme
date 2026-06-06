@@ -63,6 +63,8 @@ function artisraw_enqueue_assets() {
 	wp_enqueue_style( 'artisraw-templates', ARTISRAW_URI . '/css/templates.css', array( 'artisraw-components' ), artisraw_asset_ver( '/css/templates.css' ) );
 	// Phase 5 — design-parity components + page layouts.
 	wp_enqueue_style( 'artisraw-phase5', ARTISRAW_URI . '/css/phase5.css', array( 'artisraw-components' ), artisraw_asset_ver( '/css/phase5.css' ) );
+	// Phase 11 — Art Direction layer (Addendum).
+	wp_enqueue_style( 'artisraw-art', ARTISRAW_URI . '/css/art.css', array( 'artisraw-phase5' ), artisraw_asset_ver( '/css/art.css' ) );
 
 	// Phase 9 — Client Area portal styles (only where the portal renders).
 	if ( is_page_template( 'tpl-account.php' ) ) {

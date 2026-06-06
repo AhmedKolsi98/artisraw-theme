@@ -218,6 +218,18 @@ function artisraw_fr_dict() {
 		'Factory &amp; contact'      => 'Usine & contact',
 		'Quotes within 24 hours'     => 'Devis sous 24 heures',
 		'Quick answer'               => 'Réponse rapide',
+
+		// Art Direction (quote block, footer trust, arrow links)
+		'Wholesale inquiries'        => 'Demandes de gros',
+		'Request a Quote'            => 'Demander un devis',
+		'Quote within 24 h'          => 'Devis sous 24 h',
+		'Low MOQ'                    => 'MOQ réduit',
+		'Custom branding'            => 'Personnalisation de marque',
+		'Worldwide shipping'         => 'Expédition mondiale',
+		'Send your market, categories and quantities — we reply within one business day with MOQ, pricing and import documentation.' => 'Indiquez votre marché, vos catégories et vos quantités — nous répondons sous un jour ouvré avec MOQ, tarifs et documents d’import.',
+		'Handmade'                   => 'Fait main',
+		'Sustainable'                => 'Durable',
+		'Export Ready'               => 'Prêt à l’export',
 	);
 	return $d;
 }

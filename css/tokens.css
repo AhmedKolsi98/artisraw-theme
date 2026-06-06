@@ -59,6 +59,9 @@
   --c-bark-700:     #4C3423;   /* secondary dark surfaces; borders on dark */
   --c-amber-500:    #D69A45;   /* accent — text ONLY on espresso/bark      */
   --c-sand-200:     #EAD9C3;   /* card surfaces, table row tint            */
+  --c-leaf-400:     #C4D34A;   /* editorial "energy" accent (Art Direction Addendum §2). */
+                               /* Text on leaf = espresso (10.15:1). Leaf text only on espresso/bark. */
+                               /* One leaf element per viewport; never adjacent to amber. Editorial only — amber stays interactive. */
   --c-cream-100:    #F7EFE4;   /* page background                          */
   --c-paper-50:     #FFF8EF;   /* cards on cream, form fields              */
   --c-success:      #2F7D4F;   /* form states only                         */
