@@ -49,19 +49,37 @@ function artisraw_register_sku_taxonomy() {
 		'hierarchical' => true,
 		'rewrite'      => false,
 	) );
-	// Ensure the canonical terms exist.
-	$terms = array(
-		'cutting-boards'  => 'Cutting Boards',
-		'utensils'        => 'Utensils',
-		'bowls-serveware' => 'Bowls & Serveware',
-		'chess-sets'      => 'Chess Sets',
-		'decor-bath'      => 'Décor & Bath',
-	);
-	foreach ( $terms as $slug => $name ) {
+	// Ensure the 15 catalogue family terms exist (Phase 8 expansion).
+	foreach ( artisraw_catalogue_families() as $slug => $f ) {
 		if ( ! term_exists( $slug, 'sku_category' ) ) {
-			wp_insert_term( $name, 'sku_category', array( 'slug' => $slug ) );
+			wp_insert_term( $f['name'], 'sku_category', array( 'slug' => $slug ) );
 		}
 	}
+}
+
+/**
+ * The 15 catalogue product families (mockup page 4). `page` links the family to
+ * its dedicated /wholesale/ SEO category page when one exists; the rest route to
+ * the quote/PDF request. Used by the taxonomy seeder and tpl-catalogue.
+ */
+function artisraw_catalogue_families() {
+	return array(
+		'cutting-boards'  => array( 'name' => 'Cutting Boards', 'page' => 'olive-wood-cutting-boards', 'blurb' => 'Round, rectangular and rustic boards; charcuterie and carving.' ),
+		'spoons-spatulas' => array( 'name' => 'Spoons & Spatulas', 'blurb' => 'Cooking spoons, spatulas, ladles and scoops.' ),
+		'utensils'        => array( 'name' => 'Utensils & Gadgets', 'page' => 'olive-wood-utensils', 'blurb' => 'Kitchen tools, trivets and gadgets.' ),
+		'mortars-pestles' => array( 'name' => 'Mortars & Pestles', 'blurb' => 'Hand-carved mortars in several sizes.' ),
+		'bowls-serveware' => array( 'name' => 'Bowls & Serveware', 'page' => 'olive-wood-bowls-serveware', 'blurb' => 'Serving bowls, salad sets and pinch bowls.' ),
+		'baskets'         => array( 'name' => 'Baskets & Trays', 'blurb' => 'Bread baskets, trays and plates.' ),
+		'jars-containers' => array( 'name' => 'Jars & Containers', 'blurb' => 'Salt cellars, jars and storage with lids.' ),
+		'drinkware'       => array( 'name' => 'Drinkware & Coasters', 'blurb' => 'Tumblers, cups and coaster sets.' ),
+		'chess-sets'      => array( 'name' => 'Chess & Board Games', 'page' => 'olive-wood-chess-sets', 'blurb' => 'Handmade chess sets and game boards.' ),
+		'gift-packs'      => array( 'name' => 'Gift Packs', 'blurb' => 'Curated gift boxes and corporate bundles.' ),
+		'decor-bath'      => array( 'name' => 'Décor & Bath', 'page' => 'olive-wood-decor-bath', 'blurb' => 'Trays, soap dishes and lifestyle accessories.' ),
+		'bath-beauty'     => array( 'name' => 'Bath & Beauty', 'blurb' => 'Soap dishes, brushes and spa accessories.' ),
+		'mosaic'          => array( 'name' => 'Mosaic', 'blurb' => 'Mosaic boards and decorative inlays.' ),
+		'vintage-decor'   => array( 'name' => 'Vintage Decoration', 'blurb' => 'Statement decor and collector pieces.' ),
+		'natural-crafts'  => array( 'name' => 'Natural Crafts', 'blurb' => 'Raw, live-edge and natural-form objects.' ),
+	);
 }
 add_action( 'init', 'artisraw_register_sku_taxonomy', 5 );
 

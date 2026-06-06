@@ -149,6 +149,7 @@ require_once ARTISRAW_DIR . '/inc/i18n.php';
 require_once ARTISRAW_DIR . '/inc/schema.php';
 require_once ARTISRAW_DIR . '/inc/acf-fields.php';
 require_once ARTISRAW_DIR . '/inc/post-types.php';
+require_once ARTISRAW_DIR . '/inc/content.php';
 require_once ARTISRAW_DIR . '/inc/seed-pages.php';
 require_once ARTISRAW_DIR . '/inc/components.php';
 require_once ARTISRAW_DIR . '/inc/quote-endpoint.php';

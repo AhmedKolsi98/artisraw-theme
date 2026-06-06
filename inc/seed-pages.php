@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ARTISRAW_PAGES_VER', 5 );
+define( 'ARTISRAW_PAGES_VER', 6 );
 
 function artisraw_seed_pages() {
 	if ( (int) get_option( 'artisraw_pages_ver' ) >= ARTISRAW_PAGES_VER ) {
@@ -96,6 +96,8 @@ function artisraw_phase1_page_data() {
 	$T_CF    = 'tpl-contact-faq.php';
 	$T_SVC   = 'tpl-services.php';
 	$T_WORLD = 'tpl-worldwide.php';
+	$T_CAT2  = 'tpl-catalogue.php';
+	$T_MAG   = 'tpl-magazine.php';
 
 	return array(
 		/* ---- Catalogue index + categories (tpl-category) ---- */
@@ -248,12 +250,56 @@ function artisraw_phase1_page_data() {
 			'seo_desc'  => 'The ArtisRaw olive wood guide for B2B buyers: Chemlali wood properties, food-safe care, import compliance (Lacey Act, EUDR) and sourcing — with sourced facts.',
 			'qa'        => 'The ArtisRaw Olive Wood Guide is a B2B knowledge hub on Chemlali olive wood: material properties, food-safe care, and import compliance (Lacey Act, EUDR). In-depth articles, each with a quick answer, data and sources, are published here on an ongoing basis.',
 			'content'   => "<h2>What you’ll find here</h2><p>Practical, sourced answers for professional buyers — from why Chemlali olive wood resists knife scarring to importing into the US and EU. New articles are added regularly.</p><ul><li><a href=\"/certifications/\">Certifications &amp; documents</a></li><li><a href=\"/shipping-logistics/\">Export, Incoterms &amp; lead times</a></li><li><a href=\"/quality-control/\">Quality control</a></li></ul>",
+				'meta'      => array( 'trust_articles' => '1' ),
+				'update'    => true,
 		),
 		array(
 			'slug' => 'privacy', 'title' => 'Privacy Policy', 'template' => 'default',
 			'seo_title' => 'Privacy Policy | ArtisRaw®',
 			'seo_desc'  => 'How ArtisRaw collects and uses the information you share through our quote forms and email — used only to prepare and fulfil your wholesale request.',
 			'content'   => "<p>ArtisRaw uses the details you submit through our forms and email solely to prepare your quote and fulfil your wholesale request. We do not sell your data. Hidden form fields capture the page and campaign source so we can respond in context.</p><p>To request access to, or deletion of, your data, email <a href=\"mailto:contact@artisraw.com\">contact@artisraw.com</a>.</p>",
+		),
+
+		/* ---- Phase 8: catalogue, magazine, compliance, Europe ---- */
+		array(
+			'slug' => 'catalogue', 'title' => 'Olive Wood Catalogue: 15 Product Families', 'template' => $T_CAT2,
+			'seo_title' => 'Olive Wood Catalogue | 15 Wholesale Product Families | ArtisRaw®',
+			'seo_desc'  => 'Browse ArtisRaw\'s 15 olive wood product families and request the full PDF catalogue and price list. MOQ by family; food-safe finish; private label.',
+			'qa'        => 'The ArtisRaw catalogue spans 15 olive wood product families — cutting boards, spoons, utensils, mortars, bowls, baskets, jars, drinkware, chess sets, gift packs, decor, bath, mosaic and natural crafts — each with sale SKUs, dimensions and MOQ by family. Request the full PDF catalogue and price list below.',
+		),
+		array(
+			'slug' => 'magazine', 'title' => 'ArtisRaw Magazine', 'template' => $T_MAG,
+			'seo_title' => 'ArtisRaw Magazine | Olive Wood Stories for B2B Buyers',
+			'seo_desc'  => 'Workshop notes, material science, compliance explainers and trade-show reports from ArtisRaw — olive wood stories for professional buyers.',
+			'qa'        => 'The ArtisRaw Magazine publishes stories for professional buyers: workshop notes, Chemlali material science, import-compliance explainers (Lacey Act, EUDR) and trade-show reports — each article reviewed by our Head of Design and dated.',
+		),
+		array(
+			'slug' => 'compliance', 'title' => 'Olive Wood Import Compliance', 'template' => $T_TRUST,
+			'seo_title' => 'Olive Wood Import Compliance | Lacey Act & EUDR | ArtisRaw®',
+			'seo_desc'  => 'How ArtisRaw supports compliant olive wood imports: Lacey Act declaration data for the USA and EUDR due-diligence for the EU, with documents per shipment.',
+			'qa'        => 'ArtisRaw supports compliant olive wood imports with Lacey Act declaration data for the United States and EUDR due-diligence documentation for the European Union — provided per shipment alongside the commercial invoice, packing list and ISPM-15 pallet compliance.',
+			'content'   => "<h2>Compliance by destination</h2><ul><li><a href=\"/compliance/lacey-act/\">Lacey Act (USA)</a> — species, country of harvest, quantity and value per shipment.</li><li><a href=\"/compliance/eudr/\">EUDR (EU)</a> — geolocation, legal-harvest evidence and traceability.</li></ul>",
+		),
+		array(
+			'slug' => 'lacey-act', 'parent' => 'compliance', 'title' => 'Lacey Act Compliance for Olive Wood Imports', 'template' => $T_TRUST,
+			'seo_title' => 'Lacey Act Olive Wood Imports | Declaration Data | ArtisRaw®',
+			'seo_desc'  => 'ArtisRaw provides Lacey Act declaration data (PPQ 505) for olive wood imports to the USA: Olea europaea, harvested in Tunisia, with HTS 4419 guidance.',
+			'qa'        => 'For US imports, ArtisRaw supplies Lacey Act declaration data (PPQ Form 505): genus and species (Olea europaea), country of harvest (Tunisia), quantity and value — plus HTS 4419 classification guidance and full export documents with every shipment.',
+			'content'   => "<h2>What we provide</h2><ul><li>Per-shipment PPQ 505 declaration fields.</li><li>HTS 4419 classification guidance.</li><li>Commercial invoice, packing list, ISPM-15 pallets.</li></ul><p>Air freight 5–12 days; ocean 25–40. USD invoicing with DDP available.</p>",
+		),
+		array(
+			'slug' => 'eudr', 'parent' => 'compliance', 'title' => 'EUDR Compliance for Olive Wood', 'template' => $T_TRUST,
+			'seo_title' => 'EUDR Olive Wood Compliance | Traceability for EU Buyers | ArtisRaw®',
+			'seo_desc'  => 'EUDR due-diligence for olive wood: geolocation of harvest, legal-harvest evidence and traceability for EU importers. Reclaimed Chemlali wood, licence #4684.',
+			'qa'        => 'For EU buyers, ArtisRaw provides EUDR-readiness documentation: geolocation of the harvest area, evidence of legal harvest (forestry licence #4684) and supply-chain traceability for reclaimed Chemlali olive wood — supplied per shipment for your due diligence.',
+			'content'   => "<h2>EUDR readiness</h2><ul><li>Reclaimed, end-of-life Chemlali olive wood from licensed sources.</li><li>Geolocation and legal-harvest evidence.</li><li>Due-diligence statements per shipment.</li></ul>",
+		),
+		array(
+			'slug' => 'olive-wood-supplier-europe', 'title' => 'Olive Wood Supplier for Europe', 'template' => $T_TRUST,
+			'seo_title' => 'Olive Wood Supplier Europe | EUDR-Ready, Fast Freight | ArtisRaw®',
+			'seo_desc'  => 'European importers: olive wood wholesale with EUDR traceability, EUR invoicing and ocean/air freight from Tunisia. MOQ from 50, private label available.',
+			'qa'        => 'ArtisRaw supplies European wholesale buyers with olive wood boards, serveware and utensils — with EUDR traceability, EUR invoicing and a Marseille gateway. Ocean freight runs 25–40 days, air 5–12; MOQ from 50, with private-label engraving and ISO 9001 quality control.',
+			'content'   => "<h2>Built for EU importers</h2><ul><li>EUDR due-diligence documentation.</li><li>EUR invoicing and CE-aligned labelling support.</li><li>Marseille gateway; UK/France specialty-retail experience.</li></ul>",
 		),
 
 		/* ---- Contact / FAQ (tpl-contact-faq) ---- */

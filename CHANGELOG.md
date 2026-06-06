@@ -2,6 +2,23 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 8 — Content expansion: full catalogue, Magazine & Guide
+
+- `sku_category` expanded **5 → 15 families** via `artisraw_catalogue_families()` (idempotent term seeding); families link to their `/wholesale/` page where one exists.
+- `tpl-catalogue.php` → `/catalogue/`: magazine-style index — featured families (real images) + the full 15-family grid + food-safe care note + **gated PDF catalogue & price-list** request (quote form).
+- Article system: `single.php` for posts — quick-answer first, reviewer byline + Updated date, prose body, CTA, and **BlogPosting JSON-LD** with author/reviewer (E-E-A-T, §6.9). `inc/content.php` seeds 4 real Guide articles (Chemlali grain, Lacey Act, olive-wood care, EUDR) with `quick_answer` + `article_reviewer` meta, under a "Olive Wood Guide" category.
+- `tpl-magazine.php` → `/magazine/`: editor's feature + latest-stories grid (WP posts) + fairs/participation band + newsletter CTA.
+- Guide pillar `/olive-wood/`: `trust_articles` flag lists the latest Guide articles (shared `artisraw_post_to_card()`).
+- Compliance pages: `/compliance/` index + `/compliance/lacey-act/` + `/compliance/eudr/`, plus `/olive-wood-supplier-europe/` (tpl-trust). Seeder `ARTISRAW_PAGES_VER` → 6.
+- Nav: "Full Catalogue (PDF)" added to the Catalogue dropdown; Guide became a dropdown (Guide · Magazine · Compliance). FR dictionary + `.article-hero` styles added.
+
+### Verified
+- Full-site crawl (40 URLs): all HTTP-200, **zero duplicate titles/metas/canonicals**, one H1 each, zero JSON-LD parse errors, zero PHP notices.
+- Catalogue shows 15 families + PDF request form; Magazine + Guide list the 4 seeded articles; single article renders quick-answer + byline + BlogPosting schema. Articles in the post sitemap; catalogue/magazine in the page sitemap.
+
+### Pending (ongoing content)
+- Remaining BLUEPRINT articles (2–4/week), per-family SKU population + real product photography, factory video on `/production-process/`, real Q4 documents in the download centre, segment pages (`/wholesale/for-…`).
+
 ## Phase 10 — French version, hardening & AI visibility
 
 - `inc/i18n.php`: plugin-free French layer (SPEC §9). `/fr/` pages are real pages (meta `page_lang=fr`) reusing the prose templates; UI chrome is translated at runtime via a `gettext` PHP dictionary (no `.mo` tooling), rich body copy lives in `post_content`. Strings not in the dictionary fall back to English.

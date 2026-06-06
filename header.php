@@ -27,6 +27,7 @@ function artisraw_primary_items() {
 				array( 'label' => __( 'Chess Sets', 'artisraw' ), 'url' => home_url( '/wholesale/olive-wood-chess-sets/' ) ),
 				array( 'label' => __( 'Décor & Bath', 'artisraw' ), 'url' => home_url( '/wholesale/olive-wood-decor-bath/' ) ),
 				array( 'label' => __( 'View all categories', 'artisraw' ), 'url' => home_url( '/wholesale/' ) ),
+				array( 'label' => __( 'Full Catalogue (PDF)', 'artisraw' ), 'url' => home_url( '/catalogue/' ) ),
 			),
 		),
 		// How to buy at scale — the hub plus the buying-process pages.
@@ -63,7 +64,15 @@ function artisraw_primary_items() {
 				array( 'label' => __( 'Sustainability', 'artisraw' ), 'url' => home_url( '/sustainability/' ) ),
 			),
 		),
-		array( 'label' => __( 'Guide', 'artisraw' ), 'url' => home_url( '/olive-wood/' ) ),
+		array(
+			'label'    => __( 'Guide', 'artisraw' ),
+			'url'      => home_url( '/olive-wood/' ),
+			'children' => array(
+				array( 'label' => __( 'Olive Wood Guide', 'artisraw' ), 'url' => home_url( '/olive-wood/' ) ),
+				array( 'label' => __( 'Magazine', 'artisraw' ), 'url' => home_url( '/magazine/' ) ),
+				array( 'label' => __( 'Compliance (Lacey / EUDR)', 'artisraw' ), 'url' => home_url( '/compliance/' ) ),
+			),
+		),
 		array( 'label' => __( 'Contact', 'artisraw' ), 'url' => home_url( '/contact/' ) ),
 	);
 }

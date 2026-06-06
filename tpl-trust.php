@@ -18,6 +18,7 @@ $pid = get_queried_object_id();
 $qa  = get_post_meta( $pid, 'quick_answer', true );
 $show_downloads = get_post_meta( $pid, 'trust_downloads', true );
 $extras = get_post_meta( $pid, 'trust_extras', true ); // 'about' | 'process' | ''
+$show_articles = get_post_meta( $pid, 'trust_articles', true ); // Guide pillar
 
 get_header();
 artisraw_breadcrumbs();
@@ -130,6 +131,24 @@ if ( 'about' === $extras ) :
 	</section>
 
 <?php endif; ?>
+
+<?php
+/* Guide pillar: list the latest Guide articles. */
+if ( $show_articles ) :
+	$guide_q = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 6, 'ignore_sticky_posts' => true ) );
+	if ( $guide_q->have_posts() ) : ?>
+	<section class="container section hub-section">
+		<header class="hub-section__head"><h2><?php esc_html_e( 'Latest from the Guide', 'artisraw' ); ?></h2></header>
+		<div class="grid">
+			<?php foreach ( $guide_q->posts as $gp ) : ?>
+				<div class="col-4"><?php artisraw_article_card( artisraw_post_to_card( $gp->ID ) ); ?></div>
+			<?php endforeach; ?>
+		</div>
+		<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( home_url( '/magazine/' ) ); ?>"><?php esc_html_e( 'Visit the Magazine', 'artisraw' ); ?></a></p>
+	</section>
+	<?php endif; wp_reset_postdata();
+endif;
+?>
 
 <?php if ( $show_downloads ) : ?>
 <section class="section--sand">
