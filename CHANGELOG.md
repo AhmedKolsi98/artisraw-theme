@@ -2,6 +2,17 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 12.4 — Figma Visual Integration: Process page
+
+`/production-process/` rebuilt to the Figma composition on `tpl-process.php` (was `tpl-trust` + `trust_extras=process`). Quick-answer + prose intro stay editable; designed sections template-rendered and `__()`-wrapped.
+- Composition: photo hero (`ar-worker-carry` + ISO badge + CTA) → quick answer → centered intro → **8-step numbered overview** (`steps--numbered`) → **3 alternating step-feature bands** (`color_block` amber/sand/espresso, alternating `field_left`) → **QC timeline** (6 checkpoints) → **FAQ** (8 Q&A) → quote block on a sand band.
+- Reused existing components throughout (`color_block`, `faq_accordion`, `quote_block`, `qc_timeline`, `steps`, `photo_hero`) — no new components needed.
+- **FAQ schema:** rendered with `emit_schema = false` here so the canonical FAQPage entity stays on `/faq/` (no duplicate FAQPage across URLs).
+- Seeder: process page → `$T_PROC`; `ARTISRAW_PAGES_VER` → 8.
+
+### Verified
+- `php -l` clean. `/production-process/` 200, photo-hero active, **one H1**, **8** step cards, **3** step-feature bands (2 field-left + 1 photo-left), **6** QC cards, **8** FAQ items, quote block present, **zero** PHP notices/warnings, **zero** FAQPage schema on the page (owned by /faq/), all referenced `ar-*` images resolve 200.
+
 ## Phase 12.3 — Figma Visual Integration: About page
 
 `/about/` rebuilt to the Figma composition on a dedicated `tpl-about.php` (was `tpl-trust` + `trust_extras=about`). Quick-answer + prose intro stay editable (post meta/content); the designed sections are template-rendered and `__()`-wrapped.

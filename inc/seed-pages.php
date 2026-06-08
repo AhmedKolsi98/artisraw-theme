@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ARTISRAW_PAGES_VER', 7 );
+define( 'ARTISRAW_PAGES_VER', 8 );
 
 function artisraw_seed_pages() {
 	if ( (int) get_option( 'artisraw_pages_ver' ) >= ARTISRAW_PAGES_VER ) {
@@ -99,6 +99,7 @@ function artisraw_phase1_page_data() {
 	$T_CAT2  = 'tpl-catalogue.php';
 	$T_MAG   = 'tpl-magazine.php';
 	$T_ABOUT = 'tpl-about.php';
+	$T_PROC  = 'tpl-process.php';
 
 	return array(
 		/* ---- Catalogue index + categories (tpl-category) ---- */
@@ -230,7 +231,7 @@ function artisraw_phase1_page_data() {
 
 		/* ---- Nav-linked pages needed for a clean Phase-1 crawl (fuller copy in Phase 2/7) ---- */
 		array(
-			'slug' => 'production-process', 'title' => 'From Olive Tree to Export-Ready Order', 'template' => $T_TRUST,
+			'slug' => 'production-process', 'title' => 'From Olive Tree to Export-Ready Order', 'template' => $T_PROC,
 			'seo_title' => 'Olive Wood Factory Tunisia | Our Production Process | ArtisRaw®',
 			'seo_desc'  => 'Inside the ArtisRaw olive wood factory in Sfax: sourcing, drying, machining, handcrafting, food-safe finishing and export — with QC at every step.',
 			'qa'        => 'ArtisRaw’s production runs from reclaimed Chemlali olive wood to export-ready orders: licensed sourcing, controlled drying, CNC machining, hand-finishing, food-safe oil-and-beeswax finishing, then QC, ISPM-15 packing and export — all under an ISO 9001 quality system in Sfax, Tunisia.',
