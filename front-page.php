@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $ref = home_url( '/references/' );
-artisraw_set_hero_preload( '/assets/ar-grove', '100vw', array( 600, 1200 ) );
+artisraw_set_hero_preload( '/assets/ar-hero-collage', '100vw', array( 600, 1200 ) );
 get_header();
 
 $trust = array(
@@ -27,22 +27,23 @@ $trust = array(
 );
 ?>
 
-<!-- 1 · Statement hero (§3): one duotone image + statement + pinned trust -->
+<!-- 1 · Hero (Figma): photo collage + amber value-prop headline + ISO badge + trust -->
 <?php
-artisraw_statement_hero( array(
-	'base'      => '/assets/ar-grove',
-	'alt'       => __( 'Olive grove near Sfax, Tunisia', 'artisraw' ),
+artisraw_photo_hero( array(
+	'base'      => '/assets/ar-hero-collage',
+	'alt'       => __( 'Handmade Tunisian olive wood collections', 'artisraw' ),
 	'widths'    => array( 600, 1200 ),
-	'w'         => 1273, 'h' => 900,
+	'w'         => 1672, 'h' => 941,
 	'eyebrow'   => __( 'ISO 9001 olive wood manufacturer · Sfax, Tunisia', 'artisraw' ),
-	'statement' => __( 'wood that works.', 'artisraw' ),
+	'title'     => __( 'Premium Olive Wood for Wholesale Buyers', 'artisraw' ),
 	'as_h1'     => true,
-	'support'   => __( 'Handmade Tunisian olive wood for retailers, distributors, hospitality groups and private-label brands in 30+ countries.', 'artisraw' ),
-	'cta_label' => __( 'Request Line-Sheet & Compliance Pack', 'artisraw' ),
+	'support'   => __( 'Handmade Tunisian olive wood collections for retailers, distributors, hospitality groups, corporate gifts and private-label brands.', 'artisraw' ),
+	'cta_label' => __( 'Request a Quote', 'artisraw' ),
 	'cta_url'   => home_url( '/request-quote/' ),
 	'alt_label' => __( 'Explore wholesale', 'artisraw' ),
 	'alt_url'   => home_url( '/olive-wood-wholesale-supplier/' ),
 	'trust'     => $trust,
+	'badge'     => true,
 	'loc'       => 'home-hero',
 ) );
 ?>
@@ -75,6 +76,21 @@ artisraw_statement_hero( array(
 	</ul>
 	<p class="hub-section__note"><?php artisraw_arrow_link( __( 'View the full catalogue', 'artisraw' ), home_url( '/catalogue/' ) ); ?></p>
 </section>
+
+<!-- 3b · Captioned image grid (Figma): tree → workshop → wholesale → shelves -->
+<div class="container section">
+	<?php
+	artisraw_caption_grid(
+		array(
+			array( 'base' => '/assets/ar-grove', 'alt' => __( 'Olive grove in the Sfax region', 'artisraw' ), 'caption' => __( 'Responsible olive wood sourcing', 'artisraw' ), 'w' => 1273, 'h' => 900, 'widths' => array( 600, 1200 ) ),
+			array( 'base' => '/assets/ar-lathe', 'alt' => __( 'Artisan shaping olive wood on a lathe', 'artisraw' ), 'caption' => __( 'Handmade production', 'artisraw' ), 'w' => 1400, 'h' => 933, 'widths' => array( 600, 1200 ) ),
+			array( 'base' => '/assets/ar-boards-drying', 'alt' => __( 'Dense-grain olive wood boards drying', 'artisraw' ), 'caption' => __( 'Chemlali dense grain', 'artisraw' ), 'w' => 1200, 'h' => 801, 'widths' => array( 600, 1200 ) ),
+			array( 'base' => '/assets/ar-chess2', 'alt' => __( 'Finished olive wood chess set', 'artisraw' ), 'caption' => __( 'Premium B2B collections', 'artisraw' ), 'w' => 800, 'h' => 800, 'widths' => array( 600 ) ),
+		),
+		__( 'From tree, to workshop, to wholesale, to shelves', 'artisraw' )
+	);
+	?>
+</div>
 
 <!-- 4 · Color-block mosaic (§4): who we are · how it's made · sustainability -->
 <?php
@@ -178,19 +194,25 @@ artisraw_stat_band( array(
 	<?php artisraw_logo_band( array( array( 'Eataly' ), array( 'Karthage LLC' ), array( 'Folksy' ), array( 'Delta Co.' ), array( 'TunSouk' ) ), __( 'Selected buyers &amp; partners', 'artisraw' ) ); ?>
 </div>
 
-<!-- 9 · Buyer voices (§6: one quote per viewport) -->
-<section class="container section hub-section">
-	<?php
-	artisraw_buyer_voices(
-		array(
-			array( __( 'ArtisRaw is reliable, consistent and easy to work with. Their handmade olive wood helped us build a premium retail collection with a strong Mediterranean story.', 'artisraw' ), __( 'Retail buyer', 'artisraw' ), __( 'Specialty retailer, United Kingdom', 'artisraw' ), 5 ),
-			array( __( 'The export paperwork was ready before we asked — Lacey Act data, packing lists, the lot. Reordering is genuinely fast.', 'artisraw' ), __( 'Importer', 'artisraw' ), __( 'Distributor, United States', 'artisraw' ), 5 ),
-			array( __( 'Private-label engraving and packaging came back exactly to brief. The handmade quality sells itself in our stores.', 'artisraw' ), __( 'Brand owner', 'artisraw' ), __( 'Concept stores, GCC', 'artisraw' ), 5 ),
-		),
-		__( 'What buyers say', 'artisraw' )
-	);
-	?>
-</section>
+<!-- 9 · Feature testimonial + trio wayfinding band (Figma) -->
+<?php
+artisraw_testimonial_feature( array(
+	'heading'    => __( 'What they say…', 'artisraw' ),
+	'quote'      => __( 'ArtisRaw is reliable, consistent and easy to work with. Their handmade olive wood products helped us build a premium retail collection with a strong Mediterranean story.', 'artisraw' ),
+	'author'     => __( 'Retail buyer', 'artisraw' ),
+	'role'       => __( 'Specialty retailer, United Kingdom', 'artisraw' ),
+	'link_label' => __( 'Request a quote', 'artisraw' ),
+	'link_url'   => home_url( '/request-quote/' ),
+	'img_base'   => '/assets/ar-trade-fair',
+	'img_alt'    => __( 'ArtisRaw booth at an international B2B trade fair', 'artisraw' ),
+	'img_w'      => 1200, 'img_h' => 900, 'img_widths' => array( 600, 1200 ),
+) );
+artisraw_trio_band( array(
+	array( 'label' => __( 'Discover the real olive wood quality', 'artisraw' ), 'cue' => __( 'Discover more', 'artisraw' ), 'href' => home_url( '/about/' ) ),
+	array( 'label' => __( 'Our process', 'artisraw' ), 'cue' => __( 'Learn more', 'artisraw' ), 'href' => home_url( '/production-process/' ) ),
+	array( 'label' => __( 'FAQs', 'artisraw' ), 'cue' => __( 'Read more', 'artisraw' ), 'href' => home_url( '/faq/' ) ),
+) );
+?>
 
 <!-- 10 · From the Guide (real articles) -->
 <?php

@@ -1082,7 +1082,16 @@ function artisraw_photo_hero( array $a ) {
 		echo '<p class="photo-hero__support lead">' . esc_html( $a['support'] ) . '</p>';
 	}
 	if ( ! empty( $a['cta_label'] ) ) {
-		echo '<p class="photo-hero__cta"><a class="btn btn--primary" href="' . esc_url( $a['cta_url'] ?? '#' ) . '" data-ga="cta_click" data-ga-label="hero" data-ga-location="' . esc_attr( $loc ) . '">' . esc_html( $a['cta_label'] ) . '</a></p>';
+		echo '<p class="photo-hero__cta"><a class="btn btn--primary" href="' . esc_url( $a['cta_url'] ?? '#' ) . '" data-ga="cta_click" data-ga-label="hero" data-ga-location="' . esc_attr( $loc ) . '">' . esc_html( $a['cta_label'] ) . '</a>';
+		if ( ! empty( $a['alt_label'] ) ) {
+			echo '<a class="btn btn--tertiary photo-hero__alt" href="' . esc_url( $a['alt_url'] ?? '#' ) . '">' . esc_html( $a['alt_label'] ) . '</a>';
+		}
+		echo '</p>';
+	}
+	if ( ! empty( $a['trust'] ) ) {
+		echo '<div class="photo-hero__trust">';
+		artisraw_trust_strip( $a['trust'] );
+		echo '</div>';
 	}
 	echo '</div></div>';
 	if ( ! empty( $a['badge'] ) ) {

@@ -2,6 +2,17 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 12.2 — Figma Visual Integration: Home page
+
+Home re-composed to the Figma rhythm — **merge, not replace**: adopt the Figma hero + its distinctive sections, keep our higher-value B2B/SEO blocks.
+- **Hero decision → adopt the Figma hero** (your call). `statement_hero` ("wood that works.") swapped for `artisraw_photo_hero()`: photo collage (`ar-hero-collage`) + amber serif value-prop headline ("Premium Olive Wood for Wholesale Buyers") + primary/secondary CTA + re-skinned ISO badge, with our numeric trust strip folded in. LCP preload updated to `ar-hero-collage`.
+- `photo_hero` extended with `trust` (numeric trust strip, on-dark chips) + `alt_label/alt_url` (secondary CTA).
+- **Added** the Figma captioned image grid ("From tree, to workshop, to wholesale, to shelves") and the **feature testimonial + trio wayfinding band** (replaced the `buyer_voices` carousel — one testimonial treatment, no redundancy).
+- **Kept** (not compromised): quick answer (SEO), the 3 color-block mosaic bands, real **Ready-to-Ship Bestsellers** SKU grid (better than the Figma placeholder product strip), differentiators, "Built for your channel", stat band + logo band, real Guide posts, Instagram strip, two-column quote block. Tri-strip stays in the footer (no duplicate section).
+
+### Verified
+- `php -l` clean. Home 200, **exactly one H1** (hero), hero preloads `ar-hero-collage`, ISO badge + trust strip render, caption grid + 3 mosaic bands + SKU grid + feature testimonial + trio band + quote block all present, `buyer_voices` removed, **zero** PHP notices/warnings, all 19 `ar-*` images resolve 200.
+
 ## Phase 12.4 — Figma Visual Integration: Process page
 
 `/production-process/` rebuilt to the Figma composition on `tpl-process.php` (was `tpl-trust` + `trust_extras=process`). Quick-answer + prose intro stay editable; designed sections template-rendered and `__()`-wrapped.

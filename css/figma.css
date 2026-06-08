@@ -93,7 +93,10 @@
 .photo-hero__eyebrow { color: var(--c-amber-500); }
 .photo-hero__title { font-family: var(--ff-serif); font-size: var(--fs-display-l); line-height: var(--lh-display-l); font-weight: var(--fw-bold); color: var(--c-amber-500); max-width: 18ch; margin: 0 0 var(--sp-2); }
 .photo-hero__support { max-width: 56ch; margin: 0 0 var(--sp-3); }
-.photo-hero__cta { margin: 0; }
+.photo-hero__cta { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-3); align-items: center; margin: 0; }
+.photo-hero__alt { color: var(--c-cream-100); }
+.photo-hero__trust { margin-top: var(--sp-4); }
+.photo-hero__trust .trust-strip { margin: 0; }
 
 /* --- About intro (centered editorial prose) ----------------------------- */
 .about-intro { max-width: 78ch; margin-inline: auto; text-align: center; }
