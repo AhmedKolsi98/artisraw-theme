@@ -97,8 +97,10 @@ html:not(.js) .accordion__panel[hidden] { display: block; }
 @keyframes artisraw-reveal { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 
 /* --- Stat band ---------------------------------------------------------- */
-.stat-band__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); text-align: center; }
-@media (max-width: 767px) { .stat-band__grid { grid-template-columns: repeat(2, 1fr); } }
+/* All stats sit on one row (3 or 4 of them); align to the top so the big
+   numbers line up even when labels wrap to different line counts. */
+.stat-band__grid { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: var(--sp-4); text-align: center; align-items: start; }
+@media (max-width: 767px) { .stat-band__grid { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(2, 1fr); } }
 .stat { display: flex; flex-direction: column; gap: var(--sp-1); }
 .stat__value { font-family: var(--ff-serif); font-size: var(--fs-display-l); font-weight: var(--fw-bold); line-height: 1; color: var(--c-amber-500); }
 .stat-band:not(.on-dark) .stat__value { color: var(--c-bark-700); }
