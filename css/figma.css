@@ -85,6 +85,35 @@
   .feature-quote--field-left .feature-quote__photo { order: 2; }
 }
 
+/* --- Inner-page photo hero (Figma .hero-page) --------------------------- */
+.photo-hero { position: relative; isolation: isolate; overflow: hidden; color: var(--c-cream-100); min-height: 460px; display: flex; align-items: center; padding: calc(var(--header-height) + var(--sp-6)) 0 var(--sp-6); }
+.photo-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.photo-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(43, 26, 16, 0.55), rgba(43, 26, 16, 0.8)); }
+.photo-hero__inner { width: 100%; }
+.photo-hero__eyebrow { color: var(--c-amber-500); }
+.photo-hero__title { font-family: var(--ff-serif); font-size: var(--fs-display-l); line-height: var(--lh-display-l); font-weight: var(--fw-bold); color: var(--c-amber-500); max-width: 18ch; margin: 0 0 var(--sp-2); }
+.photo-hero__support { max-width: 56ch; margin: 0 0 var(--sp-3); }
+.photo-hero__cta { margin: 0; }
+
+/* --- About intro (centered editorial prose) ----------------------------- */
+.about-intro { max-width: 78ch; margin-inline: auto; text-align: center; }
+.about-intro h2 { font-size: var(--fs-heading); margin-top: var(--sp-4); }
+.about-intro h2:first-child { margin-top: 0; }
+
+/* --- Certification block (Figma About .cert) ---------------------------- */
+.cert-block { display: grid; gap: var(--sp-5); grid-template-columns: 1fr; align-items: center; }
+@media (min-width: 820px) { .cert-block { grid-template-columns: 0.8fr 1.2fr; } }
+.cert-block__img { width: 100%; height: auto; border-radius: var(--radius-sm); box-shadow: var(--shadow-lift); background: var(--c-paper-50); }
+.cert-block__list { padding-left: var(--sp-3); margin: var(--sp-2) 0 var(--sp-3); }
+.cert-block__list li { margin-bottom: var(--sp-1); }
+
+/* --- Feature testimonial: dark "Stories" variant (Figma .story-band) ---- */
+.feature-quote--dark .feature-quote__field { background: var(--c-espresso-900); }
+.feature-quote--dark .feature-quote__head { color: var(--c-amber-500); }
+.feature-quote--dark .feature-quote__quote { color: var(--c-cream-100); }
+.feature-quote--dark .feature-quote__by { color: var(--c-sand-200); }
+.feature-quote__cta { margin: var(--sp-1) 0 0; }
+
 /* --- Hero-products strip (Figma .product-strip) ------------------------- */
 .product-strip { display: grid; gap: var(--sp-2); grid-template-columns: repeat(2, 1fr); margin-top: var(--sp-4); }
 @media (min-width: 900px) { .product-strip { grid-template-columns: repeat(5, 1fr); } }

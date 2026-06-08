@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ARTISRAW_PAGES_VER', 6 );
+define( 'ARTISRAW_PAGES_VER', 7 );
 
 function artisraw_seed_pages() {
 	if ( (int) get_option( 'artisraw_pages_ver' ) >= ARTISRAW_PAGES_VER ) {
@@ -98,6 +98,7 @@ function artisraw_phase1_page_data() {
 	$T_WORLD = 'tpl-worldwide.php';
 	$T_CAT2  = 'tpl-catalogue.php';
 	$T_MAG   = 'tpl-magazine.php';
+	$T_ABOUT = 'tpl-about.php';
 
 	return array(
 		/* ---- Catalogue index + categories (tpl-category) ---- */
@@ -189,7 +190,7 @@ function artisraw_phase1_page_data() {
 			'content'   => '<p>Every claim on this site links here. Download the document you need, or request batch-level proof photos for a specific order.</p>',
 		),
 		array(
-			'slug' => 'about', 'title' => 'Mediterranean Heritage, Crafted in Sustainable Luxury', 'template' => $T_TRUST,
+			'slug' => 'about', 'title' => 'Mediterranean Heritage, Crafted in Sustainable Luxury', 'template' => $T_ABOUT,
 			'seo_title' => 'About ArtisRaw | Tunisian Olive Wood Manufacturer Since 2019',
 			'seo_desc'  => 'Founded in Sfax in 2019, ArtisRaw combines 25+ artisans with Crafts 4.0 production. Meet the founders and the four pillars behind our collections.',
 			'qa'        => 'ArtisRaw was founded in Sfax, Tunisia in 2019 by Mohamed Bilel Cherif, Ahmed Sakka and Ihsen Triki. The company pairs 25+ registered artisans with CNC precision and an ISO 9001 quality system — a “Crafts 4.0” model serving wholesale partners in more than 30 countries.',

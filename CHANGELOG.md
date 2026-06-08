@@ -2,6 +2,19 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 12.3 — Figma Visual Integration: About page
+
+`/about/` rebuilt to the Figma composition on a dedicated `tpl-about.php` (was `tpl-trust` + `trust_extras=about`). Quick-answer + prose intro stay editable (post meta/content); the designed sections are template-rendered and `__()`-wrapped.
+- **Asset ingestion (12.5 partial):** the Figma imagery brought into our responsive pipeline via PIL — `ar-lathe`, `ar-boards-drying`, `ar-warehouse`, `ar-whoweare`, `ar-certificate`, `ar-showroom`, `ar-artisan-bowl`, `ar-trade-fair`, `ar-worker-carry`, `ar-hero-collage`, `ar-world-map`, `ar-olive-tree`, `ar-chess2`, `ar-product-1..5`, `ar-brand-script` — each as `{base}-{width}.webp` (600/1200/1800, never upscaled).
+- **`artisraw_photo_hero()`** — reusable inner-page hero (full-bleed photo + dark scrim + amber serif title + support + optional CTA and ISO badge). Separate from the home statement_hero (the home-hero concept is still an open decision).
+- **`artisraw_testimonial_feature()`** gained `dark` + `button_label/url` (the espresso "Stories worth telling" band).
+- About composition: photo hero (whoweare bg + ISO badge) → quick answer → centered intro (`.about-intro`) → caption grid (4 visuals) → 4 value pillars → facility stat cards → numbered 6-step process → certification block (`.cert-block`, real certificate image) → founders (Mohamed Bilel Cherif · Ihsen Triki · Ahmed Sakka) → dark Stories band.
+- Seeder: about page switched to `$T_ABOUT`; `ARTISRAW_PAGES_VER` → 7 (template re-applied via the `update` path on bump).
+- FR: strings are `__()`-wrapped (translation-ready); the FR dict entries + pointing `/fr/a-propos/` at the new template are deferred to the 12.6 FR/QA sweep to avoid shipping a half-translated FR design.
+
+### Verified
+- `php -l` clean. `/about/` 200, photo-hero active, **exactly one H1**, all sections present (caption grid, value/stat cards, numbered steps, cert block, founders, dark Stories band, hero ISO badge), **zero** PHP notices/warnings. All 11 referenced `ar-*` images resolve 200 through the pipeline.
+
 ## Phase 12.1 — Figma Visual Integration: component library
 
 New reusable components ported from the Figma into `inc/components.php` (all through `artisraw_responsive_image()`, tokens-only styling in new `css/figma.css`, gettext-ready). Each added to `/styleguide/`.

@@ -984,7 +984,9 @@ function artisraw_qc_timeline( array $items, $heading = '', $intro = '' ) {
  *     img_w, img_h, img_widths, field_left(bool — photo on the right).
  */
 function artisraw_testimonial_feature( array $a ) {
-	$cls = 'feature-quote' . ( ! empty( $a['field_left'] ) ? ' feature-quote--field-left' : '' );
+	$cls = 'feature-quote';
+	$cls .= ! empty( $a['field_left'] ) ? ' feature-quote--field-left' : '';
+	$cls .= ! empty( $a['dark'] ) ? ' feature-quote--dark on-dark' : '';
 	echo '<section class="' . esc_attr( $cls ) . '">';
 	echo '<div class="feature-quote__photo">';
 	artisraw_responsive_image( array(
@@ -1005,7 +1007,9 @@ function artisraw_testimonial_feature( array $a ) {
 	if ( ! empty( $a['author'] ) ) {
 		echo '<p class="feature-quote__by"><strong>' . esc_html( $a['author'] ) . '</strong>' . ( ! empty( $a['role'] ) ? ' · ' . esc_html( $a['role'] ) : '' ) . '</p>';
 	}
-	if ( ! empty( $a['link_label'] ) ) {
+	if ( ! empty( $a['button_label'] ) ) {
+		echo '<p class="feature-quote__cta"><a class="btn btn--primary" href="' . esc_url( $a['button_url'] ?? '#' ) . '">' . esc_html( $a['button_label'] ) . '</a></p>';
+	} elseif ( ! empty( $a['link_label'] ) ) {
 		artisraw_arrow_link( $a['link_label'], $a['link_url'] ?? '#' );
 	}
 	echo '</div></section>';
@@ -1046,4 +1050,43 @@ function artisraw_product_strip( array $items, $heading = '', $cta = array() ) {
 		echo '</p>';
 	}
 	echo '</div>';
+}
+
+/**
+ * Inner-page photo hero (Figma `.hero-page`): full-bleed background photo +
+ * dark scrim + amber serif title + support line + optional CTA and ISO badge.
+ * Distinct from the home statement_hero (the home hero concept is decided
+ * separately). $a: base, alt, w, h, widths, title, support, eyebrow, cta_label,
+ * cta_url, badge(bool), as_h1(bool, default true), loc.
+ */
+function artisraw_photo_hero( array $a ) {
+	$tag = isset( $a['as_h1'] ) && ! $a['as_h1'] ? 'p' : 'h1';
+	$loc = $a['loc'] ?? 'page';
+	echo '<section class="photo-hero on-dark" data-hero="' . esc_attr( $loc ) . '">';
+	artisraw_responsive_image( array(
+		'base'   => $a['base'],
+		'alt'    => $a['alt'] ?? '',
+		'class'  => 'photo-hero__img',
+		'width'  => $a['w'] ?? 1600,
+		'height' => $a['h'] ?? 900,
+		'widths' => $a['widths'] ?? array( 600, 1200 ),
+		'sizes'  => '100vw',
+		'eager'  => true,
+	) );
+	echo '<div class="photo-hero__inner"><div class="container">';
+	if ( ! empty( $a['eyebrow'] ) ) {
+		echo '<p class="photo-hero__eyebrow eyebrow">' . esc_html( $a['eyebrow'] ) . '</p>';
+	}
+	echo '<' . $tag . ' class="photo-hero__title">' . esc_html( $a['title'] ?? '' ) . '</' . $tag . '>';
+	if ( ! empty( $a['support'] ) ) {
+		echo '<p class="photo-hero__support lead">' . esc_html( $a['support'] ) . '</p>';
+	}
+	if ( ! empty( $a['cta_label'] ) ) {
+		echo '<p class="photo-hero__cta"><a class="btn btn--primary" href="' . esc_url( $a['cta_url'] ?? '#' ) . '" data-ga="cta_click" data-ga-label="hero" data-ga-location="' . esc_attr( $loc ) . '">' . esc_html( $a['cta_label'] ) . '</a></p>';
+	}
+	echo '</div></div>';
+	if ( ! empty( $a['badge'] ) ) {
+		artisraw_iso_badge( array( 'place' => 'hero' ) );
+	}
+	echo '</section>';
 }
