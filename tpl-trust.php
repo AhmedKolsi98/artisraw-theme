@@ -91,7 +91,7 @@ if ( 'about' === $extras ) :
 				array( '', __( 'Food-safe finishing & QC', 'artisraw' ), __( 'Mineral-oil & beeswax finish, then unit-by-unit inspection and export packing.', 'artisraw' ) ),
 			) );
 			?>
-			<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( home_url( '/production-process/' ) ); ?>"><?php esc_html_e( 'See the full production process', 'artisraw' ); ?></a></p>
+			<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( artisraw_localized_url( '/production-process/' ) ); ?>"><?php esc_html_e( 'See the full production process', 'artisraw' ); ?></a></p>
 		</div>
 	</section>
 
@@ -127,7 +127,7 @@ if ( 'about' === $extras ) :
 			array( __( 'Check 06', 'artisraw' ), __( 'Export', 'artisraw' ), __( 'Documents and pallet compliance checked.', 'artisraw' ) ),
 		) );
 		?>
-		<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( home_url( '/quality-control/' ) ); ?>"><?php esc_html_e( 'How we control quality', 'artisraw' ); ?></a></p>
+		<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( artisraw_localized_url( '/quality-control/' ) ); ?>"><?php esc_html_e( 'How we control quality', 'artisraw' ); ?></a></p>
 	</section>
 
 <?php endif; ?>
@@ -144,7 +144,7 @@ if ( $show_articles ) :
 				<div class="col-4"><?php artisraw_article_card( artisraw_post_to_card( $gp->ID ) ); ?></div>
 			<?php endforeach; ?>
 		</div>
-		<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( home_url( '/magazine/' ) ); ?>"><?php esc_html_e( 'Visit the Magazine', 'artisraw' ); ?></a></p>
+		<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( artisraw_localized_url( '/magazine/' ) ); ?>"><?php esc_html_e( 'Visit the Magazine', 'artisraw' ); ?></a></p>
 	</section>
 	<?php endif; wp_reset_postdata();
 endif;
@@ -180,13 +180,13 @@ endif;
 <div class="container section hub-section">
 	<?php
 	artisraw_trust_strip( array(
-		array( __( 'ISO 9001:2015', 'artisraw' ), home_url( '/certifications/' ) ),
-		array( __( 'Lacey Act data ready', 'artisraw' ), home_url( '/references/' ) ),
-		array( __( 'EUDR traceability', 'artisraw' ), home_url( '/references/' ) ),
-		array( __( '30+ countries', 'artisraw' ), home_url( '/shipping-logistics/' ) ),
+		array( __( 'ISO 9001:2015', 'artisraw' ), artisraw_localized_url( '/certifications/' ) ),
+		array( __( 'Lacey Act data ready', 'artisraw' ), artisraw_localized_url( '/references/' ) ),
+		array( __( 'EUDR traceability', 'artisraw' ), artisraw_localized_url( '/references/' ) ),
+		array( __( '30+ countries', 'artisraw' ), artisraw_localized_url( '/shipping-logistics/' ) ),
 	) );
 	?>
-	<p class="hub-hero__cta"><a class="btn btn--primary" href="<?php echo esc_url( home_url( '/request-quote/' ) ); ?>" data-ga="cta_click" data-ga-label="trust" data-ga-location="<?php echo esc_attr( get_post_field( 'post_name', $pid ) ); ?>"><?php esc_html_e( 'Request Line-Sheet & Compliance Pack', 'artisraw' ); ?></a></p>
+	<p class="hub-hero__cta"><a class="btn btn--primary" href="<?php echo esc_url( artisraw_localized_url( '/request-quote/' ) ); ?>" data-ga="cta_click" data-ga-label="trust" data-ga-location="<?php echo esc_attr( get_post_field( 'post_name', $pid ) ); ?>"><?php esc_html_e( 'Request Line-Sheet & Compliance Pack', 'artisraw' ); ?></a></p>
 </div>
 
 <?php

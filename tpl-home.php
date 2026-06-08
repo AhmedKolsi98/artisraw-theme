@@ -1,7 +1,9 @@
 <?php
 /**
- * Front page (EN). Thin wrapper around the shared homepage part so the French
- * homepage (tpl-home.php) renders the identical composition.
+ * Template Name: Homepage
+ *
+ * Lets a Page (the /fr/ French home) render the full homepage composition —
+ * front-page.php can only target the site's front page, not a sub-page.
  *
  * @package ArtisRaw
  */

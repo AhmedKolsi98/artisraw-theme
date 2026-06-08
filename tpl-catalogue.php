@@ -34,9 +34,9 @@ artisraw_breadcrumbs();
 		<div class="grid">
 			<?php
 			$featured = array(
-				array( 'Cutting Boards', '/assets/ar-boards', array( 600 ), home_url( '/wholesale/olive-wood-cutting-boards/' ) ),
-				array( 'Chess & Board Games', '/assets/ar-chess', array( 600 ), home_url( '/wholesale/olive-wood-chess-sets/' ) ),
-				array( 'Bowls & Serveware', '/assets/ar-mortar', array( 600 ), home_url( '/wholesale/olive-wood-bowls-serveware/' ) ),
+				array( 'Cutting Boards', '/assets/ar-boards', array( 600 ), artisraw_localized_url( '/wholesale/olive-wood-cutting-boards/' ) ),
+				array( 'Chess & Board Games', '/assets/ar-chess', array( 600 ), artisraw_localized_url( '/wholesale/olive-wood-chess-sets/' ) ),
+				array( 'Bowls & Serveware', '/assets/ar-mortar', array( 600 ), artisraw_localized_url( '/wholesale/olive-wood-bowls-serveware/' ) ),
 			);
 			foreach ( $featured as $f ) {
 				echo '<div class="col-4"><a class="collection" href="' . esc_url( $f[3] ) . '">';
@@ -59,7 +59,7 @@ artisraw_breadcrumbs();
 		$i = 0;
 		foreach ( $families as $slug => $f ) {
 			$i++;
-			$href  = ! empty( $f['page'] ) ? home_url( '/wholesale/' . $f['page'] . '/' ) : home_url( '/request-quote/' );
+			$href  = ! empty( $f['page'] ) ? artisraw_localized_url( '/wholesale/' . $f['page'] . '/' ) : artisraw_localized_url( '/request-quote/' );
 			$label = ! empty( $f['page'] ) ? __( 'View range', 'artisraw' ) : __( 'Request', 'artisraw' );
 			echo '<div class="cell">';
 			echo '<p class="cell__eyebrow eyebrow">' . esc_html( sprintf( '%02d', $i ) ) . '</p>';
@@ -77,7 +77,7 @@ artisraw_breadcrumbs();
 	<div class="container section hub-section">
 		<h2><?php esc_html_e( 'Food-safe protection & maintenance', 'artisraw' ); ?></h2>
 		<p class="lead" style="max-width:65ch"><?php esc_html_e( 'Every food-contact item is finished with a food-safe mineral oil and beeswax blend. Hand-wash, dry immediately and re-oil periodically — care guidance ships with each order, and the finish MSDS is available to buyers.', 'artisraw' ); ?></p>
-		<p><a class="btn btn--tertiary" href="<?php echo esc_url( home_url( '/olive-wood/' ) ); ?>"><?php esc_html_e( 'Read the Olive Wood Guide', 'artisraw' ); ?></a></p>
+		<p><a class="btn btn--tertiary" href="<?php echo esc_url( artisraw_localized_url( '/olive-wood/' ) ); ?>"><?php esc_html_e( 'Read the Olive Wood Guide', 'artisraw' ); ?></a></p>
 	</div>
 </section>
 

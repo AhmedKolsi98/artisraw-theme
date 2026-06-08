@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * The final crumb (current page) has a null url.
  */
 function artisraw_breadcrumb_trail() {
-	$trail = array( array( 'label' => __( 'Home', 'artisraw' ), 'url' => home_url( '/' ) ) );
+	$trail = array( array( 'label' => __( 'Home', 'artisraw' ), 'url' => artisraw_localized_url( '/' ) ) );
 
 	if ( is_singular() ) {
 		$post_id   = get_queried_object_id();

@@ -58,7 +58,7 @@ artisraw_breadcrumbs();
 	</section>
 
 	<div class="container section hub-section">
-		<p class="hub-hero__cta"><a class="btn btn--primary" href="<?php echo esc_url( home_url( '/request-quote/' ) ); ?>"><?php esc_html_e( 'Request Line-Sheet & Compliance Pack', 'artisraw' ); ?></a></p>
+		<p class="hub-hero__cta"><a class="btn btn--primary" href="<?php echo esc_url( artisraw_localized_url( '/request-quote/' ) ); ?>"><?php esc_html_e( 'Request Line-Sheet & Compliance Pack', 'artisraw' ); ?></a></p>
 	</div>
 
 <?php else : /* ---------------- CONTACT or QUOTE ---------------- */ ?>
@@ -103,7 +103,7 @@ artisraw_breadcrumbs();
 			'image'       => ARTISRAW_URI . '/assets/hero-wholesale-1200.webp',
 			'email'       => 'contact@artisraw.com',
 			'telephone'   => '+1-929-238-1075',
-			'url'         => home_url( '/contact/' ),
+			'url'         => artisraw_localized_url( '/contact/' ),
 			'address'     => array(
 				'@type'           => 'PostalAddress',
 				'streetAddress'   => 'Route Saltania, km 4.5',

@@ -284,7 +284,7 @@ function artisraw_category_card( array $c ) {
 function artisraw_sticky_cta() {
 	$wa = 'https://wa.me/19292381075';
 	echo '<div class="sticky-cta" data-sticky-cta hidden>';
-	echo '<a class="btn btn--primary sticky-cta__quote" href="' . esc_url( home_url( '/request-quote/' ) ) . '" data-ga="cta_click" data-ga-label="sticky" data-ga-location="sticky-bar">' . esc_html__( 'Request Quote', 'artisraw' ) . '</a>';
+	echo '<a class="btn btn--primary sticky-cta__quote" href="' . esc_url( artisraw_localized_url( '/request-quote/' ) ) . '" data-ga="cta_click" data-ga-label="sticky" data-ga-location="sticky-bar">' . esc_html__( 'Request Quote', 'artisraw' ) . '</a>';
 	echo '<a class="sticky-cta__wa" href="' . esc_url( $wa ) . '" aria-label="' . esc_attr__( 'Chat with ArtisRaw on WhatsApp', 'artisraw' ) . '" data-ga="whatsapp_click">';
 	echo '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.52 11.97c-.25.7-1.47 1.36-2.02 1.4-.52.04-1.18.21-3.83-.8-3.23-1.27-5.27-4.59-5.43-4.8-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4l.61.01c.2 0 .46-.07.72.55.25.62.86 2.13.94 2.28.08.16.13.34.02.55-.1.21-.16.34-.31.52-.16.18-.33.41-.47.55-.16.16-.32.33-.14.64.18.31.81 1.34 1.74 2.17 1.2 1.07 2.21 1.4 2.52 1.56.31.16.49.13.67-.08.18-.21.77-.9.98-1.21.21-.31.41-.26.69-.16.28.1 1.79.84 2.1 1 .31.16.51.23.59.36.08.13.08.73-.17 1.43Z"/></svg>';
 	echo '</a>';
@@ -324,7 +324,7 @@ function artisraw_quote_form( array $args = array() ) {
 					/* translators: 1: email link, 2: contact page link */
 					wp_kses_post( __( 'This quick form needs JavaScript. You can also email %1$s or use our %2$s.', 'artisraw' ) ),
 					'<a href="mailto:contact@artisraw.com">contact@artisraw.com</a>',
-					'<a href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html__( 'contact page', 'artisraw' ) . '</a>'
+					'<a href="' . esc_url( artisraw_localized_url( '/contact/' ) ) . '">' . esc_html__( 'contact page', 'artisraw' ) . '</a>'
 				);
 			?></p>
 		</noscript>
@@ -390,7 +390,7 @@ function artisraw_quote_form( array $args = array() ) {
 					<span class="btn__label"><?php esc_html_e( 'Request Line-Sheet & Compliance Pack', 'artisraw' ); ?></span>
 				</button>
 			</div>
-			<p class="quote-form__privacy"><?php esc_html_e( 'We reply within one business day. Your details are used only to prepare your quote —', 'artisraw' ); ?> <a href="<?php echo esc_url( home_url( '/privacy/' ) ); ?>"><?php esc_html_e( 'privacy', 'artisraw' ); ?></a>.</p>
+			<p class="quote-form__privacy"><?php esc_html_e( 'We reply within one business day. Your details are used only to prepare your quote —', 'artisraw' ); ?> <a href="<?php echo esc_url( artisraw_localized_url( '/privacy/' ) ); ?>"><?php esc_html_e( 'privacy', 'artisraw' ); ?></a>.</p>
 		</div>
 
 		<?php // Success + Step 2 (revealed by JS, never a new page). ?>
@@ -441,7 +441,7 @@ function artisraw_quote_form( array $args = array() ) {
 
 				<div class="quote-form__actions">
 					<button type="button" class="btn btn--primary quote-form__submit2" data-ga="cta_click" data-ga-label="quote-step-2" data-ga-location="<?php echo esc_attr( $location ); ?>"><?php esc_html_e( 'Send these details', 'artisraw' ); ?></button>
-					<a class="btn btn--tertiary" href="<?php echo esc_url( home_url( '/wholesale/' ) ); ?>"><?php esc_html_e( 'Browse the catalogue meanwhile', 'artisraw' ); ?></a>
+					<a class="btn btn--tertiary" href="<?php echo esc_url( artisraw_localized_url( '/wholesale/' ) ); ?>"><?php esc_html_e( 'Browse the catalogue meanwhile', 'artisraw' ); ?></a>
 				</div>
 			</div>
 
@@ -536,7 +536,7 @@ function artisraw_newsletter( array $args = array() ) {
 			<p class="newsletter__text"><?php echo esc_html( $text ); ?></p>
 		</div>
 		<form class="newsletter__form" id="<?php echo esc_attr( $id ); ?>" data-newsletter
-			action="<?php echo esc_url( home_url( '/contact/' ) ); ?>" method="get"
+			action="<?php echo esc_url( artisraw_localized_url( '/contact/' ) ); ?>" method="get"
 			data-endpoint="<?php echo esc_attr( $endpoint ); ?>"
 			data-nonce="<?php echo esc_attr( $nonce ); ?>"
 			data-location="<?php echo esc_attr( $location ); ?>">
@@ -593,7 +593,7 @@ function artisraw_plant_a_tree( array $args = array() ) {
 	$value   = $args['stat_value'] ?? '10,790+';
 	$label   = $args['stat_label'] ?? __( 'Trees sponsored to date', 'artisraw' );
 	$cta_l   = $args['cta_label'] ?? __( 'Our sustainability approach', 'artisraw' );
-	$cta_u   = $args['cta_url'] ?? home_url( '/sustainability/' );
+	$cta_u   = $args['cta_url'] ?? artisraw_localized_url( '/sustainability/' );
 	$leaf    = '<svg class="plant__icon" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34c0-9 5-15 14-16-1 9-6 15-14 16Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 34c0-7-4-12-11-13 .8 7 5 12 11 13Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 34V20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
 	echo '<aside class="plant section--sand" aria-label="' . esc_attr__( 'Reforestation program', 'artisraw' ) . '">';
 	echo '<div class="container plant__inner">';
@@ -695,7 +695,7 @@ function artisraw_statement_hero( array $a ) {
 
 /**
  * Color-block mosaic band (§4): 50/50 color field ↔ photo, alternating sides.
- * $a: field (sand|espresso|amber|leaf), eyebrow, heading, body, link_label,
+ * $a: field (sand|espresso|amber), eyebrow, heading, body, link_label,
  *     link_url, img_base, img_alt, img_widths, field_left(bool), w, h.
  */
 function artisraw_color_block( array $a ) {

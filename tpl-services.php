@@ -48,7 +48,7 @@ artisraw_breadcrumbs();
 			}
 			?>
 		</div>
-		<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( home_url( '/private-label-olive-wood/' ) ); ?>"><?php esc_html_e( 'See private-label options', 'artisraw' ); ?></a></p>
+		<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( artisraw_localized_url( '/private-label-olive-wood/' ) ); ?>"><?php esc_html_e( 'See private-label options', 'artisraw' ); ?></a></p>
 	</div>
 </section>
 
@@ -112,7 +112,7 @@ artisraw_breadcrumbs();
 					echo '<li>' . esc_html( $li ) . '</li>';
 				}
 				echo '</ul>';
-				echo '<p class="pack__cta"><a class="btn btn--secondary" href="' . esc_url( home_url( '/request-quote/' ) ) . '" data-ga="cta_click" data-ga-label="pack" data-ga-location="services">' . esc_html( $pk['cta'] ) . '</a></p>';
+				echo '<p class="pack__cta"><a class="btn btn--secondary" href="' . esc_url( artisraw_localized_url( '/request-quote/' ) ) . '" data-ga="cta_click" data-ga-label="pack" data-ga-location="services">' . esc_html( $pk['cta'] ) . '</a></p>';
 				echo '</div>';
 			}
 			?>

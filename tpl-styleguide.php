@@ -250,7 +250,7 @@ function sg_h( $title, $note = '' ) {
 
 <!-- ===================== Phase 11 — Art Direction (Addendum) ===================== -->
 <div class="container section">
-	<?php sg_h( 'Art Direction — Addendum v1.1', 'Olyfo visual language in ArtisRaw tokens: statement hero, color-block mosaic, arrow links, buyer voices, two-column quote. Leaf accent (--c-leaf-400) is editorial only, one per viewport.' ); ?>
+	<?php sg_h( 'Art Direction — Addendum v1.1', 'Olyfo visual language in ArtisRaw tokens: statement hero, color-block mosaic, arrow links, buyer voices, two-column quote.' ); ?>
 	<?php sg_h( 'Arrow link (§5 block formula)' ); ?>
 	<p><?php artisraw_arrow_link( 'Our story & founders', '#' ); ?></p>
 </div>
@@ -279,12 +279,12 @@ artisraw_statement_hero( array(
 ?>
 
 <div class="container section">
-	<?php sg_h( 'Color-block mosaic (§4)', 'Field ↔ photo, alternating sides; four field colors; espresso body on light fields; leaf once per page.' ); ?>
+	<?php sg_h( 'Color-block mosaic (§4)', 'Field ↔ photo, alternating sides; three field colors (sand · espresso · amber); espresso body on light fields.' ); ?>
 </div>
 <?php
 artisraw_color_block( array( 'field' => 'sand', 'field_left' => true, 'eyebrow' => 'Who we are', 'heading' => 'Artisan roots, modern production', 'body' => 'Founded in Sfax in 2019 — handmade heritage built for export-ready wholesale.', 'link_label' => 'Our story', 'link_url' => '#', 'img_base' => '/assets/ar-workshop', 'img_alt' => 'Workshop', 'img_widths' => array( 600, 1200 ), 'w' => 1400, 'h' => 900 ) );
 artisraw_color_block( array( 'field' => 'espresso', 'eyebrow' => 'How it’s made', 'heading' => 'From the tree to a finished piece', 'body' => 'Reclaimed Chemlali wood, CNC precision and hand-finishing, then unit-by-unit QC.', 'link_label' => 'The process', 'link_url' => '#', 'img_base' => '/assets/ar-boards', 'img_alt' => 'Board grain', 'img_widths' => array( 600 ), 'w' => 548, 'h' => 365 ) );
-artisraw_color_block( array( 'field' => 'leaf', 'field_left' => true, 'eyebrow' => 'Sustainability', 'heading' => 'One tree used, two planted', 'body' => 'Reclaimed olive wood and reforestation through trees.org, with EUDR traceability.', 'link_label' => 'Our approach', 'link_url' => '#', 'img_base' => '/assets/ar-grove', 'img_alt' => 'Olive grove', 'img_widths' => array( 600, 1200 ), 'w' => 1273, 'h' => 900 ) );
+artisraw_color_block( array( 'field' => 'sand', 'field_left' => true, 'eyebrow' => 'Sustainability', 'heading' => 'One tree used, two planted', 'body' => 'Reclaimed olive wood and reforestation through trees.org, with EUDR traceability.', 'link_label' => 'Our approach', 'link_url' => '#', 'img_base' => '/assets/ar-grove', 'img_alt' => 'Olive grove', 'img_widths' => array( 600, 1200 ), 'w' => 1273, 'h' => 900 ) );
 ?>
 
 <div class="container section">

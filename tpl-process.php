@@ -30,7 +30,7 @@ artisraw_photo_hero( array(
 	'title'     => get_the_title(),
 	'support'   => __( 'Responsible sourcing, drying, cutting, hand-finishing, food-safe protection, quality control, packaging and B2B export preparation.', 'artisraw' ),
 	'cta_label' => __( 'Request a quote', 'artisraw' ),
-	'cta_url'   => home_url( '/request-quote/' ),
+	'cta_url'   => artisraw_localized_url( '/request-quote/' ),
 	'badge'     => true,
 	'loc'       => 'process_hero',
 ) );
@@ -82,7 +82,7 @@ artisraw_color_block( array(
 	'eyebrow' => __( 'Step 01 — Raw material', 'artisraw' ),
 	'heading' => __( 'Responsible olive wood sourcing', 'artisraw' ),
 	'body'    => __( 'The process begins with Tunisian Chemlali olive wood, selected for dense grain, natural contrast and durability. We focus on responsible use of end-of-life olive trees and avoid waste by transforming raw material into high-value products.', 'artisraw' ),
-	'link_label' => __( 'Our story', 'artisraw' ), 'link_url' => home_url( '/about/' ),
+	'link_label' => __( 'Our story', 'artisraw' ), 'link_url' => artisraw_localized_url( '/about/' ),
 	'img_base' => '/assets/ar-grove', 'img_alt' => __( 'Olive grove — raw material selection', 'artisraw' ), 'img_widths' => array( 600, 1200 ), 'w' => 1273, 'h' => 900,
 ) );
 artisraw_color_block( array(
@@ -90,7 +90,7 @@ artisraw_color_block( array(
 	'eyebrow' => __( 'Step 02 — Workshop', 'artisraw' ),
 	'heading' => __( 'Cutting, shaping and artisan work', 'artisraw' ),
 	'body'    => __( 'Each product is cut, shaped and sanded according to its category and SKU requirements. The workshop combines professional equipment with hand finishing to preserve the unique character of olive wood.', 'artisraw' ),
-	'link_label' => __( 'Quality control', 'artisraw' ), 'link_url' => home_url( '/quality-control/' ),
+	'link_label' => __( 'Quality control', 'artisraw' ), 'link_url' => artisraw_localized_url( '/quality-control/' ),
 	'img_base' => '/assets/ar-lathe', 'img_alt' => __( 'Cutting and shaping olive wood in the ArtisRaw workshop', 'artisraw' ), 'img_widths' => array( 600, 1200 ), 'w' => 1400, 'h' => 933,
 ) );
 artisraw_color_block( array(
@@ -98,7 +98,7 @@ artisraw_color_block( array(
 	'eyebrow' => __( 'Step 03 — Quality', 'artisraw' ),
 	'heading' => __( 'Inspection, food-safe finish and packing', 'artisraw' ),
 	'body'    => __( 'Each product is checked, oiled with food-grade mineral oil and beeswax, then packed for retail or wholesale. Private-label requests, packaging needs and shipment preparation are handled before export.', 'artisraw' ),
-	'link_label' => __( 'Wholesale', 'artisraw' ), 'link_url' => home_url( '/olive-wood-wholesale-supplier/' ),
+	'link_label' => __( 'Wholesale', 'artisraw' ), 'link_url' => artisraw_localized_url( '/olive-wood-wholesale-supplier/' ),
 	'img_base' => '/assets/ar-warehouse', 'img_alt' => __( 'Inspected and packed olive wood orders in the warehouse', 'artisraw' ), 'img_widths' => array( 600 ), 'w' => 1100, 'h' => 1650,
 ) );
 ?>

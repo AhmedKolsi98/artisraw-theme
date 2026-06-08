@@ -94,7 +94,7 @@ artisraw_breadcrumbs();
 					<p class="account-fine"><?php
 						printf(
 							wp_kses_post( __( 'We review every application. Your details are used only to set up and service your account — %s.', 'artisraw' ) ),
-							'<a href="' . esc_url( home_url( '/privacy/' ) ) . '">' . esc_html__( 'privacy', 'artisraw' ) . '</a>'
+							'<a href="' . esc_url( artisraw_localized_url( '/privacy/' ) ) . '">' . esc_html__( 'privacy', 'artisraw' ) . '</a>'
 						);
 					?></p>
 				</form>
@@ -114,7 +114,7 @@ artisraw_breadcrumbs();
 					esc_html( $u->display_name )
 				);
 			?></p>
-			<p><a class="btn btn--secondary" href="<?php echo esc_url( home_url( '/wholesale/' ) ); ?>"><?php esc_html_e( 'Browse the catalogue meanwhile', 'artisraw' ); ?></a></p>
+			<p><a class="btn btn--secondary" href="<?php echo esc_url( artisraw_localized_url( '/wholesale/' ) ); ?>"><?php esc_html_e( 'Browse the catalogue meanwhile', 'artisraw' ); ?></a></p>
 			<form method="post" action="<?php echo esc_url( artisraw_account_url() ); ?>" class="account-logout">
 				<?php artisraw_acct_fields( 'logout' ); ?>
 				<button type="submit" class="btn btn--tertiary"><?php esc_html_e( 'Sign out', 'artisraw' ); ?></button>

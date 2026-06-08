@@ -24,11 +24,11 @@ artisraw_breadcrumbs();
 
 /* The 5 wholesale categories (commercial priority order). */
 $categories = array(
-	array( 'title' => __( 'Cutting Boards', 'artisraw' ), 'slug' => 'cutting-boards', 'href' => home_url( '/wholesale/olive-wood-cutting-boards/' ) ),
-	array( 'title' => __( 'Bowls & Serveware', 'artisraw' ), 'slug' => 'bowls-serveware', 'href' => home_url( '/wholesale/olive-wood-bowls-serveware/' ) ),
-	array( 'title' => __( 'Utensils', 'artisraw' ), 'slug' => 'utensils', 'href' => home_url( '/wholesale/olive-wood-utensils/' ) ),
-	array( 'title' => __( 'Chess Sets', 'artisraw' ), 'slug' => 'chess-sets', 'href' => home_url( '/wholesale/olive-wood-chess-sets/' ) ),
-	array( 'title' => __( 'Décor & Bath', 'artisraw' ), 'slug' => 'decor-bath', 'href' => home_url( '/wholesale/olive-wood-decor-bath/' ) ),
+	array( 'title' => __( 'Cutting Boards', 'artisraw' ), 'slug' => 'cutting-boards', 'href' => artisraw_localized_url( '/wholesale/olive-wood-cutting-boards/' ) ),
+	array( 'title' => __( 'Bowls & Serveware', 'artisraw' ), 'slug' => 'bowls-serveware', 'href' => artisraw_localized_url( '/wholesale/olive-wood-bowls-serveware/' ) ),
+	array( 'title' => __( 'Utensils', 'artisraw' ), 'slug' => 'utensils', 'href' => artisraw_localized_url( '/wholesale/olive-wood-utensils/' ) ),
+	array( 'title' => __( 'Chess Sets', 'artisraw' ), 'slug' => 'chess-sets', 'href' => artisraw_localized_url( '/wholesale/olive-wood-chess-sets/' ) ),
+	array( 'title' => __( 'Décor & Bath', 'artisraw' ), 'slug' => 'decor-bath', 'href' => artisraw_localized_url( '/wholesale/olive-wood-decor-bath/' ) ),
 );
 ?>
 

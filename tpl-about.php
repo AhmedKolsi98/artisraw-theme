@@ -138,7 +138,7 @@ artisraw_breadcrumbs();
 					<li><?php esc_html_e( 'Food-grade finishing with material safety documentation', 'artisraw' ); ?></li>
 					<li><?php esc_html_e( 'Export documents prepared per destination market', 'artisraw' ); ?></li>
 				</ul>
-				<?php artisraw_arrow_link( __( 'Ask for documents', 'artisraw' ), home_url( '/certifications/' ) ); ?>
+				<?php artisraw_arrow_link( __( 'Ask for documents', 'artisraw' ), artisraw_localized_url( '/certifications/' ) ); ?>
 			</div>
 		</div>
 	</div>
@@ -165,7 +165,7 @@ artisraw_testimonial_feature( array(
 	'heading'      => __( 'Stories worth telling', 'artisraw' ),
 	'quote'        => __( 'ArtisRaw isn’t just about products; it’s about stories worth telling — tradition, sustainability and longevity.', 'artisraw' ),
 	'button_label' => __( 'Let’s work together', 'artisraw' ),
-	'button_url'   => home_url( '/request-quote/' ),
+	'button_url'   => artisraw_localized_url( '/request-quote/' ),
 	'img_base'     => '/assets/ar-showroom',
 	'img_alt'      => __( 'ArtisRaw olive wood collection on display', 'artisraw' ),
 	'img_w'        => 1024,

@@ -14,18 +14,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function artisraw_render_footer_nav() {
 	$links = array(
-		array( __( 'Wholesale Hub', 'artisraw' ), home_url( '/olive-wood-wholesale-supplier/' ) ),
-		array( __( 'Catalogue', 'artisraw' ), home_url( '/wholesale/' ) ),
-		array( __( 'Services', 'artisraw' ), home_url( '/services/' ) ),
-		array( __( 'Private Label', 'artisraw' ), home_url( '/private-label-olive-wood/' ) ),
-		array( __( 'Worldwide / Export', 'artisraw' ), home_url( '/worldwide/' ) ),
-		array( __( 'Shipping & Logistics', 'artisraw' ), home_url( '/shipping-logistics/' ) ),
-		array( __( 'References & Downloads', 'artisraw' ), home_url( '/references/' ) ),
-		array( __( 'Olive Wood Guide', 'artisraw' ), home_url( '/olive-wood/' ) ),
-		array( __( 'Certifications', 'artisraw' ), home_url( '/certifications/' ) ),
-		array( __( 'About', 'artisraw' ), home_url( '/about/' ) ),
-		array( __( 'Contact', 'artisraw' ), home_url( '/contact/' ) ),
-		array( __( 'Request a Quote', 'artisraw' ), home_url( '/request-quote/' ) ),
+		array( __( 'Wholesale Hub', 'artisraw' ), artisraw_localized_url( '/olive-wood-wholesale-supplier/' ) ),
+		array( __( 'Catalogue', 'artisraw' ), artisraw_localized_url( '/wholesale/' ) ),
+		array( __( 'Services', 'artisraw' ), artisraw_localized_url( '/services/' ) ),
+		array( __( 'Private Label', 'artisraw' ), artisraw_localized_url( '/private-label-olive-wood/' ) ),
+		array( __( 'Worldwide / Export', 'artisraw' ), artisraw_localized_url( '/worldwide/' ) ),
+		array( __( 'Shipping & Logistics', 'artisraw' ), artisraw_localized_url( '/shipping-logistics/' ) ),
+		array( __( 'References & Downloads', 'artisraw' ), artisraw_localized_url( '/references/' ) ),
+		array( __( 'Olive Wood Guide', 'artisraw' ), artisraw_localized_url( '/olive-wood/' ) ),
+		array( __( 'Certifications', 'artisraw' ), artisraw_localized_url( '/certifications/' ) ),
+		array( __( 'About', 'artisraw' ), artisraw_localized_url( '/about/' ) ),
+		array( __( 'Contact', 'artisraw' ), artisraw_localized_url( '/contact/' ) ),
+		array( __( 'Request a Quote', 'artisraw' ), artisraw_localized_url( '/request-quote/' ) ),
 	);
 	echo '<ul class="footer__links" role="list">';
 	foreach ( $links as $link ) {
@@ -88,7 +88,7 @@ function artisraw_render_footer_nav() {
 					wp_nav_menu( array( 'theme_location' => 'languages', 'container' => false, 'menu_class' => 'footer__lang-list', 'depth' => 1 ) );
 				} else {
 					// Placeholder — real /fr/ links arrive in Phase 8.
-					echo '<ul class="footer__lang-list" role="list"><li><a href="' . esc_url( home_url( '/' ) ) . '" aria-current="true">EN</a></li><li><span class="is-disabled" aria-disabled="true">FR</span></li></ul>';
+					echo '<ul class="footer__lang-list" role="list"><li><a href="' . esc_url( artisraw_localized_url( '/' ) ) . '" aria-current="true">EN</a></li><li><span class="is-disabled" aria-disabled="true">FR</span></li></ul>';
 				}
 				?>
 			</div>

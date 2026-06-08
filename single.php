@@ -24,7 +24,7 @@ while ( have_posts() ) :
 	?>
 	<article class="container section hub-section" itemscope itemtype="https://schema.org/BlogPosting">
 		<header class="page-head">
-			<p class="eyebrow"><a href="<?php echo esc_url( home_url( '/olive-wood/' ) ); ?>"><?php esc_html_e( 'Olive Wood Guide', 'artisraw' ); ?></a></p>
+			<p class="eyebrow"><a href="<?php echo esc_url( artisraw_localized_url( '/olive-wood/' ) ); ?>"><?php esc_html_e( 'Olive Wood Guide', 'artisraw' ); ?></a></p>
 			<h1 itemprop="headline"><?php the_title(); ?></h1>
 			<p class="card__meta eyebrow"><?php
 				/* translators: 1: reviewer name, 2: updated date */
@@ -49,7 +49,7 @@ while ( have_posts() ) :
 
 		<div class="account-status" style="margin-top:var(--sp-5)">
 			<strong><?php esc_html_e( 'Buying olive wood at wholesale?', 'artisraw' ); ?></strong>
-			<a href="<?php echo esc_url( home_url( '/request-quote/' ) ); ?>" data-ga="cta_click" data-ga-label="article" data-ga-location="<?php echo esc_attr( get_post_field( 'post_name', $pid ) ); ?>"><?php esc_html_e( 'Request a quote', 'artisraw' ); ?></a>
+			<a href="<?php echo esc_url( artisraw_localized_url( '/request-quote/' ) ); ?>" data-ga="cta_click" data-ga-label="article" data-ga-location="<?php echo esc_attr( get_post_field( 'post_name', $pid ) ); ?>"><?php esc_html_e( 'Request a quote', 'artisraw' ); ?></a>
 		</div>
 	</article>
 

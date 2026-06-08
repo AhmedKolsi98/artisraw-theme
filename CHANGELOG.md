@@ -2,6 +2,48 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 12.9 — French homepage gets the real design
+
+The `/fr/` home was the last page still on the prose `tpl-trust` template, so it didn't look like the site. `front-page.php` can only target the site's front page, so:
+- Extracted the homepage composition into a shared **`template-parts/home.php`**. `front-page.php` (EN front page) and a new **`tpl-home.php`** (Template Name: Homepage) both render it — one source, identical design, localised by gettext + `artisraw_localized_url()`.
+- Pointed the `/fr/` page at `tpl-home.php` (`ARTISRAW_FR_VER` → 5). The French home now shows the full Figma homepage — photo-collage hero, captioned grid, mosaic bands, bestsellers, differentiators, channel, proof band, feature testimonial + trio, Guide, quote block — all in French.
+- Translated the **61 home-specific strings** (hero value-prop, quick answer, collections, "Why buyers choose ArtisRaw", "Built for your channel", stat labels, IG captions, etc.).
+- Note: a few dozen dict keys are now duplicated (single-space vs aligned spacing from the merge tooling) but every duplicate has an **identical value**, so PHP resolves them to the same correct French — harmless, left as-is.
+
+### Verified
+- `php -l` clean. EN front page unchanged (full design, one H1). `/fr/` renders the full homepage, `lang="fr-FR"`, one H1, zero PHP notices. Visible-text scan across 12 FR pages incl. `/fr/`: **zero English**. Home switcher pairs both ways (`/` ↔ `/fr/`).
+
+## Phase 12.8 — Language-aware internal links (no more English links on French pages)
+
+Bug: on a French page the nav, footer, breadcrumbs and in-body CTAs all linked to **English** URLs (hardcoded `home_url('/wholesale/…')`), so clicking a menu item left French — and an English-structured `/fr/wholesale/olive-wood-cutting-boards/` 404s (French pages are flat: `/fr/planches-a-decouper-bois-olivier/`).
+- New `artisraw_localized_url( $en_path )`: on English pages returns the English URL unchanged; on French pages returns the **paired French counterpart** (via `alt_pair`), falling back to English only when no translation exists. Site root → `/fr/`. Statically cached per request.
+- Applied to all chrome + body link generation: **header nav (31)**, **footer (13)**, breadcrumb Home, and **68 template/component CTAs** (tpl-trust/category/catalogue/contact-faq/about/process/services/worldwide/account, components, single, front-page). The active-state `$current` line and all SEO/schema/canonical/REST/seeding files were deliberately left on absolute `home_url()`.
+
+### Verified
+- `php -l` clean. FR page nav links are 100% French (`/fr/gros/`, `/fr/ustensiles-bois-olivier/`, …) — **zero** English-leaking nav links, **zero** `/fr/wholesale/*` paths. FR page **bodies**: 0 English-leaking internal links across 7 sampled pages. EN pages unchanged — 0 French leaks. Switcher/hreflang unaffected.
+
+## Phase 12.7 — Full French site (every nav page paired) + honest switcher
+
+The language switcher was sending most pages to the `/fr/` landing because only ~9 pages had a French counterpart. Fixed by translating the **whole static site** and making the switcher honest.
+- **24 new paired French pages** seeded (`ARTISRAW_FR_VER` → 4), each on its **real template** (full design parity, not prose downgrades): the catalogue index + 5 category pages + private-label (`tpl-category`, with the `cat_term`/`cat_mode` meta replicated so the SKU grids render), the full catalogue (`tpl-catalogue`), magazine (`tpl-magazine`), FAQ + request-quote (`tpl-contact-faq`), the wholesale account (`tpl-account`, noindex), privacy (default), and all proof pages — quality-control, shipping-logistics, how-to-order, references, sustainability, supplier-USA, supplier-Europe, the Guide pillar, compliance + Lacey + EUDR (`tpl-trust`). Each has full French title/SEO/quick-answer/body and is `alt_pair`-bound to its EN counterpart. Child EN pages (categories under `/wholesale/`, Lacey/EUDR under `/compliance/`) are paired via their full `parent/slug` path.
+- **280 template chrome strings translated** — the entire portal, category pages, FAQ bank, trust pillars, forms, magazine and catalogue UI. Visible-text leakage scan across all 24 FR pages: **zero English**.
+- **Honest switcher.** `artisraw_lang_links()` now reports `fr_exists`/`en_exists`; on a page with no counterpart (individual Guide articles, archives, 404) the unavailable language renders **disabled/greyed** with a tooltip instead of silently linking to the `/fr/` (or `/`) home. No more misleading jumps.
+
+### Verified
+- `php -l` clean. All 24 new FR pages 200; every EN nav page pairs to its **distinct** French counterpart (none fall back to `/fr/`). FR pages render `lang="fr-FR"` with no visible English. Untranslated article page → Français shown disabled, zero `/fr/` fallback links. EN pages: one H1, zero PHP notices.
+- (FR home `/fr/` stays on `tpl-trust` — `front-page.php` can't be assigned to a non-front page; its copy is fully French.)
+
+## Phase 12.6 — i18n completion, language switcher, nav & palette refinements
+
+Client-requested follow-ups on the Figma integration.
+- **Language switcher → flag dropdown.** The EN/FR text toggle is now a native `<details>` dropdown showing the current language as `flag + name` (🇫🇷 Français / 🇬🇧 English), each option linking to its EN/FR counterpart. Inline SVG flags (FR tricolore + GB union, ID-free so they render twice safely) — reliable cross-platform, not emoji. Works **without JS** and is keyboard-accessible. `artisraw_lang_switch()` + `artisraw_flag_svg()` in `inc/i18n.php`; styles in `css/figma.css`; old `.lang-toggle` retired.
+- **Nav primary action → "Client Login."** The "Request Quote" button is replaced by the wholesale portal link, reworded **Client Login** (→ `/wholesale-account/`); the separate "Wholesale Login" text link is removed (promoted into the button). Desktop order is now `language switcher · Client Login`.
+- **Full French coverage.** ~120 new dictionary entries covering every new About/Process/Home string (heroes, value/stat cards, numbered steps, certification, founders, Stories band, QC timeline, process FAQ, caption grid, feature quote, trio band) + "Client Login." **FR About** (`/fr/a-propos/`) now uses `tpl-about.php` and a new **FR Process** page (`/fr/processus/`) uses `tpl-process.php` — both render the Figma design in French. `ARTISRAW_FR_VER` → 2. (FR home stays on `tpl-trust` — `front-page.php` can't be assigned to `/fr/`; its prose is already French.)
+- **Leaf green removed.** Token `--c-leaf-400` (#C4D34A) deleted from the palette and every usage recolored to warm tones: the home sustainability mosaic band → sand; statement-hero & espresso-field eyebrows → amber; footer-trust icon → amber; styleguide demo → sand. The palette is now espresso / amber / sand / cream / tan / olive — no green.
+
+### Verified
+- `php -l` clean on all touched files. **#C4D34A absent** from all served CSS. EN home/about/process: one H1 each, switcher shows "English". FR `/fr/`, `/fr/a-propos/`, `/fr/processus/` all 200 with `lang="fr-FR"`; FR About/Process render the new templates with all strings in French and the switcher showing "Français"; **zero** PHP notices. Nav shows Client Login, no Request-Quote CTA, 3 SVG flags.
+
 ## Phase 12.2 — Figma Visual Integration: Home page
 
 Home re-composed to the Figma rhythm — **merge, not replace**: adopt the Figma hero + its distinctive sections, keep our higher-value B2B/SEO blocks.

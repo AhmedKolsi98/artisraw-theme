@@ -96,7 +96,7 @@ artisraw_breadcrumbs();
 			'logistics'
 		);
 		?>
-		<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( home_url( '/shipping-logistics/' ) ); ?>"><?php esc_html_e( 'Full shipping & logistics', 'artisraw' ); ?></a></p>
+		<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( artisraw_localized_url( '/shipping-logistics/' ) ); ?>"><?php esc_html_e( 'Full shipping & logistics', 'artisraw' ); ?></a></p>
 	</div>
 </section>
 

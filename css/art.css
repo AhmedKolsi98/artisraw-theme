@@ -8,7 +8,6 @@
 .field--sand     { background: var(--c-sand-200);   color: var(--c-espresso-900); }
 .field--espresso { background: var(--c-espresso-900); color: var(--c-cream-100); }
 .field--amber    { background: var(--c-amber-500);   color: var(--c-espresso-900); }
-.field--leaf     { background: var(--c-leaf-400);    color: var(--c-espresso-900); }
 
 /* --- Arrow link (§5 block formula) ------------------------------------- */
 .arrow-link { display: inline-flex; align-items: center; gap: var(--sp-1); font-size: var(--fs-ui); font-weight: var(--fw-semibold); text-decoration: none; color: var(--c-espresso-900); }
@@ -24,7 +23,7 @@
 .statement-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.8) contrast(1.05); }
 .statement-hero::after { content: ""; position: absolute; inset: 0; background: var(--c-espresso-900); mix-blend-mode: multiply; opacity: 0.66; }
 .statement-hero__inner { position: relative; z-index: 1; width: 100%; padding-block: var(--sp-7) var(--sp-5); }
-.statement-hero__eyebrow { color: var(--c-leaf-400); margin-bottom: var(--sp-2); }
+.statement-hero__eyebrow { color: var(--c-amber-500); margin-bottom: var(--sp-2); }
 .statement-hero__statement { font-family: var(--ff-serif); font-weight: var(--fw-bold); font-size: var(--fs-display-l); line-height: 1.04; text-transform: lowercase; color: var(--c-amber-500); margin: 0; max-width: 16ch; }
 @media (min-width: 768px) { .statement-hero__statement { font-size: var(--fs-display-xl); } }
 .statement-hero__support { font-size: var(--fs-lead); line-height: var(--lh-lead); color: var(--c-cream-100); max-width: 52ch; margin-top: var(--sp-3); }
@@ -38,8 +37,8 @@
 .color-block__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .color-block__field { display: flex; flex-direction: column; justify-content: center; padding: var(--sp-5); }
 .color-block__eyebrow { margin-bottom: var(--sp-2); }
-.field--sand .color-block__eyebrow, .field--amber .color-block__eyebrow, .field--leaf .color-block__eyebrow { color: var(--c-bark-700); }
-.field--espresso .color-block__eyebrow { color: var(--c-leaf-400); }
+.field--sand .color-block__eyebrow, .field--amber .color-block__eyebrow { color: var(--c-bark-700); }
+.field--espresso .color-block__eyebrow { color: var(--c-amber-500); }
 .color-block__heading { font-family: var(--ff-serif); font-size: var(--fs-heading); line-height: var(--lh-heading, 1.2); margin-bottom: var(--sp-2); }
 .color-block__body { max-width: 46ch; margin-bottom: var(--sp-3); }
 @media (min-width: 860px) {
@@ -85,7 +84,7 @@
 .site-footer__wordmark--lg { font-size: var(--fs-display-l); line-height: 1; }
 .footer-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-2) var(--sp-5); list-style: none; margin: 0; padding: var(--sp-5) 0 0; }
 .footer-trust li { display: inline-flex; align-items: center; gap: var(--sp-1); font-family: var(--ff-serif); font-weight: var(--fw-semibold); color: var(--c-sand-200); }
-.footer-trust svg { color: var(--c-leaf-400); }
+.footer-trust svg { color: var(--c-amber-500); }
 
 /* --- ISO 9001 trust badge (Figma motif, re-skinned to brand) -----------
    Figma used corporate blue (#1D6FE0) — recoloured to espresso disc /
