@@ -9,16 +9,9 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$ref = artisraw_localized_url( '/references/' );
-$trust = array(
-	array( __( 'ISO 9001:2015', 'artisraw' ), artisraw_localized_url( '/certifications/' ) ),
-	array( __( '30+ countries', 'artisraw' ), $ref ),
-	array( __( 'MOQ 50', 'artisraw' ), artisraw_localized_url( '/how-to-order/' ) ),
-	array( __( 'Ships in 72 h', 'artisraw' ), artisraw_localized_url( '/shipping-logistics/' ) ),
-);
 ?>
 
-<!-- 1 · Hero (Figma): photo collage + amber value-prop headline + ISO badge + trust -->
+<!-- 1 · Hero (Figma): photo collage + amber value-prop headline + ISO badge -->
 <?php
 artisraw_photo_hero( array(
 	'base'      => '/assets/ar-hero-collage',
@@ -28,60 +21,73 @@ artisraw_photo_hero( array(
 	'eyebrow'   => __( 'ISO 9001 olive wood manufacturer · Sfax, Tunisia', 'artisraw' ),
 	'title'     => __( 'Premium Olive Wood for Wholesale Buyers', 'artisraw' ),
 	'as_h1'     => true,
-	'support'   => __( 'Handmade Tunisian olive wood collections for retailers, distributors, hospitality groups, corporate gifts and private-label brands.', 'artisraw' ),
-	'cta_label' => __( 'Request a Quote', 'artisraw' ),
+	'support'   => __( 'Creators of handmade Tunisian olive wood collections for retailers, distributors, hospitality groups, corporate gifts and private-label brands.', 'artisraw' ),
+	'support_tag' => 'h2',
+	'cta_label' => __( 'Start Your Project', 'artisraw' ),
 	'cta_url'   => artisraw_localized_url( '/request-quote/' ),
-	'alt_label' => __( 'Explore wholesale', 'artisraw' ),
-	'alt_url'   => artisraw_localized_url( '/olive-wood-wholesale-supplier/' ),
-	'trust'     => $trust,
 	'badge'     => true,
 	'loc'       => 'home-hero',
 ) );
 ?>
 
-<!-- 2 · Quick answer (SEO/AI extraction) -->
-<div class="container section hub-section">
-	<?php artisraw_quick_answer( __( 'ArtisRaw is an ISO 9001:2015-certified olive wood manufacturer in Sfax, Tunisia, supplying retailers, distributors and private-label brands in 30+ countries. Wholesale cutting boards, serveware, utensils and chess sets — MOQ from 50 units, in-stock items ship within 72 hours, custom production in 6–8 weeks.', 'artisraw' ) ); ?>
-</div>
-
-<!-- 3 · Collections (visual category nav) -->
-<section class="container section hub-section">
-	<div class="section-opener">
-		<h2><?php esc_html_e( 'From olive tree to premium collections', 'artisraw' ); ?></h2>
-		<p class="lead"><?php esc_html_e( 'Raw olive wood, artisan production and food-safe finishing — shaped into ranges that sell on a shelf and online.', 'artisraw' ); ?></p>
+<!-- 1b · Floating differentiator cards — straddle the hero's bottom edge -->
+<section class="hero-cards">
+	<div class="container">
+		<div class="hero-cards__grid">
+			<?php
+			// Icons (stroke = currentColor, inherits the cream slab text colour).
+			$svg_shield = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>';
+			$svg_globe  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>';
+			$svg_tag    = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l9 9-8 8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>';
+			$svg_truck  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>';
+			$diffs = array(
+				array( __( 'ISO 9001 quality', 'artisraw' ), __( 'Certified quality management with ≥96% first-pass yield and unit-by-unit inspection.', 'artisraw' ), $svg_shield ),
+				array( __( 'Import-ready', 'artisraw' ), __( 'Lacey Act data, EUDR traceability and ISPM-15 pallets prepared per shipment.', 'artisraw' ), $svg_globe ),
+				array( __( 'In-house private label', 'artisraw' ), __( 'Engraving, custom packaging and barcode-ready references under your brand.', 'artisraw' ), $svg_tag ),
+				array( __( 'Fast fulfilment', 'artisraw' ), __( 'In-stock SKUs dispatched within 72 hours; custom runs in 6–8 weeks.', 'artisraw' ), $svg_truck ),
+			);
+			foreach ( $diffs as $n => $d ) {
+				echo '<div class="hero-card">';
+				echo '<div class="hero-card__top"><span class="hero-card__num">' . esc_html( sprintf( '%02d', $n + 1 ) ) . '</span><span class="hero-card__icon">' . $d[2] . '</span></div>';
+				echo '<h3 class="hero-card__title">' . esc_html( $d[0] ) . '</h3>';
+				echo '<p class="hero-card__text">' . esc_html( $d[1] ) . '</p>';
+				echo '</div>';
+			}
+			?>
+		</div>
 	</div>
-	<ul class="collections" role="list">
-		<?php
-		$collections = array(
-			array( __( 'Kitchen & boards', 'artisraw' ), artisraw_localized_url( '/wholesale/olive-wood-cutting-boards/' ), '/assets/ar-boards', array( 600 ) ),
-			array( __( 'Serveware & bowls', 'artisraw' ), artisraw_localized_url( '/wholesale/olive-wood-bowls-serveware/' ), '/assets/ar-mortar', array( 600 ) ),
-			array( __( 'Gifts & chess', 'artisraw' ), artisraw_localized_url( '/wholesale/olive-wood-chess-sets/' ), '/assets/ar-chess', array( 600 ) ),
-			array( __( 'Décor & lifestyle', 'artisraw' ), artisraw_localized_url( '/wholesale/olive-wood-decor-bath/' ), '/assets/ar-collection', array( 600, 1200 ) ),
-		);
-		foreach ( $collections as $col ) {
-			echo '<li><a class="collection" href="' . esc_url( $col[1] ) . '">';
-			artisraw_responsive_image( array( 'base' => $col[2], 'alt' => $col[0] . ' — wholesale olive wood', 'class' => 'collection__img', 'width' => 600, 'height' => 750, 'widths' => $col[3], 'sizes' => '(min-width: 768px) 25vw, 50vw' ) );
-			echo '<span class="collection__label">' . esc_html( $col[0] ) . '</span></a></li>';
-		}
-		?>
-	</ul>
-	<p class="hub-section__note"><?php artisraw_arrow_link( __( 'View the full catalogue', 'artisraw' ), artisraw_localized_url( '/catalogue/' ) ); ?></p>
 </section>
 
-<!-- 3b · Captioned image grid (Figma): tree → workshop → wholesale → shelves -->
-<div class="container section">
+<!-- 2 · Intro (plain editorial, two-column, per design) -->
+<section class="container section home-intro">
+	<div class="home-intro__head">
+		<h2><?php esc_html_e( 'From Olive Tree to Premium Collections', 'artisraw' ); ?></h2>
+	</div>
+	<div class="home-intro__body">
+		<p><?php esc_html_e( 'Born in Sfax, Tunisia — the heart of Mediterranean olive country — ArtisRaw gives century-old Chemlali olive trees a second life handcrafted pieces that retailers, distributors and brands actually want on their shelves.', 'artisraw' ); ?></p>
+		<p><?php esc_html_e( 'Cutting boards, tableware, utensils, chess sets: every item is shaped by hand, finished with food-safe mineral oil and beeswax, and built to sell. We’re ISO 9001:2015 certified, we ship to over 30 countries, and we keep things simple —stock items out the door in 72 hours, custom production in 6 to 8 weeks.', 'artisraw' ); ?></p>
+		<p><?php esc_html_e( 'Whether you need sale-ready , private label or full export documentation, ArtisRaw gives you factory-direct quality without the guesswork.', 'artisraw' ); ?></p>
+		<p class="home-intro__note"><?php artisraw_arrow_link( __( 'More info', 'artisraw' ), artisraw_localized_url( '/about/' ) ); ?></p>
+	</div>
+</section>
+
+<!-- 3 · Product mosaic (PDF): tree → workshop → wholesale → shelves -->
+<section class="container section mosaic-section">
+	<div class="mosaic-section__head">
+		<h2><?php esc_html_e( 'From tree, to workshop, to wholesale, to shelves', 'artisraw' ); ?></h2>
+		<?php artisraw_arrow_link( __( 'Discover our product', 'artisraw' ), artisraw_localized_url( '/catalogue/' ) ); ?>
+	</div>
 	<?php
-	artisraw_caption_grid(
+	artisraw_photo_mosaic(
 		array(
-			array( 'base' => '/assets/ar-grove', 'alt' => __( 'Olive grove in the Sfax region', 'artisraw' ), 'caption' => __( 'Responsible olive wood sourcing', 'artisraw' ), 'w' => 1273, 'h' => 900, 'widths' => array( 600, 1200 ) ),
-			array( 'base' => '/assets/ar-lathe', 'alt' => __( 'Artisan shaping olive wood on a lathe', 'artisraw' ), 'caption' => __( 'Handmade production', 'artisraw' ), 'w' => 1400, 'h' => 933, 'widths' => array( 600, 1200 ) ),
-			array( 'base' => '/assets/ar-boards-drying', 'alt' => __( 'Dense-grain olive wood boards drying', 'artisraw' ), 'caption' => __( 'Chemlali dense grain', 'artisraw' ), 'w' => 1200, 'h' => 801, 'widths' => array( 600, 1200 ) ),
-			array( 'base' => '/assets/ar-chess2', 'alt' => __( 'Finished olive wood chess set', 'artisraw' ), 'caption' => __( 'Premium B2B collections', 'artisraw' ), 'w' => 800, 'h' => 800, 'widths' => array( 600 ) ),
-		),
-		__( 'From tree, to workshop, to wholesale, to shelves', 'artisraw' )
+			array( 'base' => '/assets/ar-grove', 'alt' => __( 'Century-old Chemlali olive trees near Sfax', 'artisraw' ), 'variant' => 'big', 'href' => artisraw_localized_url( '/about/' ), 'w' => 1273, 'h' => 900, 'widths' => array( 600, 1200 ) ),
+			array( 'base' => '/assets/ar-lathe', 'alt' => __( 'Artisan shaping olive wood in the Sfax workshop', 'artisraw' ), 'href' => artisraw_localized_url( '/production-process/' ), 'w' => 1400, 'h' => 933, 'widths' => array( 600 ) ),
+			array( 'base' => '/assets/ar-collection', 'alt' => __( 'Wholesale olive wood collection ready for export', 'artisraw' ), 'href' => artisraw_localized_url( '/catalogue/' ), 'w' => 1200, 'h' => 900, 'widths' => array( 600, 1200 ) ),
+			array( 'base' => '/assets/ar-workshop', 'alt' => __( 'Finished olive wood pieces on the showroom shelves', 'artisraw' ), 'variant' => 'wide', 'href' => artisraw_localized_url( '/wholesale/' ), 'w' => 1400, 'h' => 900, 'widths' => array( 600, 1200 ) ),
+		)
 	);
 	?>
-</div>
+</section>
 
 <!-- 4 · Color-block mosaic (§4): who we are · how it's made · sustainability -->
 <?php
@@ -129,26 +135,6 @@ artisraw_color_block( array(
 	</div>
 </section>
 <?php endif; ?>
-
-<!-- 6 · Why buyers choose ArtisRaw (block formula) -->
-<section class="container section hub-section">
-	<div class="section-opener"><h2><?php esc_html_e( 'Why buyers choose ArtisRaw', 'artisraw' ); ?></h2></div>
-	<div class="grid hub-services__grid">
-		<?php
-		$diffs = array(
-			array( __( 'ISO 9001 quality', 'artisraw' ), __( 'Certified quality management with ≥96% first-pass yield and unit-by-unit inspection.', 'artisraw' ), artisraw_localized_url( '/quality-control/' ), __( 'See QC', 'artisraw' ) ),
-			array( __( 'Import-ready', 'artisraw' ), __( 'Lacey Act data, EUDR traceability and ISPM-15 pallets prepared per shipment.', 'artisraw' ), artisraw_localized_url( '/shipping-logistics/' ), __( 'Logistics', 'artisraw' ) ),
-			array( __( 'In-house private label', 'artisraw' ), __( 'Engraving, custom packaging and barcode-ready references under your brand.', 'artisraw' ), artisraw_localized_url( '/private-label-olive-wood/' ), __( 'Private label', 'artisraw' ) ),
-			array( __( 'Fast fulfilment', 'artisraw' ), __( 'In-stock SKUs dispatched within 72 hours; custom runs in 6–8 weeks.', 'artisraw' ), artisraw_localized_url( '/how-to-order/' ), __( 'How to order', 'artisraw' ) ),
-		);
-		foreach ( $diffs as $d ) {
-			echo '<div class="col-3"><div class="hub-service"><h3>' . esc_html( $d[0] ) . '</h3><p>' . esc_html( $d[1] ) . '</p><p>';
-			artisraw_arrow_link( $d[3], $d[2] );
-			echo '</p></div></div>';
-		}
-		?>
-	</div>
-</section>
 
 <!-- 7 · Built for your channel (self-selection, block formula) -->
 <section class="section--sand">

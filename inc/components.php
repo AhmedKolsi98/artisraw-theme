@@ -1079,7 +1079,8 @@ function artisraw_photo_hero( array $a ) {
 	}
 	echo '<' . $tag . ' class="photo-hero__title">' . esc_html( $a['title'] ?? '' ) . '</' . $tag . '>';
 	if ( ! empty( $a['support'] ) ) {
-		echo '<p class="photo-hero__support lead">' . esc_html( $a['support'] ) . '</p>';
+		$stag = ! empty( $a['support_tag'] ) ? preg_replace( '/[^a-z0-9]/', '', $a['support_tag'] ) : 'p';
+		echo '<' . $stag . ' class="photo-hero__support lead">' . esc_html( $a['support'] ) . '</' . $stag . '>';
 	}
 	if ( ! empty( $a['cta_label'] ) ) {
 		echo '<p class="photo-hero__cta"><a class="btn btn--primary" href="' . esc_url( $a['cta_url'] ?? '#' ) . '" data-ga="cta_click" data-ga-label="hero" data-ga-location="' . esc_attr( $loc ) . '">' . esc_html( $a['cta_label'] ) . '</a>';

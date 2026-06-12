@@ -118,6 +118,40 @@
 .photo-hero__trust { margin-top: var(--sp-4); }
 .photo-hero__trust .trust-strip { margin: 0; }
 
+/* Differentiator slabs below the full-height hero — revealed on scroll.
+   Olive slab, bold cream number, cream text, line icon (per reference). */
+.hero-cards { position: relative; z-index: 3; margin-top: clamp(-7rem, -8vw, -4rem); margin-bottom: var(--sp-7); }
+.hero-cards__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-3); }
+@media (min-width: 880px) { .hero-cards__grid { grid-template-columns: repeat(4, 1fr); } }
+.hero-card { background: var(--c-olive-600); color: var(--c-cream-100); border-radius: var(--radius-lg); box-shadow: var(--shadow-lift); padding: var(--sp-4) var(--sp-3); display: flex; flex-direction: column; gap: var(--sp-1); }
+.hero-card__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-2); }
+.hero-card__num { font-family: var(--ff-serif); font-weight: var(--fw-bold); font-size: 2.75rem; line-height: 1; color: var(--c-cream-100); }
+.hero-card__icon { width: 2rem; height: 2rem; opacity: .9; }
+.hero-card__icon svg { width: 100%; height: 100%; display: block; }
+.hero-card__title { font-family: var(--ff-serif); font-size: var(--fs-subheading); color: var(--c-cream-100); margin: 0; }
+.hero-card__text { color: var(--c-cream-100); opacity: .85; margin: 0; }
+
+/* Product mosaic head: heading left, "Discover our product" link right (PDF). */
+.mosaic-section__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--sp-2) var(--sp-4); margin-bottom: var(--sp-4); }
+.mosaic-section__head h2 { font-family: var(--ff-serif); font-size: var(--fs-heading); margin: 0; }
+@media (min-width: 768px) { .mosaic-section__head h2 { font-size: var(--fs-display-l); } }
+
+/* Home intro: editorial two-column — heading left, copy split into paragraphs right. */
+.home-intro__head h2 { font-family: var(--ff-serif); font-size: var(--fs-heading); margin: 0; }
+.home-intro__body > p { color: var(--c-bark-700); max-width: 64ch; }
+.home-intro__body > p + p { margin-top: var(--sp-3); }
+.home-intro__note { margin-top: var(--sp-4); }
+@media (min-width: 880px) {
+	.home-intro { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--sp-5) clamp(var(--sp-4), 6vw, var(--sp-7)); align-items: start; }
+	.home-intro__head { position: sticky; top: calc(var(--header-height) + var(--sp-4)); }
+	.home-intro__head h2 { font-size: var(--fs-display-l); }
+}
+
+/* Home hero: full-viewport, larger type (PDF). Scoped so inner-page heroes keep their size. */
+.photo-hero[data-hero="home-hero"] { min-height: 100vh; }
+.photo-hero[data-hero="home-hero"] .photo-hero__title { font-size: clamp(2.75rem, 7vw, 5rem); line-height: 1.05; max-width: 16ch; }
+.photo-hero[data-hero="home-hero"] .photo-hero__support { font-size: clamp(1.125rem, 2vw, 1.5rem); line-height: 1.4; font-weight: var(--fw-regular); max-width: 50ch; }
+
 /* --- About intro (centered editorial prose) ----------------------------- */
 .about-intro { max-width: 78ch; margin-inline: auto; text-align: center; }
 .about-intro h2 { font-size: var(--fs-heading); margin-top: var(--sp-4); }

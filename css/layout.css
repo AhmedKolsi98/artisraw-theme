@@ -135,14 +135,21 @@
    1180 (= container width) keeps all 6 items + actions on one line with room. */
 @media (min-width: 1180px) {
   .js .nav-toggle, .nav-overlay, .nav__disclosure { display: none; }
-  .site-header__inner { flex-wrap: nowrap; }   /* never wrap the bar onto 2 lines */
+  /* Single-row header, logo dead-centre. Two equal flex halves (flex:1 with a
+     0 basis) flank the brand, so it sits at exact screen centre at any width.
+     Utility actions are absolutely positioned far-right, OUT of the centring
+     math, so they never push the logo off-centre. */
+  .site-header__inner { position: relative; display: flex; flex-wrap: nowrap; align-items: center; gap: 0; }
   .nav, .js .nav {                 /* `.js .nav` beats the mobile drawer rule */
+    display: contents;             /* lists + actions become flex items */
     position: static; width: auto; height: auto;
     transform: none; background: transparent; box-shadow: none;
     padding: 0; overflow: visible;
-    flex-direction: row; align-items: center; gap: var(--sp-3);
-    flex: 1 1 auto; justify-content: flex-start;   /* links sit just after the logo */
   }
+  .nav__list--left  { flex: 1 1 0; order: 1; justify-content: flex-end; }
+  .site-header__brand { flex: 0 0 auto; order: 2; margin: 0 var(--sp-5); }
+  .nav__list--right { flex: 1 1 0; order: 3; justify-content: flex-start; padding-right: 11rem; }
+  .nav__actions { position: absolute; right: 0; top: 50%; transform: translateY(-50%); margin: 0; padding: 0; border: 0; flex-direction: row; align-items: center; gap: var(--sp-3); }
   .nav__list { flex-direction: row; align-items: center; gap: var(--sp-2); flex-wrap: nowrap; }
   .nav__item { flex: 0 0 auto; }                 /* keep each item's width */
   .nav__link { white-space: nowrap; }            /* labels never wrap to 2 lines */
@@ -174,12 +181,6 @@
   .nav__item--has-children:focus-within .nav__sub,
   .nav__item.is-open .nav__sub { display: block; }
 
-  /* Actions float to the far right, set off from the links by a divider. */
-  .nav__actions {
-    margin: 0 0 0 auto; padding: 0 0 0 var(--sp-3);
-    border: 0; border-left: 1px solid var(--color-border);
-    flex-direction: row; align-items: center; gap: var(--sp-3);
-  }
   /* Language switcher on the left, the amber Client Login CTA anchors the right. */
   .lang-switch { order: 1; }
   .nav__cta { width: auto; order: 2; }

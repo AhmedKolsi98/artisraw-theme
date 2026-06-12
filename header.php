@@ -80,10 +80,22 @@ function artisraw_primary_items() {
 /**
  * Render the primary nav <ul> from the canonical items (plain <a href> only).
  */
-function artisraw_render_primary_nav() {
+function artisraw_render_primary_nav( $slice = 'all' ) {
 	$current = trailingslashit( strtok( home_url( add_query_arg( null, null ) ), '?' ) );
-	echo '<ul class="nav__list" role="list">';
-	foreach ( artisraw_primary_items() as $i => $item ) {
+	$items   = artisraw_primary_items();
+	// Split the menu in two halves so the centered logo sits between them.
+	$mid = (int) ceil( count( $items ) / 2 );
+	if ( 'left' === $slice ) {
+		$items     = array_slice( $items, 0, $mid, true );
+		$ul_class  = 'nav__list nav__list--left';
+	} elseif ( 'right' === $slice ) {
+		$items     = array_slice( $items, $mid, null, true );
+		$ul_class  = 'nav__list nav__list--right';
+	} else {
+		$ul_class  = 'nav__list';
+	}
+	echo '<ul class="' . esc_attr( $ul_class ) . '" role="list">';
+	foreach ( $items as $i => $item ) {
 		$has_children = ! empty( $item['children'] );
 		$is_current   = trailingslashit( $item['url'] ) === $current;
 		$li_class     = 'nav__item' . ( $has_children ? ' nav__item--has-children' : '' );
@@ -164,18 +176,10 @@ function artisraw_render_primary_nav() {
 
 		<nav class="nav" id="primary-nav" aria-label="<?php esc_attr_e( 'Primary', 'artisraw' ); ?>">
 			<?php
-			if ( has_nav_menu( 'primary' ) ) {
-				wp_nav_menu( array(
-					'theme_location' => 'primary',
-					'container'      => false,
-					'menu_class'     => 'nav__list',
-					'fallback_cb'    => 'artisraw_render_primary_nav',
-				) );
-			} else {
-				artisraw_render_primary_nav();
-			}
+			// Two halves flank the centered logo; actions float to the far right.
+			artisraw_render_primary_nav( 'left' );
+			artisraw_render_primary_nav( 'right' );
 			?>
-
 			<div class="nav__actions">
 				<?php // Primary action: client login (the wholesale portal). ?>
 				<a class="btn btn--primary nav__cta" href="<?php echo esc_url( artisraw_localized_url( '/wholesale-account/' ) ); ?>"><?php esc_html_e( 'Client Login', 'artisraw' ); ?></a>

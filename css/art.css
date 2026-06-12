@@ -103,6 +103,22 @@
 .iso-badge--hero { position: absolute; right: var(--sp-3); bottom: var(--sp-4); z-index: 2; }
 @media (max-width: 768px) { .iso-badge--hero { position: static; margin-top: var(--sp-3); } }
 
+/* Home hero: large blue ISO badge centred over the hero (per reference). */
+.photo-hero[data-hero="home-hero"] .iso-badge--hero {
+  background: #1b5fa8; color: #ffffff; border-color: #ffffff;
+}
+.photo-hero[data-hero="home-hero"] .iso-badge--hero .iso-badge__arc { color: #ffffff; }
+@media (min-width: 769px) {
+  .photo-hero[data-hero="home-hero"] .iso-badge--hero {
+    left: auto; bottom: auto; top: 50%; right: 8%;
+    transform: translateY(-50%) rotate(0deg);
+    width: 150px; height: 150px; border-width: 5px;
+  }
+  .photo-hero[data-hero="home-hero"] .iso-badge--hero .iso-badge__arc  { font-size: 0.625rem; }
+  .photo-hero[data-hero="home-hero"] .iso-badge--hero .iso-badge__iso  { font-size: 2.125rem; }
+  .photo-hero[data-hero="home-hero"] .iso-badge--hero .iso-badge__year { font-size: 0.8125rem; }
+}
+
 /* --- Reveal-on-scroll utility (Figma .reveal → .in), reduced-motion safe -
    JS adds .reveal to mark, IntersectionObserver toggles .is-visible. Without
    JS or with reduced motion, content is shown unconditionally. */
