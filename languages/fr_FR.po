@@ -1,0 +1,1656 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ArtisRaw 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: artisraw\n"
+
+msgid "Catalogue"
+msgstr "Catalogue"
+
+msgid "Wholesale"
+msgstr "Vente en gros"
+
+msgid "Services"
+msgstr "Services"
+
+msgid "Why ArtisRaw"
+msgstr "Pourquoi ArtisRaw"
+
+msgid "Guide"
+msgstr "Guide"
+
+msgid "Magazine"
+msgstr "Magazine"
+
+msgid "Full Catalogue (PDF)"
+msgstr "Catalogue complet (PDF)"
+
+msgid "Compliance (Lacey / EUDR)"
+msgstr "Conformité (Lacey / RDUE)"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Request Quote"
+msgstr "Demander un devis"
+
+msgid "Wholesale Login"
+msgstr "Espace client"
+
+msgid "Cutting Boards"
+msgstr "Planches à découper"
+
+msgid "Utensils"
+msgstr "Ustensiles"
+
+msgid "Bowls & Serveware"
+msgstr "Bols & service de table"
+
+msgid "Chess Sets"
+msgstr "Jeux d’échecs"
+
+msgid "Décor & Bath"
+msgstr "Décoration & bain"
+
+msgid "View all categories"
+msgstr "Voir toutes les catégories"
+
+msgid "Wholesale Hub"
+msgstr "Pôle grossiste"
+
+msgid "How to Order"
+msgstr "Comment commander"
+
+msgid "Shipping & Logistics"
+msgstr "Expédition & logistique"
+
+msgid "Worldwide / Export"
+msgstr "International / export"
+
+msgid "References & Downloads"
+msgstr "Références & téléchargements"
+
+msgid "Services Overview"
+msgstr "Aperçu des services"
+
+msgid "Private Label"
+msgstr "Marque blanche"
+
+msgid "Wholesale Production"
+msgstr "Production en gros"
+
+msgid "About ArtisRaw"
+msgstr "À propos d’ArtisRaw"
+
+msgid "Our Process"
+msgstr "Notre processus"
+
+msgid "Certifications"
+msgstr "Certifications"
+
+msgid "Quality Control"
+msgstr "Contrôle qualité"
+
+msgid "Sustainability"
+msgstr "Durabilité"
+
+msgid "Open menu"
+msgstr "Ouvrir le menu"
+
+msgid "Close menu"
+msgstr "Fermer le menu"
+
+msgid "Primary"
+msgstr "Principal"
+
+msgid "ArtisRaw — home"
+msgstr "ArtisRaw — accueil"
+
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+msgid "Language"
+msgstr "Langue"
+
+msgid "French coming soon"
+msgstr "Version française"
+
+msgid "Toggle %s submenu"
+msgstr "Ouvrir le sous-menu %s"
+
+msgid "Request Line-Sheet & Compliance Pack"
+msgstr "Demander le tarif & le dossier conformité"
+
+msgid "Explore wholesale"
+msgstr "Découvrir la vente en gros"
+
+msgid "Learn more"
+msgstr "En savoir plus"
+
+msgid "Request a quote"
+msgstr "Demander un devis"
+
+msgid "Our sustainability approach"
+msgstr "Notre démarche durable"
+
+msgid "Olive wood manufacturer &amp; B2B supplier — handmade in Sfax, Tunisia since 2019."
+msgstr "Fabricant de bois d’olivier & fournisseur B2B — fait main à Sfax, Tunisie, depuis 2019."
+
+msgid "Footer"
+msgstr "Pied de page"
+
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+msgid "All rights reserved."
+msgstr "Tous droits réservés."
+
+msgid "Lacey Act &amp; EUDR documentation available on request."
+msgstr "Documentation Lacey Act & RDUE disponible sur demande."
+
+msgid "Olive Wood Guide"
+msgstr "Guide du bois d’olivier"
+
+msgid "About"
+msgstr "À propos"
+
+msgid "Request a Quote"
+msgstr "Demander un devis"
+
+msgid "Stay in the know"
+msgstr "Restez informé"
+
+msgid "B2B updates, product launches and catalogue news — no more than monthly."
+msgstr "Actualités B2B, nouveautés et catalogue — au maximum une fois par mois."
+
+msgid "Subscribe"
+msgstr "S’abonner"
+
+msgid "you@company.com"
+msgstr "vous@entreprise.com"
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "Breadcrumb"
+msgstr "Fil d’Ariane"
+
+msgid "ISO 9001:2015"
+msgstr "ISO 9001:2015"
+
+msgid "30+ countries"
+msgstr "30+ pays"
+
+msgid "MOQ 50"
+msgstr "MOQ 50"
+
+msgid "Ships in 72 h"
+msgstr "Expédié en 72 h"
+
+msgid "Unit-by-unit QC"
+msgstr "Contrôle pièce par pièce"
+
+msgid "Lacey Act data ready"
+msgstr "Données Lacey Act prêtes"
+
+msgid "EUDR traceability"
+msgstr "Traçabilité RDUE"
+
+msgid "Download centre"
+msgstr "Centre de téléchargement"
+
+msgid "Every claim has a document. Each download is logged so we can keep the set current."
+msgstr "Chaque affirmation a son document. Chaque téléchargement est enregistré pour garder le dossier à jour."
+
+msgid "Updated"
+msgstr "Mis à jour"
+
+msgid "Get a quote within 24 h"
+msgstr "Un devis sous 24 h"
+
+msgid "Request your line-sheet & compliance pack"
+msgstr "Demandez votre tarif & dossier conformité"
+
+msgid "Work email"
+msgstr "E-mail professionnel"
+
+msgid "Company"
+msgstr "Société"
+
+msgid "Destination country"
+msgstr "Pays de destination"
+
+msgid "Select…"
+msgstr "Choisir…"
+
+msgid "Target delivery date"
+msgstr "Date de livraison souhaitée"
+
+msgid "We reply within one business day. Your details are used only to prepare your quote —"
+msgstr "Nous répondons sous un jour ouvré. Vos informations servent uniquement à préparer votre devis —"
+
+msgid "privacy"
+msgstr "confidentialité"
+
+msgid "Thanks — your line-sheet is on its way to"
+msgstr "Merci — votre tarif est en route vers"
+
+msgid "Tell us a little more to speed up your quote (optional)."
+msgstr "Donnez-nous quelques détails pour accélérer votre devis (facultatif)."
+
+msgid "Monthly volume"
+msgstr "Volume mensuel"
+
+msgid "Preferred ship mode"
+msgstr "Mode d’expédition préféré"
+
+msgid "Documents requested"
+msgstr "Documents demandés"
+
+msgid "Line-sheet"
+msgstr "Tarif (line-sheet)"
+
+msgid "Compliance pack (Lacey/EUDR)"
+msgstr "Dossier conformité (Lacey/RDUE)"
+
+msgid "ISO 9001 certificate"
+msgstr "Certificat ISO 9001"
+
+msgid "Finish MSDS"
+msgstr "FDS de la finition"
+
+msgid "I need logo engraving / private label"
+msgstr "J’ai besoin de gravure de logo / marque blanche"
+
+msgid "I’ll need a broker / DDP delivery"
+msgstr "J’aurai besoin d’un transitaire / livraison DDP"
+
+msgid "Send these details"
+msgstr "Envoyer ces informations"
+
+msgid "Browse the catalogue meanwhile"
+msgstr "Parcourir le catalogue en attendant"
+
+msgid "Got it — we’ll include these in your quote. Talk soon."
+msgstr "C’est noté — nous les ajouterons à votre devis. À bientôt."
+
+msgid "This quick form needs JavaScript. You can also email %1$s or use our %2$s."
+msgstr "Ce formulaire nécessite JavaScript. Vous pouvez aussi écrire à %1$s ou utiliser notre %2$s."
+
+msgid "contact page"
+msgstr "page contact"
+
+msgid "Factory &amp; contact"
+msgstr "Usine & contact"
+
+msgid "Quotes within 24 hours"
+msgstr "Devis sous 24 heures"
+
+msgid "Quick answer"
+msgstr "Réponse rapide"
+
+msgid "Wholesale inquiries"
+msgstr "Demandes de gros"
+
+msgid "Quote within 24 h"
+msgstr "Devis sous 24 h"
+
+msgid "Low MOQ"
+msgstr "MOQ réduit"
+
+msgid "Custom branding"
+msgstr "Personnalisation de marque"
+
+msgid "Client Login"
+msgstr "Espace client"
+
+msgid "English"
+msgstr "English"
+
+msgid "Français"
+msgstr "Français"
+
+msgid "Our process"
+msgstr "Notre processus"
+
+msgid "Premium olive wood, crafted in sustainability."
+msgstr "Bois d’olivier premium, façonné dans la durabilité."
+
+msgid "ArtisRaw olive wood — handmade product"
+msgstr "Bois d’olivier ArtisRaw — produit fait main"
+
+msgid "The ArtisRaw world in four visuals"
+msgstr "L’univers ArtisRaw en quatre images"
+
+msgid "Olive grove — responsible sourcing"
+msgstr "Oliveraie — approvisionnement responsable"
+
+msgid "Responsible olive wood sourcing"
+msgstr "Approvisionnement responsable en bois d’olivier"
+
+msgid "ArtisRaw workshop production in Sfax"
+msgstr "Production à l’atelier ArtisRaw de Sfax"
+
+msgid "Own factory in Sfax"
+msgstr "Notre usine à Sfax"
+
+msgid "Dense Chemlali olive wood grain"
+msgstr "Grain dense du bois d’olivier Chemlali"
+
+msgid "Chemlali dense grain"
+msgstr "Grain dense Chemlali"
+
+msgid "Wholesale collections ready for export"
+msgstr "Collections de gros prêtes à l’export"
+
+msgid "Premium wholesale collections"
+msgstr "Collections de gros premium"
+
+msgid "Premium quality &amp; craftsmanship"
+msgstr "Qualité premium & savoir-faire"
+
+msgid "Crafted from premium Tunisian olive wood, each piece reveals the unique character, beauty and durability of nature."
+msgstr "Façonnée dans un bois d’olivier tunisien premium, chaque pièce révèle le caractère, la beauté et la durabilité uniques de la nature."
+
+msgid "Excellence &amp; reliability"
+msgstr "Excellence & fiabilité"
+
+msgid "Every product undergoes careful selection, quality control and food-safe finishing to meet the expectations of global buyers."
+msgstr "Chaque produit fait l’objet d’une sélection rigoureuse, d’un contrôle qualité et d’une finition alimentaire pour répondre aux attentes des acheteurs du monde entier."
+
+msgid "Mediterranean heritage &amp; innovation"
+msgstr "Héritage méditerranéen & innovation"
+
+msgid "Inspired by generations of craftsmanship, we combine traditional expertise with modern production standards."
+msgstr "Inspirés par des générations de savoir-faire, nous associons l’expertise traditionnelle aux standards de production modernes."
+
+msgid "Sustainability &amp; impact"
+msgstr "Durabilité & impact"
+
+msgid "We transform reclaimed olive wood into lasting creations, supporting responsible sourcing, local artisans and a more sustainable future."
+msgstr "Nous transformons le bois d’olivier récupéré en créations durables, au service d’un approvisionnement responsable, des artisans locaux et d’un avenir plus durable."
+
+msgid "More than a workshop — a dedicated production facility"
+msgstr "Plus qu’un atelier — une unité de production dédiée"
+
+msgid "ArtisRaw combines traditional hand tools with professional woodworking equipment, producing consistent quality at scale while keeping the authentic handmade character of olive wood."
+msgstr "ArtisRaw associe outils traditionnels et équipements professionnels du bois pour produire une qualité constante à grande échelle, tout en préservant le caractère authentique du fait main."
+
+msgid "Location"
+msgstr "Emplacement"
+
+msgid "Sfax"
+msgstr "Sfax"
+
+msgid "Route Saltania Km 4.5, Tunisia, in the Mediterranean olive region."
+msgstr "Route Saltania Km 4,5, Tunisie, au cœur de la région oléicole méditerranéenne."
+
+msgid "Facility type"
+msgstr "Type de site"
+
+msgid "Factory"
+msgstr "Usine"
+
+msgid "Dedicated olive wood manufacturing plant with specialised production areas."
+msgstr "Usine dédiée au bois d’olivier avec des zones de production spécialisées."
+
+msgid "Team"
+msgstr "Équipe"
+
+msgid "Skilled artisans, designers, QC specialists and operations staff."
+msgstr "Artisans qualifiés, designers, spécialistes qualité et équipes opérationnelles."
+
+msgid "Capacity"
+msgstr "Capacité"
+
+msgid "Unit orders fulfilled regularly for B2B partners."
+msgstr "Commandes à l’unité honorées régulièrement pour les partenaires B2B."
+
+msgid "End-to-end manufacturing process"
+msgstr "Processus de fabrication de bout en bout"
+
+msgid "From raw material sourcing to export packaging, every step is built for traceability, consistency and quality control."
+msgstr "De l’approvisionnement en matière première à l’emballage d’export, chaque étape est pensée pour la traçabilité, la régularité et le contrôle qualité."
+
+msgid "Raw material sourcing"
+msgstr "Approvisionnement en matière première"
+
+msgid "Selection of authentic Tunisian olive wood from end-of-life trees."
+msgstr "Sélection de bois d’olivier tunisien authentique issu d’arbres en fin de vie."
+
+msgid "Drying &amp; curing"
+msgstr "Séchage & stabilisation"
+
+msgid "Wood stabilised before cutting and shaping to support durability."
+msgstr "Bois stabilisé avant la découpe et le façonnage pour garantir la durabilité."
+
+msgid "Machining &amp; shaping"
+msgstr "Usinage & façonnage"
+
+msgid "Skilled preparation using professional equipment and controlled dimensions."
+msgstr "Préparation experte avec un équipement professionnel et des dimensions contrôlées."
+
+msgid "Handcrafting"
+msgstr "Travail à la main"
+
+msgid "Artisans sand, polish and refine every piece by hand."
+msgstr "Les artisans poncent, polissent et affinent chaque pièce à la main."
+
+msgid "Food-safe finishing"
+msgstr "Finition alimentaire"
+
+msgid "Mineral oil and beeswax applied to protect and enhance the grain."
+msgstr "Huile minérale et cire d’abeille appliquées pour protéger et sublimer le grain."
+
+msgid "QC, packaging &amp; export"
+msgstr "Contrôle, emballage & export"
+
+msgid "Inspection, retail or wholesale packing, documents and shipment preparation."
+msgstr "Inspection, conditionnement détail ou gros, documents et préparation d’expédition."
+
+msgid "Certification"
+msgstr "Certification"
+
+msgid "World’s first ISO 9001 certified olive wood manufacturer"
+msgstr "Premier fabricant de bois d’olivier certifié ISO 9001 au monde"
+
+msgid "ArtisRaw is certified for the design, production and sale (national and international) of olive wood articles — operating a documented quality management system across the full workflow."
+msgstr "ArtisRaw est certifiée pour la conception, la production et la vente (nationale et internationale) d’articles en bois d’olivier — avec un système de management de la qualité documenté sur l’ensemble du flux."
+
+msgid "ISO 9001:2015 certified quality management system"
+msgstr "Système de management de la qualité certifié ISO 9001:2015"
+
+msgid "Documented quality inspections and full batch traceability"
+msgstr "Inspections qualité documentées et traçabilité complète par lot"
+
+msgid "Food-grade finishing with material safety documentation"
+msgstr "Finition de qualité alimentaire avec fiche de données de sécurité"
+
+msgid "Export documents prepared per destination market"
+msgstr "Documents d’export préparés selon le marché de destination"
+
+msgid "Ask for documents"
+msgstr "Demander les documents"
+
+msgid "The founders behind ArtisRaw"
+msgstr "Les fondateurs d’ArtisRaw"
+
+msgid "Co-founder &amp; CEO"
+msgstr "Cofondateur & PDG"
+
+msgid "Leads ArtisRaw’s wholesale strategy and export partnerships across global markets."
+msgstr "Pilote la stratégie de gros et les partenariats d’export d’ArtisRaw sur les marchés mondiaux."
+
+msgid "Head of Design — registered artisan"
+msgstr "Directeur du design — artisan inscrit"
+
+msgid "Designs every collection and reviews each product family for craft, function and durability."
+msgstr "Conçoit chaque collection et passe en revue chaque famille de produits pour l’artisanat, la fonction et la durabilité."
+
+msgid "Co-founder — Operations"
+msgstr "Cofondateur — Opérations"
+
+msgid "Runs production, quality systems and the factory workflow in Sfax."
+msgstr "Dirige la production, les systèmes qualité et le flux d’usine à Sfax."
+
+msgid "Stories worth telling"
+msgstr "Des histoires à raconter"
+
+msgid "ArtisRaw isn’t just about products; it’s about stories worth telling — tradition, sustainability and longevity."
+msgstr "ArtisRaw, ce ne sont pas que des produits ; ce sont des histoires à raconter — tradition, durabilité et longévité."
+
+msgid "Let’s work together"
+msgstr "Travaillons ensemble"
+
+msgid "ArtisRaw artisan carrying olive wood at the Sfax factory"
+msgstr "Artisan ArtisRaw transportant du bois d’olivier à l’usine de Sfax"
+
+msgid "Responsible sourcing, drying, cutting, hand-finishing, food-safe protection, quality control, packaging and B2B export preparation."
+msgstr "Approvisionnement responsable, séchage, découpe, finition à la main, protection alimentaire, contrôle qualité, emballage et préparation à l’export B2B."
+
+msgid "Process overview"
+msgstr "Aperçu du processus"
+
+msgid "Eight core phases that turn raw Chemlali olive wood into premium B2B collections"
+msgstr "Huit phases clés qui transforment le bois d’olivier Chemlali brut en collections B2B premium"
+
+msgid "Responsible sourcing"
+msgstr "Approvisionnement responsable"
+
+msgid "Wood is stabilised before cutting and shaping to support durability."
+msgstr "Le bois est stabilisé avant la découpe et le façonnage pour garantir la durabilité."
+
+msgid "Cutting &amp; shaping"
+msgstr "Découpe & façonnage"
+
+msgid "Hand finishing"
+msgstr "Finition à la main"
+
+msgid "Food-safe finish"
+msgstr "Finition alimentaire"
+
+msgid "Mineral oil and beeswax are applied to protect and enhance the grain."
+msgstr "L’huile minérale et la cire d’abeille protègent et subliment le grain."
+
+msgid "Quality checks"
+msgstr "Contrôles qualité"
+
+msgid "Inspection of surface, dimensions, finish, packing and consistency."
+msgstr "Inspection de la surface, des dimensions, de la finition, de l’emballage et de la régularité."
+
+msgid "Export packing"
+msgstr "Emballage d’export"
+
+msgid "Products prepared for retail, wholesale cartons or private-label needs."
+msgstr "Produits préparés pour le détail, les cartons de gros ou la marque blanche."
+
+msgid "Documents &amp; shipment"
+msgstr "Documents & expédition"
+
+msgid "Packing list, invoice, certificates and export preparation for partners."
+msgstr "Liste de colisage, facture, certificats et préparation d’export pour les partenaires."
+
+msgid "Step 01 — Raw material"
+msgstr "Étape 01 — Matière première"
+
+msgid "The process begins with Tunisian Chemlali olive wood, selected for dense grain, natural contrast and durability. We focus on responsible use of end-of-life olive trees and avoid waste by transforming raw material into high-value products."
+msgstr "Le processus commence par le bois d’olivier Chemlali tunisien, choisi pour son grain dense, son contraste naturel et sa durabilité. Nous privilégions l’usage responsable des oliviers en fin de vie et évitons le gaspillage en transformant la matière première en produits à forte valeur."
+
+msgid "Our story"
+msgstr "Notre histoire"
+
+msgid "Step 02 — Workshop"
+msgstr "Étape 02 — Atelier"
+
+msgid "Cutting, shaping and artisan work"
+msgstr "Découpe, façonnage et travail artisanal"
+
+msgid "Each product is cut, shaped and sanded according to its category and SKU requirements. The workshop combines professional equipment with hand finishing to preserve the unique character of olive wood."
+msgstr "Chaque produit est découpé, façonné et poncé selon sa catégorie et sa référence. L’atelier associe équipements professionnels et finition à la main pour préserver le caractère unique du bois d’olivier."
+
+msgid "Quality control"
+msgstr "Contrôle qualité"
+
+msgid "Step 03 — Quality"
+msgstr "Étape 03 — Qualité"
+
+msgid "Inspection, food-safe finish and packing"
+msgstr "Inspection, finition alimentaire et emballage"
+
+msgid "Each product is checked, oiled with food-grade mineral oil and beeswax, then packed for retail or wholesale. Private-label requests, packaging needs and shipment preparation are handled before export."
+msgstr "Chaque produit est contrôlé, huilé à l’huile minérale alimentaire et à la cire d’abeille, puis emballé pour le détail ou le gros. Les demandes de marque blanche, les besoins d’emballage et la préparation d’expédition sont gérés avant l’export."
+
+msgid "Quality control timeline"
+msgstr "Calendrier du contrôle qualité"
+
+msgid "A simple, buyer-facing view of the quality checkpoints every order passes through."
+msgstr "Une vue simple et claire des points de contrôle qualité par lesquels passe chaque commande."
+
+msgid "Raw material check"
+msgstr "Contrôle matière première"
+
+msgid "Trunk integrity, density and natural defects reviewed before production."
+msgstr "Intégrité du tronc, densité et défauts naturels vérifiés avant production."
+
+msgid "Cutting check"
+msgstr "Contrôle de découpe"
+
+msgid "Dimensions per SKU verified with controlled tolerances."
+msgstr "Dimensions par référence vérifiées avec des tolérances contrôlées."
+
+msgid "Surface check"
+msgstr "Contrôle de surface"
+
+msgid "Smoothness, cracks and grain inspected piece by piece."
+msgstr "Lissé, fissures et grain inspectés pièce par pièce."
+
+msgid "Finish check"
+msgstr "Contrôle de finition"
+
+msgid "Food-safe oiling and wax coverage verified on every unit."
+msgstr "Huilage alimentaire et couverture de cire vérifiés sur chaque unité."
+
+msgid "Packing check"
+msgstr "Contrôle d’emballage"
+
+msgid "Protection, carton specs and labelling confirmed before closing."
+msgstr "Protection, spécifications carton et étiquetage confirmés avant fermeture."
+
+msgid "Export check"
+msgstr "Contrôle d’export"
+
+msgid "Documents and batch traceability validated before shipment."
+msgstr "Documents et traçabilité par lot validés avant expédition."
+
+msgid "Process FAQs"
+msgstr "FAQ sur le processus"
+
+msgid "What makes ArtisRaw a trusted wholesale partner?"
+msgstr "Pourquoi ArtisRaw est-il un partenaire de gros de confiance ?"
+
+msgid "An ISO 9001:2015-certified manufacturer with its own factory in Sfax, documented quality control, food-safe finishing and export experience across 30+ countries — built for B2B ordering with sale-ready SKUs and MOQ-based logic."
+msgstr "Un fabricant certifié ISO 9001:2015 avec sa propre usine à Sfax, un contrôle qualité documenté, une finition alimentaire et une expérience d’export dans plus de 30 pays — pensé pour la commande B2B avec des références prêtes à la vente et une logique de MOQ."
+
+msgid "Where does your olive wood come from?"
+msgstr "D’où provient votre bois d’olivier ?"
+
+msgid "Exclusively from end-of-life Chemlali olive trees in the Sfax region of Tunisia. Productive trees are protected; only trees that no longer bear fruit enter the workshop."
+msgstr "Exclusivement d’oliviers Chemlali en fin de vie de la région de Sfax, en Tunisie. Les arbres productifs sont protégés ; seuls ceux qui ne portent plus de fruits entrent à l’atelier."
+
+msgid "Are your products food-safe and certified?"
+msgstr "Vos produits sont-ils alimentaires et certifiés ?"
+
+msgid "Yes. Every piece is finished with food-grade mineral oil and beeswax, with material safety documentation available, under an ISO 9001:2015 quality management system."
+msgstr "Oui. Chaque pièce est finie à l’huile minérale alimentaire et à la cire d’abeille, avec fiche de données de sécurité disponible, sous un système qualité ISO 9001:2015."
+
+msgid "How do you ensure consistent quality?"
+msgstr "Comment garantissez-vous une qualité constante ?"
+
+msgid "Through the six-checkpoint timeline above — raw material, cutting, surface, finish, packing and export checks — applied unit by unit with batch traceability."
+msgstr "Grâce aux six points de contrôle ci-dessus — matière première, découpe, surface, finition, emballage et export — appliqués pièce par pièce avec traçabilité par lot."
+
+msgid "Can you customise products and packaging?"
+msgstr "Pouvez-vous personnaliser produits et emballages ?"
+
+msgid "Yes. Engraving, co-designed SKUs and branded packaging are handled in-house as part of the private-label service."
+msgstr "Oui. Gravure, références co-conçues et emballages de marque sont réalisés en interne dans le cadre du service de marque blanche."
+
+msgid "What are your minimum order quantities?"
+msgstr "Quelles sont vos quantités minimales de commande ?"
+
+msgid "MOQ starts at 50 units and varies by SKU. Samples are available, with the cost deducted from your first order."
+msgstr "Le MOQ démarre à 50 unités et varie selon la référence. Des échantillons sont disponibles, leur coût étant déduit de votre première commande."
+
+msgid "How long are production and delivery times?"
+msgstr "Quels sont les délais de production et de livraison ?"
+
+msgid "In-stock items ship within 72 hours; custom production takes 6–8 weeks. Transit is typically 5–12 days by air or 25–40 days by ocean."
+msgstr "Les articles en stock sont expédiés sous 72 heures ; la production sur mesure prend 6 à 8 semaines. Le transit est généralement de 5 à 12 jours par avion ou de 25 à 40 jours par mer."
+
+msgid "Do you export worldwide?"
+msgstr "Exportez-vous dans le monde entier ?"
+
+msgid "Yes — ArtisRaw ships to 30+ countries with full export documentation, supporting FOB, CIF, DAP and DDP terms depending on destination."
+msgstr "Oui — ArtisRaw expédie dans plus de 30 pays avec une documentation d’export complète, en FOB, CIF, DAP ou DDP selon la destination."
+
+msgid "Tell us about your project and our team will prepare a tailored proposal for your business."
+msgstr "Parlez-nous de votre projet : notre équipe préparera une proposition sur mesure pour votre entreprise."
+
+msgid "From tree, to workshop, to wholesale, to shelves"
+msgstr "De l’arbre à l’atelier, du gros aux rayons"
+
+msgid "Discover our product"
+msgstr "Découvrir nos produits"
+
+msgid "Olive grove in the Sfax region"
+msgstr "Oliveraie de la région de Sfax"
+
+msgid "Artisan shaping olive wood on a lathe"
+msgstr "Artisan façonnant le bois d’olivier au tour"
+
+msgid "Handmade production"
+msgstr "Production artisanale"
+
+msgid "Dense-grain olive wood boards drying"
+msgstr "Planches de bois d’olivier à grain dense en séchage"
+
+msgid "Finished olive wood chess set"
+msgstr "Jeu d’échecs en bois d’olivier fini"
+
+msgid "Premium B2B collections"
+msgstr "Collections B2B premium"
+
+msgid "What they say…"
+msgstr "Ce qu’ils disent…"
+
+msgid "ArtisRaw is reliable, consistent and easy to work with. Their handmade olive wood products helped us build a premium retail collection with a strong Mediterranean story."
+msgstr "ArtisRaw est fiable, régulier et facile à travailler. Leurs produits en bois d’olivier fait main nous ont permis de bâtir une collection de détail premium avec un fort récit méditerranéen."
+
+msgid "Retail buyer"
+msgstr "Acheteur de détail"
+
+msgid "Specialty retailer, United Kingdom"
+msgstr "Détaillant spécialisé, Royaume-Uni"
+
+msgid "Discover the real olive wood quality"
+msgstr "Découvrez la vraie qualité du bois d’olivier"
+
+msgid "Discover more"
+msgstr "En découvrir plus"
+
+msgid "FAQs"
+msgstr "FAQ"
+
+msgid "Read more"
+msgstr "En savoir plus"
+
+msgid "Premium Olive Wood for Wholesale Buyers"
+msgstr "Bois d’olivier premium pour acheteurs en gros"
+
+msgid "Handmade Tunisian olive wood collections for retailers, distributors, hospitality groups, corporate gifts and private-label brands."
+msgstr "Collections de bois d’olivier tunisien fait main pour détaillants, distributeurs, hôtellerie, cadeaux d’affaires et marques en marque blanche."
+
+msgid "Creators of handmade Tunisian olive wood collections for retailers, distributors, hospitality groups, corporate gifts and private-label brands."
+msgstr "Créateurs de collections de bois d’olivier tunisien fait main pour détaillants, distributeurs, hôtellerie, cadeaux d’affaires et marques en marque blanche."
+
+msgid "Start Your Project"
+msgstr "Démarrez votre projet"
+
+msgid "Handmade Tunisian olive wood collections"
+msgstr "Collections de bois d’olivier tunisien fait main"
+
+msgid "ISO 9001 olive wood manufacturer · Sfax, Tunisia"
+msgstr "Fabricant de bois d’olivier ISO 9001 · Sfax, Tunisie"
+
+msgid "ArtisRaw is an ISO 9001:2015-certified olive wood manufacturer in Sfax, Tunisia, supplying retailers, distributors and private-label brands in 30+ countries. Wholesale cutting boards, serveware, utensils and chess sets — MOQ from 50 units, in-stock items ship within 72 hours, custom production in 6–8 weeks."
+msgstr "ArtisRaw est un fabricant de bois d’olivier certifié ISO 9001:2015 à Sfax, en Tunisie, qui approvisionne détaillants, distributeurs et marques en marque blanche dans plus de 30 pays. Planches, service de table, ustensiles et jeux d’échecs en gros — MOQ dès 50 unités, articles en stock expédiés sous 72 heures, production sur mesure en 6 à 8 semaines."
+
+msgid "Born in Sfax, Tunisia — the heart of Mediterranean olive country — ArtisRaw gives century-old Chemlali olive trees a second life handcrafted pieces that retailers, distributors and brands actually want on their shelves. Cutting boards, tableware, utensils, chess sets: every item is shaped by hand, finished with food-safe mineral oil and beeswax, and built to sell. We’re ISO 9001:2015 certified, we ship to over 30 countries, and we keep things simple —stock items out the door in 72 hours, custom production in 6 to 8 weeks. Whether you need sale-ready , private label or full export documentation, ArtisRaw gives you factory-direct quality without the guesswork."
+msgstr "Né à Sfax, en Tunisie — au cœur du pays de l’olivier méditerranéen — ArtisRaw offre une seconde vie à des oliviers Chemlali centenaires sous forme de pièces artisanales que les détaillants, distributeurs et marques veulent vraiment sur leurs étagères. Planches à découper, art de la table, ustensiles, jeux d’échecs : chaque article est façonné à la main, fini à l’huile minérale alimentaire et à la cire d’abeille, et conçu pour se vendre. Nous sommes certifiés ISO 9001:2015, nous expédions dans plus de 30 pays, et nous gardons les choses simples — articles en stock expédiés sous 72 heures, production sur mesure en 6 à 8 semaines. Que vous ayez besoin de collections prêtes à vendre, de marque blanche ou d’une documentation d’export complète, ArtisRaw vous offre une qualité directe d’usine, sans approximation."
+
+msgid "From olive tree to premium collections"
+msgstr "De l’olivier aux collections premium"
+
+msgid "From Olive Tree to Premium Collections"
+msgstr "De l’olivier aux collections premium"
+
+msgid "More info"
+msgstr "Plus d’infos"
+
+msgid "Born in Sfax, Tunisia — the heart of Mediterranean olive country — ArtisRaw gives century-old Chemlali olive trees a second life handcrafted pieces that retailers, distributors and brands actually want on their shelves."
+msgstr "Né à Sfax, en Tunisie — au cœur du pays de l’olivier méditerranéen — ArtisRaw offre une seconde vie à des oliviers Chemlali centenaires sous forme de pièces artisanales que les détaillants, distributeurs et marques veulent vraiment sur leurs étagères."
+
+msgid "Cutting boards, tableware, utensils, chess sets: every item is shaped by hand, finished with food-safe mineral oil and beeswax, and built to sell. We’re ISO 9001:2015 certified, we ship to over 30 countries, and we keep things simple —stock items out the door in 72 hours, custom production in 6 to 8 weeks."
+msgstr "Planches à découper, art de la table, ustensiles, jeux d’échecs : chaque article est façonné à la main, fini à l’huile minérale alimentaire et à la cire d’abeille, et conçu pour se vendre. Nous sommes certifiés ISO 9001:2015, nous expédions dans plus de 30 pays, et nous gardons les choses simples — articles en stock expédiés sous 72 heures, production sur mesure en 6 à 8 semaines."
+
+msgid "Whether you need sale-ready , private label or full export documentation, ArtisRaw gives you factory-direct quality without the guesswork."
+msgstr "Que vous ayez besoin de collections prêtes à vendre, de marque blanche ou d’une documentation d’export complète, ArtisRaw vous offre une qualité directe d’usine, sans approximation."
+
+msgid "Raw olive wood, artisan production and food-safe finishing — shaped into ranges that sell on a shelf and online."
+msgstr "Bois d’olivier brut, production artisanale et finition alimentaire — façonnés en gammes qui se vendent en rayon comme en ligne."
+
+msgid "Kitchen & boards"
+msgstr "Cuisine & planches"
+
+msgid "Serveware & bowls"
+msgstr "Service de table & bols"
+
+msgid "Gifts & chess"
+msgstr "Cadeaux & échecs"
+
+msgid "Décor & lifestyle"
+msgstr "Décoration & lifestyle"
+
+msgid "View the full catalogue"
+msgstr "Voir le catalogue complet"
+
+msgid "Who we are"
+msgstr "Qui nous sommes"
+
+msgid "A Tunisian manufacturer with artisan roots"
+msgstr "Un fabricant tunisien aux racines artisanales"
+
+msgid "Founded in Sfax in 2019, ArtisRaw blends ancestral woodworking with modern, ISO 9001 production — handmade heritage built for export-ready wholesale."
+msgstr "Fondée à Sfax en 2019, ArtisRaw allie le travail du bois ancestral à une production moderne certifiée ISO 9001 — un héritage fait main pensé pour la vente en gros prête à l’export."
+
+msgid "Our story & founders"
+msgstr "Notre histoire & fondateurs"
+
+msgid "ArtisRaw artisans in the Sfax workshop"
+msgstr "Les artisans ArtisRaw à l’atelier de Sfax"
+
+msgid "How it’s made"
+msgstr "Comment c’est fabriqué"
+
+msgid "From the tree to a finished, food-safe piece"
+msgstr "De l’arbre à une pièce finie et alimentaire"
+
+msgid "Reclaimed Chemlali wood, controlled drying, CNC precision and hand-finishing — then unit-by-unit QC and export packing under one roof."
+msgstr "Bois Chemlali récupéré, séchage contrôlé, précision CNC et finition à la main — puis contrôle qualité pièce par pièce et emballage d’export, sous un même toit."
+
+msgid "See the production process"
+msgstr "Voir le processus de production"
+
+msgid "Olive wood board showing dense Chemlali grain"
+msgstr "Planche en bois d’olivier au grain dense Chemlali"
+
+msgid "One tree used, two planted"
+msgstr "Un arbre utilisé, deux plantés"
+
+msgid "We work only reclaimed, end-of-life olive wood and sponsor reforestation through trees.org — with full EUDR traceability for EU buyers."
+msgstr "Nous ne travaillons que du bois d’olivier récupéré en fin de vie et parrainons la reforestation via trees.org — avec une traçabilité RDUE complète pour les acheteurs de l’UE."
+
+msgid "Olive grove near Sfax"
+msgstr "Oliveraie près de Sfax"
+
+msgid "Probably the most beautiful boards your shelves will carry."
+msgstr "Probablement les plus belles planches que porteront vos rayons."
+
+msgid "Ready-to-Ship Bestsellers"
+msgstr "Best-sellers prêts à expédier"
+
+msgid "Browse all categories"
+msgstr "Parcourir toutes les catégories"
+
+msgid "Why buyers choose ArtisRaw"
+msgstr "Pourquoi les acheteurs choisissent ArtisRaw"
+
+msgid "ISO 9001 quality"
+msgstr "Qualité ISO 9001"
+
+msgid "Certified quality management with ≥96% first-pass yield and unit-by-unit inspection."
+msgstr "Management de la qualité certifié, ≥96 % de conformité au premier passage et inspection pièce par pièce."
+
+msgid "See QC"
+msgstr "Voir le CQ"
+
+msgid "Import-ready"
+msgstr "Prêt à l’import"
+
+msgid "Lacey Act data, EUDR traceability and ISPM-15 pallets prepared per shipment."
+msgstr "Données Lacey Act, traçabilité RDUE et palettes ISPM-15 préparées par expédition."
+
+msgid "Logistics"
+msgstr "Logistique"
+
+msgid "In-house private label"
+msgstr "Marque blanche en interne"
+
+msgid "Engraving, custom packaging and barcode-ready references under your brand."
+msgstr "Gravure, emballage personnalisé et références prêtes au code-barres sous votre marque."
+
+msgid "Fast fulfilment"
+msgstr "Traitement rapide"
+
+msgid "In-stock SKUs dispatched within 72 hours; custom runs in 6–8 weeks."
+msgstr "Références en stock expédiées sous 72 heures ; séries sur mesure en 6 à 8 semaines."
+
+msgid "How to order"
+msgstr "Comment commander"
+
+msgid "Built for your channel"
+msgstr "Conçu pour votre canal"
+
+msgid "Retailers"
+msgstr "Détaillants"
+
+msgid "Curated, sale-ready assortments for kitchenware, gift and décor shops."
+msgstr "Assortiments prêts à vendre pour les boutiques d’arts de la table, de cadeaux et de décoration."
+
+msgid "Distributors & importers"
+msgstr "Distributeurs & importateurs"
+
+msgid "Volume pricing, container loads and full export documentation."
+msgstr "Tarifs au volume, chargements complets et documentation d’export complète."
+
+msgid "Hospitality"
+msgstr "Hôtellerie"
+
+msgid "Durable boards and serveware with custom branding for venues."
+msgstr "Planches et service de table durables avec marquage personnalisé pour les établissements."
+
+msgid "Private-label brands"
+msgstr "Marques en marque blanche"
+
+msgid "Your logo, packaging and barcode-ready references, made in-house."
+msgstr "Votre logo, votre emballage et des références prêtes au code-barres, réalisés en interne."
+
+msgid "Trees sponsored"
+msgstr "Arbres parrainés"
+
+msgid "First-pass yield"
+msgstr "Conformité au premier passage"
+
+msgid "Return rate"
+msgstr "Taux de retour"
+
+msgid "Countries served"
+msgstr "Pays desservis"
+
+msgid "Selected buyers &amp; partners"
+msgstr "Acheteurs & partenaires sélectionnés"
+
+msgid "ArtisRaw booth at an international B2B trade fair"
+msgstr "Stand ArtisRaw lors d’un salon B2B international"
+
+msgid "From the Olive Wood Guide"
+msgstr "Du Guide du bois d’olivier"
+
+msgid "Read the Magazine"
+msgstr "Lire le magazine"
+
+msgid "Olive wood boards"
+msgstr "Planches en bois d’olivier"
+
+msgid "In the workshop"
+msgstr "À l’atelier"
+
+msgid "Mortar & pestle"
+msgstr "Mortier & pilon"
+
+msgid "Chess & gifts"
+msgstr "Échecs & cadeaux"
+
+msgid "Carved bowls"
+msgstr "Bols sculptés"
+
+msgid "Ready to ship"
+msgstr "Prêt à expédier"
+
+msgid "Tell us your market and quantities — get a quote with MOQ, pricing and import documentation within 24 hours."
+msgstr "Indiquez votre marché et vos quantités — recevez un devis avec MOQ, tarifs et documentation d’import sous 24 heures."
+
+msgid "1,000–5,000 units"
+msgstr "1 000–5 000 unités"
+
+msgid "250–1,000 units"
+msgstr "250–1 000 unités"
+
+msgid "5,000+ units"
+msgstr "5 000+ unités"
+
+msgid "50–250 units"
+msgstr "50–250 unités"
+
+msgid "From 50 units per SKU"
+msgstr "Dès 50 unités par référence"
+
+msgid "MOQ from 50"
+msgstr "MOQ dès 50"
+
+msgid "MOQ starts at 50 units per SKU and is confirmed on your quote. Mixed assortments are welcome."
+msgstr "Le MOQ démarre à 50 unités par référence et est confirmé sur votre devis. Les assortiments mixtes sont les bienvenus."
+
+msgid "25+ registered artisans paired with CNC precision for consistent quality."
+msgstr "Plus de 25 artisans inscrits associés à la précision CNC pour une qualité constante."
+
+msgid "A 3,000-year Mediterranean olive-wood tradition, made in Sfax, Tunisia."
+msgstr "Une tradition méditerranéenne du bois d’olivier de 3 000 ans, fabriquée à Sfax, en Tunisie."
+
+msgid "Ahmed Sakka"
+msgstr "Ahmed Sakka"
+
+msgid "Artisans sand and refine each surface."
+msgstr "Les artisans poncent et affinent chaque surface."
+
+msgid "CNC precision and artisan refinement on every piece."
+msgstr "Précision CNC et finition artisanale sur chaque pièce."
+
+msgid "CNC precision to SKU dimensions."
+msgstr "Précision CNC aux dimensions de la référence."
+
+msgid "Check 01"
+msgstr "Contrôle 01"
+
+msgid "Check 02"
+msgstr "Contrôle 02"
+
+msgid "Check 03"
+msgstr "Contrôle 03"
+
+msgid "Check 04"
+msgstr "Contrôle 04"
+
+msgid "Check 05"
+msgstr "Contrôle 05"
+
+msgid "Check 06"
+msgstr "Contrôle 06"
+
+msgid "Co-founder"
+msgstr "Cofondateur"
+
+msgid "Co-founder & CEO"
+msgstr "Cofondateur & PDG"
+
+msgid "Co-founder & Head of Design"
+msgstr "Cofondateur & directeur du design"
+
+msgid "Controlled drying for stable, lasting pieces."
+msgstr "Séchage contrôlé pour des pièces stables et durables."
+
+msgid "Controlled drying to stabilise the wood before shaping."
+msgstr "Séchage contrôlé pour stabiliser le bois avant le façonnage."
+
+msgid "Counts, labels and packaging verified."
+msgstr "Comptage, étiquettes et emballage vérifiés."
+
+msgid "Craft 4.0"
+msgstr "Artisanat 4.0"
+
+msgid "Cutting"
+msgstr "Découpe"
+
+msgid "Cutting & shaping"
+msgstr "Découpe & façonnage"
+
+msgid "Dimensions verified against the SKU spec."
+msgstr "Dimensions vérifiées par rapport à la fiche de la référence."
+
+msgid "Documents & shipment"
+msgstr "Documents & expédition"
+
+msgid "Documents and pallet compliance checked."
+msgstr "Documents et conformité des palettes vérifiés."
+
+msgid "Drying & curing"
+msgstr "Séchage & stabilisation"
+
+msgid "End-of-life Chemlali olive wood from licensed trees."
+msgstr "Bois d’olivier Chemlali en fin de vie issu d’arbres licenciés."
+
+msgid "Export"
+msgstr "Export"
+
+msgid "Finish"
+msgstr "Finition"
+
+msgid "Food-contact finish MSDS"
+msgstr "FDS de la finition au contact alimentaire"
+
+msgid "Food-safe finish applied and confirmed."
+msgstr "Finition alimentaire appliquée et confirmée."
+
+msgid "Food-safe finishing & QC"
+msgstr "Finition alimentaire & contrôle qualité"
+
+msgid "Forestry licence #4684"
+msgstr "Licence forestière #4684"
+
+msgid "Grade, moisture and grain checked before cutting."
+msgstr "Qualité, humidité et grain vérifiés avant la découpe."
+
+msgid "Heritage"
+msgstr "Héritage"
+
+msgid "Heritage & vision — keeping the story of olive wood alive through timeless products."
+msgstr "Héritage & vision — faire vivre l’histoire du bois d’olivier à travers des produits intemporels."
+
+msgid "How we control quality"
+msgstr "Comment nous contrôlons la qualité"
+
+msgid "ISO 9001 systems and documentation for 30+ countries."
+msgstr "Systèmes et documentation ISO 9001 pour plus de 30 pays."
+
+msgid "ISO 9001:2015 certificate"
+msgstr "Certificat ISO 9001:2015"
+
+msgid "ISPM-15 pallets and retail-ready packaging."
+msgstr "Palettes ISPM-15 et emballage prêt au détail."
+
+msgid "Ihsen Triki"
+msgstr "Ihsen Triki"
+
+msgid "Invoice, packing list and compliance per shipment."
+msgstr "Facture, liste de colisage et conformité par expédition."
+
+msgid "Latest from the Guide"
+msgstr "Derniers articles du Guide"
+
+msgid "Machining & handcrafting"
+msgstr "Usinage & travail à la main"
+
+msgid "Mineral oil & beeswax, documented MSDS."
+msgstr "Huile minérale & cire d’abeille, FDS documentée."
+
+msgid "Mineral-oil & beeswax finish, then unit-by-unit inspection and export packing."
+msgstr "Finition huile minérale & cire d’abeille, puis inspection pièce par pièce et emballage d’export."
+
+msgid "Mohamed Bilel Cherif"
+msgstr "Mohamed Bilel Cherif"
+
+msgid "Operations & strategy — building a reliable manufacturing system for professional buyers."
+msgstr "Opérations & stratégie — bâtir un système de production fiable pour les acheteurs professionnels."
+
+msgid "Our own factory pairs artisan handwork with controlled drying, CNC machining and an ISO 9001 quality system — so handmade character meets export-ready consistency."
+msgstr "Notre propre usine associe le travail artisanal au séchage contrôlé, à l’usinage CNC et à un système qualité ISO 9001 — le caractère du fait main rencontre une régularité prête à l’export."
+
+msgid "Packing"
+msgstr "Emballage"
+
+msgid "Product & artistry — fusing traditional Tunisian craft with contemporary luxury."
+msgstr "Produit & art — fusionner l’artisanat tunisien traditionnel et le luxe contemporain."
+
+msgid "Quality-control timeline"
+msgstr "Calendrier du contrôle qualité"
+
+msgid "Raw material"
+msgstr "Matière première"
+
+msgid "Reclaimed end-of-life wood, food-safe finishes and reforestation."
+msgstr "Bois récupéré en fin de vie, finitions alimentaires et reforestation."
+
+msgid "Reclaimed, end-of-life Chemlali olive wood from licensed trees."
+msgstr "Bois d’olivier Chemlali récupéré, en fin de vie, issu d’arbres licenciés."
+
+msgid "Responsibility"
+msgstr "Responsabilité"
+
+msgid "Sample export documents"
+msgstr "Exemples de documents d’export"
+
+msgid "Sanding and finish quality inspected."
+msgstr "Ponçage et qualité de finition inspectés."
+
+msgid "See the full production process"
+msgstr "Voir tout le processus de production"
+
+msgid "Surface"
+msgstr "Surface"
+
+msgid "The ArtisRaw world in four pillars"
+msgstr "L’univers ArtisRaw en quatre piliers"
+
+msgid "Unit-by-unit inspection, ≥96% first-pass yield."
+msgstr "Inspection pièce par pièce, ≥96 % de conformité au premier passage."
+
+msgid "Visit the Magazine"
+msgstr "Visiter le magazine"
+
+msgid "Wholesale line-sheet"
+msgstr "Tarif de gros (line-sheet)"
+
+msgid "72 h for stock · 2–4 weeks made-to-order"
+msgstr "72 h pour le stock · 2–4 semaines sur mesure"
+
+msgid "Are dimensions exact?"
+msgstr "Les dimensions sont-elles exactes ?"
+
+msgid "Attribute"
+msgstr "Attribut"
+
+msgid "Barcode-ready"
+msgstr "Prêt au code-barres"
+
+msgid "Branded sleeves, gift boxes and retail-ready packaging."
+msgstr "Manchons de marque, coffrets cadeaux et emballage prêt au détail."
+
+msgid "Can I private-label this category?"
+msgstr "Puis-je vendre cette catégorie en marque blanche ?"
+
+msgid "Category FAQs"
+msgstr "FAQ de la catégorie"
+
+msgid "Category specifications"
+msgstr "Spécifications de la catégorie"
+
+msgid "Custom packaging"
+msgstr "Emballage personnalisé"
+
+msgid "Custom shapes, sizes and bundles developed for your market."
+msgstr "Formes, tailles et coffrets personnalisés développés pour votre marché."
+
+msgid "Detail"
+msgstr "Détail"
+
+msgid "EAN/UPC labelling and reference logic for retail and marketplace."
+msgstr "Étiquetage EAN/UPC et logique de référence pour le détail et les marketplaces."
+
+msgid "Engraving & custom packaging available"
+msgstr "Gravure & emballage personnalisé disponibles"
+
+msgid "How fast can you ship?"
+msgstr "Sous quel délai expédiez-vous ?"
+
+msgid "In-stock SKUs ship in 72 hours; made-to-order runs take 2–4 weeks."
+msgstr "Les références en stock partent sous 72 heures ; les séries sur mesure prennent 2 à 4 semaines."
+
+msgid "Is the finish food-safe?"
+msgstr "La finition est-elle alimentaire ?"
+
+msgid "Laser and pyrography engraving of your logo on boards, bowls and utensils."
+msgstr "Gravure laser et pyrogravure de votre logo sur planches, bols et ustensiles."
+
+msgid "Lead time"
+msgstr "Délai"
+
+msgid "Logo engraving"
+msgstr "Gravure de logo"
+
+msgid "MOQ"
+msgstr "MOQ"
+
+msgid "Material"
+msgstr "Matière"
+
+msgid "Olea europaea (Chemlali) — food-safe mineral oil + beeswax"
+msgstr "Olea europaea (Chemlali) — huile minérale alimentaire + cire d’abeille"
+
+msgid "Pieces are handmade from natural olive wood, so dimensions and grain vary slightly — part of the authentic value."
+msgstr "Les pièces sont faites main en bois d’olivier naturel : dimensions et grain varient légèrement — cela fait partie de la valeur authentique."
+
+msgid "Private label"
+msgstr "Marque blanche"
+
+msgid "Product development"
+msgstr "Développement produit"
+
+msgid "Ready-to-ship SKUs"
+msgstr "Références prêtes à expédier"
+
+msgid "Request full PDF catalogue"
+msgstr "Demander le catalogue PDF complet"
+
+msgid "Request the line-sheet for the full SKU list in this category."
+msgstr "Demandez le tarif pour la liste complète des références de cette catégorie."
+
+msgid "Samples available — cost deducted from your first order."
+msgstr "Échantillons disponibles — coût déduit de votre première commande."
+
+msgid "Specifications"
+msgstr "Spécifications"
+
+msgid "Tell us your market and quantities — we reply within 24 hours with MOQ, pricing and import documentation."
+msgstr "Indiquez votre marché et vos quantités — nous répondons sous 24 heures avec MOQ, tarifs et documentation d’import."
+
+msgid "What is the MOQ for this category?"
+msgstr "Quel est le MOQ pour cette catégorie ?"
+
+msgid "Yes — food-contact items use a mineral oil + beeswax blend; MSDS available on request."
+msgstr "Oui — les articles au contact alimentaire utilisent un mélange huile minérale + cire d’abeille ; FDS disponible sur demande."
+
+msgid "Yes. We engrave logos and produce custom packaging and barcode-ready references."
+msgstr "Oui. Nous gravons les logos et produisons emballages personnalisés et références prêtes au code-barres."
+
+msgid "Your brand, our handmade expertise"
+msgstr "Votre marque, notre savoir-faire artisanal"
+
+msgid "Browse the full range. Families with a dedicated page link through; the rest are available on request."
+msgstr "Parcourez toute la gamme. Les familles avec une page dédiée sont cliquables ; les autres sont disponibles sur demande."
+
+msgid "Catalogue family index"
+msgstr "Index des familles du catalogue"
+
+msgid "Every food-contact item is finished with a food-safe mineral oil and beeswax blend. Hand-wash, dry immediately and re-oil periodically — care guidance ships with each order, and the finish MSDS is available to buyers."
+msgstr "Chaque article au contact alimentaire est fini avec un mélange alimentaire d’huile minérale et de cire d’abeille. Lavez à la main, séchez aussitôt et ré-huilez régulièrement — un guide d’entretien accompagne chaque commande, et la FDS de la finition est disponible pour les acheteurs."
+
+msgid "Featured families"
+msgstr "Familles à la une"
+
+msgid "Fifteen olive wood product families, each with standardized sale SKUs, metric and imperial dimensions, natural-variation notes and MOQ by family. Request the full PDF catalogue and price list below."
+msgstr "Quinze familles de produits en bois d’olivier, chacune avec des références standardisées, des dimensions métriques et impériales, des notes de variation naturelle et un MOQ par famille. Demandez le catalogue PDF complet et la liste de prix ci-dessous."
+
+msgid "Food-safe protection & maintenance"
+msgstr "Protection alimentaire & entretien"
+
+msgid "Read the Olive Wood Guide"
+msgstr "Lire le Guide du bois d’olivier"
+
+msgid "Request"
+msgstr "Demander"
+
+msgid "Request the PDF catalogue & price list"
+msgstr "Demander le catalogue PDF & la liste de prix"
+
+msgid "Tell us your market and we’ll send the full catalogue, line-sheet and price list within 24 hours."
+msgstr "Indiquez votre marché et nous envoyons le catalogue complet, le tarif et la liste de prix sous 24 heures."
+
+msgid "View range"
+msgstr "Voir la gamme"
+
+msgid "Want the complete PDF catalogue & price list?"
+msgstr "Vous voulez le catalogue PDF complet & la liste de prix ?"
+
+msgid "Editor’s feature"
+msgstr "À la une de la rédaction"
+
+msgid "Fair conversations become catalogue selections, samples and recurring wholesale orders."
+msgstr "Les échanges en salon deviennent des sélections catalogue, des échantillons et des commandes de gros récurrentes."
+
+msgid "Fairs & international participation"
+msgstr "Salons & participation internationale"
+
+msgid "From conversation to orders"
+msgstr "De la conversation aux commandes"
+
+msgid "Get B2B updates & new stories"
+msgstr "Recevez les actualités B2B & nouveaux articles"
+
+msgid "Latest stories"
+msgstr "Derniers articles"
+
+msgid "Live demonstrations of carving, finishing and the natural Chemlali grain that sets our work apart."
+msgstr "Démonstrations en direct de sculpture, de finition et du grain Chemlali naturel qui distingue notre travail."
+
+msgid "Meeting buyers face to face"
+msgstr "Rencontrer les acheteurs en personne"
+
+msgid "New stories are published here regularly. In the meantime, explore the Olive Wood Guide."
+msgstr "De nouveaux articles sont publiés ici régulièrement. En attendant, explorez le Guide du bois d’olivier."
+
+msgid "Showcasing Tunisian craft"
+msgstr "Mettre en valeur l’artisanat tunisien"
+
+msgid "Stories worth telling for professional buyers — workshop notes, material science, compliance explainers and trade-show reports from Sfax."
+msgstr "Des histoires à raconter pour les acheteurs professionnels — notes d’atelier, science des matériaux, explications de conformité et reportages de salons depuis Sfax."
+
+msgid "We exhibit at international B2B trade fairs to meet wholesale buyers and show the range in person."
+msgstr "Nous exposons dans les salons B2B internationaux pour rencontrer les acheteurs de gros et présenter la gamme en personne."
+
+msgid "Air freight runs 5–12 days; ocean 25–40 days, on ISPM-15 pallets."
+msgstr "Le fret aérien prend 5 à 12 jours ; la mer 25 à 40 jours, sur palettes ISPM-15."
+
+msgid "Are all products identical?"
+msgstr "Tous les produits sont-ils identiques ?"
+
+msgid "Are the products food-safe?"
+msgstr "Les produits sont-ils alimentaires ?"
+
+msgid "Can I reorder previous SKUs?"
+msgstr "Puis-je recommander d’anciennes références ?"
+
+msgid "Can I request samples?"
+msgstr "Puis-je demander des échantillons ?"
+
+msgid "Can you handle US and EU import paperwork?"
+msgstr "Gérez-vous les formalités d’import US et UE ?"
+
+msgid "Chat with ArtisRaw on WhatsApp"
+msgstr "Discuter avec ArtisRaw sur WhatsApp"
+
+msgid "Cutting boards, utensils, bowls and serveware, mortars, chess sets, jars, trays and décor — 16 product families in total."
+msgstr "Planches à découper, ustensiles, bols et service de table, mortiers, jeux d’échecs, jarres, plateaux et décoration — 16 familles de produits au total."
+
+msgid "Do you create corporate gifts?"
+msgstr "Créez-vous des cadeaux d’affaires ?"
+
+msgid "Do you have a minimum order quantity?"
+msgstr "Avez-vous une quantité minimale de commande ?"
+
+msgid "Do you offer private label?"
+msgstr "Proposez-vous la marque blanche ?"
+
+msgid "Do you provide quality control?"
+msgstr "Assurez-vous le contrôle qualité ?"
+
+msgid "FOB Tunisia, CIF, DAP or DDP, depending on your preference and destination."
+msgstr "FOB Tunisie, CIF, DAP ou DDP, selon votre préférence et votre destination."
+
+msgid "Food-contact items are finished with a food-safe mineral oil and beeswax blend; finish MSDS is available to professional buyers."
+msgstr "Les articles au contact alimentaire sont finis avec un mélange alimentaire d’huile minérale et de cire d’abeille ; la FDS de la finition est disponible pour les acheteurs professionnels."
+
+msgid "Hand-wash, dry immediately, avoid prolonged soaking, and refresh with food-safe oil when needed."
+msgstr "Lavez à la main, séchez aussitôt, évitez le trempage prolongé et ravivez avec une huile alimentaire au besoin."
+
+msgid "How do I start an order?"
+msgstr "Comment démarrer une commande ?"
+
+msgid "How is olive wood cared for?"
+msgstr "Comment entretenir le bois d’olivier ?"
+
+msgid "ISO 9001:2015 quality management, plus forestry licence #4684. Certificates and reports are downloadable on the certifications page."
+msgstr "Management de la qualité ISO 9001:2015, plus la licence forestière #4684. Certificats et rapports téléchargeables sur la page certifications."
+
+msgid "In-stock SKUs are dispatched within 72 hours. Custom and private-label production takes about 6–8 weeks before shipping."
+msgstr "Les références en stock sont expédiées sous 72 heures. La production sur mesure et en marque blanche prend environ 6 à 8 semaines avant expédition."
+
+msgid "No — olive wood is natural, so grain, colour and small variations are part of the handmade value, not defects."
+msgstr "Non — le bois d’olivier est naturel : grain, couleur et petites variations font partie de la valeur du fait main, ce ne sont pas des défauts."
+
+msgid "Send your company, country, client type, categories, estimated quantities, packaging needs and target date via the quote form."
+msgstr "Envoyez via le formulaire de devis : société, pays, type de client, catégories, quantités estimées, besoins d’emballage et date cible."
+
+msgid "What are your shipping transit times?"
+msgstr "Quels sont vos délais de transit ?"
+
+msgid "What certifications do you have?"
+msgstr "Quelles certifications possédez-vous ?"
+
+msgid "Which Incoterms do you offer?"
+msgstr "Quels Incoterms proposez-vous ?"
+
+msgid "Which product categories do you offer?"
+msgstr "Quelles catégories de produits proposez-vous ?"
+
+msgid "Yes — Lacey Act declaration data, EUDR traceability, ISPM-15 pallets, commercial invoice and packing list per shipment."
+msgstr "Oui — données de déclaration Lacey Act, traçabilité RDUE, palettes ISPM-15, facture commerciale et liste de colisage par expédition."
+
+msgid "Yes — in-house. We engrave logos and produce custom packaging, retail labels and barcode-ready references for approved projects."
+msgstr "Oui — en interne. Nous gravons les logos et produisons emballages personnalisés, étiquettes de détail et références prêtes au code-barres pour les projets validés."
+
+msgid "Yes — personalised gift packs, chess sets, kitchen bundles and seasonal collections with branded packaging."
+msgstr "Oui — coffrets cadeaux personnalisés, jeux d’échecs, ensembles de cuisine et collections saisonnières avec emballage de marque."
+
+msgid "Yes — unit-by-unit inspection, batch photo documentation and packing control, with ≥96% first-pass yield."
+msgstr "Oui — inspection pièce par pièce, documentation photo par lot et contrôle d’emballage, avec ≥96 % de conformité au premier passage."
+
+msgid "Yes. MOQ starts at 50 units per SKU for most lines and is confirmed on your quote. Mixed assortments across SKU families are welcome."
+msgstr "Oui. Le MOQ démarre à 50 unités par référence pour la plupart des lignes et est confirmé sur votre devis. Les assortiments mixtes entre familles sont les bienvenus."
+
+msgid "Yes. Samples are available and their cost is deducted from your first production order. Shipping depends on product type and destination."
+msgstr "Oui. Des échantillons sont disponibles et leur coût est déduit de votre première commande de production. L’expédition dépend du type de produit et de la destination."
+
+msgid "Yes. We keep SKU references and order history to make replenishment fast."
+msgstr "Oui. Nous conservons les références et l’historique des commandes pour accélérer le réassort."
+
+msgid "Air (5–12 days)"
+msgstr "Avion (5–12 jours)"
+
+msgid "ArtisRaw works only reclaimed, end-of-life Chemlali olive wood — and for every wholesale order we sponsor reforestation through trees.org, so the cycle keeps giving back."
+msgstr "ArtisRaw ne travaille que du bois d’olivier Chemlali récupéré, en fin de vie — et pour chaque commande de gros, nous parrainons la reforestation via trees.org, pour que le cycle continue de donner."
+
+msgid "Carton L×W×H"
+msgstr "Carton L×l×H"
+
+msgid "Case pack"
+msgstr "Colisage"
+
+msgid "Certified"
+msgstr "Certifié"
+
+msgid "Certified ISO %s company"
+msgstr "Entreprise certifiée ISO %s"
+
+msgid "Compliance pack (Lacey / EUDR)"
+msgstr "Dossier conformité (Lacey / RDUE)"
+
+msgid "Dimensions"
+msgstr "Dimensions"
+
+msgid "From our Instagram"
+msgstr "Sur notre Instagram"
+
+msgid "ISO"
+msgstr "ISO"
+
+msgid "Indicative EXW"
+msgstr "EXW indicatif"
+
+msgid "Leave empty"
+msgstr "Laisser vide"
+
+msgid "Leave this field empty"
+msgstr "Laissez ce champ vide"
+
+msgid "Not sure yet"
+msgstr "Pas encore sûr"
+
+msgid "Ocean (25–40 days)"
+msgstr "Mer (25–40 jours)"
+
+msgid "Rated %d out of 5"
+msgstr "Noté %d sur 5"
+
+msgid "Reforestation program"
+msgstr "Programme de reforestation"
+
+msgid "Trees sponsored to date"
+msgstr "Arbres parrainés à ce jour"
+
+msgid "Unit weight"
+msgstr "Poids unitaire"
+
+msgid "We plant a tree for every order"
+msgstr "Nous plantons un arbre pour chaque commande"
+
+msgid "Worldwide shipping"
+msgstr "Expédition mondiale"
+
+msgid "A private space for approved wholesale buyers: build order lists from the catalogue, request quotes in one click and reorder faster. New accounts are reviewed before activation."
+msgstr "Un espace privé pour les acheteurs de gros validés : composez des listes de commande depuis le catalogue, demandez des devis en un clic et réassortissez plus vite. Les nouveaux comptes sont examinés avant activation."
+
+msgid "Account created — it’s pending approval. We’ll email you within one business day."
+msgstr "Compte créé — en attente d’approbation. Nous vous écrirons sous un jour ouvré."
+
+msgid "Account status"
+msgstr "Statut du compte"
+
+msgid "Add"
+msgstr "Ajouter"
+
+msgid "Add from the catalogue"
+msgstr "Ajouter depuis le catalogue"
+
+msgid "Added to your order list."
+msgstr "Ajouté à votre liste de commande."
+
+msgid "An account with that email already exists — try signing in."
+msgstr "Un compte existe déjà avec cet e-mail — essayez de vous connecter."
+
+msgid "Clear list"
+msgstr "Vider la liste"
+
+msgid "Create a B2B account"
+msgstr "Créer un compte B2B"
+
+msgid "Create account"
+msgstr "Créer le compte"
+
+msgid "Forgot password?"
+msgstr "Mot de passe oublié ?"
+
+msgid "In list — add more"
+msgstr "Dans la liste — en ajouter"
+
+msgid "Item removed."
+msgstr "Article retiré."
+
+msgid "Keep me signed in"
+msgstr "Rester connecté"
+
+msgid "No quote requests yet. Submitted order lists appear here so you can reorder faster."
+msgstr "Aucune demande de devis pour l’instant. Les listes envoyées apparaissent ici pour réassortir plus vite."
+
+msgid "Note for our team (optional)"
+msgstr "Note pour notre équipe (facultatif)"
+
+msgid "Order history"
+msgstr "Historique des commandes"
+
+msgid "Order list cleared."
+msgstr "Liste de commande vidée."
+
+msgid "Order list updated."
+msgstr "Liste de commande mise à jour."
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Password (8+ characters)"
+msgstr "Mot de passe (8+ caractères)"
+
+msgid "Please enter a valid email, your company, and a password of at least 8 characters."
+msgstr "Saisissez un e-mail valide, votre société et un mot de passe d’au moins 8 caractères."
+
+msgid "Please sign in first."
+msgstr "Veuillez d’abord vous connecter."
+
+msgid "Private-label needs, target date, packaging…"
+msgstr "Besoins de marque blanche, date cible, emballage…"
+
+msgid "Product"
+msgstr "Produit"
+
+msgid "Production status:"
+msgstr "Statut de production :"
+
+msgid "Quantity"
+msgstr "Quantité"
+
+msgid "Quote requested — we’ll reply within one business day. Your list is saved in history."
+msgstr "Devis demandé — nous répondons sous un jour ouvré. Votre liste est enregistrée dans l’historique."
+
+msgid "Remove"
+msgstr "Retirer"
+
+msgid "Request quote for this list"
+msgstr "Demander un devis pour cette liste"
+
+msgid "SKU"
+msgstr "Référence"
+
+msgid "Sign in"
+msgstr "Se connecter"
+
+msgid "Sign out"
+msgstr "Se déconnecter"
+
+msgid "Signed in."
+msgstr "Connecté."
+
+msgid "Signed out."
+msgstr "Déconnecté."
+
+msgid "Something went wrong with that item."
+msgstr "Une erreur s’est produite avec cet article."
+
+msgid "Thanks, %s. We review every B2B application — usually within one business day. You’ll get an email the moment your account is active, then you can build order lists and request quotes here."
+msgstr "Merci, %s. Nous examinons chaque demande B2B — généralement sous un jour ouvré. Vous recevrez un e-mail dès que votre compte est actif, puis vous pourrez composer des listes et demander des devis ici."
+
+msgid "Too many attempts — please wait a little and try again."
+msgstr "Trop de tentatives — patientez un instant et réessayez."
+
+msgid "Update"
+msgstr "Mettre à jour"
+
+msgid "We couldn’t create the account. Please try again."
+msgstr "Nous n’avons pas pu créer le compte. Réessayez."
+
+msgid "We review every application. Your details are used only to set up and service your account — %s."
+msgstr "Nous examinons chaque demande. Vos informations servent uniquement à créer et gérer votre compte — %s."
+
+msgid "Welcome back, %s."
+msgstr "Bon retour, %s."
+
+msgid "Wrong email or password."
+msgstr "E-mail ou mot de passe incorrect."
+
+msgid "Your account is pending approval"
+msgstr "Votre compte est en attente d’approbation"
+
+msgid "Your account isn’t approved yet."
+msgstr "Votre compte n’est pas encore approuvé."
+
+msgid "Your order list"
+msgstr "Votre liste de commande"
+
+msgid "Your order list is empty."
+msgstr "Votre liste de commande est vide."
+
+msgid "Your order list is empty. Add SKUs from the catalogue below."
+msgstr "Votre liste de commande est vide. Ajoutez des références depuis le catalogue ci-dessous."
+
+msgid "Your session expired — please try again."
+msgstr "Votre session a expiré — réessayez."
+
+msgid "You’re already signed in."
+msgstr "Vous êtes déjà connecté."
+
+msgid "quantity"
+msgstr "quantité"
+
+msgid "Send your market, categories and quantities — we reply within one business day with MOQ, pricing and import documentation."
+msgstr "Indiquez votre marché, vos catégories et vos quantités — nous répondons sous un jour ouvré avec MOQ, tarifs et documents d’import."
+
+msgid "Handmade"
+msgstr "Fait main"
+
+msgid "Sustainable"
+msgstr "Durable"
+
+msgid "Export Ready"
+msgstr "Prêt à l’export"
