@@ -103,11 +103,10 @@ artisraw_color_block( array(
 ) );
 artisraw_color_block( array(
 	'field' => 'espresso',
-	'eyebrow' => __( 'How it’s made', 'artisraw' ),
-	'heading' => __( 'From the tree to a finished, food-safe piece', 'artisraw' ),
-	'body'    => __( 'Reclaimed Chemlali wood, controlled drying, CNC precision and hand-finishing — then unit-by-unit QC and export packing under one roof.', 'artisraw' ),
-	'link_label' => __( 'See the production process', 'artisraw' ),
-	'link_url'   => artisraw_localized_url( '/production-process/' ),
+	'eyebrow' => __( 'Our Mission', 'artisraw' ),
+	'heading' => __( 'Our mission is to craft responsible, food-safe and beautiful olive wood products for global wholesale markets while supporting artisans, preserving raw material value and reducing waste.', 'artisraw' ),
+	'link_label' => __( 'Learn more', 'artisraw' ),
+	'link_url'   => artisraw_localized_url( '/about/' ),
 	'img_base' => '/assets/ar-boards', 'img_alt' => __( 'Olive wood board showing dense Chemlali grain', 'artisraw' ),
 	'img_widths' => array( 600 ), 'w' => 548, 'h' => 365,
 ) );

@@ -1654,3 +1654,9 @@ msgstr "Durable"
 
 msgid "Export Ready"
 msgstr "Prêt à l’export"
+
+msgid "Our Mission"
+msgstr "Notre mission"
+
+msgid "Our mission is to craft responsible, food-safe and beautiful olive wood products for global wholesale markets while supporting artisans, preserving raw material value and reducing waste."
+msgstr "Notre mission est de créer des produits en bois d’olivier responsables, alimentaires et beaux pour les marchés de gros mondiaux, tout en soutenant les artisans, en préservant la valeur de la matière première et en réduisant les déchets."
