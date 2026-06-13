@@ -284,7 +284,7 @@ artisraw_statement_hero( array(
 <?php
 artisraw_color_block( array( 'field' => 'sand', 'field_left' => true, 'eyebrow' => 'Who we are', 'heading' => 'Artisan roots, modern production', 'body' => 'Founded in Sfax in 2019 — handmade heritage built for export-ready wholesale.', 'link_label' => 'Our story', 'link_url' => '#', 'img_base' => '/assets/ar-workshop', 'img_alt' => 'Workshop', 'img_widths' => array( 600, 1200 ), 'w' => 1400, 'h' => 900 ) );
 artisraw_color_block( array( 'field' => 'espresso', 'eyebrow' => 'How it’s made', 'heading' => 'From the tree to a finished piece', 'body' => 'Reclaimed Chemlali wood, CNC precision and hand-finishing, then unit-by-unit QC.', 'link_label' => 'The process', 'link_url' => '#', 'img_base' => '/assets/ar-boards', 'img_alt' => 'Board grain', 'img_widths' => array( 600 ), 'w' => 548, 'h' => 365 ) );
-artisraw_color_block( array( 'field' => 'sand', 'field_left' => true, 'eyebrow' => 'Sustainability', 'heading' => 'One tree used, two planted', 'body' => 'Reclaimed olive wood and reforestation through trees.org, with EUDR traceability.', 'link_label' => 'Our approach', 'link_url' => '#', 'img_base' => '/assets/ar-grove', 'img_alt' => 'Olive grove', 'img_widths' => array( 600, 1200 ), 'w' => 1273, 'h' => 900 ) );
+artisraw_color_block( array( 'field' => 'sand', 'field_left' => true, 'heading' => 'Our Vision', 'body' => 'We aim to make Tunisian olive wood a global standard of sustainable luxury by connecting Mediterranean heritage with international B2B export systems.', 'link_label' => 'Read more', 'link_url' => '#', 'img_base' => '/assets/ar-grove', 'img_alt' => 'Olive grove', 'img_widths' => array( 600, 1200 ), 'w' => 1273, 'h' => 900 ) );
 ?>
 
 <div class="container section">

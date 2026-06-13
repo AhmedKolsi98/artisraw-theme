@@ -51,30 +51,115 @@ if ( ! isset( $content_width ) ) {
 }
 
 /* -------------------------------------------------------------------------
- * Assets — CSS (tokens first) + minimal deferred JS (≤30KB budget)
+ * CSS concatenation — one HTTP request for all theme styles.
+ * ---------------------------------------------------------------------- */
+/**
+ * Build a single concatenated CSS file from the modular sheets in css/.
+ *
+ * The compiled file is cached in wp-content/uploads/artisraw-cache/ so the
+ * source files stay modular and version-controlled, while visitors download
+ * one stylesheet. The filename contains an md5 hash of source mtimes, so any
+ * edit to a CSS file automatically invalidates browser cache on the next load.
+ *
+ * Falls back to enqueueing the individual files if the uploads directory is
+ * not writable.
+ *
+ * @return string URL of the concatenated stylesheet, or empty string on failure.
+ */
+function artisraw_get_concat_css_url() {
+	$files = array(
+		'/css/tokens.css',
+		'/css/base.css',
+		'/css/layout.css',
+		'/css/components.css',
+		'/css/forms.css',
+		'/css/templates.css',
+		'/css/phase5.css',
+		'/css/art.css',
+		'/css/figma.css',
+	);
+
+	$upload_dir = wp_upload_dir();
+	$cache_dir  = trailingslashit( $upload_dir['basedir'] ) . 'artisraw-cache';
+	$cache_url  = trailingslashit( $upload_dir['baseurl'] ) . 'artisraw-cache';
+
+	// Build a hash from source mtimes so the URL changes when any source file changes.
+	$hash_src = '';
+	$max_mtime = 0;
+	foreach ( $files as $f ) {
+		$path  = ARTISRAW_DIR . $f;
+		$mtime = file_exists( $path ) ? filemtime( $path ) : 0;
+		$hash_src .= $f . '|' . $mtime . ';';
+		$max_mtime = max( $max_mtime, $mtime );
+	}
+	$hash       = md5( $hash_src );
+	$cache_file = $cache_dir . '/theme-' . $hash . '.css';
+	$cache_path = $cache_url . '/theme-' . $hash . '.css';
+
+	// Already cached and up to date?
+	if ( file_exists( $cache_file ) && filemtime( $cache_file ) >= $max_mtime ) {
+		return $cache_path;
+	}
+
+	// Ensure the cache directory exists and is writable.
+	if ( ! wp_mkdir_p( $cache_dir ) || ! wp_is_writable( $cache_dir ) ) {
+		return '';
+	}
+
+	$css = "/* ArtisRaw theme.css — auto-generated. Edit files in css/ only. */\n";
+	foreach ( $files as $f ) {
+		$path = ARTISRAW_DIR . $f;
+		$part = file_exists( $path ) ? file_get_contents( $path ) : '';
+
+		// Rewrite relative font paths so they resolve from the uploads cache folder.
+		$part = str_replace( 'url("../fonts/', 'url("' . ARTISRAW_URI . '/fonts/', $part );
+
+		$css .= "\n/* === " . basename( $f ) . " === */\n" . $part . "\n";
+	}
+
+	// Write via a unique temp file and rename to avoid half-written files under load.
+	$tmp_file = $cache_dir . '/theme-' . $hash . '-' . uniqid( '', true ) . '.tmp';
+	file_put_contents( $tmp_file, $css, LOCK_EX );
+	rename( $tmp_file, $cache_file );
+
+	// Clean up older generated files.
+	foreach ( glob( $cache_dir . '/theme-*.*' ) as $old ) {
+		if ( $old !== $cache_file ) {
+			@unlink( $old );
+		}
+	}
+
+	return $cache_path;
+}
+
+/* -------------------------------------------------------------------------
+ * Assets — CSS (concatenated) + minimal deferred JS (≤30KB budget)
  * ---------------------------------------------------------------------- */
 function artisraw_enqueue_assets() {
-	// Tokens are the foundation; everything depends on them.
-	wp_enqueue_style( 'artisraw-tokens', ARTISRAW_URI . '/css/tokens.css', array(), artisraw_asset_ver( '/css/tokens.css' ) );
-	wp_enqueue_style( 'artisraw-base', ARTISRAW_URI . '/css/base.css', array( 'artisraw-tokens' ), artisraw_asset_ver( '/css/base.css' ) );
-	wp_enqueue_style( 'artisraw-layout', ARTISRAW_URI . '/css/layout.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/layout.css' ) );
-	wp_enqueue_style( 'artisraw-components', ARTISRAW_URI . '/css/components.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/components.css' ) );
-	wp_enqueue_style( 'artisraw-forms', ARTISRAW_URI . '/css/forms.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/forms.css' ) );
-	wp_enqueue_style( 'artisraw-templates', ARTISRAW_URI . '/css/templates.css', array( 'artisraw-components' ), artisraw_asset_ver( '/css/templates.css' ) );
-	// Phase 5 — design-parity components + page layouts.
-	wp_enqueue_style( 'artisraw-phase5', ARTISRAW_URI . '/css/phase5.css', array( 'artisraw-components' ), artisraw_asset_ver( '/css/phase5.css' ) );
-	// Phase 11 — Art Direction layer (Addendum).
-	wp_enqueue_style( 'artisraw-art', ARTISRAW_URI . '/css/art.css', array( 'artisraw-phase5' ), artisraw_asset_ver( '/css/art.css' ) );
-	// Phase 12 — Figma visual integration (components + page compositions).
-	wp_enqueue_style( 'artisraw-figma', ARTISRAW_URI . '/css/figma.css', array( 'artisraw-art' ), artisraw_asset_ver( '/css/figma.css' ) );
+	$theme_css = artisraw_get_concat_css_url();
+
+	if ( $theme_css ) {
+		// One request for all theme styles; version is baked into the hashed filename.
+		wp_enqueue_style( 'artisraw-theme', $theme_css, array(), null );
+	} else {
+		// Fallback: enqueue individual sheets if uploads dir is not writable.
+		wp_enqueue_style( 'artisraw-tokens', ARTISRAW_URI . '/css/tokens.css', array(), artisraw_asset_ver( '/css/tokens.css' ) );
+		wp_enqueue_style( 'artisraw-base', ARTISRAW_URI . '/css/base.css', array( 'artisraw-tokens' ), artisraw_asset_ver( '/css/base.css' ) );
+		wp_enqueue_style( 'artisraw-layout', ARTISRAW_URI . '/css/layout.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/layout.css' ) );
+		wp_enqueue_style( 'artisraw-components', ARTISRAW_URI . '/css/components.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/components.css' ) );
+		wp_enqueue_style( 'artisraw-forms', ARTISRAW_URI . '/css/forms.css', array( 'artisraw-base' ), artisraw_asset_ver( '/css/forms.css' ) );
+		wp_enqueue_style( 'artisraw-templates', ARTISRAW_URI . '/css/templates.css', array( 'artisraw-components' ), artisraw_asset_ver( '/css/templates.css' ) );
+		wp_enqueue_style( 'artisraw-phase5', ARTISRAW_URI . '/css/phase5.css', array( 'artisraw-components' ), artisraw_asset_ver( '/css/phase5.css' ) );
+		wp_enqueue_style( 'artisraw-art', ARTISRAW_URI . '/css/art.css', array( 'artisraw-phase5' ), artisraw_asset_ver( '/css/art.css' ) );
+		wp_enqueue_style( 'artisraw-figma', ARTISRAW_URI . '/css/figma.css', array( 'artisraw-art' ), artisraw_asset_ver( '/css/figma.css' ) );
+	}
 
 	// Phase 9 — Client Area portal styles (only where the portal renders).
 	if ( is_page_template( 'tpl-account.php' ) ) {
-		wp_enqueue_style( 'artisraw-account', ARTISRAW_URI . '/css/account.css', array( 'artisraw-components' ), artisraw_asset_ver( '/css/account.css' ) );
+		wp_enqueue_style( 'artisraw-account', ARTISRAW_URI . '/css/account.css', array(), artisraw_asset_ver( '/css/account.css' ) );
 	}
 
-	// style.css holds only the theme header; load it last for overrides if needed.
-	wp_enqueue_style( 'artisraw-style', get_stylesheet_uri(), array( 'artisraw-layout' ), artisraw_asset_ver( '/style.css' ) );
+	// style.css holds only the theme header; it is not needed on the front end.
 
 	// Navigation drawer JS — deferred, the bulk of the JS budget.
 	wp_enqueue_script( 'artisraw-nav', ARTISRAW_URI . '/js/nav.js', array(), artisraw_asset_ver( '/js/nav.js' ), true );

@@ -104,7 +104,8 @@ artisraw_color_block( array(
 artisraw_color_block( array(
 	'field' => 'espresso',
 	'eyebrow' => __( 'Our Mission', 'artisraw' ),
-	'heading' => __( 'Our mission is to craft responsible, food-safe and beautiful olive wood products for global wholesale markets while supporting artisans, preserving raw material value and reducing waste.', 'artisraw' ),
+	'heading' => __( 'Beautiful products, responsibly made', 'artisraw' ),
+	'body'    => __( 'Our mission is to craft responsible, food-safe and beautiful olive wood products for global wholesale markets while supporting artisans, preserving raw material value and reducing waste.', 'artisraw' ),
 	'link_label' => __( 'Learn more', 'artisraw' ),
 	'link_url'   => artisraw_localized_url( '/about/' ),
 	'img_base' => '/assets/ar-boards', 'img_alt' => __( 'Olive wood board showing dense Chemlali grain', 'artisraw' ),
@@ -112,11 +113,10 @@ artisraw_color_block( array(
 ) );
 artisraw_color_block( array(
 	'field' => 'sand', 'field_left' => true,
-	'eyebrow' => __( 'Sustainability', 'artisraw' ),
-	'heading' => __( 'One tree used, two planted', 'artisraw' ),
-	'body'    => __( 'We work only reclaimed, end-of-life olive wood and sponsor reforestation through trees.org — with full EUDR traceability for EU buyers.', 'artisraw' ),
-	'link_label' => __( 'Our sustainability approach', 'artisraw' ),
-	'link_url'   => artisraw_localized_url( '/sustainability/' ),
+	'heading' => __( 'Our Vision', 'artisraw' ),
+	'body'    => __( 'We aim to make Tunisian olive wood a global standard of sustainable luxury by connecting Mediterranean heritage with international B2B export systems.', 'artisraw' ),
+	'link_label' => __( 'Read more', 'artisraw' ),
+	'link_url'   => artisraw_localized_url( '/about/' ),
 	'img_base' => '/assets/ar-grove', 'img_alt' => __( 'Olive grove near Sfax', 'artisraw' ),
 	'img_widths' => array( 600, 1200 ), 'w' => 1273, 'h' => 900,
 ) );

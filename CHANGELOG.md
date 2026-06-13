@@ -2,6 +2,19 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 12.10 — Concatenated theme CSS
+
+Reduced front-end CSS requests from 9 down to 1 (plus conditional account CSS).
+- Added `artisraw_get_concat_css_url()` in `functions.php`. It reads the 9 modular source sheets in dependency order, concatenates them, rewrites relative font URLs to absolute theme URLs, and caches the result in `wp-content/uploads/artisraw-cache/theme-{hash}.css`.
+- The `{hash}` is derived from source mtimes, so any CSS edit automatically invalidates browser cache on the next request.
+- If the uploads directory is not writable, the function falls back to enqueueing the individual sheets.
+- `css/account.css` remains a separate request loaded only on `tpl-account.php`.
+- `style.css` is no longer enqueued on the front end because it contains only the theme header.
+- Updated `AGENTS.md` §5.3 to document the new loading behaviour.
+
+### Verified
+- `php -l` clean. CSS source files remain modular and editable. Cache invalidation works by design (filename changes when any source mtime changes).
+
 ## Phase 12.9 — French homepage gets the real design
 
 The `/fr/` home was the last page still on the prose `tpl-trust` template, so it didn't look like the site. `front-page.php` can only target the site's front page, so:

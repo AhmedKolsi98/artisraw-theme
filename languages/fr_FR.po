@@ -821,11 +821,11 @@ msgstr "Voir le processus de production"
 msgid "Olive wood board showing dense Chemlali grain"
 msgstr "Planche en bois d’olivier au grain dense Chemlali"
 
-msgid "One tree used, two planted"
-msgstr "Un arbre utilisé, deux plantés"
+msgid "Our Vision"
+msgstr "Notre vision"
 
-msgid "We work only reclaimed, end-of-life olive wood and sponsor reforestation through trees.org — with full EUDR traceability for EU buyers."
-msgstr "Nous ne travaillons que du bois d’olivier récupéré en fin de vie et parrainons la reforestation via trees.org — avec une traçabilité RDUE complète pour les acheteurs de l’UE."
+msgid "We aim to make Tunisian olive wood a global standard of sustainable luxury by connecting Mediterranean heritage with international B2B export systems."
+msgstr "Nous visons à faire du bois d’olivier tunisien une référence mondiale de luxe durable en reliant l’héritage méditerranéen aux systèmes d’exportation B2B internationaux."
 
 msgid "Olive grove near Sfax"
 msgstr "Oliveraie près de Sfax"
@@ -1663,3 +1663,6 @@ msgstr "Notre mission"
 
 msgid "Our mission is to craft responsible, food-safe and beautiful olive wood products for global wholesale markets while supporting artisans, preserving raw material value and reducing waste."
 msgstr "Notre mission est de créer des produits en bois d’olivier responsables, alimentaires et beaux pour les marchés de gros mondiaux, tout en soutenant les artisans, en préservant la valeur de la matière première et en réduisant les déchets."
+
+msgid "Beautiful products, responsibly made"
+msgstr "De beaux produits, fabriqués de façon responsable"
