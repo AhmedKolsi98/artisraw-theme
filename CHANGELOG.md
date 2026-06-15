@@ -10,7 +10,8 @@ Reduced front-end CSS requests from 9 down to 1 (plus conditional account CSS).
 - If the uploads directory is not writable, the function falls back to enqueueing the individual sheets.
 - `css/account.css` remains a separate request loaded only on `tpl-account.php`.
 - `style.css` is no longer enqueued on the front end because it contains only the theme header.
-- Updated `AGENTS.md` §5.3 to document the new loading behaviour.
+- Added `CSS.md` with the full CSS architecture, concatenation logic, and development workflow.
+- Updated `AGENTS.md` §5.3 and the useful file index to document the new loading behaviour.
 
 ### Verified
 - `php -l` clean. CSS source files remain modular and editable. Cache invalidation works by design (filename changes when any source mtime changes).

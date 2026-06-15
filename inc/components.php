@@ -895,10 +895,14 @@ function artisraw_caption_grid( array $tiles, $heading = '', $intro = '' ) {
  * Trio CTA band (Figma `.trio`): three colored wayfinding tiles. Each links
  * out with a label + "go" cue. $items: each [ 'label'=>…, 'cue'=>…, 'href'=>… ].
  * Up to three tiles; surfaces cycle espresso → olive → sand.
+ *
+ * @param array  $items Item definitions.
+ * @param string $class Optional extra class(es) for the wrapper.
  */
-function artisraw_trio_band( array $items ) {
+function artisraw_trio_band( array $items, $class = '' ) {
 	$surfaces = array( 'espresso', 'olive', 'sand' );
-	echo '<div class="trio-band">';
+	$wrap_class = trim( 'trio-band ' . $class );
+	echo '<div class="' . esc_attr( $wrap_class ) . '">';
 	foreach ( array_slice( $items, 0, 3 ) as $i => $it ) {
 		printf(
 			'<a class="trio-band__tile trio-band__tile--%s" href="%s"><span class="trio-band__label">%s</span><span class="trio-band__cue">%s <span class="arrow-link__arrow" aria-hidden="true">&rarr;</span></span></a>',

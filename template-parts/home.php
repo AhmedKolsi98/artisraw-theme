@@ -122,6 +122,15 @@ artisraw_color_block( array(
 ) );
 ?>
 
+<!-- 4b · Wayfinding trio band: catalogue · process · FAQs -->
+<?php
+artisraw_trio_band( array(
+	array( 'label' => __( 'Discover Our Catalogue', 'artisraw' ), 'cue' => __( 'Discover more', 'artisraw' ), 'href' => artisraw_localized_url( '/catalogue/' ) ),
+	array( 'label' => __( 'Our process', 'artisraw' ), 'cue' => __( 'Learn more', 'artisraw' ), 'href' => artisraw_localized_url( '/production-process/' ) ),
+	array( 'label' => __( 'FAQs', 'artisraw' ), 'cue' => __( 'Read more', 'artisraw' ), 'href' => artisraw_localized_url( '/faq/' ) ),
+), 'trio-band--wide-first' );
+?>
+
 <!-- 5 · Ready-to-Ship Bestsellers (§6 SKU strip) -->
 <?php $ready = function_exists( 'artisraw_get_ready_skus' ) ? artisraw_get_ready_skus( 6 ) : array(); ?>
 <?php if ( $ready ) : ?>
@@ -170,7 +179,7 @@ artisraw_stat_band( array(
 	<?php artisraw_logo_band( array( array( 'Eataly' ), array( 'Karthage LLC' ), array( 'Folksy' ), array( 'Delta Co.' ), array( 'TunSouk' ) ), __( 'Selected buyers &amp; partners', 'artisraw' ) ); ?>
 </div>
 
-<!-- 9 · Feature testimonial + trio wayfinding band (Figma) -->
+<!-- 9 · Feature testimonial (Figma) -->
 <?php
 artisraw_testimonial_feature( array(
 	'heading'    => __( 'What they say…', 'artisraw' ),
@@ -182,11 +191,6 @@ artisraw_testimonial_feature( array(
 	'img_base'   => '/assets/ar-trade-fair',
 	'img_alt'    => __( 'ArtisRaw booth at an international B2B trade fair', 'artisraw' ),
 	'img_w'      => 1200, 'img_h' => 900, 'img_widths' => array( 600, 1200 ),
-) );
-artisraw_trio_band( array(
-	array( 'label' => __( 'Discover the real olive wood quality', 'artisraw' ), 'cue' => __( 'Discover more', 'artisraw' ), 'href' => artisraw_localized_url( '/about/' ) ),
-	array( 'label' => __( 'Our process', 'artisraw' ), 'cue' => __( 'Learn more', 'artisraw' ), 'href' => artisraw_localized_url( '/production-process/' ) ),
-	array( 'label' => __( 'FAQs', 'artisraw' ), 'cue' => __( 'Read more', 'artisraw' ), 'href' => artisraw_localized_url( '/faq/' ) ),
 ) );
 ?>
 

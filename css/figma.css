@@ -28,10 +28,12 @@
 /* --- Trio CTA band (Figma .trio) ---------------------------------------- */
 .trio-band { display: grid; grid-template-columns: 1fr; }
 @media (min-width: 820px) { .trio-band { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 820px) { .trio-band--wide-first { grid-template-columns: 2fr 1fr 1fr; } }
 .trio-band__tile {
   min-height: 190px; padding: var(--sp-3); text-decoration: none;
   display: flex; flex-direction: column; justify-content: space-between;
   font-weight: var(--fw-bold); font-size: var(--fs-ui);
+  transition: color 150ms var(--ease-out);
 }
 .trio-band__label { font-family: var(--ff-serif); font-size: var(--fs-subheading); line-height: var(--lh-subheading); max-width: 18ch; }
 .trio-band__cue { font-size: var(--fs-ui); display: inline-flex; align-items: center; gap: var(--sp-1); }
@@ -40,7 +42,10 @@
 .trio-band__tile--espresso { background: var(--c-espresso-900); color: var(--c-cream-100); }
 .trio-band__tile--olive    { background: var(--c-olive-600);    color: var(--c-cream-100); }
 .trio-band__tile--sand     { background: var(--c-sand-200);     color: var(--c-espresso-900); }
-.trio-band__tile--espresso:hover .trio-band__cue, .trio-band__tile--olive:hover .trio-band__cue { color: var(--c-amber-500); }
+.trio-band__tile--espresso:hover,
+.trio-band__tile--olive:hover { color: var(--c-amber-500); }
+.trio-band__tile--espresso:hover .trio-band__cue,
+.trio-band__tile--olive:hover .trio-band__cue { color: var(--c-amber-500); }
 .trio-band__tile--sand:hover .trio-band__cue { color: var(--c-bark-700); }
 @media (prefers-reduced-motion: reduce) { .trio-band__tile:hover .arrow-link__arrow { transform: none; } }
 
