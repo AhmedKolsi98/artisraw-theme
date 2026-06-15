@@ -2,6 +2,63 @@
 
 One line per shipped item (SPEC working rhythm). Newest first.
 
+## Phase 12.14 — Homepage map section simplified to full-width map
+
+- `template-parts/home.php`: removed the heading, intro text and export-zone cards from the global-distribution section; kept only the world-map image.
+- Made the map section full-width (no `container` wrapper) and centred the image with `width: 100%`.
+- Updated `sizes="100vw"` on the map image so the browser selects the correct source for the full-width layout.
+- Refreshed the styleguide preview in `tpl-styleguide.php` to match the new map-only block.
+- CSS cache cleared.
+
+### Verified
+- CSS cache cleared.
+
+## Phase 12.13 — Homepage hero carousel (Olyfo-style rotating slides)
+
+Replaced the static photo-collage homepage hero with an auto-rotating, two-slide carousel using the PDF homepage variants.
+- **New component** `artisraw_hero_carousel()` in `inc/components.php`: full-bleed background slides, rotating headline/support/CTA, dot navigation, pause on hover/focus, and reduced-motion respect.
+- **Two slides** in `template-parts/home.php`:
+  1. Raw olive-wood logs → *“Premium Olive Wood for Wholesale Buyers”* → CTA *Start Your Project*.
+  2. Showroom shelves → *“Handmade Tunisian Olive Wood Collections”* → CTA *Browse Catalogue*.
+- **Generated carousel assets** from the PDF: `ar-hero-logs-600/1200/1800.webp` and `ar-hero-showroom-600/1200/1800.webp`.
+- **Carousel styles** added to `css/components.css`: slide cross-fade, per-slide dark scrim, dot controls, flex-track layout that fills the hero height.
+- **Shortened the home hero** from `min-height: 100vh` to `min(85vh, 760px)` so more page content is visible on first view.
+- **Carousel logic** added to `js/components.js`: 6-second interval, dot click-to-navigate, hover/focus pause, respects `prefers-reduced-motion`.
+- Updated hero preloads in `front-page.php` and `tpl-home.php` to the first carousel image (`ar-hero-logs`).
+- Added French translations for all new carousel strings and compiled `.po` → `.mo` (608 messages).
+- CSS cache cleared.
+
+### Verified
+- `msgfmt` compiled `.po` → `.mo` successfully (608 messages). CSS cache cleared. JS syntax checked with `node --check`.
+
+## Phase 12.12 — About / Process / Services pages rebuilt to match PDF design comps
+
+Aligned the three inner-page templates with the “web site Wholesales artisraw” PDF mockups.
+- **About page (`tpl-about.php`)**: hero now uses the olive-tree sunset image (`ar-olive-tree`) and displays **“Discover our Story” / “Premium Olive Wood, Crafted in Sustainability”**; Stories band switched to `ar-collection`. Updated seeded page content to **“Born in Tunisia, made for global wholesale partners”** (bumped `ARTISRAW_PAGES_VER` → 9).
+- **Process page (`tpl-process.php`)**: hero switched to the olive-tree image and displays **“From olive tree to export ready order”**; CTA scrolls to the process-overview section; added the missing FAQ **“Is your olive wood sustainably sourced?”**.
+- **Services page (`tpl-services.php`)**: rebuilt to match the PDF: added a full photo hero (`ar-collection`) with **“B2B services”**, two alternating colour-block feature sections (Wholesale buyers / Private label), and an 8-card Core B2B services grid. Preserved the quote form for conversion.
+- Updated French translations for all new/changed strings and compiled `.po` → `.mo` (586 messages).
+- Added `.services-intro` CSS in `css/figma.css` for the Services page lead paragraphs.
+- CSS cache cleared.
+
+### Verified
+- `msgfmt` compiled `.po` → `.mo` successfully. CSS cache cleared.
+
+## Phase 12.11 — Homepage bestsellers: new intro + horizontal product scroll
+
+Client-requested refresh of the homepage ready-to-ship block, modelled on the Olyfo accueil product carousel.
+- Updated the block intro from *“Probably the most beautiful boards your shelves will carry.”* to **“Elevate the selection With Memorable Olive Wood Products”**.
+- Replaced the text-heavy `artisraw_sku_grid()` with a new **horizontal product carousel** (`artisraw_product_carousel()`): image + title cards in a single scrollable track that snaps left-to-right, inspired by Olyfo’s `.owl-carousel-olive`.
+- Added the new component in `inc/components.php`, its styles in `css/components.css`, and a sample call in `tpl-styleguide.php`.
+- Updated the French translation (`languages/fr_FR.po/.mo`) for the new intro text.
+- **SKU seeder now attaches featured images** to the 6 ready-to-ship bestsellers (bumped `ARTISRAW_SKUS_VER` → 2). Added `artisraw_attach_theme_image_to_post()` helper to copy theme assets into the Media Library and set them as thumbnails.
+- **Enhanced product-card hover**: image scales to 1.05 with a lifted shadow, contained within the card’s rounded frame.
+- **Added a scroll progress line** below the carousel (like Olyfo’s scrollbar indicator) plus **auto-scroll** that pauses when the user hovers, touches, or manually scrolls, then resumes after 3 s of inactivity.
+- CSS cache cleared so the new styles regenerate on next load.
+
+### Verified
+- `msgfmt` compiled `.po` → `.mo` successfully (553 messages). CSS cache cleared.
+
 ## Phase 12.10 — Concatenated theme CSS
 
 Reduced front-end CSS requests from 9 down to 1 (plus conditional account CSS).
