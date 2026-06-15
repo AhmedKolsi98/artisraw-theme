@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-artisraw_set_hero_preload( '/assets/ar-hero-collage', '100vw', array( 600, 1200 ) );
+artisraw_set_hero_preload( '/assets/ar-hero-logs', '100vw', array( 600, 1200, 1800 ) );
 get_header();
 get_template_part( 'template-parts/home' );
 get_footer();

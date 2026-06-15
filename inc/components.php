@@ -80,6 +80,60 @@ function artisraw_sku_grid( array $skus ) {
 	echo '</div>';
 }
 
+/**
+ * Horizontal product scroll (Olyfo-style carousel) — image + title cards.
+ * $skus: arrays built by artisraw_sku_to_array(). Optional $href is the
+ * fallback link for each card (defaults to the localized catalogue page).
+ */
+function artisraw_product_carousel( array $skus, $href = '' ) {
+	if ( empty( $skus ) ) {
+		return;
+	}
+	$fallback_href = $href ?: artisraw_localized_url( '/catalogue/' );
+	echo '<div class="product-scroll" data-autoscroll="true">';
+	echo '<div class="product-scroll__track" tabindex="0">';
+	foreach ( $skus as $sku ) {
+		$name = $sku['name'] ?? '';
+		$img  = $sku['image'] ?? array();
+		$item_href = $sku['href'] ?? $fallback_href;
+		printf(
+			'<a class="product-scroll__card" href="%s" aria-label="%s">',
+			esc_url( $item_href ),
+			esc_attr( sprintf( __( 'View %s', 'artisraw' ), $name ) )
+		);
+		// Olyfo-style: image in a light surface box, title separate below it.
+		echo '<span class="product-scroll__media">';
+		if ( ! empty( $sku['base'] ) ) {
+			// Responsive theme-asset image (preferred): emits srcset 600/1200.
+			artisraw_responsive_image( array(
+				'base'   => $sku['base'],
+				'alt'    => $sku['alt'] ?? ( $name . ' — olive wood' ),
+				'class'  => 'product-scroll__img',
+				'width'  => 1200,
+				'height' => 675,
+				'widths' => array( 600, 1200 ),
+				'sizes'  => '(min-width: 1024px) 320px, 78vw',
+			) );
+		} elseif ( ! empty( $img['url'] ) ) {
+			printf(
+				'<img class="product-scroll__img" src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async">',
+				esc_url( $img['url'] ),
+				esc_attr( $img['alt'] ?? $name ),
+				(int) ( $img['w'] ?? 600 ),
+				(int) ( $img['h'] ?? 600 )
+			);
+		} else {
+			echo '<span class="product-scroll__img product-scroll__img--placeholder" aria-hidden="true"></span>';
+		}
+		echo '</span>';
+		echo '<h3 class="product-scroll__title">' . esc_html( $name ) . '</h3>';
+		echo '</a>';
+	}
+	echo '</div>';
+	echo '<div class="product-scroll__bar" aria-hidden="true"><span class="product-scroll__bar-thumb"></span></div>';
+	echo '</div>';
+}
+
 /* =========================================================================
  * Data table (SPEC §4) — semantic <table> + <caption> + <th scope>.
  * $head = [labels]; $rows = [[cells]]. Stacks below 768px via data-label.
@@ -904,9 +958,10 @@ function artisraw_trio_band( array $items, $class = '' ) {
 	$wrap_class = trim( 'trio-band ' . $class );
 	echo '<div class="' . esc_attr( $wrap_class ) . '">';
 	foreach ( array_slice( $items, 0, 3 ) as $i => $it ) {
+		$surface = ! empty( $it['surface'] ) ? $it['surface'] : $surfaces[ $i ]; // per-item override.
 		printf(
 			'<a class="trio-band__tile trio-band__tile--%s" href="%s"><span class="trio-band__label">%s</span><span class="trio-band__cue">%s <span class="arrow-link__arrow" aria-hidden="true">&rarr;</span></span></a>',
-			esc_attr( $surfaces[ $i ] ),
+			esc_attr( $surface ),
 			esc_url( $it['href'] ?? '#' ),
 			esc_html( $it['label'] ?? '' ),
 			esc_html( $it['cue'] ?? __( 'Discover more', 'artisraw' ) )
@@ -1054,6 +1109,65 @@ function artisraw_product_strip( array $items, $heading = '', $cta = array() ) {
 		echo '</p>';
 	}
 	echo '</div>';
+}
+
+/**
+ * Home hero carousel (PDF variants): auto-rotating slides with full-bleed
+ * background photos, changing titles/support/CTAs, dot nav and pause on hover.
+ * $slides: arrays with base, alt, w, h, widths, title, support, cta_label, cta_url.
+ * $shared: badge (bool), loc (string), interval (int ms), reduced_motion (bool).
+ */
+function artisraw_hero_carousel( array $slides, array $shared = array() ) {
+	if ( empty( $slides ) ) {
+		return;
+	}
+	$badge   = ! empty( $shared['badge'] );
+	$loc     = $shared['loc'] ?? 'home-hero';
+	$interval = (int) ( $shared['interval'] ?? 6000 );
+	$count   = count( $slides );
+	echo '<section class="photo-hero hero-carousel on-dark" data-hero="' . esc_attr( $loc ) . '" data-carousel-interval="' . esc_attr( $interval ) . '">';
+	echo '<div class="hero-carousel__track" role="region" aria-roledescription="carousel" aria-label="' . esc_attr( __( 'Featured slides', 'artisraw' ) ) . '">';
+	foreach ( $slides as $i => $slide ) {
+		$active = 0 === $i ? ' is-active' : '';
+		$hidden = 0 === $i ? 'false' : 'true';
+		echo '<div class="hero-carousel__slide' . esc_attr( $active ) . '" data-slide="' . esc_attr( $i ) . '" role="group" aria-roledescription="slide" aria-label="' . esc_attr( sprintf( __( 'Slide %1$d of %2$d', 'artisraw' ), $i + 1, $count ) ) . '" aria-hidden="' . esc_attr( $hidden ) . '">';
+		artisraw_responsive_image( array(
+			'base'   => $slide['base'],
+			'alt'    => $slide['alt'] ?? '',
+			'class'  => 'photo-hero__img',
+			'width'  => $slide['w'] ?? 1600,
+			'height' => $slide['h'] ?? 900,
+			'widths' => $slide['widths'] ?? array( 600, 1200 ),
+			'sizes'  => '100vw',
+			'eager'  => 0 === $i,
+		) );
+		echo '<div class="photo-hero__inner"><div class="container">';
+		if ( ! empty( $slide['eyebrow'] ) ) {
+			echo '<p class="photo-hero__eyebrow eyebrow">' . esc_html( $slide['eyebrow'] ) . '</p>';
+		}
+		echo '<h1 class="photo-hero__title">' . esc_html( $slide['title'] ?? '' ) . '</h1>';
+		if ( ! empty( $slide['support'] ) ) {
+			$stag = ! empty( $slide['support_tag'] ) ? preg_replace( '/[^a-z0-9]/', '', $slide['support_tag'] ) : 'p';
+			echo '<' . $stag . ' class="photo-hero__support lead">' . esc_html( $slide['support'] ) . '</' . $stag . '>';
+		}
+		if ( ! empty( $slide['cta_label'] ) ) {
+			echo '<p class="photo-hero__cta"><a class="btn btn--primary" href="' . esc_url( $slide['cta_url'] ?? '#' ) . '" data-ga="cta_click" data-ga-label="hero" data-ga-location="' . esc_attr( $loc ) . '">' . esc_html( $slide['cta_label'] ) . '</a></p>';
+		}
+		echo '</div></div></div>';
+	}
+	echo '</div>';
+	if ( $badge ) {
+		artisraw_iso_badge( array( 'place' => 'hero' ) );
+	}
+	if ( $count > 1 ) {
+		echo '<div class="hero-carousel__dots" role="tablist" aria-label="' . esc_attr( __( 'Slide navigation', 'artisraw' ) ) . '">';
+		for ( $i = 0; $i < $count; $i++ ) {
+			$active = 0 === $i ? ' is-active' : '';
+			echo '<button class="hero-carousel__dot' . esc_attr( $active ) . '" type="button" role="tab" aria-selected="' . ( 0 === $i ? 'true' : 'false' ) . '" aria-label="' . esc_attr( sprintf( __( 'Go to slide %d', 'artisraw' ), $i + 1 ) ) . '" data-slide="' . esc_attr( $i ) . '"></button>';
+		}
+		echo '</div>';
+	}
+	echo '</section>';
 }
 
 /**

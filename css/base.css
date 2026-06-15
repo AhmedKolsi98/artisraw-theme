@@ -126,6 +126,7 @@ a:hover { color: var(--c-espresso-900); }
   color: var(--color-text-invert);
 }
 .section--sand { background: var(--color-surface-alt); }
+.section--white { background: #fff; }
 
 /* --- Buttons (3 levels, SPEC §5.4) -------------------------------------- */
 .btn {

@@ -70,12 +70,12 @@ function artisraw_primary_items() {
 			'label'    => __( 'Let’s Work Together', 'artisraw' ),
 			'url'      => artisraw_localized_url( '/request-quote/' ),
 			'children' => array(
+				array( 'label' => __( 'Client Portal', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale-account/' ) ),
 				array( 'label' => __( 'Request a Quote', 'artisraw' ), 'url' => artisraw_localized_url( '/request-quote/' ) ),
 				array( 'label' => __( 'How to Order', 'artisraw' ), 'url' => artisraw_localized_url( '/how-to-order/' ) ),
 				array( 'label' => __( 'Shipping & Logistics', 'artisraw' ), 'url' => artisraw_localized_url( '/shipping-logistics/' ) ),
 				array( 'label' => __( 'Worldwide / Export', 'artisraw' ), 'url' => artisraw_localized_url( '/worldwide/' ) ),
 				array( 'label' => __( 'References & Downloads', 'artisraw' ), 'url' => artisraw_localized_url( '/references/' ) ),
-				array( 'label' => __( 'Client Login', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale-account/' ) ),
 			),
 		),
 		array( 'label' => __( 'FAQs', 'artisraw' ), 'url' => artisraw_localized_url( '/faq/' ) ),

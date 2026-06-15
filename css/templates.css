@@ -42,6 +42,12 @@
 
 /* --- Hub: services grid ------------------------------------------------- */
 .hub-service { height: 100%; padding: var(--sp-3); background: var(--c-paper-50); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+.hub-service__icon { display: block; width: 28px; height: 28px; margin-bottom: var(--sp-2); color: var(--c-espresso-900); }
+
+/* Global distribution block — homepage map only, full-width, centred */
+.global-dist { width: 100%; }
+.global-dist__map { width: 100%; background: var(--c-cream-100); display: flex; align-items: center; justify-content: center; padding-block: var(--sp-4); }
+.global-dist__img { display: block; width: 100%; max-width: 1100px; height: auto; }
 .hub-service h3 { font-size: var(--fs-subheading); margin-bottom: var(--sp-1); }
 .hub-service p { color: var(--c-bark-700); font-size: var(--fs-ui); }
 

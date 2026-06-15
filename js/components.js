@@ -187,6 +187,132 @@
     });
   });
 
+  /* --- Product-scroll carousel: auto-scroll + progress bar line ---------- */
+  function initProductScroll(root) {
+    var track = root.querySelector('.product-scroll__track');
+    var bar = root.querySelector('.product-scroll__bar');
+    var thumb = root.querySelector('.product-scroll__bar-thumb');
+    if (!track) return;
+
+    var isHovering = false;
+    var userPaused = false;
+    var autoId = null;
+    var resumeTimer = null;
+    var speed = 0.8; // px per frame
+    var resumeDelay = 3000; // ms
+
+    function hasOverflow() {
+      return track.scrollWidth > track.clientWidth + 1;
+    }
+
+    function updateThumb() {
+      if (!thumb) return;
+      var max = track.scrollWidth - track.clientWidth;
+      var ratio = max > 0 ? track.scrollLeft / max : 0;
+      var widthPct = max > 0 ? (track.clientWidth / track.scrollWidth) * 100 : 100;
+      thumb.style.width = widthPct + '%';
+      thumb.style.left = (ratio * Math.max(0, 100 - widthPct)) + '%';
+    }
+
+    function start() {
+      stop();
+      if (reduceMotion || userPaused || isHovering || !hasOverflow()) return;
+      autoId = requestAnimationFrame(function step() {
+        if (userPaused || isHovering || !hasOverflow()) return;
+        var max = track.scrollWidth - track.clientWidth;
+        track.scrollLeft += speed;
+        if (track.scrollLeft >= max - 1) {
+          track.scrollLeft = 0;
+        }
+        autoId = requestAnimationFrame(step);
+      });
+    }
+
+    function stop() {
+      if (autoId) { cancelAnimationFrame(autoId); autoId = null; }
+    }
+
+    function userScroll() {
+      userPaused = true;
+      stop();
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function () {
+        userPaused = false;
+        if (!isHovering) start();
+      }, resumeDelay);
+    }
+
+    track.addEventListener('scroll', function () {
+      updateThumb();
+      userScroll();
+    }, { passive: true });
+
+    track.addEventListener('mouseenter', function () { isHovering = true; stop(); });
+    track.addEventListener('mouseleave', function () { isHovering = false; if (!userPaused) start(); });
+    track.addEventListener('touchstart', function () { isHovering = true; stop(); }, { passive: true });
+    track.addEventListener('touchend', function () { isHovering = false; userScroll(); });
+
+    updateThumb();
+    if (bar) bar.hidden = !hasOverflow();
+    start();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.product-scroll[data-autoscroll="true"]'), initProductScroll);
+
+  /* --- Home hero carousel (PDF variants): auto-rotate + dot nav ---------- */
+  function initHeroCarousel(root) {
+    var track = root.querySelector('.hero-carousel__track');
+    var slides = root.querySelectorAll('.hero-carousel__slide');
+    var dots = root.querySelectorAll('.hero-carousel__dot');
+    if (!track || slides.length < 2) return;
+
+    var interval = parseInt(root.getAttribute('data-carousel-interval'), 10) || 6000;
+    var current = 0;
+    var timer = null;
+    var paused = false;
+
+    function show(index) {
+      index = (index + slides.length) % slides.length;
+      slides[current].classList.remove('is-active');
+      slides[current].setAttribute('aria-hidden', 'true');
+      if (dots[current]) {
+        dots[current].classList.remove('is-active');
+        dots[current].setAttribute('aria-selected', 'false');
+      }
+      current = index;
+      slides[current].classList.add('is-active');
+      slides[current].setAttribute('aria-hidden', 'false');
+      if (dots[current]) {
+        dots[current].classList.add('is-active');
+        dots[current].setAttribute('aria-selected', 'true');
+      }
+    }
+
+    function next() { show(current + 1); }
+    function start() {
+      stop();
+      if (!paused && !reduceMotion) timer = setInterval(next, interval);
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    Array.prototype.forEach.call(dots, function (dot, i) {
+      dot.addEventListener('click', function () {
+        show(i);
+        paused = true;
+        stop();
+      });
+    });
+
+    root.addEventListener('mouseenter', function () { paused = true; stop(); });
+    root.addEventListener('mouseleave', function () { paused = false; start(); });
+    root.addEventListener('focusin', function () { paused = true; stop(); });
+    root.addEventListener('focusout', function () { paused = false; start(); });
+
+    start();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.hero-carousel'), initHeroCarousel);
+
   /* --- GA4 click delegation (cta_click, doc_download, whatsapp_click) --- */
   document.addEventListener('click', function (e) {
     var el = e.target.closest('[data-ga]');

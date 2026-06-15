@@ -308,7 +308,7 @@ msgstr "MOQ réduit"
 msgid "Custom branding"
 msgstr "Personnalisation de marque"
 
-msgid "Client Login"
+msgid "Client Portal"
 msgstr "Espace client"
 
 msgid "English"
@@ -435,13 +435,13 @@ msgid "Machining &amp; shaping"
 msgstr "Usinage & façonnage"
 
 msgid "Skilled preparation using professional equipment and controlled dimensions."
-msgstr "Préparation experte avec un équipement professionnel et des dimensions contrôlées."
+msgstr "Préparation qualifiée à l’aide d’équipement professionnel et de dimensions contrôlées."
 
 msgid "Handcrafting"
 msgstr "Travail à la main"
 
 msgid "Artisans sand, polish and refine every piece by hand."
-msgstr "Les artisans poncent, polissent et affinent chaque pièce à la main."
+msgstr "Les artisans poncent, polissent et peaufinent chaque pièce à la main."
 
 msgid "Food-safe finishing"
 msgstr "Finition alimentaire"
@@ -537,7 +537,7 @@ msgid "Food-safe finish"
 msgstr "Finition alimentaire"
 
 msgid "Mineral oil and beeswax are applied to protect and enhance the grain."
-msgstr "L’huile minérale et la cire d’abeille protègent et subliment le grain."
+msgstr "L’huile minérale et la cire d’abeille sont appliquées pour protéger et rehausser le grain."
 
 msgid "Quality checks"
 msgstr "Contrôles qualité"
@@ -546,16 +546,16 @@ msgid "Inspection of surface, dimensions, finish, packing and consistency."
 msgstr "Inspection de la surface, des dimensions, de la finition, de l’emballage et de la régularité."
 
 msgid "Export packing"
-msgstr "Emballage d’export"
+msgstr "Emballage export"
 
 msgid "Products prepared for retail, wholesale cartons or private-label needs."
-msgstr "Produits préparés pour le détail, les cartons de gros ou la marque blanche."
+msgstr "Produits préparés pour la vente au détail, les cartons de gros ou les besoins de marque propre."
 
 msgid "Documents &amp; shipment"
 msgstr "Documents & expédition"
 
 msgid "Packing list, invoice, certificates and export preparation for partners."
-msgstr "Liste de colisage, facture, certificats et préparation d’export pour les partenaires."
+msgstr "Liste de colisage, facture, certificats et préparation à l’export pour les partenaires."
 
 msgid "Step 01 — Raw material"
 msgstr "Étape 01 — Matière première"
@@ -830,8 +830,8 @@ msgstr "Nous visons à faire du bois d’olivier tunisien une référence mondia
 msgid "Olive grove near Sfax"
 msgstr "Oliveraie près de Sfax"
 
-msgid "Probably the most beautiful boards your shelves will carry."
-msgstr "Probablement les plus belles planches que porteront vos rayons."
+msgid "Elevate the selection With Memorable Olive Wood Products"
+msgstr "Élevez votre sélection avec des produits mémorables en bois d’olivier"
 
 msgid "Ready-to-Ship Bestsellers"
 msgstr "Best-sellers prêts à expédier"
@@ -1227,7 +1227,7 @@ msgid "Pieces are handmade from natural olive wood, so dimensions and grain vary
 msgstr "Les pièces sont faites main en bois d’olivier naturel : dimensions et grain varient légèrement — cela fait partie de la valeur authentique."
 
 msgid "Private label"
-msgstr "Marque blanche"
+msgstr "Marque propre"
 
 msgid "Product development"
 msgstr "Développement produit"
@@ -1667,6 +1667,9 @@ msgstr "Notre mission est de créer des produits en bois d’olivier responsable
 msgid "Beautiful products, responsibly made"
 msgstr "De beaux produits, fabriqués de façon responsable"
 
+msgid "View %s"
+msgstr "Voir %s"
+
 msgid "About Us"
 msgstr "À propos"
 
@@ -1675,3 +1678,159 @@ msgstr "Processus"
 
 msgid "Let’s Work Together"
 msgstr "Travaillons ensemble"
+
+msgid "Discover our Story"
+msgstr "Découvrez notre histoire"
+
+msgid "Premium Olive Wood, Crafted in Sustainability"
+msgstr "Bois d’olivier premium, façonné dans la durabilité"
+
+msgid "Ancient Chemlali olive tree at sunset in Tunisia"
+msgstr "Ancien olivier Chemlali au coucher du soleil en Tunisie"
+
+msgid "From olive tree to export ready order"
+msgstr "De l’olivier à la commande prête à l’export"
+
+msgid "A complete view of the ArtisRaw process: responsible sourcing, drying, cutting, hand-finishing, food-safe protection, quality control, packaging and B2B export preparation."
+msgstr "Vue complète du processus ArtisRaw : approvisionnement responsable, séchage, découpe, finition à la main, protection alimentaire, contrôle qualité, emballage et préparation à l’export B2B."
+
+msgid "Discover process"
+msgstr "Découvrir le processus"
+
+msgid "Is your olive wood sustainably sourced?"
+msgstr "Votre bois d’olivier est-il issu d’une source durable ?"
+
+msgid "Yes. We use only end-of-life Chemlali olive trees from the Sfax region, protecting productive groves while giving reclaimed wood a second life as handcrafted products."
+msgstr "Oui. Nous utilisons uniquement des oliviers Chemlali en fin de vie dans la région de Sfax, protégeant les oliveraies productives tout en donnant une seconde vie au bois récupéré sous forme de produits artisanaux."
+
+msgid "B2B services"
+msgstr "Services B2B"
+
+msgid "From product selection to private label packaging and export documentation, ArtisRaw helps professional buyers build premium handmade olive wood collections with confidence."
+msgstr "De la sélection des produits à l’emballage sous marque propre et aux documents d’export, ArtisRaw aide les acheteurs professionnels à constituer des collections premium de bois d’olivier fait main en toute confiance."
+
+msgid "Request a B2B quote"
+msgstr "Demander un devis B2B"
+
+msgid "End-to-end solutions for wholesalers, retailers, hospitality and private-label brands"
+msgstr "Des solutions complètes pour grossistes, détaillants, hôtellerie et marques de distributeurs"
+
+msgid "Wholesale buyers"
+msgstr "Acheteurs en gros"
+
+msgid "Build a sale-ready olive wood collection"
+msgstr "Constituez une collection de bois d’olivier prête à vendre"
+
+msgid "Choose from existing catalogue SKUs or create a dedicated assortment by category, target price, packaging style and destination market. We help structure orders for retail shelves, online stores and wholesale distribution."
+msgstr "Choisissez parmi les SKU du catalogue existant ou créez un assortiment dédié par catégorie, prix cible, style d’emballage et marché de destination. Nous vous aidons à structurer les commandes pour les rayons, les boutiques en ligne et la distribution de gros."
+
+msgid "Explore services"
+msgstr "Explorer les services"
+
+msgid "ArtisRaw supports logo engraving, packaging adaptation, barcode-ready products, retail labels, gift boxes and collection development for buyers who want to sell under their own brand."
+msgstr "ArtisRaw accompagne la gravure de logo, l’adaptation d’emballage, les produits prêts à scanner, les étiquettes de vente, les coffrets cadeaux et le développement de collections pour les acheteurs souhaitant vendre sous leur propre marque."
+
+msgid "Service packs"
+msgstr "Forfaits de services"
+
+msgid "Manufacturing"
+msgstr "Fabrication"
+
+msgid "Production"
+msgstr "Production"
+
+msgid "Craft"
+msgstr "Artisanat"
+
+msgid "Safety"
+msgstr "Sécurité"
+
+msgid "Control"
+msgstr "Contrôle"
+
+msgid "Packaging"
+msgstr "Emballage"
+
+msgid "Cutting and shaping"
+msgstr "Découpe et façonnage"
+
+msgid "Documents and shipment"
+msgstr "Documents et expédition"
+
+msgid "Scalable production for recurring orders, importers, distributors, retailers and seasonal replenishment."
+msgstr "Production évolutive pour commandes récurrentes, importateurs, distributeurs, détaillants et réapprovisionnements saisonniers."
+
+msgid "Engraving, custom packaging, retail labels, barcode-ready references and brand presentation."
+msgstr "Gravure, emballage personnalisé, étiquettes de vente, références prêtes à scanner et présentation de marque."
+
+msgid "Inspection of surface, dimensions, finish, packing and product consistency."
+msgstr "Inspection de la surface, des dimensions, de la finition, de l’emballage et de l’uniformité du produit."
+
+msgid "Tell us your market — we prepare the B2B solution"
+msgstr "Parlez-nous de votre marché — nous préparons la solution B2B"
+
+msgid "Global distribution from Tunisia to B2B markets"
+msgstr "Distribution mondiale, de la Tunisie vers les marchés B2B"
+
+msgid "ArtisRaw supports distributors, retailers, hospitality buyers and private-label partners across key export zones with professional packaging, export documents and factory-direct fulfilment."
+msgstr "ArtisRaw accompagne distributeurs, détaillants, acheteurs de l’hôtellerie et partenaires en marque blanche dans les principales zones d’export, avec emballage professionnel, documents d’export et expédition directe d’usine."
+
+msgid "Map of ArtisRaw export zones worldwide"
+msgstr "Carte des zones d’export d’ArtisRaw dans le monde"
+
+msgid "North America"
+msgstr "Amérique du Nord"
+
+msgid "USA & Canada"
+msgstr "États-Unis & Canada"
+
+msgid "Europe"
+msgstr "Europe"
+
+msgid "France, Germany, Italy"
+msgstr "France, Allemagne, Italie"
+
+msgid "Middle East & Asia"
+msgstr "Moyen-Orient & Asie"
+
+msgid "GCC, Japan, Hong Kong"
+msgstr "CCG, Japon, Hong Kong"
+
+msgid "Wholesale, gourmet retail, corporate gifting and online marketplace buyers."
+msgstr "Vente en gros, épicerie fine, cadeaux d’affaires et acheteurs de places de marché en ligne."
+
+msgid "Specialty stores, kitchenware boutiques, concept stores and distributors."
+msgstr "Boutiques spécialisées, magasins d’arts de la table, concept stores et distributeurs."
+
+msgid "Premium gifting, hospitality, lifestyle retail and private-label opportunities."
+msgstr "Cadeaux premium, hôtellerie, distribution lifestyle et opportunités en marque blanche."
+
+msgid "Featured slides"
+msgstr "Diapositives en vedette"
+
+msgid "Slide %1$d of %2$d"
+msgstr "Diapositive %1$d sur %2$d"
+
+msgid "Go to slide %d"
+msgstr "Aller à la diapositive %d"
+
+msgid "Stacked raw olive wood logs ready for artisan production"
+msgstr "Rondins de bois d’olivier brut empilés prêts pour la production artisanale"
+
+msgid "ArtisRaw olive wood collections on showroom shelves"
+msgstr "Collections de bois d’olivier ArtisRaw sur les étagères du showroom"
+
+msgid "Export-ready collections · Shipped to 30+ countries"
+msgstr "Collections prêtes à l’export · Expédiées dans plus de 30 pays"
+
+msgid "Handmade Tunisian Olive Wood Collections"
+msgstr "Collections de bois d’olivier tunisien fait main"
+
+msgid "From cutting boards to serveware, crafted by artisans in Sfax and delivered with full export documentation."
+msgstr "Des planches à découper au service de table, façonnés par des artisans à Sfax et livrés avec une documentation d’export complète."
+
+msgid "Browse Catalogue"
+msgstr "Parcourir le catalogue"
+
+msgid "Slide navigation"
+msgstr "Navigation des diapositives"

@@ -96,6 +96,9 @@ function sg_h( $title, $note = '' ) {
 	<?php sg_h( 'SKU spec cards' ); ?>
 	<?php artisraw_sku_grid( $sg_skus ); ?>
 
+	<?php sg_h( 'Product scroll carousel', 'Olyfo-style horizontal scroll of image + title cards.' ); ?>
+	<?php artisraw_product_carousel( $sg_skus ); ?>
+
 	<?php sg_h( 'Data table — logistics', 'Stacks to label/value pairs below 768px.' ); ?>
 	<?php
 	artisraw_data_table(
@@ -145,6 +148,23 @@ function sg_h( $title, $note = '' ) {
 		<?php endforeach; ?>
 	</div>
 
+	<?php sg_h( 'From the Olive Wood Guide band', 'Moved off the homepage; kept here for reference. Pulls the 3 latest posts.' ); ?>
+	<?php
+	$sg_guide = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 3, 'ignore_sticky_posts' => true ) );
+	if ( $sg_guide->have_posts() ) : ?>
+	<section class="section--sand">
+		<div class="container section hub-section">
+			<div class="section-opener"><h2><?php esc_html_e( 'From the Olive Wood Guide', 'artisraw' ); ?></h2></div>
+			<div class="grid">
+				<?php foreach ( $sg_guide->posts as $gp ) : ?>
+					<div class="col-4"><?php artisraw_article_card( artisraw_post_to_card( $gp->ID ) ); ?></div>
+				<?php endforeach; ?>
+			</div>
+			<p class="hub-section__note"><?php artisraw_arrow_link( __( 'Read the Magazine', 'artisraw' ), artisraw_localized_url( '/magazine/' ) ); ?></p>
+		</div>
+	</section>
+	<?php endif; wp_reset_postdata(); ?>
+
 	<?php sg_h( 'Document / download cards', 'Fire GA4 doc_download.' ); ?>
 	<div class="grid">
 		<?php foreach ( $sg_docs as $d ) : ?>
@@ -154,6 +174,9 @@ function sg_h( $title, $note = '' ) {
 
 	<?php sg_h( 'Reference-buyer logo band', 'Type-only fallback until permission/logos exist.' ); ?>
 	<?php artisraw_logo_band( array( array( 'Maison Verde' ), array( 'Nordhaus' ), array( 'Souk &amp; Co' ), array( 'Cedar Hospitality' ) ), 'Trusted by buyers including' ); ?>
+
+	<?php sg_h( 'Selected buyers &amp; partners band', 'Moved off the homepage; kept here for reference.' ); ?>
+	<?php artisraw_logo_band( array( array( 'Eataly' ), array( 'Karthage LLC' ), array( 'Folksy' ), array( 'Delta Co.' ), array( 'TunSouk' ) ), __( 'Selected buyers &amp; partners', 'artisraw' ) ); ?>
 
 	<?php sg_h( 'FAQ accordion', 'WAI-ARIA, multiple-open, deep-linkable. Mirrors to FAQPage JSON-LD.' ); ?>
 	<?php artisraw_faq_accordion( $sg_faq, true, 'sg-faq' ); ?>
@@ -278,6 +301,29 @@ artisraw_statement_hero( array(
 ) );
 ?>
 
+<?php // Hero carousel (Olyfo-style) — auto-rotating slides. ?>
+<?php
+artisraw_hero_carousel(
+	array(
+		array(
+			'base' => '/assets/ar-hero-logs', 'alt' => 'Raw olive wood logs', 'widths' => array( 600, 1200 ), 'w' => 1800, 'h' => 1012,
+			'eyebrow' => 'ISO 9001 olive wood manufacturer · Sfax, Tunisia',
+			'title' => 'Premium Olive Wood for Wholesale Buyers',
+			'support' => 'Handmade Tunisian olive wood collections for retailers, distributors and private-label brands.',
+			'cta_label' => 'Start Your Project', 'cta_url' => '#',
+		),
+		array(
+			'base' => '/assets/ar-hero-showroom', 'alt' => 'Showroom shelves', 'widths' => array( 600, 1200 ), 'w' => 1800, 'h' => 1012,
+			'eyebrow' => 'Export-ready collections · Shipped to 30+ countries',
+			'title' => 'Handmade Tunisian Olive Wood Collections',
+			'support' => 'From cutting boards to serveware, crafted by artisans in Sfax and delivered with full export documentation.',
+			'cta_label' => 'Browse Catalogue', 'cta_url' => '#',
+		),
+	),
+	array( 'badge' => true, 'loc' => 'styleguide-hero', 'interval' => 6000 )
+);
+?>
+
 <div class="container section">
 	<?php sg_h( 'Color-block mosaic (§4)', 'Field ↔ photo, alternating sides; three field colors (sand · espresso · amber); espresso body on light fields.' ); ?>
 </div>
@@ -387,6 +433,35 @@ artisraw_testimonial_feature( array(
 		array( 'base' => '/assets/ar-boards', 'alt' => 'Bowls', 'w' => 548, 'h' => 365, 'widths' => array( 600 ) ),
 	), 'Hero products', array( 'label' => 'See the catalogue', 'href' => '#' ) );
 	?>
+</div>
+
+<div class="container section">
+	<?php sg_h( 'Global distribution (homepage map)', 'Full-width centred world-map image.' ); ?>
+	<section class="global-dist">
+		<div class="global-dist__map">
+			<?php artisraw_responsive_image( array( 'base' => '/assets/ar-world-map', 'alt' => __( 'Map of ArtisRaw export zones worldwide', 'artisraw' ), 'class' => 'global-dist__img', 'width' => 1200, 'height' => 857, 'widths' => array( 600, 1200 ), 'sizes' => '100vw' ) ); ?>
+		</div>
+	</section>
+</div>
+
+<div class="container section">
+	<?php sg_h( 'Custom-woodworking feature (proposed)', 'Photo stack + tall hero photo with a clay text panel overlapping the hero on desktop. Uses project images.' ); ?>
+	<section class="cw-feature">
+		<div class="cw-feature__media">
+			<div class="cw-feature__stack">
+				<?php artisraw_responsive_image( array( 'base' => '/assets/ar-story-founders', 'alt' => 'ArtisRaw founders reviewing a plan in the workshop', 'class' => 'cw-feature__img', 'width' => 800, 'height' => 498, 'widths' => array( 600, 800 ), 'sizes' => '(min-width: 980px) 25vw, 50vw' ) ); ?>
+				<?php artisraw_responsive_image( array( 'base' => '/assets/ar-worker-carry', 'alt' => 'Artisan at the workbench in the Sfax workshop', 'class' => 'cw-feature__img', 'width' => 1200, 'height' => 800, 'widths' => array( 600, 1200 ), 'sizes' => '(min-width: 980px) 25vw, 50vw' ) ); ?>
+			</div>
+			<div class="cw-feature__hero">
+				<?php artisraw_responsive_image( array( 'base' => '/assets/ar-lathe', 'alt' => 'Artisan shaping olive wood on the lathe', 'class' => 'cw-feature__img', 'width' => 1200, 'height' => 800, 'widths' => array( 600, 1200 ), 'sizes' => '(min-width: 980px) 40vw, 100vw' ) ); ?>
+			</div>
+		</div>
+		<div class="cw-feature__panel">
+			<h2 class="cw-feature__title">We Are Custom Woodworking</h2>
+			<p class="cw-feature__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<p><a class="btn btn--primary" href="#">Learn More</a></p>
+		</div>
+	</section>
 </div>
 
 <?php

@@ -8,12 +8,14 @@
 .field--sand     { background: var(--c-sand-200);   color: var(--c-espresso-900); }
 .field--espresso { background: var(--c-espresso-900); color: var(--c-cream-100); }
 .field--amber    { background: var(--c-amber-500);   color: var(--c-espresso-900); }
+.field--clay     { background: var(--c-clay-700);    color: var(--c-cream-100); }
+.field--cacao    { background: var(--c-cacao-950);   color: var(--c-cream-100); }
 
 /* --- Arrow link (§5 block formula) ------------------------------------- */
 .arrow-link { display: inline-flex; align-items: center; gap: var(--sp-1); font-size: var(--fs-ui); font-weight: var(--fw-semibold); text-decoration: none; color: var(--c-espresso-900); }
 .arrow-link:hover { color: var(--c-bark-700); }
-.field--espresso .arrow-link, .on-dark .arrow-link { color: var(--c-cream-100); }
-.field--espresso .arrow-link:hover, .on-dark .arrow-link:hover { color: var(--c-amber-500); }
+.field--espresso .arrow-link, .field--clay .arrow-link, .field--cacao .arrow-link, .on-dark .arrow-link { color: var(--c-cream-100); }
+.field--espresso .arrow-link:hover, .field--clay .arrow-link:hover, .field--cacao .arrow-link:hover, .on-dark .arrow-link:hover { color: var(--c-amber-500); }
 .arrow-link__arrow { transition: transform 150ms var(--ease-out); }
 .arrow-link:hover .arrow-link__arrow { transform: translateX(4px); }
 @media (prefers-reduced-motion: reduce) { .arrow-link__arrow { transition: none; } }
@@ -38,7 +40,7 @@
 .color-block__field { display: flex; flex-direction: column; justify-content: center; padding: var(--sp-5); }
 .color-block__eyebrow { margin-bottom: var(--sp-2); }
 .field--sand .color-block__eyebrow, .field--amber .color-block__eyebrow { color: var(--c-bark-700); }
-.field--espresso .color-block__eyebrow { color: var(--c-amber-500); }
+.field--espresso .color-block__eyebrow, .field--clay .color-block__eyebrow, .field--cacao .color-block__eyebrow { color: var(--c-amber-500); }
 .color-block__heading { font-family: var(--ff-serif); font-size: var(--fs-heading); line-height: var(--lh-heading, 1.2); margin-bottom: var(--sp-2); }
 .color-block__body { max-width: 46ch; margin-bottom: var(--sp-3); }
 @media (min-width: 860px) {

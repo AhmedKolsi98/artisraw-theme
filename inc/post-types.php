@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+define( 'ARTISRAW_SKUS_VER', 2 );
+
 /* -------------------------------------------------------------------------
  * SKU custom post type (structured data, not a front-facing URL).
  * ---------------------------------------------------------------------- */
@@ -192,48 +194,124 @@ function artisraw_get_skus_by_term( $term_slug, $limit = 12 ) {
 	) );
 }
 
+/**
+ * Attach a theme asset image to a post and set it as the featured image.
+ * Reuses an existing attachment with the same basename if one exists.
+ *
+ * @param int    $post_id  The post to receive the featured image.
+ * @param string $filename Basename of the image in the theme assets folder.
+ * @return int|false Attachment ID on success, false on failure.
+ */
+function artisraw_attach_theme_image_to_post( $post_id, $filename ) {
+	if ( ! $filename ) {
+		return false;
+	}
+	$theme_dir  = get_template_directory();
+	$theme_uri  = get_template_directory_uri();
+	$file_path  = trailingslashit( $theme_dir ) . 'assets/' . $filename;
+	if ( ! file_exists( $file_path ) ) {
+		return false;
+	}
+
+	// Reuse existing attachment with the same basename to avoid duplicates.
+	$existing = get_posts( array(
+		'post_type'      => 'attachment',
+		'posts_per_page' => 1,
+		'fields'         => 'ids',
+		'meta_query'     => array( array( 'key' => '_artisraw_asset', 'value' => $filename, 'compare' => '=' ) ),
+	) );
+	if ( ! empty( $existing[0] ) ) {
+		$attach_id = $existing[0];
+	} else {
+		$wp_upload_dir = wp_upload_dir();
+		$extension     = pathinfo( $filename, PATHINFO_EXTENSION );
+		$mime          = wp_check_filetype( $filename, array( 'webp' => 'image/webp', 'jpg|jpeg|jpe' => 'image/jpeg', 'png' => 'image/png' ) );
+		if ( empty( $mime['type'] ) ) {
+			return false;
+		}
+
+		// Copy the asset into the uploads directory so WordPress can manage it.
+		$dest_filename = wp_unique_filename( $wp_upload_dir['path'], sanitize_file_name( $filename ) );
+		$dest_path     = trailingslashit( $wp_upload_dir['path'] ) . $dest_filename;
+		if ( ! copy( $file_path, $dest_path ) ) {
+			return false;
+		}
+
+		$attachment = array(
+			'guid'           => trailingslashit( $wp_upload_dir['url'] ) . $dest_filename,
+			'post_mime_type' => $mime['type'],
+			'post_title'     => preg_replace( '/\.[^.]+$/', '', $filename ),
+			'post_content'   => '',
+			'post_status'    => 'inherit',
+		);
+		$attach_id = wp_insert_attachment( $attachment, $dest_path, $post_id );
+		if ( is_wp_error( $attach_id ) ) {
+			return false;
+		}
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+		$attach_data = wp_generate_attachment_metadata( $attach_id, $dest_path );
+		wp_update_attachment_metadata( $attach_id, $attach_data );
+		update_post_meta( $attach_id, '_artisraw_asset', $filename );
+	}
+
+	set_post_thumbnail( $post_id, $attach_id );
+	return $attach_id;
+}
+
 /* -------------------------------------------------------------------------
- * One-time seed of 6 ready-to-ship SKUs (dev convenience until SKUs are
- * entered in admin). Idempotent: runs once, guarded by an option flag.
- * Delete the 'artisraw_skus_seeded' option to re-seed.
+ * Seed / refresh 6 ready-to-ship SKUs (dev convenience until SKUs are
+ * entered in admin). Idempotent: bump ARTISRAW_SKUS_VER to re-run.
  * ---------------------------------------------------------------------- */
 function artisraw_seed_skus() {
-	if ( get_option( 'artisraw_skus_seeded' ) ) {
-		return;
-	}
 	if ( ! post_type_exists( 'sku' ) ) {
 		return;
 	}
-	$existing = get_posts( array( 'post_type' => 'sku', 'posts_per_page' => 1, 'fields' => 'ids' ) );
-	if ( $existing ) {
-		update_option( 'artisraw_skus_seeded', 1 );
+	$current_ver = (int) get_option( 'artisraw_skus_ver', 0 );
+	if ( $current_ver >= ARTISRAW_SKUS_VER ) {
 		return;
 	}
 
 	$skus = array(
-		array( 'title' => 'Classic Olive Wood Cutting Board 30 cm', 'sku_code' => 'AR-CB-30', 'dimensions' => '30 × 18 × 2 cm', 'unit_weight' => '0.7 kg', 'case_pack' => '12', 'carton' => '40 × 30 × 26 cm', 'moq' => '50', 'lead_time' => '72 h (stock)', 'exw_tier' => 'on request' ),
-		array( 'title' => 'Large Charcuterie Board 45 cm', 'sku_code' => 'AR-CB-45', 'dimensions' => '45 × 24 × 2.5 cm', 'unit_weight' => '1.2 kg', 'case_pack' => '8', 'carton' => '50 × 36 × 28 cm', 'moq' => '50', 'lead_time' => '72 h (stock)', 'exw_tier' => 'on request' ),
-		array( 'title' => 'Olive Wood Serving Bowl Ø25 cm', 'sku_code' => 'AR-BW-25', 'dimensions' => 'Ø25 × 9 cm', 'unit_weight' => '0.8 kg', 'case_pack' => '10', 'carton' => '54 × 28 × 30 cm', 'moq' => '50', 'lead_time' => '72 h (stock)', 'exw_tier' => 'on request' ),
-		array( 'title' => 'Utensil Set — Spoon, Spatula & Fork', 'sku_code' => 'AR-UT-3', 'dimensions' => '30 cm', 'unit_weight' => '0.25 kg', 'case_pack' => '24', 'carton' => '42 × 30 × 24 cm', 'moq' => '100', 'lead_time' => '72 h (stock)', 'exw_tier' => 'on request' ),
-		array( 'title' => 'Olive Wood Mortar & Pestle 12 cm', 'sku_code' => 'AR-MP-12', 'dimensions' => 'Ø12 × 10 cm', 'unit_weight' => '0.6 kg', 'case_pack' => '12', 'carton' => '40 × 30 × 24 cm', 'moq' => '50', 'lead_time' => '2–3 weeks', 'exw_tier' => 'on request' ),
-		array( 'title' => 'Spice Pinch Bowls — Set of 4', 'sku_code' => 'AR-PB-4', 'dimensions' => 'Ø8 × 4 cm', 'unit_weight' => '0.3 kg', 'case_pack' => '20', 'carton' => '38 × 28 × 22 cm', 'moq' => '100', 'lead_time' => '72 h (stock)', 'exw_tier' => 'on request' ),
+		array( 'title' => 'Classic Olive Wood Cutting Board 30 cm', 'sku_code' => 'AR-CB-30', 'dimensions' => '30 × 18 × 2 cm', 'unit_weight' => '0.7 kg', 'case_pack' => '12', 'carton' => '40 × 30 × 26 cm', 'moq' => '50', 'lead_time' => '72 h (stock)', 'exw_tier' => 'on request', 'image' => 'ar-boards-600.webp' ),
+		array( 'title' => 'Large Charcuterie Board 45 cm', 'sku_code' => 'AR-CB-45', 'dimensions' => '45 × 24 × 2.5 cm', 'unit_weight' => '1.2 kg', 'case_pack' => '8', 'carton' => '50 × 36 × 28 cm', 'moq' => '50', 'lead_time' => '72 h (stock)', 'exw_tier' => 'on request', 'image' => 'ar-boards-drying-600.webp' ),
+		array( 'title' => 'Olive Wood Serving Bowl Ø25 cm', 'sku_code' => 'AR-BW-25', 'dimensions' => 'Ø25 × 9 cm', 'unit_weight' => '0.8 kg', 'case_pack' => '10', 'carton' => '54 × 28 × 30 cm', 'moq' => '50', 'lead_time' => '72 h (stock)', 'exw_tier' => 'on request', 'image' => 'ar-artisan-bowl-600.webp' ),
+		array( 'title' => 'Utensil Set — Spoon, Spatula & Fork', 'sku_code' => 'AR-UT-3', 'dimensions' => '30 cm', 'unit_weight' => '0.25 kg', 'case_pack' => '24', 'carton' => '42 × 30 × 24 cm', 'moq' => '100', 'lead_time' => '72 h (stock)', 'exw_tier' => 'on request', 'image' => 'ar-product-1-257.webp' ),
+		array( 'title' => 'Olive Wood Mortar & Pestle 12 cm', 'sku_code' => 'AR-MP-12', 'dimensions' => 'Ø12 × 10 cm', 'unit_weight' => '0.6 kg', 'case_pack' => '12', 'carton' => '40 × 30 × 24 cm', 'moq' => '50', 'lead_time' => '2–3 weeks', 'exw_tier' => 'on request', 'image' => 'ar-mortar-600.webp' ),
+		array( 'title' => 'Spice Pinch Bowls — Set of 4', 'sku_code' => 'AR-PB-4', 'dimensions' => 'Ø8 × 4 cm', 'unit_weight' => '0.3 kg', 'case_pack' => '20', 'carton' => '38 × 28 × 22 cm', 'moq' => '100', 'lead_time' => '72 h (stock)', 'exw_tier' => 'on request', 'image' => 'ar-product-2-237.webp' ),
 	);
 
 	foreach ( $skus as $i => $sku ) {
-		$id = wp_insert_post( array(
-			'post_type'   => 'sku',
-			'post_status' => 'publish',
-			'post_title'  => $sku['title'],
-			'menu_order'  => $i,
+		$existing = get_posts( array(
+			'post_type'      => 'sku',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'meta_query'     => array( array( 'key' => 'sku_code', 'value' => $sku['sku_code'], 'compare' => '=' ) ),
 		) );
+		if ( ! empty( $existing[0] ) ) {
+			$id = $existing[0];
+			wp_update_post( array( 'ID' => $id, 'post_title' => $sku['title'], 'menu_order' => $i ) );
+		} else {
+			$id = wp_insert_post( array(
+				'post_type'   => 'sku',
+				'post_status' => 'publish',
+				'post_title'  => $sku['title'],
+				'menu_order'  => $i,
+			) );
+		}
 		if ( $id && ! is_wp_error( $id ) ) {
-			unset( $sku['title'] );
+			$image = $sku['image'] ?? '';
+			unset( $sku['title'], $sku['image'] );
 			foreach ( $sku as $k => $v ) {
 				update_post_meta( $id, $k, $v );
 			}
 			update_post_meta( $id, 'ready_to_ship', '1' );
+			if ( $image ) {
+				artisraw_attach_theme_image_to_post( $id, $image );
+			}
 		}
 	}
-	update_option( 'artisraw_skus_seeded', 1 );
+	update_option( 'artisraw_skus_ver', ARTISRAW_SKUS_VER );
+	// Legacy cleanup: remove old boolean flag.
+	delete_option( 'artisraw_skus_seeded' );
 }
 add_action( 'init', 'artisraw_seed_skus', 20 );
