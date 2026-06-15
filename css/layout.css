@@ -148,8 +148,9 @@
   }
   .nav__list--left  { flex: 1 1 0; order: 1; justify-content: flex-end; }
   .site-header__brand { flex: 0 0 auto; order: 2; margin: 0 var(--sp-5); }
-  .nav__list--right { flex: 1 1 0; order: 3; justify-content: flex-start; padding-right: 11rem; }
-  .nav__actions { position: absolute; right: 0; top: 50%; transform: translateY(-50%); margin: 0; padding: 0; border: 0; flex-direction: row; align-items: center; gap: var(--sp-3); }
+  .nav__list--right { flex: 1 1 0; order: 3; justify-content: flex-start; }
+  /* Language switcher sits at the very end of the right list. */
+  .nav__item--lang { margin-left: auto; }
   .nav__list { flex-direction: row; align-items: center; gap: var(--sp-2); flex-wrap: nowrap; }
   .nav__item { flex: 0 0 auto; }                 /* keep each item's width */
   .nav__link { white-space: nowrap; }            /* labels never wrap to 2 lines */

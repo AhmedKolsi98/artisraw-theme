@@ -16,30 +16,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function artisraw_primary_items() {
 	return array(
-		// Browse what we make — categories grouped under one clear label.
+		// (Home lives on the centered logo, so no separate Home item.)
+		// Trust & story — dropdown keeps proof pages reachable.
 		array(
-			'label'    => __( 'Catalogue', 'artisraw' ),
-			'url'      => artisraw_localized_url( '/wholesale/' ),
+			'label'    => __( 'About Us', 'artisraw' ),
+			'url'      => artisraw_localized_url( '/about/' ),
 			'children' => array(
-				array( 'label' => __( 'Cutting Boards', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/olive-wood-cutting-boards/' ) ),
-				array( 'label' => __( 'Utensils', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/olive-wood-utensils/' ) ),
-				array( 'label' => __( 'Bowls & Serveware', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/olive-wood-bowls-serveware/' ) ),
-				array( 'label' => __( 'Chess Sets', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/olive-wood-chess-sets/' ) ),
-				array( 'label' => __( 'Décor & Bath', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/olive-wood-decor-bath/' ) ),
-				array( 'label' => __( 'View all categories', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/' ) ),
-				array( 'label' => __( 'Full Catalogue (PDF)', 'artisraw' ), 'url' => artisraw_localized_url( '/catalogue/' ) ),
-			),
-		),
-		// How to buy at scale — the hub plus the buying-process pages.
-		array(
-			'label'    => __( 'Wholesale', 'artisraw' ),
-			'url'      => artisraw_localized_url( '/olive-wood-wholesale-supplier/' ),
-			'children' => array(
-				array( 'label' => __( 'Wholesale Hub', 'artisraw' ), 'url' => artisraw_localized_url( '/olive-wood-wholesale-supplier/' ) ),
-				array( 'label' => __( 'How to Order', 'artisraw' ), 'url' => artisraw_localized_url( '/how-to-order/' ) ),
-				array( 'label' => __( 'Shipping & Logistics', 'artisraw' ), 'url' => artisraw_localized_url( '/shipping-logistics/' ) ),
-				array( 'label' => __( 'Worldwide / Export', 'artisraw' ), 'url' => artisraw_localized_url( '/worldwide/' ) ),
-				array( 'label' => __( 'References & Downloads', 'artisraw' ), 'url' => artisraw_localized_url( '/references/' ) ),
+				array( 'label' => __( 'About ArtisRaw', 'artisraw' ), 'url' => artisraw_localized_url( '/about/' ) ),
+				array( 'label' => __( 'Quality Control', 'artisraw' ), 'url' => artisraw_localized_url( '/quality-control/' ) ),
+				array( 'label' => __( 'Sustainability', 'artisraw' ), 'url' => artisraw_localized_url( '/sustainability/' ) ),
 			),
 		),
 		// What we do for buyers — services hub absorbs private label as a child.
@@ -52,27 +37,48 @@ function artisraw_primary_items() {
 				array( 'label' => __( 'Wholesale Production', 'artisraw' ), 'url' => artisraw_localized_url( '/olive-wood-wholesale-supplier/' ) ),
 			),
 		),
-		// Trust & proof.
+		// Browse what we make — categories grouped under one clear label.
 		array(
-			'label'    => __( 'Why ArtisRaw', 'artisraw' ),
-			'url'      => artisraw_localized_url( '/about/' ),
+			'label'    => __( 'Product', 'artisraw' ),
+			'url'      => artisraw_localized_url( '/catalogue/' ),
 			'children' => array(
-				array( 'label' => __( 'About ArtisRaw', 'artisraw' ), 'url' => artisraw_localized_url( '/about/' ) ),
-				array( 'label' => __( 'Our Process', 'artisraw' ), 'url' => artisraw_localized_url( '/production-process/' ) ),
-				array( 'label' => __( 'Certifications', 'artisraw' ), 'url' => artisraw_localized_url( '/certifications/' ) ),
-				array( 'label' => __( 'Quality Control', 'artisraw' ), 'url' => artisraw_localized_url( '/quality-control/' ) ),
-				array( 'label' => __( 'Sustainability', 'artisraw' ), 'url' => artisraw_localized_url( '/sustainability/' ) ),
+				array( 'label' => __( 'Cutting Boards', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/olive-wood-cutting-boards/' ) ),
+				array( 'label' => __( 'Utensils', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/olive-wood-utensils/' ) ),
+				array( 'label' => __( 'Bowls & Serveware', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/olive-wood-bowls-serveware/' ) ),
+				array( 'label' => __( 'Chess Sets', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/olive-wood-chess-sets/' ) ),
+				array( 'label' => __( 'Décor & Bath', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/olive-wood-decor-bath/' ) ),
+				array( 'label' => __( 'View all categories', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale/' ) ),
+				array( 'label' => __( 'Full Catalogue (PDF)', 'artisraw' ), 'url' => artisraw_localized_url( '/catalogue/' ) ),
 			),
 		),
+		// Editorial + knowledge hub.
 		array(
-			'label'    => __( 'Guide', 'artisraw' ),
-			'url'      => artisraw_localized_url( '/olive-wood/' ),
+			'label'    => __( 'Magazine', 'artisraw' ),
+			'url'      => artisraw_localized_url( '/magazine/' ),
 			'children' => array(
-				array( 'label' => __( 'Olive Wood Guide', 'artisraw' ), 'url' => artisraw_localized_url( '/olive-wood/' ) ),
 				array( 'label' => __( 'Magazine', 'artisraw' ), 'url' => artisraw_localized_url( '/magazine/' ) ),
+				array( 'label' => __( 'Olive Wood Guide', 'artisraw' ), 'url' => artisraw_localized_url( '/olive-wood/' ) ),
 				array( 'label' => __( 'Compliance (Lacey / EUDR)', 'artisraw' ), 'url' => artisraw_localized_url( '/compliance/' ) ),
 			),
 		),
+		// --- centered logo splits here ---
+		// Flat proof links.
+		array( 'label' => __( 'Process', 'artisraw' ), 'url' => artisraw_localized_url( '/production-process/' ) ),
+		array( 'label' => __( 'Certifications', 'artisraw' ), 'url' => artisraw_localized_url( '/certifications/' ) ),
+		// How to buy at scale — the quote CTA plus the buying-process pages.
+		array(
+			'label'    => __( 'Let’s Work Together', 'artisraw' ),
+			'url'      => artisraw_localized_url( '/request-quote/' ),
+			'children' => array(
+				array( 'label' => __( 'Request a Quote', 'artisraw' ), 'url' => artisraw_localized_url( '/request-quote/' ) ),
+				array( 'label' => __( 'How to Order', 'artisraw' ), 'url' => artisraw_localized_url( '/how-to-order/' ) ),
+				array( 'label' => __( 'Shipping & Logistics', 'artisraw' ), 'url' => artisraw_localized_url( '/shipping-logistics/' ) ),
+				array( 'label' => __( 'Worldwide / Export', 'artisraw' ), 'url' => artisraw_localized_url( '/worldwide/' ) ),
+				array( 'label' => __( 'References & Downloads', 'artisraw' ), 'url' => artisraw_localized_url( '/references/' ) ),
+				array( 'label' => __( 'Client Login', 'artisraw' ), 'url' => artisraw_localized_url( '/wholesale-account/' ) ),
+			),
+		),
+		array( 'label' => __( 'FAQs', 'artisraw' ), 'url' => artisraw_localized_url( '/faq/' ) ),
 		array( 'label' => __( 'Contact', 'artisraw' ), 'url' => artisraw_localized_url( '/contact/' ) ),
 	);
 }
@@ -139,6 +145,13 @@ function artisraw_render_primary_nav( $slice = 'all' ) {
 		}
 		echo '</li>';
 	}
+	// Language switcher rides at the end of the nav flow (not floated), so it
+	// never overlaps the last link. Lives in the right half (or the full list).
+	if ( ( 'right' === $slice || 'all' === $slice ) && function_exists( 'artisraw_lang_switch' ) ) {
+		echo '<li class="nav__item nav__item--lang">';
+		artisraw_lang_switch();
+		echo '</li>';
+	}
 	echo '</ul>';
 }
 ?>
@@ -180,12 +193,6 @@ function artisraw_render_primary_nav( $slice = 'all' ) {
 			artisraw_render_primary_nav( 'left' );
 			artisraw_render_primary_nav( 'right' );
 			?>
-			<div class="nav__actions">
-				<?php // Primary action: client login (the wholesale portal). ?>
-				<a class="btn btn--primary nav__cta" href="<?php echo esc_url( artisraw_localized_url( '/wholesale-account/' ) ); ?>"><?php esc_html_e( 'Client Login', 'artisraw' ); ?></a>
-				<?php // Language switcher — flag dropdown to the EN/FR counterpart (Phase 10). ?>
-				<?php if ( function_exists( 'artisraw_lang_switch' ) ) { artisraw_lang_switch(); } ?>
-			</div>
 		</nav>
 
 	</div>

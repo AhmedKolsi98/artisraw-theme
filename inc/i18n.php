@@ -173,13 +173,14 @@ function artisraw_lang_switch() {
 	$links   = artisraw_lang_links();
 	$current = $links['current']; // 'en' | 'fr'
 	$names   = array( 'en' => 'English', 'fr' => 'Français' );
+	$codes   = array( 'en' => 'EN', 'fr' => 'FR' ); // compact label for the summary button.
 
 	echo '<details class="lang-switch">';
 	printf(
 		'<summary class="lang-switch__summary" aria-label="%s">%s<span class="lang-switch__name">%s</span><svg class="lang-switch__chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></summary>',
 		esc_attr__( 'Language', 'artisraw' ),
 		artisraw_flag_svg( $current ),
-		esc_html( $names[ $current ] )
+		esc_html( $codes[ $current ] )
 	);
 	echo '<ul class="lang-switch__menu" role="list">';
 	foreach ( array( 'en', 'fr' ) as $l ) {

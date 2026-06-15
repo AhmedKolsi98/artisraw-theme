@@ -1666,3 +1666,12 @@ msgstr "Notre mission est de créer des produits en bois d’olivier responsable
 
 msgid "Beautiful products, responsibly made"
 msgstr "De beaux produits, fabriqués de façon responsable"
+
+msgid "About Us"
+msgstr "À propos"
+
+msgid "Process"
+msgstr "Processus"
+
+msgid "Let’s Work Together"
+msgstr "Travaillons ensemble"
