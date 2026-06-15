@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ARTISRAW_PAGES_VER', 8 );
+define( 'ARTISRAW_PAGES_VER', 9 );
 
 function artisraw_seed_pages() {
 	if ( (int) get_option( 'artisraw_pages_ver' ) >= ARTISRAW_PAGES_VER ) {
@@ -195,7 +195,7 @@ function artisraw_phase1_page_data() {
 			'seo_title' => 'About ArtisRaw | Tunisian Olive Wood Manufacturer Since 2019',
 			'seo_desc'  => 'Founded in Sfax in 2019, ArtisRaw combines 25+ artisans with Crafts 4.0 production. Meet the founders and the four pillars behind our collections.',
 			'qa'        => 'ArtisRaw was founded in Sfax, Tunisia in 2019 by Mohamed Bilel Cherif, Ahmed Sakka and Ihsen Triki. The company pairs 25+ registered artisans with CNC precision and an ISO 9001 quality system — a “Crafts 4.0” model serving wholesale partners in more than 30 countries.',
-			'content'   => "<h2>From the land of the olive tree</h2><p>Born along the Mediterranean shores of Tunisia, ArtisRaw brings a 3,000-year legacy of olive-wood craftsmanship to professional buyers. We transform reclaimed, end-of-life Chemlali olive wood into premium handmade pieces for kitchenware, hospitality, retail and gifting.</p><h2>Crafts 4.0</h2><p>We pair 25+ registered artisans with CNC precision and an ISO 9001 quality system, so handmade character meets consistent, export-ready quality — the world's first ISO 9001:2015-certified olive wood manufacturer.</p><h2>Why Chemlali olive wood is superior</h2><p>The Chemlali variety grown around Sfax has a dense grain, low porosity and beautiful natural contrast. That density resists knife scarring and water absorption — exactly what professional kitchen, retail and hospitality buyers need from a working surface.</p>",
+			'content'   => "<h2>Born in Tunisia, made for global wholesale partners</h2><p>ArtisRaw transforms reclaimed Tunisian Chemlali olive wood into premium handcrafted collections for kitchenware, hospitality, retail, gifting, home décor, beauty and lifestyle brands.</p><p>Rooted in the craftsmanship of Sfax, we combine authentic Mediterranean heritage with reliable export-ready service, offering wholesalers and retailers worldwide quality products, private-label solutions and factory-direct fulfilment.</p>",
 				'meta'      => array( 'trust_extras' => 'about' ),
 				'update'    => true,
 			),

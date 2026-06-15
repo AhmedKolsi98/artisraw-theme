@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: Services
+ * Template Name: Services (Figma)
  *
- * B2B services hub (mockup page 3): intro → 6 core services → 12 buyer profiles
- * → 3 service packs → 8-step process → selected clients → FAQ → quote form.
- * Quick answer + SEO come from page meta; the rich body lives here.
+ * /services/ rebuilt to match the PDF design comp: photo hero → intro →
+ * wholesale buyers feature → private-label feature → 8 core B2B service cards
+ * → quote form.
  *
  * @package ArtisRaw
  */
@@ -17,163 +17,89 @@ $pid = get_queried_object_id();
 $qa  = get_post_meta( $pid, 'quick_answer', true );
 
 get_header();
+
+/* ---- Hero (photo + amber serif title + ISO badge) ---- */
+artisraw_photo_hero( array(
+	'base'      => '/assets/ar-collection',
+	'alt'       => __( 'ArtisRaw olive wood collection — boards, bowls, utensils and chess sets', 'artisraw' ),
+	'w'         => 1200,
+	'h'         => 557,
+	'widths'    => array( 600, 1200 ),
+	'eyebrow'   => __( 'Services', 'artisraw' ),
+	'title'     => __( 'B2B services', 'artisraw' ),
+	'support'   => __( 'From product selection to private label packaging and export documentation, ArtisRaw helps professional buyers build premium handmade olive wood collections with confidence.', 'artisraw' ),
+	'cta_label' => __( 'Request a B2B quote', 'artisraw' ),
+	'cta_url'   => artisraw_localized_url( '/request-quote/' ),
+	'badge'     => true,
+	'loc'       => 'services_hero',
+) );
+
 artisraw_breadcrumbs();
 ?>
 
-<div class="container section hub-section">
-	<header class="page-head"><h1><?php the_title(); ?></h1></header>
+<div class="container section hub-section services-intro">
 	<?php if ( $qa ) { artisraw_quick_answer( $qa ); } ?>
-	<p class="lead" style="max-width:70ch"><?php esc_html_e( 'ArtisRaw is not only a manufacturer — we are a B2B partner for sourcing, product development, private label, corporate gifts, quality control, packaging and export. Our goal is to make Tunisian olive wood easy to buy, easy to present and easy to reorder.', 'artisraw' ); ?></p>
+	<header class="hub-section__head">
+		<h2><?php esc_html_e( 'End-to-end solutions for wholesalers, retailers, hospitality and private-label brands', 'artisraw' ); ?></h2>
+	</header>
+	<p class="lead"><?php esc_html_e( 'ArtisRaw is not only a manufacturer — we are a B2B partner for sourcing, product development, private label, corporate gifts, quality control, packaging and export support. Our goal is to make Tunisian olive wood easy to buy, easy to present and easy to reorder.', 'artisraw' ); ?></p>
+	<p class="lead"><?php esc_html_e( 'We serve professional buyers who need consistent quality, authentic handmade value, strong product storytelling and flexible collections for their market. From small curated assortments to large wholesale replenishment, our services are designed around your commercial needs.', 'artisraw' ); ?></p>
 </div>
 
-<!-- Core B2B services -->
+<?php /* ---- Wholesale buyers feature ---- */ ?>
+<?php
+artisraw_color_block( array(
+	'field' => 'amber',
+	'eyebrow' => __( 'Wholesale buyers', 'artisraw' ),
+	'heading' => __( 'Build a sale-ready olive wood collection', 'artisraw' ),
+	'body'    => __( 'Choose from existing catalogue SKUs or create a dedicated assortment by category, target price, packaging style and destination market. We help structure orders for retail shelves, online stores and wholesale distribution.', 'artisraw' ),
+	'link_label' => __( 'Explore services', 'artisraw' ),
+	'link_url'   => artisraw_localized_url( '/wholesale/' ),
+	'img_base' => '/assets/ar-collection', 'img_alt' => __( 'Sale-ready olive wood collection for wholesale buyers', 'artisraw' ), 'img_widths' => array( 600, 1200 ), 'w' => 1200, 'h' => 557,
+) );
+?>
+
+<?php /* ---- Private label feature ---- */ ?>
+<?php
+artisraw_color_block( array(
+	'field' => 'sand', 'field_left' => true,
+	'eyebrow' => __( 'Private label', 'artisraw' ),
+	'heading' => __( 'Your brand, our handmade expertise', 'artisraw' ),
+	'body'    => __( 'ArtisRaw supports logo engraving, packaging adaptation, barcode-ready products, retail labels, gift boxes and collection development for buyers who want to sell under their own brand.', 'artisraw' ),
+	'link_label' => __( 'Service packs', 'artisraw' ),
+	'link_url'   => artisraw_localized_url( '/private-label-olive-wood/' ),
+	'img_base' => '/assets/ar-lathe', 'img_alt' => __( 'Artisan shaping olive wood for a private-label collection', 'artisraw' ), 'img_widths' => array( 600, 1200 ), 'w' => 1400, 'h' => 933,
+) );
+?>
+
+<?php /* ---- Core B2B services (PDF: 8 cards) ---- */ ?>
 <section class="section--sand">
 	<div class="container section hub-section">
 		<header class="hub-section__head">
 			<h2><?php esc_html_e( 'Core B2B services', 'artisraw' ); ?></h2>
-			<p class="lead"><?php esc_html_e( 'Each service reduces complexity for professional buyers while protecting the handmade value of the product.', 'artisraw' ); ?></p>
+			<p class="lead"><?php esc_html_e( 'Each service is designed to reduce complexity for professional buyers while protecting the handmade value of the product.', 'artisraw' ); ?></p>
 		</header>
-		<div class="cell-grid cell-grid--3">
-			<?php
-			$services = array(
-				array( '01', __( 'Manufacturing', 'artisraw' ), __( 'Wholesale Production', 'artisraw' ), __( 'Scalable production for recurring orders, importers, distributors, retailers and seasonal replenishment.', 'artisraw' ) ),
-				array( '02', __( 'Branding', 'artisraw' ), __( 'Private Label', 'artisraw' ), __( 'Engraving, custom packaging, retail labels, barcode-ready references and brand presentation.', 'artisraw' ) ),
-				array( '03', __( 'Gifting', 'artisraw' ), __( 'Corporate Gifts', 'artisraw' ), __( 'Premium gift packs, chess sets, kitchen bundles, event gifts and personalized handmade articles.', 'artisraw' ) ),
-				array( '04', __( 'Tailor-made', 'artisraw' ), __( 'Custom Orders', 'artisraw' ), __( 'Custom shapes, sizes, finishes, bundles and product development for your target audience.', 'artisraw' ) ),
-				array( '05', __( 'Control', 'artisraw' ), __( 'Quality Control', 'artisraw' ), __( 'Inspection, batch photo documentation, finish verification and packing control with continuous improvement.', 'artisraw' ) ),
-				array( '06', __( 'Logistics', 'artisraw' ), __( 'Export Support', 'artisraw' ), __( 'Commercial documents, ISPM-15 pallets, packing lists, certificates and full export preparation.', 'artisraw' ) ),
-			);
-			foreach ( $services as $s ) {
-				echo '<div class="cell"><p class="cell__eyebrow eyebrow">' . esc_html( $s[0] . ' · ' . $s[1] ) . '</p><h3>' . esc_html( $s[2] ) . '</h3><p>' . esc_html( $s[3] ) . '</p></div>';
-			}
-			?>
-		</div>
-		<p class="hub-section__note"><a class="btn btn--tertiary" href="<?php echo esc_url( artisraw_localized_url( '/private-label-olive-wood/' ) ); ?>"><?php esc_html_e( 'See private-label options', 'artisraw' ); ?></a></p>
-	</div>
-</section>
-
-<!-- Best client profiles -->
-<section class="container section hub-section">
-	<header class="hub-section__head">
-		<h2><?php esc_html_e( 'Best client profiles for ArtisRaw', 'artisraw' ); ?></h2>
-		<p class="lead"><?php esc_html_e( 'Our products perform best where authenticity, natural materials, handmade stories and premium gifting value matter.', 'artisraw' ); ?></p>
-	</header>
-	<ul class="profiles" role="list">
-		<?php
-		$profiles = array(
-			__( 'Gift shops', 'artisraw' ), __( 'Home décor shops', 'artisraw' ), __( 'Restaurants & cafés', 'artisraw' ), __( 'Wholesalers', 'artisraw' ),
-			__( 'Kitchenware shops', 'artisraw' ), __( 'Home & lifestyle boutiques', 'artisraw' ), __( 'Corporate gifting', 'artisraw' ), __( 'Online retailers & marketplaces', 'artisraw' ),
-			__( 'Ecological / organic stores', 'artisraw' ), __( 'Tourist shops', 'artisraw' ), __( 'Concept stores', 'artisraw' ), __( 'Hospitality buyers', 'artisraw' ),
-		);
-		foreach ( $profiles as $i => $p ) {
-			printf( '<li class="profile"><span class="profile__num">%02d</span>%s</li>', $i + 1, esc_html( $p ) );
-		}
-		?>
-	</ul>
-</section>
-
-<!-- Service packs -->
-<section class="section--sand">
-	<div class="container section hub-section">
-		<header class="hub-section__head">
-			<h2><?php esc_html_e( 'Service packs for different buyers', 'artisraw' ); ?></h2>
-			<p class="lead"><?php esc_html_e( 'Choose the level of support that fits your business model and market maturity.', 'artisraw' ); ?></p>
-		</header>
-		<div class="packs">
-			<?php
-			$packs = array(
-				array(
-					'tag' => __( 'Starter', 'artisraw' ), 'name' => __( 'Catalogue Buyer', 'artisraw' ), 'featured' => false,
-					'desc' => __( 'For retailers, online sellers and concept stores looking for ready-to-sell products.', 'artisraw' ),
-					'list' => array( __( 'Catalogue SKU selection', 'artisraw' ), __( 'MOQ-based quotation', 'artisraw' ), __( 'Standard packaging', 'artisraw' ), __( 'Basic export documents', 'artisraw' ) ),
-					'cta'  => __( 'Request catalogue', 'artisraw' ),
-				),
-				array(
-					'tag' => __( 'Popular', 'artisraw' ), 'name' => __( 'Private Label', 'artisraw' ), 'featured' => true,
-					'desc' => __( 'For brands, distributors and boutiques wanting a customized ArtisRaw-powered collection.', 'artisraw' ),
-					'list' => array( __( 'Logo engraving', 'artisraw' ), __( 'Custom labels / packaging', 'artisraw' ), __( 'Barcode-ready references', 'artisraw' ), __( 'Product development support', 'artisraw' ) ),
-					'cta'  => __( 'Build my brand', 'artisraw' ),
-				),
-				array(
-					'tag' => __( 'Premium', 'artisraw' ), 'name' => __( 'Corporate Gifts', 'artisraw' ), 'featured' => false,
-					'desc' => __( 'For companies and gift agencies looking for handmade, sustainable and memorable gifts.', 'artisraw' ),
-					'list' => array( __( 'Gift boxes & bundles', 'artisraw' ), __( 'Engraving & personalization', 'artisraw' ), __( 'Event / seasonal planning', 'artisraw' ), __( 'Export & logistics support', 'artisraw' ) ),
-					'cta'  => __( 'Plan gift project', 'artisraw' ),
-				),
-			);
-			foreach ( $packs as $pk ) {
-				$cls = 'pack' . ( $pk['featured'] ? ' pack--featured' : '' );
-				echo '<div class="' . esc_attr( $cls ) . '">';
-				echo '<span class="pack__tag">' . esc_html( $pk['tag'] ) . '</span>';
-				echo '<h3>' . esc_html( $pk['name'] ) . '</h3>';
-				echo '<p class="pack__desc">' . esc_html( $pk['desc'] ) . '</p>';
-				echo '<ul class="pack__list" role="list">';
-				foreach ( $pk['list'] as $li ) {
-					echo '<li>' . esc_html( $li ) . '</li>';
-				}
-				echo '</ul>';
-				echo '<p class="pack__cta"><a class="btn btn--secondary" href="' . esc_url( artisraw_localized_url( '/request-quote/' ) ) . '" data-ga="cta_click" data-ga-label="pack" data-ga-location="services">' . esc_html( $pk['cta'] ) . '</a></p>';
-				echo '</div>';
-			}
-			?>
-		</div>
-	</div>
-</section>
-
-<!-- 8-step service process -->
-<section class="container section hub-section">
-	<header class="hub-section__head">
-		<h2><?php esc_html_e( 'Our B2B service process', 'artisraw' ); ?></h2>
-		<p class="lead"><?php esc_html_e( 'A simple, professional workflow for bulk orders, private-label projects and corporate-gift collections.', 'artisraw' ); ?></p>
-	</header>
-	<?php
-	artisraw_steps( array(
-		array( '', __( 'Buyer brief', 'artisraw' ), __( 'Tell us your market, category needs, budget, quantities and delivery expectations.', 'artisraw' ) ),
-		array( '', __( 'Catalogue selection', 'artisraw' ), __( 'We recommend products by use case: kitchenware, gifts, décor, hospitality or private label.', 'artisraw' ) ),
-		array( '', __( 'Quote & MOQ', 'artisraw' ), __( 'You receive pricing, MOQ options, packaging choices and export-ready information.', 'artisraw' ) ),
-		array( '', __( 'Sample / branding', 'artisraw' ), __( 'Private-label, engraving or packaging samples are validated before production.', 'artisraw' ) ),
-		array( '', __( 'Production', 'artisraw' ), __( 'Our team manufactures, finishes and prepares the batch with quality checkpoints.', 'artisraw' ) ),
-		array( '', __( 'QC report', 'artisraw' ), __( 'Photo documentation, inspection, packing list and batch details are prepared.', 'artisraw' ) ),
-		array( '', __( 'Export preparation', 'artisraw' ), __( 'ISPM-15 pallets, commercial invoice, packing list and shipping coordination.', 'artisraw' ) ),
-		array( '', __( 'Reorder support', 'artisraw' ), __( 'We keep SKU logic and project history ready for easier future replenishment.', 'artisraw' ) ),
-	) );
-	?>
-</section>
-
-<!-- Selected clients -->
-<section class="section--sand">
-	<div class="container section hub-section">
-		<header class="hub-section__head"><h2><?php esc_html_e( 'Selected clients and partners who trust us', 'artisraw' ); ?></h2></header>
 		<div class="cell-grid cell-grid--4">
 			<?php
-			$clients = array(
-				array( __( 'Germany', 'artisraw' ), 'Maintea', __( 'Selected European partner for premium lifestyle and retail channels.', 'artisraw' ) ),
-				array( __( 'USA', 'artisraw' ), 'Eataly', __( 'Gourmet retail and food-culture environment aligned with premium natural products.', 'artisraw' ) ),
-				array( __( 'USA', 'artisraw' ), 'Olivier Napa Valley', __( 'Olive oil and lifestyle buyer focused on authentic Mediterranean products.', 'artisraw' ) ),
-				array( __( 'KSA', 'artisraw' ), 'Delta Co Limited', __( 'Corporate gifting and premium B2B opportunities in the Saudi market.', 'artisraw' ) ),
+			$services = array(
+				array( __( 'Manufacturing', 'artisraw' ), __( 'Wholesale Production', 'artisraw' ), __( 'Scalable production for recurring orders, importers, distributors, retailers and seasonal replenishment.', 'artisraw' ) ),
+				array( __( 'Branding', 'artisraw' ), __( 'Private Label', 'artisraw' ), __( 'Engraving, custom packaging, retail labels, barcode-ready references and brand presentation.', 'artisraw' ) ),
+				array( __( 'Production', 'artisraw' ), __( 'Cutting and shaping', 'artisraw' ), __( 'Skilled preparation using professional equipment and controlled dimensions.', 'artisraw' ) ),
+				array( __( 'Craft', 'artisraw' ), __( 'Hand finishing', 'artisraw' ), __( 'Artisans sand, polish and refine every piece by hand.', 'artisraw' ) ),
+				array( __( 'Safety', 'artisraw' ), __( 'Food-safe finish', 'artisraw' ), __( 'Mineral oil and beeswax are applied to protect and enhance the grain.', 'artisraw' ) ),
+				array( __( 'Control', 'artisraw' ), __( 'Quality checks', 'artisraw' ), __( 'Inspection of surface, dimensions, finish, packing and product consistency.', 'artisraw' ) ),
+				array( __( 'Packaging', 'artisraw' ), __( 'Export packing', 'artisraw' ), __( 'Products prepared for retail, wholesale cartons or private-label needs.', 'artisraw' ) ),
+				array( __( 'B2B', 'artisraw' ), __( 'Documents and shipment', 'artisraw' ), __( 'Packing list, invoice, certificates and export preparation for partners.', 'artisraw' ) ),
 			);
-			foreach ( $clients as $c ) {
-				echo '<div class="cell"><p class="cell__eyebrow eyebrow">' . esc_html( $c[0] ) . '</p><h3>' . esc_html( $c[1] ) . '</h3><p>' . esc_html( $c[2] ) . '</p></div>';
+			foreach ( $services as $s ) {
+				echo '<div class="cell"><p class="cell__eyebrow eyebrow">' . esc_html( $s[0] ) . '</p><h3>' . esc_html( $s[1] ) . '</h3><p>' . esc_html( $s[2] ) . '</p></div>';
 			}
 			?>
 		</div>
 	</div>
 </section>
 
-<!-- Services FAQ -->
-<section class="container section hub-section">
-	<h2><?php esc_html_e( 'Services FAQ', 'artisraw' ); ?></h2>
-	<?php
-	artisraw_faq_accordion( array(
-		array( __( 'Can you serve online sellers?', 'artisraw' ), __( 'Yes. We support online retailers and marketplace sellers with category selection, SKU logic and packaging suitable for e-commerce.', 'artisraw' ) ),
-		array( __( 'Do you support restaurants?', 'artisraw' ), __( 'Yes. Restaurants, cafés and hospitality buyers can order boards, bowls, serving items and custom-branded accessories.', 'artisraw' ) ),
-		array( __( 'Can we create corporate gifts?', 'artisraw' ), __( 'Yes. We develop corporate gift packs, personalized bundles, chess sets, kitchen kits and seasonal gift collections.', 'artisraw' ) ),
-		array( __( 'Do you offer product development?', 'artisraw' ), __( 'Yes. We develop custom shapes, sizes, finishes and bundles for your market, validated with samples before production.', 'artisraw' ) ),
-	), false, 'services-faq' );
-	?>
-</section>
-
-<!-- Quote form -->
+<?php /* ---- Quote form ---- */ ?>
 <section class="container section hub-section" id="quote">
 	<header class="hub-section__head">
 		<h2><?php esc_html_e( 'Tell us your market — we prepare the B2B solution', 'artisraw' ); ?></h2>

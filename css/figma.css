@@ -42,10 +42,13 @@
 .trio-band__tile--espresso { background: var(--c-espresso-900); color: var(--c-cream-100); }
 .trio-band__tile--olive    { background: var(--c-olive-600);    color: var(--c-cream-100); }
 .trio-band__tile--sand     { background: var(--c-sand-200);     color: var(--c-espresso-900); }
+.trio-band__tile--clay     { background: var(--c-clay-700);     color: var(--c-cream-100); }
 .trio-band__tile--espresso:hover,
-.trio-band__tile--olive:hover { color: var(--c-amber-500); }
+.trio-band__tile--olive:hover,
+.trio-band__tile--clay:hover { color: var(--c-amber-500); }
 .trio-band__tile--espresso:hover .trio-band__cue,
-.trio-band__tile--olive:hover .trio-band__cue { color: var(--c-amber-500); }
+.trio-band__tile--olive:hover .trio-band__cue,
+.trio-band__tile--clay:hover .trio-band__cue { color: var(--c-amber-500); }
 .trio-band__tile--sand:hover .trio-band__cue { color: var(--c-bark-700); }
 @media (prefers-reduced-motion: reduce) { .trio-band__tile:hover .arrow-link__arrow { transform: none; } }
 
@@ -125,10 +128,10 @@
 
 /* Differentiator slabs below the full-height hero — revealed on scroll.
    Olive slab, bold cream number, cream text, line icon (per reference). */
-.hero-cards { position: relative; z-index: 3; margin-top: clamp(-7rem, -8vw, -4rem); margin-bottom: var(--sp-7); }
+.hero-cards { position: relative; z-index: 3; margin-top: var(--sp-6); margin-bottom: var(--sp-7); }
 .hero-cards__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-3); }
 @media (min-width: 880px) { .hero-cards__grid { grid-template-columns: repeat(4, 1fr); } }
-.hero-card { background: var(--c-olive-600); color: var(--c-cream-100); border-radius: var(--radius-lg); box-shadow: var(--shadow-lift); padding: var(--sp-4) var(--sp-3); display: flex; flex-direction: column; gap: var(--sp-1); }
+.hero-card { background: var(--c-clay-700); color: var(--c-cream-100); border-radius: var(--radius-lg); box-shadow: var(--shadow-lift); padding: var(--sp-4) var(--sp-3); display: flex; flex-direction: column; gap: var(--sp-1); }
 .hero-card__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-2); }
 .hero-card__num { font-family: var(--ff-serif); font-weight: var(--fw-bold); font-size: 2.75rem; line-height: 1; color: var(--c-cream-100); }
 .hero-card__icon { width: 2rem; height: 2rem; opacity: .9; }
@@ -153,7 +156,14 @@
 }
 
 /* Home hero: full-viewport, larger type (PDF). Scoped so inner-page heroes keep their size. */
-.photo-hero[data-hero="home-hero"] { min-height: 100vh; }
+.photo-hero[data-hero="home-hero"] {
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100svh - var(--header-height));
+  padding: 0;                                    /* image bleeds to edges; spacing moves to inner */
+}
+.hero-carousel[data-hero="home-hero"] .hero-carousel__slide .photo-hero__inner {
+  padding: calc(var(--header-height) + var(--sp-4)) var(--sp-3) var(--sp-5);
+}
 .photo-hero[data-hero="home-hero"] .photo-hero__title { font-size: clamp(2.75rem, 7vw, 5rem); line-height: 1.05; max-width: 16ch; }
 .photo-hero[data-hero="home-hero"] .photo-hero__support { font-size: clamp(1.125rem, 2vw, 1.5rem); line-height: 1.4; font-weight: var(--fw-regular); max-width: 50ch; }
 
@@ -161,6 +171,10 @@
 .about-intro { max-width: 78ch; margin-inline: auto; text-align: center; }
 .about-intro h2 { font-size: var(--fs-heading); margin-top: var(--sp-4); }
 .about-intro h2:first-child { margin-top: 0; }
+
+/* --- Services intro (PDF: two lead paragraphs under section head) ------- */
+.services-intro .lead { max-width: 78ch; }
+.services-intro .lead + .lead { margin-top: var(--sp-3); }
 
 /* --- Certification block (Figma About .cert) ---------------------------- */
 .cert-block { display: grid; gap: var(--sp-5); grid-template-columns: 1fr; align-items: center; }
@@ -182,3 +196,22 @@
 .product-strip__card { background: var(--c-sand-200); padding: var(--sp-2); display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); }
 .product-strip__img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; mix-blend-mode: multiply; }
 .product-strip__cta { margin-top: var(--sp-3); }
+
+/* Custom-woodworking feature: left photo stack + tall hero photo, with a
+   semi-transparent clay text panel overlapping the photos (WoodCraft ref).
+   Panel = clay #854D27 @ ~92% so the photo reads faintly through it. */
+.cw-feature__media { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+.cw-feature__stack { display: grid; gap: var(--sp-3); }
+.cw-feature__img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-md); }
+.cw-feature__panel { background: rgba(133, 77, 39, 0.92); color: #fff; padding: var(--sp-5); }
+.cw-feature__title { color: #fff; font-family: var(--ff-serif); font-weight: var(--fw-bold); font-size: clamp(2.25rem, 1.2rem + 3.4vw, 3.5rem); line-height: 1.06; letter-spacing: -0.01em; margin-bottom: var(--sp-3); }
+.cw-feature__text { color: #fff; font-size: var(--fs-lead); line-height: var(--lh-body, 1.6); margin-bottom: var(--sp-5); max-width: 46ch; }
+
+@media (min-width: 980px) {
+  .cw-feature { display: grid; grid-template-columns: repeat(12, 1fr); align-items: center; }
+  .cw-feature__media { grid-column: 1 / 8; grid-row: 1; grid-template-columns: 0.85fr 1.15fr; align-items: stretch; }
+  .cw-feature__stack { grid-template-rows: 1.35fr 0.65fr; }   /* tall top, short bottom, per ref */
+  .cw-feature__hero { min-height: 620px; }
+  /* Panel spans cols 6–13, overlapping the hero photo (cols ~6–7) with z-index. */
+  .cw-feature__panel { grid-column: 6 / 13; grid-row: 1; z-index: 2; align-self: center; padding: clamp(var(--sp-5), 4vw, var(--sp-7)); box-shadow: var(--shadow-lift); }
+}

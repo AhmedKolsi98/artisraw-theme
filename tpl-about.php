@@ -22,14 +22,14 @@ get_header();
 
 /* ---- Hero (photo + amber serif title + ISO badge) ---- */
 artisraw_photo_hero( array(
-	'base'    => '/assets/ar-whoweare',
-	'alt'     => __( 'ArtisRaw olive wood — handmade product', 'artisraw' ),
-	'w'       => 1600,
-	'h'       => 900,
+	'base'    => '/assets/ar-olive-tree',
+	'alt'     => __( 'Ancient Chemlali olive tree at sunset in Tunisia', 'artisraw' ),
+	'w'       => 1200,
+	'h'       => 800,
 	'widths'  => array( 600, 1200 ),
 	'eyebrow' => __( 'About ArtisRaw', 'artisraw' ),
-	'title'   => get_the_title(),
-	'support' => __( 'Premium olive wood, crafted in sustainability.', 'artisraw' ),
+	'title'   => __( 'Discover our Story', 'artisraw' ),
+	'support' => __( 'Premium Olive Wood, Crafted in Sustainability', 'artisraw' ),
 	'badge'   => true,
 	'loc'     => 'about_hero',
 ) );
@@ -166,11 +166,11 @@ artisraw_testimonial_feature( array(
 	'quote'        => __( 'ArtisRaw isn’t just about products; it’s about stories worth telling — tradition, sustainability and longevity.', 'artisraw' ),
 	'button_label' => __( 'Let’s work together', 'artisraw' ),
 	'button_url'   => artisraw_localized_url( '/request-quote/' ),
-	'img_base'     => '/assets/ar-showroom',
+	'img_base'     => '/assets/ar-collection',
 	'img_alt'      => __( 'ArtisRaw olive wood collection on display', 'artisraw' ),
-	'img_w'        => 1024,
-	'img_h'        => 768,
-	'img_widths'   => array( 600 ),
+	'img_w'        => 1200,
+	'img_h'        => 557,
+	'img_widths'   => array( 600, 1200 ),
 ) );
 
 get_footer();

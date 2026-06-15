@@ -21,16 +21,16 @@ get_header();
 
 /* ---- Hero ---- */
 artisraw_photo_hero( array(
-	'base'      => '/assets/ar-worker-carry',
-	'alt'       => __( 'ArtisRaw artisan carrying olive wood at the Sfax factory', 'artisraw' ),
-	'w'         => 1400,
-	'h'         => 933,
+	'base'      => '/assets/ar-olive-tree',
+	'alt'       => __( 'Ancient Chemlali olive tree at sunset in Tunisia', 'artisraw' ),
+	'w'         => 1200,
+	'h'         => 800,
 	'widths'    => array( 600, 1200 ),
 	'eyebrow'   => __( 'Our process', 'artisraw' ),
-	'title'     => get_the_title(),
-	'support'   => __( 'Responsible sourcing, drying, cutting, hand-finishing, food-safe protection, quality control, packaging and B2B export preparation.', 'artisraw' ),
-	'cta_label' => __( 'Request a quote', 'artisraw' ),
-	'cta_url'   => artisraw_localized_url( '/request-quote/' ),
+	'title'     => __( 'From olive tree to export ready order', 'artisraw' ),
+	'support'   => __( 'A complete view of the ArtisRaw process: responsible sourcing, drying, cutting, hand-finishing, food-safe protection, quality control, packaging and B2B export preparation.', 'artisraw' ),
+	'cta_label' => __( 'Discover process', 'artisraw' ),
+	'cta_url'   => '#process-overview',
 	'badge'     => true,
 	'loc'       => 'process_hero',
 ) );
@@ -53,7 +53,7 @@ artisraw_breadcrumbs();
 
 <?php /* ---- Eight-step process overview ---- */ ?>
 <div class="container section">
-	<div class="section-opener">
+	<div class="section-opener" id="process-overview">
 		<p class="eyebrow"><?php esc_html_e( 'Process overview', 'artisraw' ); ?></p>
 		<h2><?php esc_html_e( 'Eight core phases that turn raw Chemlali olive wood into premium B2B collections', 'artisraw' ); ?></h2>
 	</div>
@@ -135,6 +135,7 @@ artisraw_color_block( array(
 			array( __( 'What are your minimum order quantities?', 'artisraw' ), __( 'MOQ starts at 50 units and varies by SKU. Samples are available, with the cost deducted from your first order.', 'artisraw' ) ),
 			array( __( 'How long are production and delivery times?', 'artisraw' ), __( 'In-stock items ship within 72 hours; custom production takes 6–8 weeks. Transit is typically 5–12 days by air or 25–40 days by ocean.', 'artisraw' ) ),
 			array( __( 'Do you export worldwide?', 'artisraw' ), __( 'Yes — ArtisRaw ships to 30+ countries with full export documentation, supporting FOB, CIF, DAP and DDP terms depending on destination.', 'artisraw' ) ),
+			array( __( 'Is your olive wood sustainably sourced?', 'artisraw' ), __( 'Yes. We use only end-of-life Chemlali olive trees from the Sfax region, protecting productive groves while giving reclaimed wood a second life as handcrafted products.', 'artisraw' ) ),
 		),
 		false,
 		'process-faq'
